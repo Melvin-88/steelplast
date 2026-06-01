@@ -14,7 +14,11 @@ get_header();
         <?php
         // Hero section - can be managed via ACF or customizer
         if ( is_active_sidebar( 'hero-section' ) ) :
-            dynamic_sidebar( 'hero-section' );
+            ?>
+            <section class="hero-section widget-hero">
+                <?php dynamic_sidebar( 'hero-section' ); ?>
+            </section>
+            <?php
         else :
             ?>
             <section class="hero-section">

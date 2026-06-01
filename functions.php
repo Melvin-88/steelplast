@@ -89,14 +89,20 @@ add_action( 'wp_enqueue_scripts', 'steelplast_scripts' );
  * Add hreflang tags for multilingual support (Polylang/WPML compatible)
  */
 function steelplast_hreflang_tags() {
-    // Skip if Yoast SEO or Polylang handles this
-    if ( function_exists( 'pll_the_languages' ) || defined( 'WPSEO_VERSION' ) ) {
+    // Skip if Yoast SEO, Polylang or WPML handles this
+    if ( function_exists( 'pll_the_languages' ) || defined( 'WPSEO_VERSION' ) || defined( 'ICL_SITEPRESS_VERSION' ) ) {
         return;
     }
     
-    // Basic hreflang for default setup
-    $current_url = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-    echo '<link rel="alternate" hreflang="' . esc_attr( get_locale() ) . '" href="' . esc_url( $current_url ) . '" />' . "\n";
+    // Use WordPress helpers instead of raw $_SERVER variables
+    $hreflang     = str_replace( '_', '-', get_locale() );
+    $current_url  = home_url( add_query_arg( null, null ) );
+    
+    printf(
+        '<link rel="alternate" hreflang="%s" href="%s" />' . "\n",
+        esc_attr( $hreflang ),
+        esc_url( $current_url )
+    );
 }
 add_action( 'wp_head', 'steelplast_hreflang_tags', 1 );
 

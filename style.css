@@ -93,8 +93,11 @@ body {
 }
 
 .lang-switcher a:hover,
+.lang-switcher a:focus,
 .lang-switcher .current-lang a {
     opacity: 1;
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
 }
 
 /* Main Content */
