@@ -18,7 +18,14 @@ get_header();
                 <?php steelplast_post_thumbnail(); ?>
                 <div class="entry-content">
                     <?php the_content(); ?>
-                    <?php wp_link_pages(); ?>
+                    <?php
+                    wp_link_pages(
+                        array(
+                            'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'steelplast' ) . ' ',
+                            'after'  => '</div>',
+                        )
+                    );
+                    ?>
                 </div>
             </article>
         <?php endwhile; ?>
@@ -26,4 +33,5 @@ get_header();
 </main>
 
 <?php
+get_sidebar();
 get_footer();

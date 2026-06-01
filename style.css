@@ -94,8 +94,13 @@ body {
 
 .lang-switcher a:hover,
 .lang-switcher a:focus,
+.lang-switcher a:focus-visible,
 .lang-switcher .current-lang a {
     opacity: 1;
+}
+
+.lang-switcher a:focus,
+.lang-switcher a:focus-visible {
     outline: 2px solid rgba(255, 255, 255, 0.5);
     outline-offset: 2px;
 }

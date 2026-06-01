@@ -47,8 +47,13 @@ function steelplast_setup() {
             'menu-1' => esc_html__( 'Primary', 'steelplast' ),
         )
     );
-    
-    // Widget areas
+}
+add_action( 'after_setup_theme', 'steelplast_setup' );
+
+/**
+ * Register widget areas.
+ */
+function steelplast_widgets_init() {
     register_sidebar(
         array(
             'name'          => esc_html__( 'Sidebar', 'steelplast' ),
@@ -73,7 +78,7 @@ function steelplast_setup() {
         )
     );
 }
-add_action( 'after_setup_theme', 'steelplast_setup' );
+add_action( 'widgets_init', 'steelplast_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
