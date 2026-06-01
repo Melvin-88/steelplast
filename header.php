@@ -50,5 +50,11 @@
                 );
                 ?>
             </nav>
+
+            <?php if ( function_exists( 'pll_the_languages' ) ) : ?>
+                <div class="lang-switcher">
+                    <?php pll_the_languages( array( 'dropdown' => 0 ) ); ?>
+                </div>
+            <?php endif; ?>
         </div>
     </header>

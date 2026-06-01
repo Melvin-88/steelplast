@@ -23,6 +23,9 @@ function steelplast_setup() {
 
     // Enable post thumbnails
     add_theme_support( 'post-thumbnails' );
+    
+    // Add theme support for selective refresh for widgets
+    add_theme_support( 'customize-selective-refresh-widgets' );
 
     // HTML5 support
     add_theme_support(
@@ -44,6 +47,31 @@ function steelplast_setup() {
             'menu-1' => esc_html__( 'Primary', 'steelplast' ),
         )
     );
+    
+    // Widget areas
+    register_sidebar(
+        array(
+            'name'          => esc_html__( 'Sidebar', 'steelplast' ),
+            'id'            => 'sidebar-1',
+            'description'   => esc_html__( 'Add widgets here.', 'steelplast' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        )
+    );
+    
+    register_sidebar(
+        array(
+            'name'          => esc_html__( 'Hero Section', 'steelplast' ),
+            'id'            => 'hero-section',
+            'description'   => esc_html__( 'Hero section for front page.', 'steelplast' ),
+            'before_widget' => '<section id="%1$s" class="widget %2$s">',
+            'after_widget'  => '</section>',
+            'before_title'  => '<h2 class="widget-title">',
+            'after_title'   => '</h2>',
+        )
+    );
 }
 add_action( 'after_setup_theme', 'steelplast_setup' );
 
@@ -56,6 +84,32 @@ function steelplast_scripts() {
     wp_enqueue_script( 'steelplast-navigation', get_template_directory_uri() . '/js/navigation.js', array(), STEELPLAST_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'steelplast_scripts' );
+
+/**
+ * Add hreflang tags for multilingual support (Polylang/WPML compatible)
+ */
+function steelplast_hreflang_tags() {
+    // Skip if Yoast SEO or Polylang handles this
+    if ( function_exists( 'pll_the_languages' ) || defined( 'WPSEO_VERSION' ) ) {
+        return;
+    }
+    
+    // Basic hreflang for default setup
+    $current_url = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    echo '<link rel="alternate" hreflang="' . esc_attr( get_locale() ) . '" href="' . esc_url( $current_url ) . '" />' . "\n";
+}
+add_action( 'wp_head', 'steelplast_hreflang_tags', 1 );
+
+/**
+ * Disable default WordPress SEO if Yoast is active
+ */
+function steelplast_disable_wp_seo() {
+    if ( defined( 'WPSEO_VERSION' ) ) {
+        // WordPress generates canonical URLs - let Yoast handle it
+        remove_action( 'wp_head', 'rel_canonical' );
+    }
+}
+add_action( 'after_setup_theme', 'steelplast_disable_wp_seo' );
 
 /**
  * Displays an optional post thumbnail.
