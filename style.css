@@ -73,10 +73,104 @@ body {
     color: #ccc;
 }
 
+/* Language Switcher */
+.lang-switcher {
+    margin-top: 1rem;
+}
+
+.lang-switcher ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+}
+
+.lang-switcher a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+.lang-switcher a:hover,
+.lang-switcher a:focus,
+.lang-switcher a:focus-visible,
+.lang-switcher .current-lang a {
+    opacity: 1;
+}
+
+.lang-switcher a:focus,
+.lang-switcher a:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+}
+
 /* Main Content */
 .site-main {
     padding: 2rem 0;
     min-height: 60vh;
+}
+
+/* Hero Section */
+.hero-section {
+    background: #f5f5f5;
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.hero-section h1 {
+    margin: 0 0 1rem;
+    font-size: 2.5rem;
+}
+
+.hero-section p {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #666;
+}
+
+/* Sidebar & Widgets */
+.widget-area {
+    padding: 2rem 0;
+}
+
+.widget {
+    margin-bottom: 2rem;
+}
+
+.widget-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+/* Entry Content */
+.entry-title {
+    margin-top: 0;
+}
+
+.entry-title a {
+    color: #333;
+    text-decoration: none;
+}
+
+.entry-title a:hover {
+    color: #000;
+}
+
+.entry-meta {
+    color: #666;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.post-thumbnail {
+    margin-bottom: 1.5rem;
+}
+
+.post-thumbnail img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Footer */
