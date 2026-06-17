@@ -84,6 +84,8 @@ add_action( 'widgets_init', 'steelplast_widgets_init' );
  * Enqueue scripts and styles.
  */
 function steelplast_scripts() {
+    wp_enqueue_style( 'steelplast-style', get_stylesheet_uri(), array(), STEELPLAST_VERSION );
+
     wp_enqueue_style(
         'steelplast-google-fonts',
         'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
