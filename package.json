@@ -1,0 +1,14 @@
+{
+  "name": "steelplast",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "build": "sass assets/scss/main.scss assets/css/main.css --style=compressed --no-source-map",
+    "watch": "sass assets/scss/main.scss assets/css/main.css --watch --style=expanded"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}

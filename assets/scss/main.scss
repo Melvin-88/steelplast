@@ -1,0 +1,40 @@
+@use 'variables' as *;
+@use 'typography';
+
+// =============================================
+// Reset / Base
+// =============================================
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+img,
+video {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: $color-accent;
+    text-decoration: none;
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+        text-decoration: underline;
+    }
+
+    &:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 2px;
+    }
+}
