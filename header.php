@@ -9,52 +9,63 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="profile" href="https://gmpg.org/xfn/11">
     <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<div id="page" class="site">
-    <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'steelplast' ); ?></a>
+<a class="skip-link" href="#primary"><?php esc_html_e( 'Skip to content', 'steelplast' ); ?></a>
 
-    <header id="masthead" class="site-header">
-        <div class="container">
-            <div class="site-branding">
-                <?php
-                if ( is_front_page() && is_home() ) :
-                    ?>
-                    <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-                    <?php
-                else :
-                    ?>
-                    <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-                    <?php
-                endif;
-                $steelplast_description = get_bloginfo( 'description', 'display' );
-                if ( $steelplast_description || is_customize_preview() ) :
-                    ?>
-                    <p class="site-description"><?php echo $steelplast_description; ?></p>
-                <?php endif; ?>
-            </div>
+<header id="masthead" class="site-header" role="banner">
+    <div class="header-inner">
 
-            <nav id="site-navigation" class="main-navigation">
-                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Menu', 'steelplast' ); ?></button>
-                <?php
-                wp_nav_menu(
-                    array(
-                        'theme_location' => 'menu-1',
-                        'menu_id'        => 'primary-menu',
-                    )
-                );
-                ?>
-            </nav>
+        <!-- Logo -->
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header-logo" aria-label="<?php bloginfo( 'name' ); ?> — <?php esc_attr_e( 'головна сторінка', 'steelplast' ); ?>">
+            <img
+                src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-header.svg' ); ?>"
+                alt="<?php bloginfo( 'name' ); ?>"
+                width="160"
+                height="40"
+                loading="eager"
+            >
+        </a>
 
-            <?php if ( function_exists( 'pll_the_languages' ) ) : ?>
-                <div class="lang-switcher">
-                    <?php pll_the_languages( array( 'dropdown' => 0 ) ); ?>
-                </div>
-            <?php endif; ?>
+        <!-- Primary navigation -->
+        <nav id="site-navigation" class="header-nav" aria-label="<?php esc_attr_e( 'Головне меню', 'steelplast' ); ?>">
+            <?php
+            wp_nav_menu( array(
+                'theme_location' => 'primary',
+                'menu_id'        => 'primary-menu',
+                'container'      => false,
+                'menu_class'     => 'header-nav__list',
+                'walker'         => new SteelPlast_Nav_Walker(),
+                'fallback_cb'    => 'steelplast_fallback_nav',
+            ) );
+            ?>
+        </nav>
+
+        <!-- Actions: Контакти / мова / кнопка -->
+        <div class="header-actions">
+            <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'contacts' ) ) ); ?>" class="header-contacts">
+                <?php esc_html_e( 'Контакти', 'steelplast' ); ?>
+            </a>
+
+            <?php steelplast_language_switcher(); ?>
+
+            <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'contacts' ) ) ); ?>" class="btn-contact">
+                <?php esc_html_e( "Зв'язатись", 'steelplast' ); ?>
+            </a>
         </div>
-    </header>
+
+        <!-- Burger (mobile) -->
+        <button class="header-burger" aria-expanded="false" aria-controls="site-navigation" aria-label="<?php esc_attr_e( 'Відкрити меню', 'steelplast' ); ?>">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+</header>
+
+<div id="page" class="site">
