@@ -1,8 +1,6 @@
 <?php
 /**
- * Template Name: Послуги
- * Template Post Type: page
- *
+ * Template Name: Services
  * @package SteelPlast
  */
 
@@ -11,7 +9,12 @@ get_header();
 
 <main id="primary" class="site-main page-services">
     <div class="content-wrapper">
-        <h1 style="padding: 100px 0 40px; font-size: 48px;">Сторінка: services</h1>
+        <?php while ( have_posts() ) : the_post(); ?>
+            <h1 class="page-title"><?php the_title(); ?></h1>
+            <div class="entry-content">
+                <?php the_content(); ?>
+            </div>
+        <?php endwhile; ?>
     </div>
 </main>
 

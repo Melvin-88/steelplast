@@ -117,10 +117,12 @@ function steelplast_scripts() {
         $langs_for_js   = array();
         $default_url    = home_url( '/' );
 
-        foreach ( $wpml_langs as $lang ) {
-            $langs_for_js[ strtolower( $lang['language_code'] ) ] = $lang['url'];
-            if ( $lang['default_locale'] || $lang['language_code'] === 'en' ) {
-                $default_url = $lang['url'];
+        if ( is_array( $wpml_langs ) && ! empty( $wpml_langs ) ) {
+            foreach ( $wpml_langs as $lang ) {
+                $langs_for_js[ strtolower( $lang['language_code'] ) ] = $lang['url'];
+                if ( ( ! empty( $lang['default_locale'] ) && $lang['default_locale'] ) || $lang['language_code'] === 'en' ) {
+                    $default_url = $lang['url'];
+                }
             }
         }
 
@@ -260,7 +262,7 @@ function steelplast_language_switcher() {
     }
     ?>
     <div class="lang-switcher has-dropdown">
-        <button class="lang-switcher__toggle dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+        <button type="button" class="lang-switcher__toggle dropdown-toggle" aria-expanded="false" aria-haspopup="true">
             <?php if ( ! empty( $current_lang['country_flag_url'] ) ) : ?>
                 <img src="<?php echo esc_url( $current_lang['country_flag_url'] ); ?>" alt="" width="18" height="14" aria-hidden="true">
             <?php endif; ?>
@@ -306,7 +308,7 @@ class SteelPlast_Nav_Walker extends Walker_Nav_Menu {
 
         if ( $has_children && 0 === $depth ) {
             // Render as button so dropdown is keyboard-accessible
-            $output .= '<button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">';
+            $output .= '<button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">';
             $output .= esc_html( $item->title );
             $output .= '<svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true" focusable="false">';
             $output .= '<path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';
@@ -339,17 +341,17 @@ class SteelPlast_Nav_Walker extends Walker_Nav_Menu {
  */
 function steelplast_fallback_nav() {
     $items = array(
-        array( 'url' => home_url( '/' ),           'label' => 'Головна' ),
-        array( 'url' => home_url( '/services/' ),   'label' => 'Послуги', 'children' => array(
-            array( 'url' => home_url( '/services/cnc-machining/' ),        'label' => 'Механічна обробка металу на верстатах з ЧПУ' ),
-            array( 'url' => home_url( '/services/cnc-milling/' ),          'label' => 'Фрезерні верстати з ЧПУ' ),
-            array( 'url' => home_url( '/services/cnc-turning/' ),          'label' => 'Токарні верстати з приводним інструментом' ),
-            array( 'url' => home_url( '/services/swiss-turning/' ),        'label' => 'Токарні верстати швейцарського типу' ),
+        array( 'url' => home_url( '/' ),           'label' => __( 'Головна', 'steelplast' ) ),
+        array( 'url' => home_url( '/services/' ),   'label' => __( 'Послуги', 'steelplast' ), 'children' => array(
+            array( 'url' => home_url( '/services/cnc-machining/' ),        'label' => __( 'Механічна обробка металу на верстатах з ЧПУ', 'steelplast' ) ),
+            array( 'url' => home_url( '/services/cnc-milling/' ),          'label' => __( 'Фрезерні верстати з ЧПУ', 'steelplast' ) ),
+            array( 'url' => home_url( '/services/cnc-turning/' ),          'label' => __( 'Токарні верстати з приводним інструментом', 'steelplast' ) ),
+            array( 'url' => home_url( '/services/swiss-turning/' ),        'label' => __( 'Токарні верстати швейцарського типу', 'steelplast' ) ),
         ) ),
-        array( 'url' => home_url( '/about/' ),      'label' => 'Про нас' ),
-        array( 'url' => home_url( '/faq/' ),        'label' => 'FAQ' ),
-        array( 'url' => home_url( '/quality/' ),    'label' => 'Якість' ),
-        array( 'url' => home_url( '/news/' ),       'label' => 'Новини' ),
+        array( 'url' => home_url( '/about/' ),      'label' => __( 'Про нас', 'steelplast' ) ),
+        array( 'url' => home_url( '/faq/' ),        'label' => __( 'FAQ', 'steelplast' ) ),
+        array( 'url' => home_url( '/quality/' ),    'label' => __( 'Якість', 'steelplast' ) ),
+        array( 'url' => home_url( '/news/' ),       'label' => __( 'Новини', 'steelplast' ) ),
     );
 
     echo '<ul class="header-nav__list">';
@@ -359,7 +361,7 @@ function steelplast_fallback_nav() {
         echo '<li' . $li_class . '>';
 
         if ( $has_children ) {
-            echo '<button class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">';
+            echo '<button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">';
             echo esc_html( $item['label'] );
             echo '<svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true" focusable="false">';
             echo '<path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';

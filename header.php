@@ -21,10 +21,10 @@
     <div class="header-inner">
 
         <!-- Logo -->
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header-logo" aria-label="<?php bloginfo( 'name' ); ?> — <?php esc_attr_e( 'головна сторінка', 'steelplast' ); ?>">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header-logo" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) . ' — ' . __( 'головна сторінка', 'steelplast' ) ); ?>">
             <img
                 src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-header.svg' ); ?>"
-                alt="<?php bloginfo( 'name' ); ?>"
+                alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"
                 width="160"
                 height="40"
                 loading="eager"
@@ -59,7 +59,7 @@
         </div>
 
         <!-- Burger (mobile) -->
-        <button class="header-burger" aria-expanded="false" aria-controls="site-navigation" aria-label="<?php esc_attr_e( 'Відкрити меню', 'steelplast' ); ?>">
+        <button type="button" class="header-burger" aria-expanded="false" aria-controls="site-navigation" aria-label="<?php esc_attr_e( 'Відкрити меню', 'steelplast' ); ?>">
             <span></span>
             <span></span>
             <span></span>
