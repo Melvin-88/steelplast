@@ -47,13 +47,13 @@
 
         <!-- Actions: Контакти / мова / кнопка -->
         <div class="header-actions">
-            <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'contacts' ) ) ); ?>" class="header-contacts">
+            <a href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>" class="header-contacts">
                 <?php esc_html_e( 'Контакти', 'steelplast' ); ?>
             </a>
 
             <?php steelplast_language_switcher(); ?>
 
-            <a href="<?php echo esc_url( get_permalink( get_page_by_path( 'contacts' ) ) ); ?>" class="btn-contact">
+            <a href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>" class="btn-contact">
                 <?php esc_html_e( "Зв'язатись", 'steelplast' ); ?>
             </a>
         </div>

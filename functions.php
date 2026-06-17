@@ -168,27 +168,26 @@ add_action( 'after_setup_theme', 'steelplast_disable_wp_seo' );
 
 /**
  * Disable WPML default footer language switcher and dev banner.
+ * Scoped to WPML being active to avoid side-effects on non-WPML installs.
  */
-add_filter( 'icl_show_translate_link', '__return_false' );
-add_filter( 'wpml_show_footer_language_selector', '__return_false' );
-add_action( 'wp_footer', function () {
-    echo '<style>
-        #wpml-footer-language-switcher,
-        .wpml-ls-statics-footer,
-        .wpml-ls-legacy-list-horizontal,
-        .wpml-ls-legacy-dropdown,
-        .wpml-ls,
-        .otgs-development-site-notice,
-        .otgs-is-showing-dev-site-notice,
-        #otgs-development-site-notice,
-        [class*="development-site"],
-        [id*="development-site"] { display: none !important; }
-    </style>';
-}, 999 );
+if ( function_exists( 'icl_get_languages' ) || defined( 'ICL_SITEPRESS_VERSION' ) ) {
+    add_filter( 'icl_show_translate_link', '__return_false' );
+    add_filter( 'wpml_show_footer_language_selector', '__return_false' );
+    add_filter( 'wpml_footer_language_selector', '__return_false' );
+    remove_action( 'wp_footer', array( 'SitePress', 'footer_language_selector' ) );
 
-// Remove WPML footer language switcher widget completely
-add_filter( 'wpml_footer_language_selector', '__return_false' );
-remove_action( 'wp_footer', array( 'SitePress', 'footer_language_selector' ) );
+    add_action( 'wp_footer', function () {
+        echo '<style>
+            #wpml-footer-language-switcher,
+            .wpml-ls-statics-footer,
+            .wpml-ls-legacy-list-horizontal,
+            .wpml-ls-legacy-dropdown,
+            .otgs-development-site-notice,
+            .otgs-is-showing-dev-site-notice,
+            #otgs-development-site-notice { display: none !important; }
+        </style>';
+    }, 999 );
+}
 
 /**
  * Displays an optional post thumbnail.
