@@ -98,19 +98,19 @@ assets/js/
 ## File / template structure
 ```
 theme root/
-├── front-page.php              # / (Головна)
-├── page-about.php              # /about/
-├── page-services.php           # /services/
-├── page-faq.php                # /faq/
-├── page-quality.php            # /quality/
-├── page-news.php               # /news/
-├── page-contacts.php           # /contacts/
-├── page-cnc-machining.php      # /services/cnc-machining/
-├── page-cnc-milling.php        # /services/cnc-milling/
-├── page-cnc-turning.php        # /services/cnc-turning/
-├── page-swiss-turning.php      # /services/swiss-turning/
-├── page-templates/
-│   └── template-service-inner.php  # shared template for inner service pages
+├── front-page.php              # / (Головна) — єдиний виняток, WP template hierarchy
+├── page-templates/             # всі кастомні сторінки тут
+│   ├── template-about.php          # Про нас
+│   ├── template-services.php       # Послуги
+│   ├── template-faq.php            # FAQ
+│   ├── template-quality.php        # Якість
+│   ├── template-news.php           # Новини
+│   ├── template-contacts.php       # Контакти
+│   ├── template-cnc-machining.php  # Механічна обробка металу на верстатах з ЧПУ
+│   ├── template-cnc-milling.php    # Фрезерні верстати з ЧПУ
+│   ├── template-cnc-turning.php    # Токарні верстати з приводним інструментом
+│   ├── template-swiss-turning.php  # Токарні верстати швейцарського типу
+│   └── template-service-inner.php  # запасний шаблон для inner service pages
 ├── header.php
 ├── footer.php
 ├── functions.php
@@ -122,6 +122,9 @@ theme root/
         ├── logo-header.svg
         └── logo-footer.svg
 ```
+
+> **Важливо:** шаблони з `page-templates/` потрібно вручну призначити сторінкам в WP Admin
+> (Редагування сторінки → Атрибути сторінки → Шаблон).
 
 ---
 

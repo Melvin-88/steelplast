@@ -1,12 +1,15 @@
 <?php
 /**
+ * Template Name: Токарні верстати з приводним інструментом
+ * Template Post Type: page
+ *
  * @package SteelPlast
  */
 
 get_header();
 ?>
 
-<main id="primary" class="site-main page-service-inner">
+<main id="primary" class="site-main page-cnc-turning">
     <div class="content-wrapper">
         <?php while ( have_posts() ) : the_post(); ?>
             <h1 class="page-title"><?php the_title(); ?></h1>
