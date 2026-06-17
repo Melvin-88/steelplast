@@ -84,8 +84,20 @@ add_action( 'widgets_init', 'steelplast_widgets_init' );
  * Enqueue scripts and styles.
  */
 function steelplast_scripts() {
-    wp_enqueue_style( 'steelplast-style', get_stylesheet_uri(), array(), STEELPLAST_VERSION );
-    
+    wp_enqueue_style(
+        'steelplast-google-fonts',
+        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
+        array(),
+        null
+    );
+
+    wp_enqueue_style(
+        'steelplast-main',
+        get_template_directory_uri() . '/assets/css/main.css',
+        array( 'steelplast-google-fonts' ),
+        STEELPLAST_VERSION
+    );
+
     wp_enqueue_script( 'steelplast-navigation', get_template_directory_uri() . '/js/navigation.js', array(), STEELPLAST_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'steelplast_scripts' );

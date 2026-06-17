@@ -1,0 +1,71 @@
+@use 'variables' as *;
+
+// =============================================
+// Base
+// =============================================
+
+body {
+    font-family: $font-family-base;
+    font-size: $font-size-body;
+    line-height: $line-height-body;
+    color: $color-pure-white;
+    background-color: $color-background;
+}
+
+// =============================================
+// Headings
+// =============================================
+
+h1 {
+    font-size: $font-size-h1;
+    line-height: $line-height-h1;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: $font-size-h2;
+    line-height: $line-height-h2;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: $font-size-h3;
+    line-height: $line-height-h3;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: $font-size-h4;
+    line-height: $line-height-h4;
+    font-weight: 600;
+}
+
+h5 {
+    font-size: $font-size-h5;
+    line-height: $line-height-h5;
+    font-weight: 600;
+}
+
+// =============================================
+// Utility classes
+// =============================================
+
+.body-up {
+    font-size: $font-size-body-up;
+    line-height: $line-height-body-up;
+}
+
+.body {
+    font-size: $font-size-body;
+    line-height: $line-height-body;
+}
+
+.btn-text {
+    font-size: $font-size-button;
+    line-height: $line-height-button;
+}
+
+.caption {
+    font-size: $font-size-caption;
+    line-height: $line-height-caption;
+}
