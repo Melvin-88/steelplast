@@ -21,7 +21,7 @@
     <div class="sp-header__inner sp-wrap">
 
         <!-- Logo -->
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="sp-header__logo" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) . ' — ' . __( 'головна сторінка', 'steelplast' ) ); ?>">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="sp-header__logo" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) . ' — ' . __( 'home page', 'steelplast' ) ); ?>">
             <img
                 src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-header.svg' ); ?>"
                 alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"
@@ -32,7 +32,7 @@
         </a>
 
         <!-- Primary navigation -->
-        <nav id="site-navigation" class="sp-header__nav" aria-label="<?php esc_attr_e( 'Головне меню', 'steelplast' ); ?>">
+        <nav id="site-navigation" class="sp-header__nav" aria-label="<?php esc_attr_e( 'Primary menu', 'steelplast' ); ?>">
             <?php
             wp_nav_menu( array(
                 'theme_location' => 'primary',
@@ -45,21 +45,21 @@
             ?>
         </nav>
 
-        <!-- Actions: Контакти / мова / кнопка -->
+        <!-- Actions: contacts / language / CTA -->
         <div class="sp-header__actions">
             <a href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>" class="sp-header__contacts">
-                <?php echo esc_html( steelplast_translate( 'header_contacts', 'Контакти' ) ); ?>
+                <?php echo esc_html( steelplast_t( 'steelplast/global/header', 'contacts', 'Contacts' ) ); ?>
             </a>
 
             <?php steelplast_language_switcher(); ?>
 
             <a href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>" class="sp-btn-contact">
-                <?php echo esc_html( steelplast_translate( 'header_cta', "Зв'язатись" ) ); ?>
+                <?php echo esc_html( steelplast_t( 'steelplast/global/header', 'cta', 'Get in touch' ) ); ?>
             </a>
         </div>
 
         <!-- Burger (mobile) -->
-        <button type="button" class="sp-header__burger" aria-expanded="false" aria-controls="site-navigation" aria-label="<?php esc_attr_e( 'Відкрити меню', 'steelplast' ); ?>">
+        <button type="button" class="sp-header__burger" aria-expanded="false" aria-controls="site-navigation" aria-label="<?php esc_attr_e( 'Open menu', 'steelplast' ); ?>">
             <span></span>
             <span></span>
             <span></span>

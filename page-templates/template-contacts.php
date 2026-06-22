@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Контакти
+ * Template Name: Contacts
  * Template Post Type: page
  *
  * @package SteelPlast

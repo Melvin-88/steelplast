@@ -23,13 +23,13 @@
             </a>
 
             <div class="sp-footer__desc">
-                <?php echo esc_html( steelplast_translate( 'footer_description', 'Ми спеціалізуємося на постачанні високоякісних компонентів для автомобільної, побутової, електротехнічної, інтер\'єрної та будівельної промисловості.' ) ); ?>
+                <?php echo esc_html( steelplast_t( 'steelplast/global/footer', 'description', 'We specialize in supplying high-quality components for the automotive, household, electrical, interior and construction industries.' ) ); ?>
             </div>
         </div>
 
         <!-- Col 2: Nav menu -->
         <div class="sp-footer__col sp-footer__col--nav">
-            <h3 class="sp-footer__col-title"><?php echo esc_html( steelplast_translate( 'footer_menu_title', 'МЕНЮ' ) ); ?></h3>
+            <h3 class="sp-footer__col-title"><?php echo esc_html( steelplast_t( 'steelplast/global/footer', 'menu_title', 'MENU' ) ); ?></h3>
             <?php
             wp_nav_menu( array(
                 'theme_location' => 'footer',
@@ -44,11 +44,24 @@
 
         <!-- Col 3: Links + language -->
         <div class="sp-footer__col sp-footer__col--connect">
-            <h3 class="sp-footer__col-title"><?php echo esc_html( steelplast_translate( 'footer_social_title', 'СЛІДКУЙ ЗА НАМИ' ) ); ?></h3>
+            <h3 class="sp-footer__col-title"><?php echo esc_html( steelplast_t( 'steelplast/global/footer', 'social_title', 'FOLLOW US' ) ); ?></h3>
             <ul class="sp-footer__links">
-                <li><a href="<?php echo esc_url( steelplast_translate( 'facebook_url', 'https://facebook.com' ) ); ?>" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                <li><a href="<?php echo esc_url( steelplast_translate( 'linkedin_url', 'https://linkedin.com' ) ); ?>" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-                <li><a href="<?php echo esc_url( steelplast_translate( 'instagram_url', 'https://instagram.com' ) ); ?>" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <?php
+                $socials = array(
+                    'Facebook'  => steelplast_mod( 'social_facebook' ),
+                    'LinkedIn'  => steelplast_mod( 'social_linkedin' ),
+                    'Instagram' => steelplast_mod( 'social_instagram' ),
+                    'YouTube'   => steelplast_mod( 'social_youtube' ),
+                );
+                foreach ( $socials as $label => $url ) :
+                    if ( ! $url ) continue;
+                ?>
+                    <li>
+                        <a href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener noreferrer">
+                            <?php echo esc_html( $label ); ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
             </ul>
             <div class="sp-footer__lang">
                 <?php steelplast_language_switcher(); ?>
@@ -65,7 +78,7 @@
                     esc_html__( '© %1$s %2$s. %3$s', 'steelplast' ),
                     esc_html( date_i18n( 'Y' ) ),
                     esc_html( get_bloginfo( 'name', 'display' ) ),
-                    esc_html( steelplast_translate( 'footer_copyright', 'Всі права захищені.' ) )
+                    esc_html( steelplast_t( 'steelplast/global/footer', 'copyright', 'All rights reserved.' ) )
                 );
                 ?>
             </p>

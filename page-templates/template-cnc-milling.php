@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Фрезерні верстати з ЧПУ
+ * Template Name: CNC Milling
  * Template Post Type: page
  *
  * @package SteelPlast

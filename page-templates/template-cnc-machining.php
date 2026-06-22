@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Механічна обробка металу на верстатах з ЧПУ
+ * Template Name: CNC Machining
  * Template Post Type: page
  *
  * @package SteelPlast

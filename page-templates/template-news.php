@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Новини
+ * Template Name: News
  * Template Post Type: page
  *
  * @package SteelPlast

@@ -9,7 +9,7 @@
 
     // Scroll background
     function updateHeaderBg() {
-        if (window.scrollY > 0) {
+        if (window.scrollY > 50) {
             header.classList.add('sp-is-scrolled');
         } else {
             header.classList.remove('sp-is-scrolled');

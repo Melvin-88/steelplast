@@ -9,6 +9,8 @@ if ( ! defined( 'STEELPLAST_VERSION' ) ) {
     define( 'STEELPLAST_VERSION', '1.0.0' );
 }
 
+require_once get_template_directory() . '/inc/customizer.php';
+
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  */
@@ -197,27 +199,35 @@ add_action( 'after_setup_theme', 'steelplast_disable_wp_seo' );
 function steelplast_register_wpml_strings() {
     if ( ! function_exists( 'icl_register_string' ) ) return;
 
-    $strings = array(
-        'header_contacts'    => 'Контакти',
-        'header_cta'         => "Зв'язатись",
-        'footer_description' => 'Ми спеціалізуємося на постачанні високоякісних компонентів для автомобільної, побутової, електротехнічної, інтер\'єрної та будівельної промисловості.',
-        'footer_menu_title'  => 'МЕНЮ',
-        'footer_social_title'=> 'СЛІДКУЙ ЗА НАМИ',
-        'footer_copyright'   => 'Всі права захищені.',
-        'facebook_url'       => 'https://facebook.com',
-        'linkedin_url'       => 'https://linkedin.com',
-        'instagram_url'      => 'https://instagram.com',
-    );
+    // Format: icl_register_string( 'steelplast/{page}/{section}', 'key', 'default' )
 
-    foreach ( $strings as $name => $value ) {
-        icl_register_string( 'steelplast-theme', $name, $value );
-    }
+    // -- steelplast/global/header --
+    icl_register_string( 'steelplast/global/header', 'contacts', 'Contacts' );
+    icl_register_string( 'steelplast/global/header', 'cta',      'Get in touch' );
+
+    // -- steelplast/global/footer --
+    icl_register_string( 'steelplast/global/footer', 'description',  'We specialize in supplying high-quality components for the automotive, household, electrical, interior and construction industries.' );
+    icl_register_string( 'steelplast/global/footer', 'menu_title',   'MENU' );
+    icl_register_string( 'steelplast/global/footer', 'social_title', 'FOLLOW US' );
+    icl_register_string( 'steelplast/global/footer', 'copyright',    'All rights reserved.' );
+    // Social URLs are managed via Customizer → Site Settings → Social Media
+
+    // -- steelplast/home/hero --
+    icl_register_string( 'steelplast/home/hero', 'title',       'BUILD FOR<br>REPEATABILITY' );
+    icl_register_string( 'steelplast/home/hero', 'description', 'STEELPLAST is a team that turns ideas into finished products. We provide a full production cycle: from mold design and manufacturing to serial part production.' );
+    icl_register_string( 'steelplast/home/hero', 'stat_1_label', 'Cycle repeatability' );
+    icl_register_string( 'steelplast/home/hero', 'stat_2_label', 'Mold resource' );
+    icl_register_string( 'steelplast/home/hero', 'stat_3_label', 'Quality control stages' );
 }
 add_action( 'after_setup_theme', 'steelplast_register_wpml_strings' );
 
-function steelplast_translate( $name, $default ) {
+/**
+ * Helper: get translated string by context + key.
+ * Usage: steelplast_t( 'steelplast/home/hero', 'title', 'Default' )
+ */
+function steelplast_t( $context, $name, $default ) {
     if ( function_exists( 'icl_t' ) ) {
-        return icl_t( 'steelplast-theme', $name, $default );
+        return icl_t( $context, $name, $default );
     }
     return $default;
 }

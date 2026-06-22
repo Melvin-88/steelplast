@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Якість
+ * Template Name: Quality
  * Template Post Type: page
  *
  * @package SteelPlast

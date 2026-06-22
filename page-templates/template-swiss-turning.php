@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Токарні верстати швейцарського типу
+ * Template Name: Swiss-type Turning
  * Template Post Type: page
  *
  * @package SteelPlast
