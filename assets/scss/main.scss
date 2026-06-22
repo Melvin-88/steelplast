@@ -1,5 +1,19 @@
 @use 'variables' as *;
 @use 'typography';
+@use 'header';
+
+// =============================================
+// CSS Custom Properties
+// =============================================
+
+:root {
+    --Pure-White:   #{$color-pure-white};
+    --color-white:  #{$color-white};
+    --color-accent: #{$color-accent};
+    --color-bg:     #{$color-background};
+    --color-navy:   #{$color-dark-navy};
+    --color-black:  #{$color-black};
+}
 
 // =============================================
 // Reset / Base
@@ -15,6 +29,19 @@
 
 html {
     -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: $color-background;
+    color: $color-pure-white;
+    font-family: $font-family-base;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    &.nav-open {
+        overflow: hidden;
+    }
 }
 
 img,
@@ -24,17 +51,60 @@ video {
 }
 
 a {
-    color: $color-accent;
+    color: inherit;
     text-decoration: none;
 
     &:hover,
-    &:focus,
     &:focus-visible {
-        text-decoration: underline;
+        text-decoration: none;
     }
 
     &:focus-visible {
-        outline: 2px solid currentColor;
+        outline: 2px solid $color-accent;
         outline-offset: 2px;
+        border-radius: 2px;
+    }
+}
+
+// =============================================
+// Layout helpers
+// =============================================
+
+// Врапер контенту: max-width 1440px, відступи 32px
+.content-wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+// Offset for fixed header
+.site-main {
+    padding-top: 80px;
+}
+
+// =============================================
+// Skip link (accessibility)
+// =============================================
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+
+    &:focus {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        width: auto;
+        height: auto;
+        padding: 8px 16px;
+        background: $color-accent;
+        color: $color-black;
+        font-size: 14px;
+        font-weight: 600;
     }
 }
