@@ -81,6 +81,26 @@ function steelplast_widgets_init() {
 }
 add_action( 'widgets_init', 'steelplast_widgets_init' );
 
+// =============================================
+// Favicons
+// =============================================
+
+remove_action( 'wp_head', 'wp_site_icon', 99 );
+
+function steelplast_favicons() {
+    $uri = get_template_directory_uri() . '/assets/img/favicons';
+    ?>
+    <link rel="icon" type="image/x-icon" href="<?php echo esc_url( $uri . '/favicon.ico' ); ?>">
+    <link rel="icon" type="image/svg+xml" href="<?php echo esc_url( $uri . '/favicon.svg' ); ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo esc_url( $uri . '/favicon-16x16.png' ); ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo esc_url( $uri . '/favicon-32x32.png' ); ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo esc_url( $uri . '/apple-touch-icon.png' ); ?>">
+    <link rel="manifest" href="<?php echo esc_url( $uri . '/site.webmanifest' ); ?>">
+    <meta name="theme-color" content="#090a0c">
+    <?php
+}
+add_action( 'wp_head', 'steelplast_favicons', 1 );
+
 /**
  * Enqueue scripts and styles.
  */
