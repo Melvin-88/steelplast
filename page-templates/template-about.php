@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Про нас
+ * Template Name: About
  * Template Post Type: page
  *
  * @package SteelPlast

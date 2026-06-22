@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Послуга (inner page)
+ * Template Name: Service (inner page)
  * Template Post Type: page
  *
  * @package SteelPlast

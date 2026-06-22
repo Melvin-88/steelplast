@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Токарні верстати з приводним інструментом
+ * Template Name: CNC Turning
  * Template Post Type: page
  *
  * @package SteelPlast
