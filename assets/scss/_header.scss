@@ -4,7 +4,7 @@
 // Site Header
 // =============================================
 
-.site-header {
+.sp-header {
     position: fixed;
     top: 0;
     left: 0;
@@ -12,17 +12,14 @@
     z-index: 1000;
     transition: background-color 0.3s ease;
 
-    &.is-scrolled {
+    &.sp-is-scrolled {
         background-color: rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
     }
 }
 
-.header-inner {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 32px;
+.sp-header__inner {
     height: 80px;
     display: flex;
     align-items: center;
@@ -33,7 +30,7 @@
 // Logo
 // =============================================
 
-.header-logo {
+.sp-header__logo {
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -56,7 +53,7 @@
 // Navigation
 // =============================================
 
-.header-nav {
+.sp-header__nav {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -64,7 +61,7 @@
     align-items: center;
 }
 
-.header-nav__list {
+.sp-nav__list {
     list-style: none;
     display: flex;
     align-items: center;
@@ -73,8 +70,8 @@
     padding: 0;
 }
 
-.header-nav__list a,
-.dropdown-toggle {
+.sp-nav__list a,
+.sp-dropdown__toggle {
     color: var(--Pure-White, #{$color-pure-white});
     font-family: $font-family-base;
     font-size: $font-size-caption;
@@ -108,9 +105,9 @@
 
 // Active menu item — via WordPress classes or JS
 .current-menu-item > a,
-.current-menu-ancestor > .dropdown-toggle,
-.header-nav__list a.is-active,
-.dropdown-toggle.is-active {
+.current-menu-ancestor > .sp-dropdown__toggle,
+.sp-nav__list a.sp-is-active,
+.sp-dropdown__toggle.sp-is-active {
     color: $color-accent !important;
 }
 
@@ -118,24 +115,24 @@
 // Dropdown
 // =============================================
 
-.has-dropdown {
+.sp-has-dropdown {
     position: relative;
 }
 
-.dropdown-toggle {
-    .chevron {
+.sp-dropdown__toggle {
+    .sp-chevron {
         width: 12px;
         height: 12px;
         transition: transform 0.2s ease;
         flex-shrink: 0;
     }
 
-    &[aria-expanded='true'] .chevron {
+    &[aria-expanded='true'] .sp-chevron {
         transform: rotate(180deg);
     }
 }
 
-.header-dropdown {
+.sp-nav__dropdown {
     position: absolute;
     top: calc(100% + 16px);
     left: 0;
@@ -174,7 +171,7 @@
     }
 }
 
-.has-dropdown.is-open .header-dropdown {
+.sp-has-dropdown.sp-is-open .sp-nav__dropdown {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
@@ -184,7 +181,7 @@
 // Actions (Контакти / мова / кнопка)
 // =============================================
 
-.header-actions {
+.sp-header__actions {
     display: flex;
     align-items: center;
     gap: 24px;
@@ -194,7 +191,7 @@
     z-index: 1;
 }
 
-.header-contacts {
+.sp-header__contacts {
     color: var(--Pure-White, #{$color-pure-white});
     font-family: $font-family-base;
     font-size: $font-size-caption;
@@ -210,7 +207,11 @@
     }
 }
 
-.lang-switcher {
+// =============================================
+// Language switcher
+// =============================================
+
+.sp-lang {
     color: var(--Pure-White, #{$color-pure-white});
     font-family: $font-family-base;
     font-size: $font-size-caption;
@@ -219,10 +220,6 @@
     letter-spacing: -0.12px;
     cursor: default;
     user-select: none;
-}
-
-// Language switcher
-.lang-switcher {
     position: relative;
     margin-top: 0 !important;
 
@@ -236,21 +233,20 @@
     }
 }
 
-.lang-dropdown {
+.sp-lang__dropdown {
     position: absolute;
     top: calc(100% + 16px);
     left: 50%;
-    min-width: 220px;
+    width: max-content;
     background-color: #1e2433;
     border-radius: 12px;
     padding: 16px;
-    list-style: none !important;
-    margin: 0 !important;
+    list-style: none;
+    margin: 0;
 
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
     gap: 4px;
-    flex-direction: unset !important;
 
     opacity: 0;
     visibility: hidden;
@@ -295,15 +291,29 @@
     }
 }
 
-.lang-switcher.is-open .lang-dropdown {
+.sp-lang.sp-is-open .sp-lang__dropdown {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
 }
 
-// Кнопка "Зв'язатись" — стилі будуть додані пізніше в окремому _buttons.scss
-.btn-contact {
-    // placeholder — стилі для всіх кнопок будуть окремо
+.sp-lang.sp-drop-up .sp-lang__dropdown {
+    top: auto;
+    bottom: calc(100% + 16px);
+    transform: translateX(-50%) translateY(8px);
+}
+
+.sp-lang.sp-drop-up.sp-is-open .sp-lang__dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+// =============================================
+// CTA Button
+// =============================================
+
+.sp-btn-contact {
     color: var(--Pure-White, #{$color-pure-white});
     font-family: $font-family-base;
     font-size: $font-size-caption;
@@ -338,7 +348,7 @@
 // Burger (mobile)
 // =============================================
 
-.header-burger {
+.sp-header__burger {
     display: none;
     flex-direction: column;
     justify-content: center;
@@ -372,27 +382,27 @@
 // =============================================
 
 @media (max-width: 1024px) {
-    .header-inner {
+    .sp-header__inner {
         gap: 24px;
         padding: 0 24px;
     }
 
-    .header-nav__list {
+    .sp-nav__list {
         gap: 20px;
     }
 }
 
 @media (max-width: 768px) {
-    .header-burger {
+    .sp-header__burger {
         display: flex;
     }
 
-    .header-actions .header-contacts,
-    .header-actions .lang-switcher {
+    .sp-header__actions .sp-header__contacts,
+    .sp-header__actions .sp-lang {
         display: none;
     }
 
-    .header-nav {
+    .sp-header__nav {
         position: fixed;
         top: 80px;
         left: 0;
@@ -407,19 +417,19 @@
         transition: transform 0.3s ease;
         z-index: 999;
 
-        &.is-open {
+        &.sp-is-open {
             transform: translateX(0);
         }
     }
 
-    .header-nav__list {
+    .sp-nav__list {
         flex-direction: column;
         align-items: flex-start;
         gap: 24px;
         width: 100%;
     }
 
-    .header-dropdown {
+    .sp-nav__dropdown {
         position: static;
         opacity: 1;
         visibility: visible;
@@ -430,7 +440,7 @@
         display: none;
     }
 
-    .has-dropdown.is-open .header-dropdown {
+    .sp-has-dropdown.sp-is-open .sp-nav__dropdown {
         display: block;
     }
 }

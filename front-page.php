@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main">
+<main id="primary" class="sp-main">
     <div class="container">
         <?php
         // Hero section - can be managed via ACF or customizer

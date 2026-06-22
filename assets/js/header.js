@@ -10,26 +10,39 @@
     // Scroll background
     function updateHeaderBg() {
         if (window.scrollY > 0) {
-            header.classList.add('is-scrolled');
+            header.classList.add('sp-is-scrolled');
         } else {
-            header.classList.remove('is-scrolled');
+            header.classList.remove('sp-is-scrolled');
         }
     }
     window.addEventListener('scroll', updateHeaderBg, { passive: true });
     updateHeaderBg();
 
     // Dropdown toggle — nav menu + lang switcher
-    var dropdownToggles = document.querySelectorAll('.has-dropdown > .dropdown-toggle, .lang-switcher > .dropdown-toggle');
+    var dropdownToggles = document.querySelectorAll('.sp-has-dropdown > .sp-dropdown__toggle, .sp-lang > .sp-dropdown__toggle');
 
     function getDropdownParent(btn) {
-        return btn.closest('.has-dropdown') || btn.closest('.lang-switcher');
+        return btn.closest('.sp-has-dropdown') || btn.closest('.sp-lang');
     }
 
     function closeAllDropdowns() {
         dropdownToggles.forEach(function (btn) {
             btn.setAttribute('aria-expanded', 'false');
-            getDropdownParent(btn).classList.remove('is-open');
+            getDropdownParent(btn).classList.remove('sp-is-open');
         });
+    }
+
+    function positionDropdown(parent) {
+        var dropdown = parent.querySelector('.sp-lang__dropdown, .sp-nav__dropdown');
+        if (!dropdown) return;
+
+        parent.classList.remove('sp-drop-up');
+        var rect = dropdown.getBoundingClientRect();
+        var spaceBelow = window.innerHeight - rect.bottom;
+
+        if (spaceBelow < 0) {
+            parent.classList.add('sp-drop-up');
+        }
     }
 
     dropdownToggles.forEach(function (btn) {
@@ -39,13 +52,15 @@
             closeAllDropdowns();
             if (!isOpen) {
                 this.setAttribute('aria-expanded', 'true');
-                getDropdownParent(this).classList.add('is-open');
+                var parent = getDropdownParent(this);
+                parent.classList.add('sp-is-open');
+                positionDropdown(parent);
             }
         });
     });
 
     document.addEventListener('click', function (e) {
-        if (!e.target.closest('.has-dropdown') && !e.target.closest('.lang-switcher')) {
+        if (!e.target.closest('.sp-has-dropdown') && !e.target.closest('.sp-lang')) {
             closeAllDropdowns();
         }
     });
@@ -58,28 +73,28 @@
 
     // Active menu item by current URL
     var currentPath = window.location.pathname;
-    document.querySelectorAll('.header-nav__list a').forEach(function (link) {
+    document.querySelectorAll('.sp-nav__list a').forEach(function (link) {
         var linkPath = new URL(link.href, window.location.origin).pathname;
         if (linkPath === '/' ? currentPath === '/' : currentPath.indexOf(linkPath) === 0 && linkPath !== '/') {
-            link.classList.add('is-active');
-            var parentDropdown = link.closest('.has-dropdown');
+            link.classList.add('sp-is-active');
+            var parentDropdown = link.closest('.sp-has-dropdown');
             if (parentDropdown) {
-                var toggle = parentDropdown.querySelector('.dropdown-toggle');
-                if (toggle) toggle.classList.add('is-active');
+                var toggle = parentDropdown.querySelector('.sp-dropdown__toggle');
+                if (toggle) toggle.classList.add('sp-is-active');
             }
         }
     });
 
     // Mobile burger toggle
-    var burger = document.querySelector('.header-burger');
-    var nav = document.querySelector('.header-nav');
+    var burger = document.querySelector('.sp-header__burger');
+    var nav = document.querySelector('.sp-header__nav');
 
     if (burger && nav) {
         burger.addEventListener('click', function () {
             var expanded = this.getAttribute('aria-expanded') === 'true';
             this.setAttribute('aria-expanded', String(!expanded));
-            nav.classList.toggle('is-open');
-            document.body.classList.toggle('nav-open');
+            nav.classList.toggle('sp-is-open');
+            document.body.classList.toggle('sp-nav-open');
         });
     }
 }());

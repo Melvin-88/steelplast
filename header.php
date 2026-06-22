@@ -15,13 +15,13 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<a class="skip-link" href="#primary"><?php esc_html_e( 'Skip to content', 'steelplast' ); ?></a>
+<a class="sp-skip" href="#primary"><?php esc_html_e( 'Skip to content', 'steelplast' ); ?></a>
 
-<header id="masthead" class="site-header" role="banner">
-    <div class="header-inner">
+<header id="masthead" class="sp-header" role="banner">
+    <div class="sp-header__inner sp-wrap">
 
         <!-- Logo -->
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="header-logo" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) . ' — ' . __( 'головна сторінка', 'steelplast' ) ); ?>">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="sp-header__logo" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) . ' — ' . __( 'головна сторінка', 'steelplast' ) ); ?>">
             <img
                 src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-header.svg' ); ?>"
                 alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"
@@ -32,13 +32,13 @@
         </a>
 
         <!-- Primary navigation -->
-        <nav id="site-navigation" class="header-nav" aria-label="<?php esc_attr_e( 'Головне меню', 'steelplast' ); ?>">
+        <nav id="site-navigation" class="sp-header__nav" aria-label="<?php esc_attr_e( 'Головне меню', 'steelplast' ); ?>">
             <?php
             wp_nav_menu( array(
                 'theme_location' => 'primary',
                 'menu_id'        => 'primary-menu',
                 'container'      => false,
-                'menu_class'     => 'header-nav__list',
+                'menu_class'     => 'sp-nav__list',
                 'walker'         => new SteelPlast_Nav_Walker(),
                 'fallback_cb'    => 'steelplast_fallback_nav',
             ) );
@@ -46,20 +46,20 @@
         </nav>
 
         <!-- Actions: Контакти / мова / кнопка -->
-        <div class="header-actions">
-            <a href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>" class="header-contacts">
-                <?php esc_html_e( 'Контакти', 'steelplast' ); ?>
+        <div class="sp-header__actions">
+            <a href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>" class="sp-header__contacts">
+                <?php echo esc_html( steelplast_translate( 'header_contacts', 'Контакти' ) ); ?>
             </a>
 
             <?php steelplast_language_switcher(); ?>
 
-            <a href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>" class="btn-contact">
-                <?php esc_html_e( "Зв'язатись", 'steelplast' ); ?>
+            <a href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>" class="sp-btn-contact">
+                <?php echo esc_html( steelplast_translate( 'header_cta', "Зв'язатись" ) ); ?>
             </a>
         </div>
 
         <!-- Burger (mobile) -->
-        <button type="button" class="header-burger" aria-expanded="false" aria-controls="site-navigation" aria-label="<?php esc_attr_e( 'Відкрити меню', 'steelplast' ); ?>">
+        <button type="button" class="sp-header__burger" aria-expanded="false" aria-controls="site-navigation" aria-label="<?php esc_attr_e( 'Відкрити меню', 'steelplast' ); ?>">
             <span></span>
             <span></span>
             <span></span>
@@ -68,4 +68,4 @@
     </div>
 </header>
 
-<div id="page" class="site">
+<div id="page" class="sp-site">
