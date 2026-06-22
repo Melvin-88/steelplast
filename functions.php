@@ -293,23 +293,22 @@ function steelplast_language_switcher() {
     $languages = icl_get_languages( 'skip_missing=0' );
     if ( empty( $languages ) ) return;
 
-    $current      = '';
-    $current_lang = null;
-
+    $current_lang = reset( $languages ); // fallback: перша мова
     foreach ( $languages as $lang ) {
         if ( $lang['active'] ) {
-            $current      = strtoupper( $lang['language_code'] );
             $current_lang = $lang;
             break;
         }
     }
+
+    $current_code = esc_html( strtoupper( $current_lang['language_code'] ) );
     ?>
     <div class="sp-lang sp-has-dropdown">
         <button type="button" class="sp-lang__toggle sp-dropdown__toggle" aria-expanded="false" aria-haspopup="true">
             <?php if ( ! empty( $current_lang['country_flag_url'] ) ) : ?>
                 <img src="<?php echo esc_url( $current_lang['country_flag_url'] ); ?>" alt="" width="18" height="14" aria-hidden="true">
             <?php endif; ?>
-            <?php echo esc_html( strtoupper( $current_lang['language_code'] ?? $current ) ); ?>
+            <?php echo $current_code; ?>
             <svg class="sp-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true" focusable="false">
                 <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>

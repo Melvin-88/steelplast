@@ -80,14 +80,16 @@ a {
 // Layout helpers
 // =============================================
 
-.sp-wrap {
+.sp-wrap,
+.content-wrapper {
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
     padding: 0 32px;
 }
 
-.sp-main {
+.sp-main,
+.site-main {
     padding-top: 80px;
     flex: 1;
 }
