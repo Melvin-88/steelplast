@@ -81,6 +81,26 @@ function steelplast_widgets_init() {
 }
 add_action( 'widgets_init', 'steelplast_widgets_init' );
 
+// =============================================
+// Favicons
+// =============================================
+
+remove_action( 'wp_head', 'wp_site_icon', 99 );
+
+function steelplast_favicons() {
+    $uri = get_template_directory_uri() . '/assets/img/favicons';
+    ?>
+    <link rel="icon" type="image/x-icon" href="<?php echo esc_url( $uri . '/favicon.ico' ); ?>">
+    <link rel="icon" type="image/svg+xml" href="<?php echo esc_url( $uri . '/favicon.svg' ); ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo esc_url( $uri . '/favicon-16x16.png' ); ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo esc_url( $uri . '/favicon-32x32.png' ); ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo esc_url( $uri . '/apple-touch-icon.png' ); ?>">
+    <link rel="manifest" href="<?php echo esc_url( $uri . '/site.webmanifest' ); ?>">
+    <meta name="theme-color" content="#090a0c">
+    <?php
+}
+add_action( 'wp_head', 'steelplast_favicons', 1 );
+
 /**
  * Enqueue scripts and styles.
  */
@@ -170,6 +190,38 @@ add_action( 'after_setup_theme', 'steelplast_disable_wp_seo' );
  * Disable WPML default footer language switcher and dev banner.
  * Scoped to WPML being active to avoid side-effects on non-WPML installs.
  */
+// =============================================
+// WPML String Translation — register theme strings
+// =============================================
+
+function steelplast_register_wpml_strings() {
+    if ( ! function_exists( 'icl_register_string' ) ) return;
+
+    $strings = array(
+        'header_contacts'    => 'Контакти',
+        'header_cta'         => "Зв'язатись",
+        'footer_description' => 'Ми спеціалізуємося на постачанні високоякісних компонентів для автомобільної, побутової, електротехнічної, інтер\'єрної та будівельної промисловості.',
+        'footer_menu_title'  => 'МЕНЮ',
+        'footer_social_title'=> 'СЛІДКУЙ ЗА НАМИ',
+        'footer_copyright'   => 'Всі права захищені.',
+        'facebook_url'       => 'https://facebook.com',
+        'linkedin_url'       => 'https://linkedin.com',
+        'instagram_url'      => 'https://instagram.com',
+    );
+
+    foreach ( $strings as $name => $value ) {
+        icl_register_string( 'steelplast-theme', $name, $value );
+    }
+}
+add_action( 'after_setup_theme', 'steelplast_register_wpml_strings' );
+
+function steelplast_translate( $name, $default ) {
+    if ( function_exists( 'icl_t' ) ) {
+        return icl_t( 'steelplast-theme', $name, $default );
+    }
+    return $default;
+}
+
 if ( function_exists( 'icl_get_languages' ) || defined( 'ICL_SITEPRESS_VERSION' ) ) {
     add_filter( 'icl_show_translate_link', '__return_false' );
     add_filter( 'wpml_show_footer_language_selector', '__return_false' );
@@ -234,43 +286,34 @@ function steelplast_post_thumbnail() {
 
 function steelplast_language_switcher() {
     if ( ! function_exists( 'icl_get_languages' ) ) {
-        echo '<span class="lang-switcher">UA</span>';
+        echo '<span class="sp-lang">UA</span>';
         return;
     }
 
     $languages = icl_get_languages( 'skip_missing=0' );
     if ( empty( $languages ) ) return;
 
-    $current = '';
-    $others  = array();
-
-    foreach ( $languages as $lang ) {
-        if ( $lang['active'] ) {
-            $current = strtoupper( $lang['language_code'] );
-        } else {
-            $others[] = $lang;
-        }
-    }
-
-    $current_lang = null;
+    $current_lang = reset( $languages ); // fallback: перша мова
     foreach ( $languages as $lang ) {
         if ( $lang['active'] ) {
             $current_lang = $lang;
             break;
         }
     }
+
+    $current_code = esc_html( strtoupper( $current_lang['language_code'] ) );
     ?>
-    <div class="lang-switcher has-dropdown">
-        <button type="button" class="lang-switcher__toggle dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+    <div class="sp-lang sp-has-dropdown">
+        <button type="button" class="sp-lang__toggle sp-dropdown__toggle" aria-expanded="false" aria-haspopup="true">
             <?php if ( ! empty( $current_lang['country_flag_url'] ) ) : ?>
                 <img src="<?php echo esc_url( $current_lang['country_flag_url'] ); ?>" alt="" width="18" height="14" aria-hidden="true">
             <?php endif; ?>
-            <?php echo esc_html( strtoupper( $current_lang['language_code'] ?? $current ) ); ?>
-            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true" focusable="false">
+            <?php echo $current_code; ?>
+            <svg class="sp-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true" focusable="false">
                 <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
         </button>
-        <ul class="lang-dropdown" role="menu">
+        <ul class="sp-lang__dropdown" role="menu">
             <?php foreach ( $languages as $lang ) : ?>
                 <li role="none">
                     <a href="<?php echo esc_url( $lang['url'] ); ?>" role="menuitem" lang="<?php echo esc_attr( $lang['language_code'] ); ?>" <?php echo $lang['active'] ? 'aria-current="true"' : ''; ?>>
@@ -297,9 +340,9 @@ class SteelPlast_Nav_Walker extends Walker_Nav_Menu {
         $has_children = in_array( 'menu-item-has-children', (array) $item->classes, true );
 
         $classes   = empty( $item->classes ) ? array() : (array) $item->classes;
-        $classes[] = 'nav-item';
+        $classes[] = 'sp-nav__item';
         if ( $has_children ) {
-            $classes[] = 'has-dropdown';
+            $classes[] = 'sp-has-dropdown';
         }
         $class_names = implode( ' ', array_filter( array_map( 'esc_attr', $classes ) ) );
 
@@ -307,9 +350,9 @@ class SteelPlast_Nav_Walker extends Walker_Nav_Menu {
 
         if ( $has_children && 0 === $depth ) {
             // Render as button so dropdown is keyboard-accessible
-            $output .= '<button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">';
+            $output .= '<button type="button" class="sp-dropdown__toggle" aria-expanded="false" aria-haspopup="true">';
             $output .= esc_html( $item->title );
-            $output .= '<svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true" focusable="false">';
+            $output .= '<svg class="sp-chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true" focusable="false">';
             $output .= '<path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';
             $output .= '</svg>';
             $output .= '</button>';
@@ -323,7 +366,7 @@ class SteelPlast_Nav_Walker extends Walker_Nav_Menu {
     }
 
     public function start_lvl( &$output, $depth = 0, $args = null ) {
-        $output .= '<ul class="header-dropdown" role="menu">';
+        $output .= '<ul class="sp-nav__dropdown" role="menu">';
     }
 
     public function end_lvl( &$output, $depth = 0, $args = null ) {
