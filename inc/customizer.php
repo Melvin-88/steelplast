@@ -37,9 +37,16 @@ function steelplast_customizer_register( WP_Customize_Manager $wp_customize ) {
     );
 
     foreach ( $contact_fields as $key => $args ) {
+        if ( 'site_email' === $key ) {
+            $sanitize = 'sanitize_email';
+        } elseif ( 'site_address' === $key ) {
+            $sanitize = 'sanitize_textarea_field';
+        } else {
+            $sanitize = 'sanitize_text_field';
+        }
         $wp_customize->add_setting( $key, array(
             'default'           => '',
-            'sanitize_callback' => 'sanitize_text_field',
+            'sanitize_callback' => $sanitize,
             'transport'         => 'refresh',
         ) );
         $wp_customize->add_control( $key, array(
@@ -95,6 +102,11 @@ function steelplast_mod( $key, $fallback = '' ) {
 add_action( 'wp_head', 'steelplast_schema_local_business', 5 );
 
 function steelplast_schema_local_business() {
+    // Yoast SEO outputs its own Organization schema — avoid duplicates
+    if ( defined( 'WPSEO_VERSION' ) ) {
+        return;
+    }
+
     $phone   = steelplast_mod( 'site_phone' );
     $email   = steelplast_mod( 'site_email' );
     $address = steelplast_mod( 'site_address' );
