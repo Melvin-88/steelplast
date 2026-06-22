@@ -67,13 +67,6 @@ $stats = [
 
     </section>
 
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-        <?php if ( get_the_content() ) : ?>
-            <div class="entry-content sp-wrap">
-                <?php the_content(); ?>
-            </div>
-        <?php endif; ?>
-    <?php endwhile; endif; ?>
 
 </main>
 
