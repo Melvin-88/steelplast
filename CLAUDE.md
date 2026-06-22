@@ -1,194 +1,218 @@
 # SteelPlast — Project Context
 
 ## Project
-Custom WordPress theme for **SteelPlast** (industrial/metalworking company).
-Goal: high-quality, fast, SEO-optimized site that passes Google Core Web Vitals.
+Custom WordPress theme for SteelPlast (industrial/metalworking company).
+
+Goal:
+High-performance, SEO-optimized, Core Web Vitals compliant WordPress site with scalable architecture and multilingual support.
 
 ---
 
-## Stack
-- **CMS:** WordPress (LocalWP for local dev)
-- **Language:** PHP + SCSS (no JS framework — vanilla JS only)
-- **Font:** Inter via Google Fonts
-- **Build:** `npm run build` (prod) / `npm run watch` (dev)
-- **SCSS → CSS:** `assets/scss/main.scss` → `assets/css/main.css`
+# Stack
+
+- CMS: WordPress (LocalWP for local development)
+- Language: PHP 8+ + SCSS + Vanilla JavaScript
+- No frameworks (no React, no Vue, no jQuery unless absolutely required)
+- Build: npm (SCSS compilation only)
 
 ---
 
-## Build commands
-```bash
-npm run build   # compile SCSS → CSS (compressed, no source maps)
-npm run watch   # watch mode
-```
-Always run `npm run build` after SCSS changes. CSS version is auto-busted via `filemtime()`.
+# Build Commands
+
+npm run build   # compile SCSS → CSS (production, compressed)
+npm run watch   # development watcher
+
+Always run npm run build after SCSS changes.
+
+CSS cache busting is handled via filemtime().
 
 ---
 
-## Installed plugins
-| Plugin | Purpose |
-|---|---|
-| WPML | Multilingual (8 languages) |
-| Yoast SEO | Meta, sitemap, schema, hreflang |
-| Wordfence | Security |
-| UpdraftPlus | Backups |
-| WP-Optimize | Cache + CSS/JS compression |
-| Burst Statistics | Cookie-free analytics |
-| Antispam Bee | Comment spam |
-| Complianz | GDPR / cookie consent |
-| Redirection | 301 redirects + 404 tracking |
+# Installed Plugins
 
-> **Cache:** Always clear WP-Optimize cache after PHP/CSS/JS changes.
-> WP Admin → WP-Optimize → Cache → Purge all cache (or admin bar shortcut).
+WPML — Multilingual (10 languages)
+Yoast SEO — SEO, sitemap, schema
+Wordfence — Security
+UpdraftPlus — Backups
+WP-Optimize — Cache + optimization
+Burst Statistics — Analytics
+Antispam Bee — Spam protection
+Complianz — GDPR / cookies
+Redirection — 301 redirects + 404 tracking
 
 ---
 
-## Languages (WPML)
-UA (default), EN, DE, IT, LV, LT, PL, CS, SK, HU, TR
+# Languages (WPML)
 
-Language auto-redirect is implemented in `assets/js/header.js` but **currently disabled** — enable after all WPML translations are set up.
+UA (default), EN, PL, FR, IT, LT, LV, ET, CS, DE
 
----
-
-## Design
-- **Source:** Figma (user shares sections/screenshots per session)
-- **Style:** Dark theme — navy/black background, accent `#6de2f7`, uppercase bold headings
-- **UI Kit transferred:** colors, spacing, typography
-
-### Colors (from `_variables.scss`)
-| Variable | Value |
-|---|---|
-| `$color-pure-white` | `#f6f6f6` |
-| `$color-accent` | `#6de2f7` |
-| `$color-background` | `#0f0f0f` |
-| `$color-dark-navy` | `#121c2e` |
-| `$color-black` | `#090a0c` |
-
-### CSS custom properties (`:root`)
-`--Pure-White`, `--color-accent`, `--color-bg`, `--color-navy`, `--color-black`
+Language auto-redirect is disabled in assets/js/header.js (enable later).
 
 ---
 
-## Layout rules
-- **Content wrapper:** `max-width: 1440px; margin: 0 auto; padding: 0 32px` — class `.content-wrapper`
-- **Section backgrounds** go full-width (no wrapper on the section itself)
-- **Header height:** 80px (fixed/sticky)
-- **Body offset:** `.site-main { padding-top: 80px }`
+# Design System
+
+Source: Figma
+Style: Industrial dark theme
+Accent: #6de2f7
+Font: Inter
+
+Colors:
+- #f6f6f6
+- #6de2f7
+- #0f0f0f
+- #121c2e
+- #090a0c
 
 ---
 
-## SCSS structure
-```
+# Layout Rules
+
+- max-width: 1440px
+- .content-wrapper padding: 0 32px
+- full-width sections
+- header height: 80px
+- main padding-top: 80px
+
+---
+
+# SCSS Structure
+
 assets/scss/
-├── main.scss          # entry point — imports all partials + CSS vars + base reset
-├── _variables.scss    # colors, spacing, typography tokens
-├── _typography.scss   # heading/body styles
-└── _header.scss       # header component styles
-```
+- main.scss
+- _variables.scss
+- _typography.scss
+- _header.scss
+
+Max nesting depth: 3
 
 ---
 
-## JS structure
-```
-assets/js/
-└── header.js          # scroll bg, dropdown toggle, active menu by URL, burger, lang redirect
-```
+# JS Rules
+
+- Vanilla JS only
+- Event delegation preferred
+- No jQuery unless required
+- Keep scripts minimal and non-blocking
 
 ---
 
-## File / template structure
-```
-theme root/
-├── front-page.php              # / (Головна) — єдиний виняток, WP template hierarchy
-├── page-templates/             # всі кастомні сторінки тут
-│   ├── template-about.php          # Про нас
-│   ├── template-services.php       # Послуги
-│   ├── template-faq.php            # FAQ
-│   ├── template-quality.php        # Якість
-│   ├── template-news.php           # Новини
-│   ├── template-contacts.php       # Контакти
-│   ├── template-cnc-machining.php  # Механічна обробка металу на верстатах з ЧПУ
-│   ├── template-cnc-milling.php    # Фрезерні верстати з ЧПУ
-│   ├── template-cnc-turning.php    # Токарні верстати з приводним інструментом
-│   ├── template-swiss-turning.php  # Токарні верстати швейцарського типу
-│   └── template-service-inner.php  # запасний шаблон для inner service pages
-├── header.php
-├── footer.php
-├── functions.php
-└── assets/
-    ├── css/main.css
-    ├── scss/
-    ├── js/header.js
-    └── img/
-        ├── logo-header.svg
-        └── logo-footer.svg
-```
+# WordPress Structure
 
-> **Важливо:** шаблони з `page-templates/` потрібно вручну призначити сторінкам в WP Admin
-> (Редагування сторінки → Атрибути сторінки → Шаблон).
+theme/
+- front-page.php
+- header.php
+- footer.php
+- functions.php
+- page-templates/
+- template-parts/
+- assets/
 
 ---
 
-## Header
-- Fixed, full-width background
-- Scrolled state: `background: rgba(0,0,0,0.8)` + `backdrop-filter: blur(8px)` — class `is-scrolled`
-- 3 sections: Logo | Nav (centered, absolute) | Actions (Контакти + Lang switcher + CTA button)
-- Nav uses custom `SteelPlast_Nav_Walker` — renders dropdown toggle as `<button>`
-- Dropdown items for "Послуги": 4 inner service pages
-- Lang switcher: custom `steelplast_language_switcher()` using `icl_get_languages()`, shows flags + code, 3-col grid dropdown
-- CTA button `.btn-contact` — placeholder styles only, full button system TBD
+# Header
 
-### Nav menu items
-Головна / Послуги (dropdown) / Про нас / FAQ / Якість / Новини
-
-### Послуги dropdown
-- Механічна обробка металу на верстатах з ЧПУ → `/services/cnc-machining/`
-- Фрезерні верстати з ЧПУ → `/services/cnc-milling/`
-- Токарні верстати з приводним інструментом → `/services/cnc-turning/`
-- Токарні верстати швейцарського типу → `/services/swiss-turning/`
+- fixed + blur on scroll
+- Logo | Nav | Actions
+- custom walker menu
+- WPML language switcher
+- CTA button placeholder
 
 ---
 
-## Pages (from Figma)
-| Page | Template | Status |
-|---|---|---|
-| Головна | `front-page.php` | placeholder |
-| Послуги | `page-services.php` | placeholder |
-| Послуга (inner) | `page-cnc-*.php` / `page-swiss-*.php` | placeholder |
-| Про нас | `page-about.php` | placeholder |
-| FAQ | `page-faq.php` | placeholder |
-| Якість | `page-quality.php` | placeholder |
-| Новини | `page-news.php` | placeholder |
-| Контакти | `page-contacts.php` | placeholder |
+# SEO Rules
 
-### Recurring blocks (planned)
-- **Hero banner** — full-width factory photo bg + large heading
-- **CTA section** — dark bg, "Залишились запитання?" + form (name, email, submit)
-- **Footer** — logo + description + nav + socials + lang switcher
+- one H1 per page
+- proper heading hierarchy
+- Yoast SEO handles metadata
+- images must have width/height
+- lazy load images (except hero)
 
 ---
 
-## SEO rules
-- `title-tag` managed by WordPress / Yoast
-- hreflang: Yoast handles via WPML integration
-- No duplicate canonical — `rel_canonical` removed when Yoast active
-- All images: explicit `width`/`height`, `loading="lazy"` (except LCP hero image → `loading="eager"`)
-- Semantic HTML: one `<h1>` per page, proper heading hierarchy
-- `skip-link` for accessibility
+# PERFORMANCE RULES (CRITICAL)
+
+Core Web Vitals:
+- LCP < 2.5s
+- CLS < 0.1
+- INP < 200ms
+
+Rules:
+- minimize DOM
+- avoid layout shifts
+- lazy load images
+- preload hero image if needed
+- defer non-critical JS
 
 ---
 
-## Key functions (functions.php)
-- `steelplast_scripts()` — enqueue styles/JS with filemtime versioning
-- `steelplast_language_switcher()` — custom WPML lang dropdown with flags
-- `steelplast_fallback_nav()` — static nav when no WP menu assigned
-- `SteelPlast_Nav_Walker` — custom walker, renders parent items as `<button>`
-- WPML footer switcher hidden via CSS + `__return_false` filters
+# WORDPRESS RULES
+
+- no DB queries inside loops
+- use WP_Query instead of get_posts
+- escape all output (esc_html, esc_attr, esc_url)
+- use WordPress APIs only
+- keep templates thin
 
 ---
 
-## Known issues / TODO
-- [ ] WPML dev site banner — remove with production key (wpml.org → My Account → Sites)
-- [ ] Language auto-redirect in `header.js` — uncomment when all translations ready
-- [ ] Button styles system (`_buttons.scss`) — all button variants TBD
-- [ ] Footer design — not started
-- [ ] All page sections — placeholders only
+# SECURITY
+
+- sanitize all input
+- never trust user data
+- avoid raw SQL
+- escape output always
+
+---
+
+# ACF RULES
+
+- use get_field safely
+- flexible content for landing pages
+- group fields logically
+- WPML compatible
+
+---
+
+# WPML RULES
+
+- no hardcoded text
+- use translation functions
+- all UI must be multilingual
+
+---
+
+# TEMPLATE GENERATION MODE
+
+When generating templates:
+- production-ready code only
+- semantic HTML
+- responsive design
+- accessibility (ARIA if needed)
+- include get_header/get_footer
+- no dummy placeholders
+
+---
+
+# SEO + STRUCTURE
+
+- one H1 per page
+- schema.org where needed
+- clean heading hierarchy
+- valid semantic HTML
+
+---
+
+# IMAGE RULES
+
+- always width/height
+- lazy load by default
+- optimize LCP image
+- prefer WebP/AVIF
+
+---
+
+# PRINCIPLE
+
+Think like a Senior WordPress Performance Engineer:
+optimize for performance, SEO, security, scalability, and maintainability.

@@ -336,46 +336,16 @@ class SteelPlast_Nav_Walker extends Walker_Nav_Menu {
 }
 
 /**
- * Fallback nav when no menu is assigned — shows static links.
+ * Fallback when no menu is assigned to 'primary' location.
+ * Shows nothing — menu must be configured in WP Admin → Appearance → Menus.
+ * WPML handles translations per language automatically.
  */
 function steelplast_fallback_nav() {
-    $items = array(
-        array( 'url' => home_url( '/' ),           'label' => __( 'Головна', 'steelplast' ) ),
-        array( 'url' => home_url( '/services/' ),   'label' => __( 'Послуги', 'steelplast' ), 'children' => array(
-            array( 'url' => home_url( '/services/cnc-machining/' ),        'label' => __( 'Механічна обробка металу на верстатах з ЧПУ', 'steelplast' ) ),
-            array( 'url' => home_url( '/services/cnc-milling/' ),          'label' => __( 'Фрезерні верстати з ЧПУ', 'steelplast' ) ),
-            array( 'url' => home_url( '/services/cnc-turning/' ),          'label' => __( 'Токарні верстати з приводним інструментом', 'steelplast' ) ),
-            array( 'url' => home_url( '/services/swiss-turning/' ),        'label' => __( 'Токарні верстати швейцарського типу', 'steelplast' ) ),
-        ) ),
-        array( 'url' => home_url( '/about/' ),      'label' => __( 'Про нас', 'steelplast' ) ),
-        array( 'url' => home_url( '/faq/' ),        'label' => __( 'FAQ', 'steelplast' ) ),
-        array( 'url' => home_url( '/quality/' ),    'label' => __( 'Якість', 'steelplast' ) ),
-        array( 'url' => home_url( '/news/' ),       'label' => __( 'Новини', 'steelplast' ) ),
-    );
-
-    echo '<ul class="header-nav__list">';
-    foreach ( $items as $item ) {
-        $has_children = ! empty( $item['children'] );
-        $li_class     = $has_children ? ' class="nav-item has-dropdown"' : ' class="nav-item"';
-        echo '<li' . $li_class . '>';
-
-        if ( $has_children ) {
-            echo '<button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">';
-            echo esc_html( $item['label'] );
-            echo '<svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" aria-hidden="true" focusable="false">';
-            echo '<path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>';
-            echo '</svg></button>';
-            echo '<ul class="header-dropdown" role="menu">';
-            foreach ( $item['children'] as $child ) {
-                echo '<li><a href="' . esc_url( $child['url'] ) . '">' . esc_html( $child['label'] ) . '</a></li>';
-            }
-            echo '</ul>';
-        } else {
-            $aria = ( home_url( '/' ) === trailingslashit( $item['url'] ) && is_front_page() ) ? ' aria-current="page"' : '';
-            echo '<a href="' . esc_url( $item['url'] ) . '"' . $aria . '>' . esc_html( $item['label'] ) . '</a>';
-        }
-
-        echo '</li>';
+    if ( current_user_can( 'manage_options' ) ) {
+        printf(
+            '<p class="nav-fallback-notice"><a href="%s">%s</a></p>',
+            esc_url( admin_url( 'nav-menus.php' ) ),
+            esc_html__( 'Призначте меню для локації «Primary»', 'steelplast' )
+        );
     }
-    echo '</ul>';
 }
