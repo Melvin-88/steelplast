@@ -5,7 +5,7 @@
     "node": ">=20.19.0"
   },
   "scripts": {
-    "build": "sass assets/scss/main.scss assets/css/main.css --style=compressed --no-source-map",
+    "build": "sass assets/scss/main.scss assets/css/main.css --style=compressed --no-source-map && LC_ALL=C sed -i '' '1s/^\\xEF\\xBB\\xBF//' assets/css/main.css",
     "watch": "sass assets/scss/main.scss assets/css/main.css --watch --style=expanded"
   },
   "devDependencies": {

@@ -1,0 +1,268 @@
+@use 'variables' as *;
+
+// =============================================
+// Section Label (reusable component)
+// =============================================
+
+.sp-section-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: $font-family-base;
+    font-size: $font-size-button;
+    font-weight: 400;
+    line-height: $line-height-button;
+    letter-spacing: -0.16px;
+    text-transform: uppercase;
+
+    &__index {
+        color: $color-accent;
+    }
+
+    &--dark {
+        color: $color-dark-navy;
+    }
+
+    &--light {
+        color: $color-pure-white;
+    }
+}
+
+// =============================================
+// Services Section
+// =============================================
+
+.sp-services {
+    padding: 60px 0;
+    background-color: $color-pure-white;
+
+    // ---- Header ----
+    &__header {
+        margin-bottom: 60px;
+    }
+
+    &__title {
+        font-family: $font-family-base;
+        font-size: $font-size-h2;
+        font-weight: 700;
+        line-height: $line-height-h2;
+        text-transform: uppercase;
+        color: #000;
+        margin-top: 16px;
+        max-width: 900px;
+    }
+
+    &__description {
+        font-family: $font-family-base;
+        font-size: $font-size-body;
+        font-weight: 400;
+        line-height: $line-height-body;
+        color: #000;
+        margin-top: 16px;
+        max-width: 560px;
+    }
+
+    // ---- Grid ----
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+
+    // ---- Card base ----
+    &__card {
+        border-radius: 8px;
+        background: #000;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        // Geometric pattern — bottom-right corner
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 55%;
+            height: 55%;
+            background-image: url('../img/services-card-bg.png');
+            background-size: cover;
+            background-position: bottom right;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+
+        // ---- Type: wide (Stamping) — spans 2 grid cols, image left + text right ----
+        &--wide {
+            grid-column: span 2;
+            flex-direction: row;
+
+            &::after {
+                width: 40%;
+                height: 40%;
+            }
+        }
+    }
+
+    // ---- Card inner (used inside wide card) ----
+    &__card-inner {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 0;
+    }
+
+    // ---- Card image ----
+    &__card-image {
+        width: 100%;
+        height: 176px;
+        flex-shrink: 0;
+        overflow: hidden;
+
+        img,
+        .sp-services__card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        // Side image variant (inside wide card)
+        &--side {
+            width: 50%;
+            height: auto;
+            flex-shrink: 0;
+        }
+    }
+
+    &__card-image-placeholder {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #111827 0%, #1e293b 60%, #0f3460 100%);
+    }
+
+    // ---- Card body ----
+    &__card-body {
+        padding: 20px 24px 16px;
+        flex: 1;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__card-title {
+        font-family: $font-family-base;
+        font-size: $font-size-h5;
+        font-weight: 500;
+        line-height: $line-height-h5;
+        text-transform: uppercase;
+        color: $color-pure-white;
+        margin-bottom: 12px;
+    }
+
+    &__card-desc {
+        font-family: $font-family-base;
+        font-size: $font-size-body;
+        font-weight: 400;
+        line-height: $line-height-body;
+        color: $color-pure-white;
+    }
+
+    &__card-cap {
+        font-family: $font-family-base;
+        font-size: $font-size-body;
+        font-weight: 400;
+        line-height: $line-height-body;
+        color: $color-pure-white;
+        margin-top: 16px;
+    }
+
+    &__card-bullets {
+        list-style: none;
+        margin-top: 8px;
+
+        li {
+            font-family: $font-family-base;
+            font-size: $font-size-body;
+            font-weight: 400;
+            line-height: $line-height-body;
+            color: $color-pure-white;
+            padding-left: 16px;
+            position: relative;
+            margin-bottom: 4px;
+
+            &::before {
+                content: '•';
+                position: absolute;
+                left: 0;
+                color: $color-pure-white;
+            }
+        }
+    }
+
+    // ---- Card footer ----
+    &__card-footer {
+        padding: 0 24px 24px;
+        margin-top: auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__card-cta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        padding: 14px 20px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 4px;
+        font-family: $font-family-base;
+        font-size: $font-size-button;
+        font-weight: 400;
+        line-height: $line-height-button;
+        letter-spacing: -0.16px;
+        text-transform: uppercase;
+        color: $color-pure-white;
+        text-decoration: none;
+        transition: background 0.2s ease, border-color 0.2s ease;
+
+        &:hover,
+        &:focus-visible {
+            background: rgba(109, 226, 247, 0.08);
+            border-color: rgba(109, 226, 247, 0.3);
+        }
+    }
+
+    // ---- Responsive ----
+    @media (max-width: 1024px) {
+        &__grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &__card--wide {
+            grid-column: span 2;
+            flex-direction: column;
+
+            .sp-services__card-image--side {
+                width: 100%;
+                height: 176px;
+            }
+        }
+    }
+
+    @media (max-width: 640px) {
+        &__grid {
+            grid-template-columns: 1fr;
+        }
+
+        &__card--wide {
+            grid-column: span 1;
+        }
+
+        &__title {
+            font-size: 40px;
+            line-height: 44px;
+        }
+    }
+}

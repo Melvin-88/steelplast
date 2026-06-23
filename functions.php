@@ -10,6 +10,7 @@ if ( ! defined( 'STEELPLAST_VERSION' ) ) {
 }
 
 require_once get_template_directory() . '/inc/customizer.php';
+require_once get_template_directory() . '/inc/acf-fields.php';
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -231,6 +232,54 @@ function steelplast_t( $context, $name, $default ) {
     }
     return $default;
 }
+
+/**
+ * Pre-register all WPML strings so they appear in String Translation
+ * without requiring a frontend page visit.
+ */
+add_action( 'init', function () {
+    if ( ! function_exists( 'icl_register_string' ) ) {
+        return;
+    }
+
+    $strings = [
+        // Hero
+        'steelplast/home/hero' => [
+            'title'       => 'BUILD FOR<br>REPEATABILITY',
+            'description' => 'STEELPLAST is a team that turns ideas into finished products. We provide a full production cycle: from mold design and manufacturing to serial part production.',
+            'stat_1_label' => 'Cycle repeatability',
+            'stat_2_label' => 'Mold resource',
+            'stat_3_label' => 'Quality control stages',
+        ],
+        // Services
+        'steelplast/home/services' => [
+            'section_label'  => 'Our Services',
+            'title'          => 'Modern equipment, manufacturing precision and quality control',
+            'description'    => 'Individual approach to every project, official contracts, staged payments and constant communication',
+            'cta_label'      => 'Learn more',
+            'card_1_title'   => 'Metal Processing',
+            'card_1_desc'    => 'High-precision CNC metal machining for parts of any complexity.',
+            'card_2_title'   => 'Plastic Casting',
+            'card_2_desc'    => 'Manufacturing plastic products by injection molding on modern thermoplastic machines.',
+            'card_3_title'   => 'Laser Metal Cutting',
+            'card_3_desc'    => 'High-precision laser metal cutting for parts of any complexity.',
+            'card_4_title'   => 'Stamping',
+            'card_4_desc'    => 'STEELPLAST manufactures stamped components for various industrial sectors.',
+            'card_4_cap'     => 'Manufacturing capabilities:',
+            'card_4_bullet_1' => 'Sheet metal processing 0.15–5 mm thick',
+            'card_4_bullet_2' => 'Crank pneumatic presses',
+            'card_4_bullet_3' => 'Maximum pressing force — up to 100 t',
+            'card_5_title'   => 'Powder Coating',
+            'card_5_desc'    => 'Powder coating of metal products ensuring uniform and durable finish.',
+        ],
+    ];
+
+    foreach ( $strings as $context => $items ) {
+        foreach ( $items as $name => $default ) {
+            icl_register_string( $context, $name, $default );
+        }
+    }
+} );
 
 if ( function_exists( 'icl_get_languages' ) || defined( 'ICL_SITEPRESS_VERSION' ) ) {
     add_filter( 'icl_show_translate_link', '__return_false' );
