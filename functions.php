@@ -227,9 +227,6 @@ add_action( 'after_setup_theme', 'steelplast_register_wpml_strings' );
  * Usage: steelplast_t( 'steelplast/home/hero', 'title', 'Default' )
  */
 function steelplast_t( $context, $name, $default ) {
-    if ( function_exists( 'icl_register_string' ) ) {
-        icl_register_string( $context, $name, $default );
-    }
     if ( function_exists( 'icl_t' ) ) {
         return icl_t( $context, $name, $default );
     }

@@ -3,13 +3,15 @@
  * Template part: Home — Services section
  */
 
-// ACF image IDs (set in Admin → Pages → Home → Home — Services Images)
-$img_ids = [
-    1 => get_field( 'services_card_1_image' ) ?: 0,
-    2 => get_field( 'services_card_2_image' ) ?: 0,
-    3 => get_field( 'services_card_3_image' ) ?: 0,
-    4 => get_field( 'services_card_4_image' ) ?: 0,
-    5 => get_field( 'services_card_5_image' ) ?: 0,
+// ACF image IDs — WPML copies these from UA to all languages automatically
+// (set to "Copy" in WPML → Settings → Custom Fields Translation)
+$has_acf = function_exists( 'get_field' );
+$img_ids  = [
+    1 => $has_acf ? ( get_field( 'services_card_1_image' ) ?: 0 ) : 0,
+    2 => $has_acf ? ( get_field( 'services_card_2_image' ) ?: 0 ) : 0,
+    3 => $has_acf ? ( get_field( 'services_card_3_image' ) ?: 0 ) : 0,
+    4 => $has_acf ? ( get_field( 'services_card_4_image' ) ?: 0 ) : 0,
+    5 => $has_acf ? ( get_field( 'services_card_5_image' ) ?: 0 ) : 0,
 ];
 
 $section_label = steelplast_t( 'steelplast/home/services', 'section_label', 'Our Services' );
