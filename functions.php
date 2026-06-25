@@ -214,6 +214,19 @@ function steelplast_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'steelplast_scripts' );
 
+// Collaboration JS — front page only
+add_action( 'wp_enqueue_scripts', function () {
+    if ( ! is_front_page() ) return;
+    $collab_js = get_template_directory() . '/assets/js/collaboration.js';
+    wp_enqueue_script(
+        'steelplast-collaboration',
+        get_template_directory_uri() . '/assets/js/collaboration.js',
+        array(),
+        file_exists( $collab_js ) ? filemtime( $collab_js ) : STEELPLAST_VERSION,
+        true
+    );
+} );
+
 /**
  * Add hreflang tags for multilingual support (Polylang/WPML compatible)
  */

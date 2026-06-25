@@ -66,12 +66,12 @@ $stamping_image_id = $img_ids[4];
     <div class="sp-wrap">
 
         <header class="sp-services__header">
-            <p class="sp-section-label sp-section-label--dark">
+            <p class="sp-section-label sp-section-label--light-bg">
                 <span class="sp-section-label__index" aria-hidden="true">[01]</span>
                 <?php echo esc_html( $section_label ); ?>
             </p>
-            <h2 id="services-title" class="sp-services__title"><?php echo esc_html( $title ); ?></h2>
-            <p class="sp-services__description"><?php echo esc_html( $description ); ?></p>
+            <h2 id="services-title" class="sp-services__title sp-section-title"><?php echo esc_html( $title ); ?></h2>
+            <p class="sp-services__description sp-section-desc"><?php echo esc_html( $description ); ?></p>
         </header>
 
         <!-- Single 3-column grid: row 1 (3 cards) + row 2 (wide card span-2 + 1 card) -->
