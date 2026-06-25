@@ -97,9 +97,9 @@ $stamping_image_id = $img_ids[4];
                     </div>
 
                     <div class="sp-services__card-footer">
-                        <a href="#" class="sp-services__card-cta" aria-label="<?php echo esc_attr( $service['title'] ); ?> — <?php echo esc_attr( $cta_label ); ?>">
-                            <span aria-hidden="true">↳</span>
-                            <?php echo esc_html( $cta_label ); ?>
+                        <a href="#" class="sp-btn sp-btn--ghost sp-btn--md sp-btn--full" aria-label="<?php echo esc_attr( $service['title'] ); ?> — <?php echo esc_attr( $cta_label ); ?>">
+                            <span><?php echo esc_html( $cta_label ); ?></span>
+                            <span class="sp-btn__icon" aria-hidden="true">↳</span>
                         </a>
                     </div>
 
@@ -132,9 +132,9 @@ $stamping_image_id = $img_ids[4];
                         </ul>
                     </div>
                     <div class="sp-services__card-footer">
-                        <a href="#" class="sp-services__card-cta" aria-label="<?php echo esc_attr( $stamping_title ); ?> — <?php echo esc_attr( $cta_label ); ?>">
-                            <span aria-hidden="true">↳</span>
-                            <?php echo esc_html( $cta_label ); ?>
+                        <a href="#" class="sp-btn sp-btn--ghost sp-btn--md sp-btn--full" aria-label="<?php echo esc_attr( $stamping_title ); ?> — <?php echo esc_attr( $cta_label ); ?>">
+                            <span><?php echo esc_html( $cta_label ); ?></span>
+                            <span class="sp-btn__icon" aria-hidden="true">↳</span>
                         </a>
                     </div>
                 </div>
@@ -161,9 +161,9 @@ $stamping_image_id = $img_ids[4];
                 </div>
 
                 <div class="sp-services__card-footer">
-                    <a href="#" class="sp-services__card-cta" aria-label="<?php echo esc_attr( $painting['title'] ); ?> — <?php echo esc_attr( $cta_label ); ?>">
-                        <span aria-hidden="true">↳</span>
-                        <?php echo esc_html( $cta_label ); ?>
+                    <a href="#" class="sp-btn sp-btn--ghost sp-btn--md sp-btn--full" aria-label="<?php echo esc_attr( $painting['title'] ); ?> — <?php echo esc_attr( $cta_label ); ?>">
+                        <span><?php echo esc_html( $cta_label ); ?></span>
+                        <span class="sp-btn__icon" aria-hidden="true">↳</span>
                     </a>
                 </div>
 
