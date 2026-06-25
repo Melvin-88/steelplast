@@ -28,10 +28,10 @@ $heading_tag = ( ! empty( $args['heading'] ) && in_array( strtolower( (string) $
             </div>
 
             <div class="sp-contact-section__text">
-                <<?php echo esc_attr( $heading_tag ); ?> class="sp-contact-section__title" id="<?php echo esc_attr( $uid . '-title' ); ?>">
+                <<?php echo esc_attr( $heading_tag ); ?> class="sp-contact-section__title sp-section-title" id="<?php echo esc_attr( $uid . '-title' ); ?>">
                     <?php echo esc_html( steelplast_t( 'steelplast/contacts/hero', 'contact_hero_title', 'Still have questions?' ) ); ?>
                 </<?php echo esc_attr( $heading_tag ); ?>>
-                <p class="sp-contact-section__desc">
+                <p class="sp-contact-section__desc sp-section-desc">
                     <?php echo esc_html( steelplast_t( 'steelplast/contacts/hero', 'contact_hero_desc', 'Leave your request and we will contact you within 2 hours.' ) ); ?>
                 </p>
             </div>

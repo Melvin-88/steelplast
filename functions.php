@@ -177,6 +177,15 @@ function steelplast_scripts() {
             file_exists( $contact_js ) ? filemtime( $contact_js ) : STEELPLAST_VERSION,
             true
         );
+        $collab_js = get_template_directory() . '/assets/js/collaboration.js';
+        wp_enqueue_script(
+            'steelplast-collaboration',
+            get_template_directory_uri() . '/assets/js/collaboration.js',
+            array(),
+            file_exists( $collab_js ) ? filemtime( $collab_js ) : STEELPLAST_VERSION,
+            true
+        );
+
         wp_localize_script( 'steelplast-contact', 'spContact', array(
             'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
             'flagsUrl1x' => get_template_directory_uri() . '/assets/img/flags.webp',

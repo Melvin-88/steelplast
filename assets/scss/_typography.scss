@@ -47,6 +47,73 @@ h5 {
 }
 
 // =============================================
+// Section label — [01] НАЗВА
+// =============================================
+
+.sp-section-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: $font-family-base;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: -0.16px;
+    text-transform: uppercase;
+
+    // [01] / [04] — number part, same on all backgrounds
+    &__index {
+        color: rgba(255, 255, 255, 0.80);
+        font-weight: 200;
+    }
+
+    // label text on dark background
+    &--dark-bg {
+        color: var(--Accent-color, #{$color-accent});
+    }
+
+    // label text on light/white background
+    &--light-bg {
+        color: var(--Dark-Navy, #{$color-dark-navy});
+
+        .sp-section-label__index {
+            color: rgba(0, 0, 0, 0.50);
+        }
+    }
+}
+
+// =============================================
+// Section shared utilities
+// =============================================
+
+// Uniform vertical padding for every home-page section
+.sp-section {
+    padding: 60px 0;
+}
+
+// Section title — H2, white, uppercase (used in all home blocks)
+.sp-section-title {
+    color: var(--Pure-White, #{$color-pure-white});
+    font-family: $font-family-base;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 64px;
+    text-transform: uppercase;
+}
+
+// Section description — body, white (used in all home blocks)
+.sp-section-desc {
+    color: var(--Pure-White, #{$color-pure-white});
+    font-family: $font-family-base;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+// =============================================
 // Utility classes
 // =============================================
 
