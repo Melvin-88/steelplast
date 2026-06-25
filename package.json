@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "sass": "^1.77.0"
+  },
+  "dependencies": {
+    "intl-tel-input": "^29.1.1"
   }
 }
