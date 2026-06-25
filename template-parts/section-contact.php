@@ -100,7 +100,7 @@ $heading_tag = ( ! empty( $args['heading'] ) && in_array( strtolower( (string) $
                     <div class="sp-form-global-error" role="alert" aria-live="assertive"></div>
 
                     <div class="sp-contact-form__actions">
-                        <button type="submit" class="sp-btn sp-btn--primary sp-btn--lg sp-btn--on-light">
+                        <button type="submit" class="sp-contact-btn sp-btn sp-btn--primary sp-btn--lg sp-btn--on-light">
                             <span><?php echo esc_html( steelplast_t( 'steelplast/contacts/form', 'submit_label', 'Send request' ) ); ?></span>
                             <span class="sp-btn__icon" aria-hidden="true">↵</span>
                         </button>
