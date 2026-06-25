@@ -4,6 +4,11 @@
     const steps = document.querySelector( '.sp-collab__steps' );
     if ( ! steps ) return;
 
+    if ( ! ( 'IntersectionObserver' in window ) ) {
+        steps.classList.add( 'sp-collab__steps--animated' );
+        return;
+    }
+
     const observer = new IntersectionObserver(
         function ( entries ) {
             if ( entries[ 0 ].isIntersecting ) {

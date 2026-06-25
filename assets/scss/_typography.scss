@@ -70,12 +70,12 @@ h5 {
 
     // label text on dark background
     &--dark-bg {
-        color: var(--Accent-color, #{$color-accent});
+        color: var(--color-accent, #{$color-accent});
     }
 
     // label text on light/white background
     &--light-bg {
-        color: var(--Dark-Navy, #{$color-dark-navy});
+        color: var(--color-navy, #{$color-dark-navy});
 
         .sp-section-label__index {
             color: rgba(0, 0, 0, 0.50);
