@@ -21,6 +21,7 @@ function steelplast_register_contact_strings() {
     icl_register_string( $ctx, 'contact_form_aria',        'Contact form' );
     icl_register_string( $ctx, 'field_name_placeholder',   'Your name' );
     icl_register_string( $ctx, 'field_email_placeholder',  'E-mail' );
+    icl_register_string( $ctx, 'field_phone_placeholder',  'Phone' );
     icl_register_string( $ctx, 'field_or_label',           'or' );
     icl_register_string( $ctx, 'field_comment_placeholder','Your message (optional)' );
     icl_register_string( $ctx, 'submit_label',             'Send request' );
@@ -29,6 +30,8 @@ function steelplast_register_contact_strings() {
     icl_register_string( $ctx, 'err_email_or_phone',       'Please enter email or phone' );
     icl_register_string( $ctx, 'err_email_invalid',        'Invalid email address' );
     icl_register_string( $ctx, 'err_phone_invalid',        'Enter full phone number' );
+    icl_register_string( $ctx, 'err_rate_limit',           'Too many requests. Please wait a moment.' );
+    icl_register_string( $ctx, 'err_send_failed',          'Failed to send email. Please try again later.' );
     icl_register_string( $ctx, 'err_server',               'Something went wrong. Please try again.' );
 }
 
@@ -55,7 +58,7 @@ function steelplast_contact_submit() {
     // Rate limit: 1 request per IP per 60 seconds via transient
     $ip_key = 'sp_contact_' . md5( sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ?? '' ) ) );
     if ( get_transient( $ip_key ) ) {
-        wp_send_json_error( array( 'message' => 'Too many requests. Please wait a moment.' ), 429 );
+        wp_send_json_error( array( 'message' => steelplast_t( 'steelplast/contacts/form', 'err_rate_limit', 'Too many requests. Please wait a moment.' ) ), 429 );
     }
 
     // Sanitize
@@ -66,7 +69,7 @@ function steelplast_contact_submit() {
 
     // Server-side validation
     if ( empty( $name ) ) {
-        wp_send_json_error( array( 'message' => 'Name is required.' ), 422 );
+        wp_send_json_error( array( 'message' => steelplast_t( 'steelplast/contacts/form', 'err_name_required', 'Please enter your name' ) ), 422 );
     }
 
     $has_email = ! empty( $email ) && is_email( $email );
@@ -75,7 +78,7 @@ function steelplast_contact_submit() {
     $has_phone    = ! empty( $phone ) && strlen( $phone_digits ) >= 7 && strlen( $phone_digits ) <= 15;
 
     if ( ! $has_email && ! $has_phone ) {
-        wp_send_json_error( array( 'message' => 'Email or phone is required.' ), 422 );
+        wp_send_json_error( array( 'message' => steelplast_t( 'steelplast/contacts/form', 'err_email_or_phone', 'Please enter email or phone' ) ), 422 );
     }
 
     // Compose email — use Customizer setting, fall back to admin email
@@ -111,8 +114,10 @@ function steelplast_contact_submit() {
     remove_action( 'wp_mail_failed', $mail_error_handler );
 
     if ( ! $sent ) {
-        $debug = WP_DEBUG ? ' (' . $mail_error_message . ')' : '';
-        wp_send_json_error( array( 'message' => 'Failed to send email. Please try again later.' . $debug ), 500 );
+        if ( WP_DEBUG && $mail_error_message ) {
+            error_log( 'SteelPlast contact form wp_mail failed: ' . $mail_error_message );
+        }
+        wp_send_json_error( array( 'message' => steelplast_t( 'steelplast/contacts/form', 'err_send_failed', 'Failed to send email. Please try again later.' ) ), 500 );
     }
 
     // Set rate limit transient (60 seconds)

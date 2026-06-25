@@ -10,7 +10,7 @@
 static $sp_contact_instance = 0;
 $sp_contact_instance++;
 $uid         = 'sp-contact-' . $sp_contact_instance;
-$heading_tag = ! empty( $args['heading'] ) ? $args['heading'] : 'h2';
+$heading_tag = ( ! empty( $args['heading'] ) && in_array( strtolower( (string) $args['heading'] ), array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ), true ) ) ? strtolower( (string) $args['heading'] ) : 'h2';
 ?>
 
 <section class="sp-contact-section" aria-labelledby="<?php echo esc_attr( $uid . '-title' ); ?>">
@@ -40,6 +40,7 @@ $heading_tag = ! empty( $args['heading'] ) ? $args['heading'] : 'h2';
                 <form
                     class="sp-contact-form"
                     id="<?php echo esc_attr( $uid . '-form' ); ?>"
+                    method="post"
                     novalidate
                     aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/form', 'contact_form_aria', 'Contact form' ) ); ?>"
                 >
@@ -51,6 +52,7 @@ $heading_tag = ! empty( $args['heading'] ) ? $args['heading'] : 'h2';
                             name="sp_name"
                             class="sp-form-input"
                             placeholder="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/form', 'field_name_placeholder', 'Your name' ) ); ?>"
+                            aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/form', 'field_name_placeholder', 'Your name' ) ); ?>"
                             required
                             autocomplete="name"
                             maxlength="100"
@@ -64,6 +66,7 @@ $heading_tag = ! empty( $args['heading'] ) ? $args['heading'] : 'h2';
                             name="sp_email"
                             class="sp-form-input"
                             placeholder="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/form', 'field_email_placeholder', 'E-mail' ) ); ?>"
+                            aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/form', 'field_email_placeholder', 'E-mail' ) ); ?>"
                             autocomplete="email"
                             maxlength="150"
                         >
@@ -75,6 +78,8 @@ $heading_tag = ! empty( $args['heading'] ) ? $args['heading'] : 'h2';
                             type="tel"
                             name="sp_phone"
                             class="sp-form-input"
+                            placeholder="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/form', 'field_phone_placeholder', 'Phone' ) ); ?>"
+                            aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/form', 'field_phone_placeholder', 'Phone' ) ); ?>"
                             autocomplete="tel"
                         >
                         <span class="sp-form-error" aria-live="polite"></span>
@@ -85,6 +90,7 @@ $heading_tag = ! empty( $args['heading'] ) ? $args['heading'] : 'h2';
                             name="sp_comment"
                             class="sp-form-input sp-form-textarea"
                             placeholder="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/form', 'field_comment_placeholder', 'Your message (optional)' ) ); ?>"
+                            aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/form', 'field_comment_placeholder', 'Your message (optional)' ) ); ?>"
                             rows="1"
                             maxlength="1000"
                         ></textarea>
