@@ -5,7 +5,11 @@
  */
 
 if ( ! current_user_can( 'edit_posts' ) ) {
-    wp_die( esc_html__( 'Access denied. You must be logged in as an editor.', 'steelplast' ) );
+    wp_die(
+        esc_html__( 'Access denied. You must be logged in and have permission to edit posts.', 'steelplast' ),
+        esc_html__( 'Forbidden', 'steelplast' ),
+        [ 'response' => 403 ]
+    );
 }
 
 get_header();
@@ -396,7 +400,7 @@ get_header();
             <h2 class="sp-sg__section-title">Focus &amp; Accessibility</h2>
             <div class="sp-sg__a11y-row">
                 <a href="#" class="sp-sg__focus-demo">Tab to me — focus ring</a>
-                <a href="#" class="sp-btn-contact sp-sg__focus-demo">Button focus</a>
+                <a href="#" class="sp-btn sp-btn--outline sp-btn--md sp-sg__focus-demo">Button focus</a>
             </div>
             <p class="sp-sg__note">Focus outline: 2px solid #6de2f7, offset 2px. Applied via <code>:focus-visible</code> only.</p>
         </section>

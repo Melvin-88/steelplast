@@ -6,7 +6,8 @@
  * @package SteelPlast
  */
 
-$quality_url = get_permalink( get_page_by_path( 'quality' ) );
+$quality_page = get_page_by_path( 'quality' );
+$quality_url  = $quality_page ? get_permalink( $quality_page ) : '';
 
 $cards = [
     [
@@ -52,7 +53,7 @@ $cards = [
                 </p>
 
                 <?php if ( $quality_url ) : ?>
-                <div style="display:flex;">
+                <div class="sp-quality__cta-wrap">
                     <a href="<?php echo esc_url( $quality_url ); ?>"
                        class="sp-btn sp-btn--primary sp-btn--md sp-btn--on-light"
                        aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/quality/header', 'cta_aria', 'Learn more about our quality standards' ) ); ?>">
@@ -67,19 +68,20 @@ $cards = [
                  aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/quality/cards', 'grid_aria', 'Quality certifications' ) ); ?>">
 
                 <?php foreach ( $cards as $card ) :
-                    $img_field = get_field( 'quality_' . $card['key'] . '_image' );
+                    $img_id = function_exists( 'get_field' ) ? get_field( 'quality_' . $card['key'] . '_image' ) : null;
+                    // ACF may return an array (image object) or an integer (attachment ID)
+                    if ( is_array( $img_id ) ) {
+                        $img_id = $img_id['ID'] ?? ( $img_id['id'] ?? null );
+                    }
                 ?>
                 <article class="sp-quality__card" role="listitem">
 
                     <div class="sp-quality__card-image">
-                        <?php if ( $img_field ) : ?>
-                            <img
-                                src="<?php echo esc_url( $img_field['url'] ); ?>"
-                                alt="<?php echo esc_attr( $img_field['alt'] ); ?>"
-                                width="<?php echo esc_attr( $img_field['width'] ); ?>"
-                                height="<?php echo esc_attr( $img_field['height'] ); ?>"
-                                loading="lazy"
-                            >
+                        <?php if ( $img_id ) : ?>
+                            <?php echo wp_get_attachment_image( (int) $img_id, 'medium', false, [
+                                'loading' => 'lazy',
+                                'class'   => 'sp-quality__card-img',
+                            ] ); ?>
                         <?php else : ?>
                             <div class="sp-quality__card-placeholder" aria-hidden="true"></div>
                         <?php endif; ?>

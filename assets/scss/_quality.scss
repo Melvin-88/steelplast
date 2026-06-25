@@ -25,6 +25,10 @@
         top: 100px;
     }
 
+    &__cta-wrap {
+        display: flex;
+    }
+
     &__title {
         color: $color-black;
         margin-top: 0;

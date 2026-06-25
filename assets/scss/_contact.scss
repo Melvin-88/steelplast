@@ -183,8 +183,9 @@
     }
 }
 
-// Submit button margin (layout only — styles live in _buttons.scss)
-.sp-contact-form .sp-btn {
+.sp-contact-form__actions {
+    display: flex;
+    justify-content: center;
     margin-top: 8px;
 }
 
