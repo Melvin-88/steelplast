@@ -57,6 +57,41 @@ function steelplast_customizer_register( WP_Customize_Manager $wp_customize ) {
     }
 
     // =========================================
+    // Section: Contact Form
+    // =========================================
+    $wp_customize->add_section( 'steelplast_contact_form', array(
+        'title'       => __( 'Contact Form', 'steelplast' ),
+        'description' => __( 'Settings for the contact form submissions.', 'steelplast' ),
+        'panel'       => 'steelplast_site_settings',
+    ) );
+
+    // Email where form submissions are sent
+    $wp_customize->add_setting( 'contact_form_email', array(
+        'default'           => get_option( 'admin_email' ),
+        'sanitize_callback' => 'sanitize_email',
+        'transport'         => 'refresh',
+    ) );
+    $wp_customize->add_control( 'contact_form_email', array(
+        'label'       => __( 'Notification email', 'steelplast' ),
+        'description' => __( 'Form submissions will be sent to this address. Defaults to the site admin email.', 'steelplast' ),
+        'section'     => 'steelplast_contact_form',
+        'type'        => 'email',
+    ) );
+
+    // Optional CC email
+    $wp_customize->add_setting( 'contact_form_email_cc', array(
+        'default'           => '',
+        'sanitize_callback' => 'sanitize_email',
+        'transport'         => 'refresh',
+    ) );
+    $wp_customize->add_control( 'contact_form_email_cc', array(
+        'label'       => __( 'CC email (optional)', 'steelplast' ),
+        'description' => __( 'Send a copy to this address as well.', 'steelplast' ),
+        'section'     => 'steelplast_contact_form',
+        'type'        => 'email',
+    ) );
+
+    // =========================================
     // Section: Social Media
     // =========================================
     $wp_customize->add_section( 'steelplast_social', array(
