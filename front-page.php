@@ -69,6 +69,8 @@ $stats = [
 
     <?php get_template_part( 'template-parts/home-services' ); ?>
 
+    <?php get_template_part( 'template-parts/section-quality' ); ?>
+
     <?php get_template_part( 'template-parts/section-collaboration' ); ?>
 
     <?php get_template_part( 'template-parts/section-contact' ); ?>

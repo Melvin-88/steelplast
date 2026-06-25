@@ -99,12 +99,12 @@ $heading_tag = ( ! empty( $args['heading'] ) && in_array( strtolower( (string) $
 
                     <div class="sp-form-global-error" role="alert" aria-live="assertive"></div>
 
-                    <button type="submit" class="sp-contact-btn">
-                        <span class="sp-contact-btn__label">
-                            <?php echo esc_html( steelplast_t( 'steelplast/contacts/form', 'submit_label', 'Send request' ) ); ?>
-                        </span>
-                        <span class="sp-contact-btn__icon" aria-hidden="true">↵</span>
-                    </button>
+                    <div style="display:flex;justify-content:center;">
+                        <button type="submit" class="sp-btn sp-btn--primary sp-btn--lg sp-btn--on-light">
+                            <span><?php echo esc_html( steelplast_t( 'steelplast/contacts/form', 'submit_label', 'Send request' ) ); ?></span>
+                            <span class="sp-btn__icon" aria-hidden="true">↵</span>
+                        </button>
+                    </div>
 
                     <div class="sp-form-success" role="status" aria-live="polite" hidden>
                         <?php echo esc_html( steelplast_t( 'steelplast/contacts/form', 'success_message', 'Thank you! We will contact you soon.' ) ); ?>
