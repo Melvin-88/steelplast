@@ -13,14 +13,15 @@ $btn_txt = steelplast_t( 'steelplast/home/about-preview', 'button',      'Learn 
 $about_page = get_page_by_path( 'about' );
 $about_url  = $about_page ? get_permalink( $about_page->ID ) : home_url( '/about/' );
 
-// ACF images — return_format: id
-$img1_id  = get_field( 'sp_about_image_1' );
-$img2_id  = get_field( 'sp_about_image_2' );
-$img3_id  = get_field( 'sp_about_image_3' );
+// ACF images — guarded against missing plugin
+$has_acf = function_exists( 'get_field' );
+$img1_id  = $has_acf ? get_field( 'sp_about_image_1' ) : 0;
+$img2_id  = $has_acf ? get_field( 'sp_about_image_2' ) : 0;
+$img3_id  = $has_acf ? get_field( 'sp_about_image_3' ) : 0;
 
-$img1_url = $img1_id ? wp_get_attachment_image_url( $img1_id, 'large' ) : get_template_directory_uri() . '/assets/img/about-placeholder-1.jpg';
-$img2_url = $img2_id ? wp_get_attachment_image_url( $img2_id, 'large' ) : get_template_directory_uri() . '/assets/img/about-placeholder-2.jpg';
-$img3_url = $img3_id ? wp_get_attachment_image_url( $img3_id, 'large' ) : get_template_directory_uri() . '/assets/img/about-placeholder-3.jpg';
+$img1_url = $img1_id ? wp_get_attachment_image_url( $img1_id, 'large' ) : '';
+$img2_url = $img2_id ? wp_get_attachment_image_url( $img2_id, 'large' ) : '';
+$img3_url = $img3_id ? wp_get_attachment_image_url( $img3_id, 'large' ) : '';
 ?>
 
 <section class="sp-about-preview" aria-label="<?php esc_attr_e( 'About us preview', 'steelplast' ); ?>">
@@ -36,12 +37,13 @@ $img3_url = $img3_id ? wp_get_attachment_image_url( $img3_id, 'large' ) : get_te
             </a>
         </div>
 
-        <!-- Right column: 3 chevron-clipped images -->
+        <!-- Right column: 3 chevron-clipped images (decorative) -->
         <div class="sp-about-preview__images" aria-hidden="true">
 
+            <?php if ( $img1_url ) : ?>
             <!-- Image 1 — left-pointing chevron -->
             <div class="sp-about-preview__shape sp-about-preview__shape--1">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 372 408" role="img" aria-label="<?php esc_attr_e( 'Company photo 1', 'steelplast' ); ?>">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 372 408" aria-hidden="true" focusable="false">
                     <defs>
                         <clipPath id="sp-about-clip-1" clipPathUnits="userSpaceOnUse">
                             <path d="M28.6286 154.92C-9.54286 176.74 -9.54286 231.26 28.6286 253.08L286.157 400.319C324.271 422.138 372 394.878 372 351.239V56.7613C372 13.1224 324.271 -14.138 286.157 7.68146L28.6286 154.92Z"/>
@@ -56,10 +58,12 @@ $img3_url = $img3_id ? wp_get_attachment_image_url( $img3_id, 'large' ) : get_te
                     />
                 </svg>
             </div>
+            <?php endif; ?>
 
+            <?php if ( $img2_url ) : ?>
             <!-- Image 2 — right-pointing chevron -->
             <div class="sp-about-preview__shape sp-about-preview__shape--2">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 374 413" role="img" aria-label="<?php esc_attr_e( 'Company photo 2', 'steelplast' ); ?>">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 374 413" aria-hidden="true" focusable="false">
                     <defs>
                         <clipPath id="sp-about-clip-2" clipPathUnits="userSpaceOnUse">
                             <path d="M345.217 156.819C383.594 178.906 383.594 234.094 345.217 256.181L86.3044 405.224C47.9852 427.311 0 399.717 0 355.543V57.4569C0 13.2832 47.9852 -14.3113 86.3044 7.7756L345.217 156.819Z"/>
@@ -74,10 +78,12 @@ $img3_url = $img3_id ? wp_get_attachment_image_url( $img3_id, 'large' ) : get_te
                     />
                 </svg>
             </div>
+            <?php endif; ?>
 
+            <?php if ( $img3_url ) : ?>
             <!-- Image 3 — left-pointing chevron -->
             <div class="sp-about-preview__shape sp-about-preview__shape--3">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 372 412" role="img" aria-label="<?php esc_attr_e( 'Company photo 3', 'steelplast' ); ?>">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 372 412" aria-hidden="true" focusable="false">
                     <defs>
                         <clipPath id="sp-about-clip-3" clipPathUnits="userSpaceOnUse">
                             <path d="M28.6286 156.439C-9.54286 178.472 -9.54286 233.528 28.6286 255.561L286.157 404.243C324.271 426.277 372 398.749 372 354.682V57.3178C372 13.251 324.271 -14.2766 286.157 7.75677L28.6286 156.439Z"/>
@@ -92,6 +98,7 @@ $img3_url = $img3_id ? wp_get_attachment_image_url( $img3_id, 'large' ) : get_te
                     />
                 </svg>
             </div>
+            <?php endif; ?>
 
         </div>
 
