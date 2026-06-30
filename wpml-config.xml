@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wpml-config>
+    <custom-fields>
+
+        <!-- Contacts page — intro -->
+        <custom-field action="translate">contact_intro</custom-field>
+
+        <!-- Contacts page — email addresses (copy, same for all languages) -->
+        <custom-field action="copy">email_1_address</custom-field>
+        <custom-field action="copy">email_2_address</custom-field>
+
+        <!-- Contacts page — phone numbers (copy, same for all languages) -->
+        <custom-field action="copy">phone_1_number</custom-field>
+        <custom-field action="copy">phone_2_number</custom-field>
+        <custom-field action="copy">phone_3_number</custom-field>
+
+        <!-- Contacts page — map URL (copy, same for all languages) -->
+        <custom-field action="copy">contact_map_url</custom-field>
+
+    </custom-fields>
+</wpml-config>

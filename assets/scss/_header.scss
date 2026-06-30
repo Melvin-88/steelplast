@@ -106,6 +106,7 @@
 
 // Active menu item — via WordPress classes or JS
 .current-menu-item > a,
+a.current-menu-item,
 .current-menu-ancestor > .sp-dropdown__toggle,
 .sp-nav__list a.sp-is-active,
 .sp-dropdown__toggle.sp-is-active {
