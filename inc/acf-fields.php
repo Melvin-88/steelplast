@@ -9,6 +9,76 @@ if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 }
 
 // =============================================
+// Home Page — Hero video
+// =============================================
+
+acf_add_local_field_group( [
+    'key'    => 'group_home_hero',
+    'title'  => 'Home — Hero Video',
+    'fields' => [
+        [
+            'key'           => 'field_hero_video',
+            'label'         => 'Hero background video (MP4)',
+            'name'          => 'hero_video',
+            'type'          => 'file',
+            'return_format' => 'url',
+            'mime_types'    => 'mp4',
+            'instructions'  => 'Upload an MP4 file. Recommended: 1920×1080, compressed for web.',
+        ],
+    ],
+    'location' => [
+        [
+            [
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'front-page.php',
+            ],
+        ],
+    ],
+    'menu_order' => -10,
+    'position'   => 'normal',
+    'style'      => 'default',
+] );
+
+// =============================================
+// All pages — Hero background image
+// =============================================
+
+acf_add_local_field_group( [
+    'key'    => 'group_page_hero',
+    'title'  => 'Page — Hero Image',
+    'fields' => [
+        [
+            'key'           => 'field_page_hero_image',
+            'label'         => 'Hero background image',
+            'name'          => 'page_hero_image',
+            'type'          => 'image',
+            'return_format' => 'array',
+            'preview_size'  => 'large',
+            'mime_types'    => 'jpg,jpeg,png,webp',
+            'instructions'  => 'Recommended: 1920×600px or wider. Used as page header background.',
+        ],
+    ],
+    'location' => [
+        [
+            [
+                'param'    => 'post_type',
+                'operator' => '==',
+                'value'    => 'page',
+            ],
+            [
+                'param'    => 'page_template',
+                'operator' => '!=',
+                'value'    => 'front-page.php',
+            ],
+        ],
+    ],
+    'menu_order' => -10,
+    'position'   => 'normal',
+    'style'      => 'default',
+] );
+
+// =============================================
 // Home Page — Services section images
 // =============================================
 

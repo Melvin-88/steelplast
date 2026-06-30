@@ -9,6 +9,8 @@
 @use 'quality';
 @use 'collaboration';
 @use 'about-preview';
+@use 'post-card';
+@use 'news';
 @use 'styleguide';
 
 // =============================================
@@ -42,8 +44,8 @@ html {
 }
 
 body {
-    background-color: $color-background;
-    color: $color-pure-white;
+    background-color: $color-pure-white;
+    color: $color-black;
     font-family: $font-family-base;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
