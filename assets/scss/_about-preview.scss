@@ -1,0 +1,111 @@
+@use 'variables' as *;
+
+// =============================================
+// About Preview — Home page section
+// =============================================
+
+.sp-about-preview {
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 60%;
+        height: 100%;
+        background-image: url('../img/collab-bg.png');
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        background-size: cover;
+        opacity: 0.6;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 80px;
+    }
+
+    // ---- Left column ----
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    &__tag {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: $color-accent;
+    }
+
+    &__title {
+        margin: 0;
+    }
+
+    &__desc {
+        margin: 0;
+    }
+
+    &__btn {
+        margin-top: 8px;
+    }
+
+    // ---- Right column: stacked chevrons (absolute positioning) ----
+
+    &__images {
+        position: relative;
+        width: 100%;
+        max-width: 374px;
+        margin: 0 auto;
+        aspect-ratio: 374 / 1100;
+    }
+
+    &__shape {
+        position: absolute;
+        width: 100%;
+
+        svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        // S-pattern: each shape overlaps the previous by ~34%
+        &--1 { top: 0;   z-index: 1; }
+        &--2 { top: 32%; z-index: 2; }
+        &--3 { top: 64%; z-index: 3; }
+    }
+
+    // ---- Responsive ----
+
+    @media (max-width: 1024px) {
+        &__inner {
+            gap: 48px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        &__inner {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        &__images {
+            max-width: 320px;
+            order: -1;
+        }
+    }
+}
