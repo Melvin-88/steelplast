@@ -252,6 +252,39 @@ acf_add_local_field_group( [
 ] );
 
 // =============================================
+// News Post — Single page cover image
+// =============================================
+
+acf_add_local_field_group( [
+    'key'    => 'group_post_cover_image',
+    'title'  => 'Post — Cover Image (single page)',
+    'fields' => [
+        [
+            'key'           => 'field_post_cover_image',
+            'label'         => 'Cover image (under header)',
+            'name'          => 'post_cover_image',
+            'type'          => 'image',
+            'return_format' => 'array',
+            'preview_size'  => 'large',
+            'mime_types'    => 'jpg,jpeg,png,webp',
+            'instructions'  => 'Large, high-resolution image shown under the header on the single post page. Recommended: 1920×800px or wider. Separate from the featured image, which is used for the news card thumbnail — this avoids stretching a small card image and losing quality. If empty, the featured image is used as a fallback.',
+        ],
+    ],
+    'location' => [
+        [
+            [
+                'param'    => 'post_type',
+                'operator' => '==',
+                'value'    => 'post',
+            ],
+        ],
+    ],
+    'menu_order' => -10,
+    'position'   => 'normal',
+    'style'      => 'default',
+] );
+
+// =============================================
 // Quality Page — section images & downloadable files
 // =============================================
 
