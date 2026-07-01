@@ -14,7 +14,7 @@ get_header();
 
     <div class="content-wrapper sp-page-content">
         <?php while ( have_posts() ) : the_post(); ?>
-            <h1 class="sp-page-content__title"><?php the_title(); ?></h1>
+            <h2 class="sp-page-content__title"><?php the_title(); ?></h2>
             <div class="sp-page-content__body">
                 <?php the_content(); ?>
             </div>

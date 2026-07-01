@@ -4,13 +4,15 @@
  *
  * @package SteelPlast
  *
- * Pass $args via get_template_part() fourth argument:
+ * Pass $args via get_template_part() third argument:
  *   'post_id' (int)    — WP post ID, defaults to current post in loop
  *   'heading'  (string) — heading tag, defaults to 'h3'
  */
 
 $post_id = $args['post_id'] ?? get_the_ID();
-$heading  = $args['heading']  ?? 'h3';
+$heading  = ( ! empty( $args['heading'] ) && in_array( strtolower( (string) $args['heading'] ), array( 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ), true ) )
+    ? strtolower( (string) $args['heading'] )
+    : 'h3';
 
 $title    = get_the_title( $post_id );
 $excerpt  = get_the_excerpt( $post_id );

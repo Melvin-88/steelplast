@@ -10,7 +10,7 @@
 get_header();
 
 $paged        = max( 1, get_query_var( 'paged' ) );
-$current_cat  = isset( $_GET['cat'] ) ? absint( $_GET['cat'] ) : 0;
+$current_cat  = isset( $_GET['cat'] ) ? absint( wp_unslash( $_GET['cat'] ) ) : 0;
 
 $query_args = [
     'post_type'      => 'post',
@@ -83,7 +83,13 @@ $base_url = get_permalink();
                     <nav class="sp-news-archive__pagination" aria-label="<?php esc_attr_e( 'Posts navigation', 'steelplast' ); ?>">
                         <?php
                         echo paginate_links( [
-                            'base'      => add_query_arg( 'paged', '%#%', $base_url ),
+                            'base'      => add_query_arg(
+                                array_filter( [
+                                    'cat'   => $current_cat ?: null,
+                                    'paged' => '%#%',
+                                ] ),
+                                $base_url
+                            ),
                             'format'    => '',
                             'total'     => $news_query->max_num_pages,
                             'current'   => $paged,

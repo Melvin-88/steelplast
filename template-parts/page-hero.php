@@ -19,7 +19,7 @@ $height = $args['height'] ?? 440;
     class="sp-page-hero<?php echo $image ? '' : ' sp-page-hero--no-image'; ?>"
     style="--sp-page-hero-height: <?php echo esc_attr( $height ); ?>px"
     role="img"
-    aria-label="<?php echo esc_attr( $image['alt'] ?? $title ); ?>"
+    aria-label="<?php echo esc_attr( ( $image && ! empty( $image['alt'] ) ) ? $image['alt'] : $title ); ?>"
 >
     <?php if ( $image ) : ?>
         <img
