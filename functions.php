@@ -291,6 +291,9 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/home/hero', 'stat_3_label', 'Quality control stages' );
 
     // -- steelplast/contacts/page --
+    icl_register_string( 'steelplast/contacts/page', 'emails_heading',    'Email' );
+    icl_register_string( 'steelplast/contacts/page', 'phones_heading',    'Phone' );
+    icl_register_string( 'steelplast/contacts/page', 'locations_heading', 'Our locations' );
     icl_register_string( 'steelplast/contacts/page', 'location_label',   'Head office and production' );
     icl_register_string( 'steelplast/contacts/page', 'location_address', "Avtobazivska St., 6\nPoltava, 36000\nPoltava region, Ukraine" );
 

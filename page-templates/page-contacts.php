@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Contacts
+ * Template Name: Contacts (Details)
  *
  * @package SteelPlast
  */
@@ -14,7 +14,8 @@ $map_url = $has_acf ? get_field( 'contact_map_url' ) : '';
 
 // Fallback to original language post if current translation has no map URL
 if ( ! $map_url && function_exists( 'icl_object_id' ) ) {
-    $original_id = icl_object_id( get_the_ID(), 'page', true, 'uk' );
+    $default_lang = apply_filters( 'wpml_default_language', null );
+    $original_id  = $default_lang ? icl_object_id( get_the_ID(), 'page', true, $default_lang ) : 0;
     if ( $original_id && $original_id !== get_the_ID() ) {
         $map_url = $has_acf ? get_field( 'contact_map_url', $original_id ) : '';
     }
@@ -29,8 +30,9 @@ $email_labels = [
 // Build emails array — skip empty slots
 $emails = [];
 for ( $i = 1; $i <= 2; $i++ ) {
-    $address = $has_acf ? get_field( "email_{$i}_address" ) : '';
-    if ( $address ) {
+    $address_raw = $has_acf ? get_field( "email_{$i}_address" ) : '';
+    $address     = sanitize_email( $address_raw );
+    if ( $address && is_email( $address ) ) {
         $emails[] = [
             'label'   => $email_labels[ $i ] ?? '',
             'address' => $address,
@@ -146,8 +148,9 @@ $locations = [ [
     <?php // Set map language — replace embedded language code in pb parameter + add hl param
 if ( $map_url ) {
     $map_lang = defined( 'ICL_LANGUAGE_CODE' ) ? ICL_LANGUAGE_CODE : 'en';
-    // Replace !1sXX language codes inside the pb hash
-    $map_url  = preg_replace( '/!1s[a-z]{2}(?=[^a-z])/', '!1s' . $map_lang, $map_url );
+    $map_lang = sanitize_key( strtolower( $map_lang ) );
+    // Replace !1sXX or !1sXX-YY language codes inside the pb hash
+    $map_url  = preg_replace( '/!1s[a-z]{2}(?:-[a-z]{2})?(?=[^a-z-])/', '!1s' . $map_lang, $map_url );
     $map_url  = add_query_arg( 'hl', $map_lang, $map_url );
 }
 
