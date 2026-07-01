@@ -47,7 +47,7 @@
 
         <!-- Actions: contacts / language / CTA -->
         <div class="sp-header__actions">
-            <a href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>" class="sp-header__contacts">
+            <a href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>" class="sp-header__contacts<?php echo is_page_template( 'page-templates/page-contacts.php' ) ? ' current-menu-item' : ''; ?>">
                 <?php echo esc_html( steelplast_t( 'steelplast/global/header', 'contacts', 'Contacts' ) ); ?>
             </a>
 

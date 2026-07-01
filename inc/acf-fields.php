@@ -79,6 +79,57 @@ acf_add_local_field_group( [
 ] );
 
 // =============================================
+// Contacts Page
+// =============================================
+
+acf_add_local_field_group( [
+    'key'    => 'group_contacts_page',
+    'title'  => 'Contacts Page',
+    'fields' => [
+
+        // Intro text
+        [
+            'key'   => 'field_contact_intro',
+            'label' => 'Intro text',
+            'name'  => 'contact_intro',
+            'type'  => 'textarea',
+            'rows'  => 3,
+        ],
+
+        // ---- Emails (2 slots — labels via WPML) ----
+        [ 'key' => 'field_email_1_address', 'label' => 'Email 1', 'name' => 'email_1_address', 'type' => 'text' ],
+        [ 'key' => 'field_email_2_address', 'label' => 'Email 2', 'name' => 'email_2_address', 'type' => 'text' ],
+
+        // ---- Phones (3 slots — labels via WPML) ----
+        [ 'key' => 'field_phone_1_number', 'label' => 'Phone 1', 'name' => 'phone_1_number', 'type' => 'text' ],
+        [ 'key' => 'field_phone_2_number', 'label' => 'Phone 2', 'name' => 'phone_2_number', 'type' => 'text' ],
+        [ 'key' => 'field_phone_3_number', 'label' => 'Phone 3', 'name' => 'phone_3_number', 'type' => 'text' ],
+
+        // Google Maps embed URL
+        [
+            'key'          => 'field_contact_map_url',
+            'label'        => 'Google Maps embed URL',
+            'name'         => 'contact_map_url',
+            'type'         => 'text',
+            'instructions' => 'Paste the src URL from Google Maps → Share → Embed a map.',
+        ],
+
+    ],
+    'location' => [
+        [
+            [
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/page-contacts.php',
+            ],
+        ],
+    ],
+    'menu_order' => 0,
+    'position'   => 'normal',
+    'style'      => 'default',
+] );
+
+// =============================================
 // Home Page — Services section images
 // =============================================
 

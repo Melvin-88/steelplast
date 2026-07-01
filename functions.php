@@ -289,6 +289,22 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/home/hero', 'stat_1_label', 'Cycle repeatability' );
     icl_register_string( 'steelplast/home/hero', 'stat_2_label', 'Mold resource' );
     icl_register_string( 'steelplast/home/hero', 'stat_3_label', 'Quality control stages' );
+
+    // -- steelplast/contacts/page --
+    icl_register_string( 'steelplast/contacts/page', 'emails_heading',    'Email' );
+    icl_register_string( 'steelplast/contacts/page', 'phones_heading',    'Phone' );
+    icl_register_string( 'steelplast/contacts/page', 'locations_heading', 'Our locations' );
+    icl_register_string( 'steelplast/contacts/page', 'location_label',   'Head office and production' );
+    icl_register_string( 'steelplast/contacts/page', 'location_address', "Avtobazivska St., 6\nPoltava, 36000\nPoltava region, Ukraine" );
+
+    // Email labels
+    icl_register_string( 'steelplast/contacts/page', 'email_1_label', 'General inquiries and orders' );
+    icl_register_string( 'steelplast/contacts/page', 'email_2_label', 'Supply department' );
+
+    // Phone labels
+    icl_register_string( 'steelplast/contacts/page', 'phone_1_label', 'Sales department (consultations and orders)' );
+    icl_register_string( 'steelplast/contacts/page', 'phone_2_label', 'Technical department (drawing questions)' );
+    icl_register_string( 'steelplast/contacts/page', 'phone_3_label', 'Partner hotline' );
 }
 add_action( 'after_setup_theme', 'steelplast_register_wpml_strings' );
 
