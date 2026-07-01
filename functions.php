@@ -541,8 +541,12 @@ class SteelPlast_Nav_Walker extends Walker_Nav_Menu {
             // Flag the home link explicitly — under WPML with language
             // directories its path (e.g. "/en/") is a prefix of every other
             // page's path, so the JS active-state matcher needs an exact
-            // match here instead of the usual "starts with" match.
-            $is_home    = ! empty( $item->url ) && untrailingslashit( $item->url ) === untrailingslashit( home_url( '/' ) );
+            // match here instead of the usual "starts with" match. Compare
+            // paths only (not full URLs) so scheme/host differences don't
+            // cause a false negative.
+            $item_path  = untrailingslashit( (string) wp_parse_url( $item->url, PHP_URL_PATH ) );
+            $home_path  = untrailingslashit( (string) wp_parse_url( home_url( '/' ), PHP_URL_PATH ) );
+            $is_home    = $item_path && $item_path === $home_path;
             $home_attr  = $is_home ? ' data-nav-home="1"' : '';
             $output    .= '<a href="' . $url . '"' . $aria_current . $home_attr . '>';
             $output    .= esc_html( $item->title );
