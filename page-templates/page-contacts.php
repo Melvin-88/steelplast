@@ -9,17 +9,12 @@ get_header();
 
 $has_acf = function_exists( 'get_field' );
 
-$intro   = $has_acf ? get_field( 'contact_intro' )   : '';
-$map_url = $has_acf ? get_field( 'contact_map_url' ) : '';
+// Intro text is translatable copy — kept per-language.
+$intro = $has_acf ? get_field( 'contact_intro' ) : '';
 
-// Fallback to original language post if current translation has no map URL
-if ( ! $map_url && function_exists( 'icl_object_id' ) ) {
-    $default_lang = apply_filters( 'wpml_default_language', null );
-    $original_id  = $default_lang ? icl_object_id( get_the_ID(), 'page', true, $default_lang ) : 0;
-    if ( $original_id && $original_id !== get_the_ID() ) {
-        $map_url = $has_acf ? get_field( 'contact_map_url', $original_id ) : '';
-    }
-}
+// Map, emails and phone numbers are the same for every language — always
+// read from the default-language post (see steelplast_get_field_default_lang()).
+$map_url = steelplast_get_field_default_lang( 'contact_map_url' );
 
 // Email labels from WPML
 $email_labels = [
@@ -30,7 +25,7 @@ $email_labels = [
 // Build emails array — skip empty slots
 $emails = [];
 for ( $i = 1; $i <= 2; $i++ ) {
-    $address_raw = $has_acf ? get_field( "email_{$i}_address" ) : '';
+    $address_raw = steelplast_get_field_default_lang( "email_{$i}_address" );
     $address     = sanitize_email( $address_raw );
     if ( $address && is_email( $address ) ) {
         $emails[] = [
@@ -50,7 +45,7 @@ $phone_labels = [
 // Build phones array — skip empty slots
 $phones = [];
 for ( $i = 1; $i <= 3; $i++ ) {
-    $number = $has_acf ? get_field( "phone_{$i}_number" ) : '';
+    $number = steelplast_get_field_default_lang( "phone_{$i}_number" );
     if ( $number ) {
         $phones[] = [
             'label'  => $phone_labels[ $i ] ?? '',

@@ -70,6 +70,11 @@
             height: 8px;
             background: linear-gradient(90deg, #6DE2F7 105.95%, #FFF 105.96%);
         }
+
+        // ---- Step-count variant (e.g. 3 steps instead of 4) ----
+        &--count-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 
     &__step {
@@ -93,6 +98,15 @@
         .sp-collab__steps--animated &--2 { min-height: 280px; }
         .sp-collab__steps--animated &--3 { min-height: 340px; }
         .sp-collab__steps--animated &--4 { min-height: 400px; }
+
+        // ---- Step-count variant: 3 steps — recomputed staircase + closing border ----
+        .sp-collab__steps--count-3 &--3 {
+            border-right: 2px solid rgba($color-accent, 0.50);
+        }
+
+        .sp-collab__steps--count-3.sp-collab__steps--animated &--1 { min-height: 240px; }
+        .sp-collab__steps--count-3.sp-collab__steps--animated &--2 { min-height: 320px; }
+        .sp-collab__steps--count-3.sp-collab__steps--animated &--3 { min-height: 400px; }
     }
 
     &__step-tag {

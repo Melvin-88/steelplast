@@ -10,7 +10,8 @@
  *   'height' (int)    — CSS height in px; defaults to 440
  */
 
-$image  = function_exists( 'get_field' ) ? get_field( 'page_hero_image' ) : null;
+// Same image for every language — always read from the default-language post
+$image  = steelplast_get_field_default_lang( 'page_hero_image' );
 $title  = $args['title']  ?? get_the_title();
 $height = $args['height'] ?? 440;
 ?>

@@ -8,6 +8,8 @@
     background: $color-background;
     color: $color-pure-white;
     font-family: $font-family-base;
+    // No hero on this page — clear the fixed header ourselves
+    padding-top: 80px;
 }
 
 // ── Page header ──────────────────────────────

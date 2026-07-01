@@ -65,18 +65,21 @@
         margin-top: 8px;
     }
 
-    // ---- Right column: stacked chevrons (absolute positioning) ----
+    // ---- Right column: stacked chevrons ----
+    // Flex column + negative margins instead of absolute % positioning —
+    // the container's height comes from its content, so tightening the
+    // overlap can never push the last shape outside the section.
 
     &__images {
         position: relative;
         width: 100%;
         max-width: 374px;
         margin: 0 auto;
-        aspect-ratio: 374 / 1100;
+        display: flex;
+        flex-direction: column;
     }
 
     &__shape {
-        position: absolute;
         width: 100%;
 
         svg {
@@ -85,10 +88,18 @@
             display: block;
         }
 
-        // S-pattern: each shape overlaps the previous by ~34%
-        &--1 { top: 0;   z-index: 1; }
-        &--2 { top: 32%; z-index: 2; }
-        &--3 { top: 64%; z-index: 3; }
+        &--1 { z-index: 1; }
+
+        &--2 {
+            z-index: 2;
+            margin-top: -150px;
+            margin-left: -100px;
+        }
+
+        &--3 {
+            z-index: 3;
+            margin-top: -150px;
+        }
     }
 
     // ---- Responsive ----
@@ -108,6 +119,18 @@
         &__images {
             max-width: 320px;
             order: -1;
+        }
+
+        // Images are narrower here — scale the overlap/offset down to match
+        &__shape {
+            &--2 {
+                margin-top: -110px;
+                margin-left: -60px;
+            }
+
+            &--3 {
+                margin-top: -110px;
+            }
         }
     }
 }

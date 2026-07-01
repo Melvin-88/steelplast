@@ -13,11 +13,11 @@ $btn_txt = steelplast_t( 'steelplast/home/about-preview', 'button',      'Learn 
 $about_page = get_page_by_path( 'about' );
 $about_url  = $about_page ? get_permalink( $about_page->ID ) : home_url( '/about/' );
 
-// ACF images — guarded against missing plugin
-$has_acf = function_exists( 'get_field' );
-$img1_id  = $has_acf ? get_field( 'sp_about_image_1' ) : 0;
-$img2_id  = $has_acf ? get_field( 'sp_about_image_2' ) : 0;
-$img3_id  = $has_acf ? get_field( 'sp_about_image_3' ) : 0;
+// Images are the same for every language — always read from the
+// default-language post (see steelplast_get_field_default_lang()).
+$img1_id = steelplast_get_field_default_lang( 'sp_about_image_1' );
+$img2_id = steelplast_get_field_default_lang( 'sp_about_image_2' );
+$img3_id = steelplast_get_field_default_lang( 'sp_about_image_3' );
 
 $img1_url = $img1_id ? wp_get_attachment_image_url( $img1_id, 'large' ) : '';
 $img2_url = $img2_id ? wp_get_attachment_image_url( $img2_id, 'large' ) : '';

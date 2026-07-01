@@ -7,6 +7,8 @@
 @use 'contact';
 @use 'services';
 @use 'quality';
+@use 'quality-reliability';
+@use 'quality-certification';
 @use 'collaboration';
 @use 'about-preview';
 @use 'post-card';
@@ -99,10 +101,23 @@ a {
     padding: 0 32px;
 }
 
+// single.php has no hero — its content sits directly under the fixed header
+.sp-main > .container {
+    padding-top: 80px;
+}
+
 .sp-main,
 .site-main {
-    padding-top: 80px;
     flex: 1;
+}
+
+// .sp-main is used by templates that render their own full-bleed hero
+// (page-hero, hero video) flush under the fixed header, so it gets no
+// default top offset. .site-main (generic content templates without a
+// hero) keeps the header clearance. Templates using .sp-main without a
+// hero add their own local top offset (see .sp-sg, .sp-main > .container).
+.site-main {
+    padding-top: 80px;
 }
 
 // =============================================

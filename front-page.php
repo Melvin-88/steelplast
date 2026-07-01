@@ -8,7 +8,8 @@
 
 get_header();
 
-$video_url = function_exists( 'get_field' ) ? get_field( 'hero_video' ) : '';
+// Same video for every language — always read from the default-language post
+$video_url = steelplast_get_field_default_lang( 'hero_video' );
 if ( ! $video_url ) {
     $video_url = get_template_directory_uri() . '/assets/video/hero.mp4';
 }

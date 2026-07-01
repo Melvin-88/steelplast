@@ -12,7 +12,8 @@
 // ── Hero ─────────────────────────────────────
 
 .sp-contacts-page__hero {
-    padding: 60px 0 48px;
+    // No hero image on this page — clear the fixed header ourselves
+    padding: 140px 0 48px;
 
     .sp-contacts-page__title {
         font-size: clamp(40px, 6vw, $font-size-h1);

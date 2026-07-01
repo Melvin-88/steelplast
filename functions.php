@@ -214,9 +214,9 @@ function steelplast_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'steelplast_scripts' );
 
-// Collaboration JS — front page only
+// Collaboration JS — front page + any page using the collaboration/steps section
 add_action( 'wp_enqueue_scripts', function () {
-    if ( ! is_front_page() ) return;
+    if ( ! is_front_page() && ! is_page_template( 'page-templates/template-quality.php' ) ) return;
     $collab_js = get_template_directory() . '/assets/js/collaboration.js';
     wp_enqueue_script(
         'steelplast-collaboration',
@@ -317,6 +317,33 @@ function steelplast_t( $context, $name, $default ) {
         return icl_t( $context, $name, $default );
     }
     return $default;
+}
+
+/**
+ * Get an ACF field from the default-language post.
+ *
+ * Media/config fields (images, files, video, map embed URLs, contact
+ * details) carry no translatable text, so a single value should apply to
+ * every WPML language instead of needing to be re-entered per translation.
+ *
+ * Usage: steelplast_get_field_default_lang( 'page_hero_image' )
+ */
+function steelplast_get_field_default_lang( $selector, $post_id = null ) {
+    if ( ! function_exists( 'get_field' ) ) {
+        return false;
+    }
+
+    $post_id = $post_id ?: get_the_ID();
+
+    if ( function_exists( 'icl_object_id' ) ) {
+        $default_lang = apply_filters( 'wpml_default_language', null );
+        $original_id  = $default_lang ? icl_object_id( $post_id, get_post_type( $post_id ), true, $default_lang ) : 0;
+        if ( $original_id ) {
+            $post_id = $original_id;
+        }
+    }
+
+    return get_field( $selector, $post_id );
 }
 
 /**
@@ -502,9 +529,15 @@ class SteelPlast_Nav_Walker extends Walker_Nav_Menu {
             $output .= '</svg>';
             $output .= '</button>';
         } else {
-            $url        = ! empty( $item->url ) ? esc_url( $item->url ) : '#';
+            $url          = ! empty( $item->url ) ? esc_url( $item->url ) : '#';
             $aria_current = ( $item->current ) ? ' aria-current="page"' : '';
-            $output    .= '<a href="' . $url . '"' . $aria_current . '>';
+            // Flag the home link explicitly — under WPML with language
+            // directories its path (e.g. "/en/") is a prefix of every other
+            // page's path, so the JS active-state matcher needs an exact
+            // match here instead of the usual "starts with" match.
+            $is_home    = ! empty( $item->url ) && untrailingslashit( $item->url ) === untrailingslashit( home_url( '/' ) );
+            $home_attr  = $is_home ? ' data-nav-home="1"' : '';
+            $output    .= '<a href="' . $url . '"' . $aria_current . $home_attr . '>';
             $output    .= esc_html( $item->title );
             $output    .= '</a>';
         }

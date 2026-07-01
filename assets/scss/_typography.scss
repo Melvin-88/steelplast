@@ -78,7 +78,7 @@ h5 {
         color: var(--color-navy, #{$color-dark-navy});
 
         .sp-section-label__index {
-            color: rgba(0, 0, 0, 0.50);
+            color: rgba($color-dark-navy, 0.50);
         }
     }
 }
