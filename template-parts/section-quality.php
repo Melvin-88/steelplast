@@ -9,26 +9,33 @@
 $quality_page = get_page_by_path( 'quality' );
 $quality_url  = $quality_page ? get_permalink( $quality_page ) : '';
 
+// Fixed set of evergreen certification claims — an icon communicates each
+// one more reliably than a photo (there is no meaningful photo of a
+// "Zero-Defect Policy"), and never falls back to an empty placeholder.
 $cards = [
     [
-        'key'   => 'card_1',
         'title' => steelplast_t( 'steelplast/quality/cards', 'card_1_title', 'IATF 16949 Certified' ),
         'desc'  => steelplast_t( 'steelplast/quality/cards', 'card_1_desc',  'International automotive quality management standard applied at every production stage.' ),
+        // Shield + checkmark — certified compliance
+        'icon'  => '<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 3l9 3.5v6c0 6.5-4 10.5-9 12.5-5-2-9-6-9-12.5v-6L14 3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M10 14l3 3 5-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     ],
     [
-        'key'   => 'card_2',
         'title' => steelplast_t( 'steelplast/quality/cards', 'card_2_title', 'ISO 9001 Certified' ),
         'desc'  => steelplast_t( 'steelplast/quality/cards', 'card_2_desc',  'Confirmed quality management system ensuring consistent product excellence.' ),
+        // Medal / rosette — certification seal
+        'icon'  => '<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M14 8.3l1.1 2.3 2.5.4-1.8 1.8.4 2.5-2.2-1.2-2.2 1.2.4-2.5-1.8-1.8 2.5-.4L14 8.3z" fill="currentColor"/><path d="M10.5 17.3l-1.5 6.7 5-2.5 5 2.5-1.5-6.7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
     ],
     [
-        'key'   => 'card_3',
         'title' => steelplast_t( 'steelplast/quality/cards', 'card_3_title', '6-Stage Control' ),
         'desc'  => steelplast_t( 'steelplast/quality/cards', 'card_3_desc',  'Multi-step inspection from raw material intake to finished product shipment.' ),
+        // Ascending bars — staged process
+        'icon'  => '<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 21h6v-4H4v4zM11 21h6v-9h-6v9zM18 21h6v-14h-6v14z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
     ],
     [
-        'key'   => 'card_4',
         'title' => steelplast_t( 'steelplast/quality/cards', 'card_4_title', 'Zero-Defect Policy' ),
         'desc'  => steelplast_t( 'steelplast/quality/cards', 'card_4_desc',  'Numerous client awards for outstanding quality and exceptional production results.' ),
+        // Trophy — awards and recognition
+        'icon'  => '<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 4h10v6a5 5 0 0 1-10 0V4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 6H6a3 3 0 0 0 3 5M19 6h3a3 3 0 0 1-3 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M14 15v3M10 22h8M11 22c0-2 1-3 3-3s3 1 3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     ],
 ];
 ?>
@@ -67,28 +74,17 @@ $cards = [
             <div class="sp-quality__grid" role="list"
                  aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/quality/cards', 'grid_aria', 'Quality certifications' ) ); ?>">
 
-                <?php foreach ( $cards as $card ) :
-                    $img_id = function_exists( 'get_field' ) ? get_field( 'quality_' . $card['key'] . '_image' ) : null;
-                    // ACF may return an array (image object) or an integer (attachment ID)
-                    if ( is_array( $img_id ) ) {
-                        $img_id = $img_id['ID'] ?? ( $img_id['id'] ?? null );
-                    }
-                ?>
+                <?php foreach ( $cards as $card ) : ?>
                 <article class="sp-quality__card" role="listitem">
 
-                    <div class="sp-quality__card-image">
-                        <?php if ( $img_id ) : ?>
-                            <?php echo wp_get_attachment_image( (int) $img_id, 'medium', false, [
-                                'loading' => 'lazy',
-                                'class'   => 'sp-quality__card-img',
-                            ] ); ?>
-                        <?php else : ?>
-                            <div class="sp-quality__card-placeholder" aria-hidden="true"></div>
-                        <?php endif; ?>
+                    <div class="sp-quality__card-header">
+                        <div class="sp-quality__card-icon" aria-hidden="true">
+                            <?php echo $card['icon']; // phpcs:ignore -- fixed inline SVG markup, not user input ?>
+                        </div>
+                        <h3 class="sp-quality__card-title"><?php echo esc_html( $card['title'] ); ?></h3>
                     </div>
 
                     <div class="sp-quality__card-body">
-                        <h3 class="sp-quality__card-title"><?php echo esc_html( $card['title'] ); ?></h3>
                         <p class="sp-quality__card-desc"><?php echo esc_html( $card['desc'] ); ?></p>
                     </div>
 

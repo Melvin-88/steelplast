@@ -135,8 +135,15 @@ function steelplast_scripts() {
         true
     );
 
-    // Contact form JS — on Contacts page and front page
-    if ( is_page_template( 'page-templates/template-contacts.php' ) || is_front_page() ) {
+    // Contact form JS/CSS — only on pages that actually render
+    // template-parts/section-contact.php. Keep this list in sync whenever a
+    // page starts using that partial (grep -rn "section-contact" *.php page-templates/*.php).
+    $contact_form_templates = [
+        'page-templates/template-contacts.php',
+        'page-templates/template-quality.php',
+        'page-templates/page-news.php',
+    ];
+    if ( is_front_page() || is_page_template( $contact_form_templates ) ) {
         $iti_css = get_template_directory() . '/assets/css/vendor/intlTelInput.min.css';
         wp_enqueue_style(
             'intl-tel-input',
@@ -214,9 +221,9 @@ function steelplast_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'steelplast_scripts' );
 
-// Collaboration JS — front page only
+// Collaboration JS — front page + any page using the collaboration/steps section
 add_action( 'wp_enqueue_scripts', function () {
-    if ( ! is_front_page() ) return;
+    if ( ! is_front_page() && ! is_page_template( 'page-templates/template-quality.php' ) ) return;
     $collab_js = get_template_directory() . '/assets/js/collaboration.js';
     wp_enqueue_script(
         'steelplast-collaboration',
@@ -317,6 +324,33 @@ function steelplast_t( $context, $name, $default ) {
         return icl_t( $context, $name, $default );
     }
     return $default;
+}
+
+/**
+ * Get an ACF field from the default-language post.
+ *
+ * Media/config fields (images, files, video, map embed URLs, contact
+ * details) carry no translatable text, so a single value should apply to
+ * every WPML language instead of needing to be re-entered per translation.
+ *
+ * Usage: steelplast_get_field_default_lang( 'page_hero_image' )
+ */
+function steelplast_get_field_default_lang( $selector, $post_id = null ) {
+    if ( ! function_exists( 'get_field' ) ) {
+        return false;
+    }
+
+    $post_id = $post_id ?: get_the_ID();
+
+    if ( function_exists( 'icl_object_id' ) ) {
+        $default_lang = apply_filters( 'wpml_default_language', null );
+        $original_id  = $default_lang ? icl_object_id( $post_id, get_post_type( $post_id ), true, $default_lang ) : 0;
+        if ( $original_id ) {
+            $post_id = $original_id;
+        }
+    }
+
+    return get_field( $selector, $post_id );
 }
 
 /**
@@ -502,9 +536,19 @@ class SteelPlast_Nav_Walker extends Walker_Nav_Menu {
             $output .= '</svg>';
             $output .= '</button>';
         } else {
-            $url        = ! empty( $item->url ) ? esc_url( $item->url ) : '#';
+            $url          = ! empty( $item->url ) ? esc_url( $item->url ) : '#';
             $aria_current = ( $item->current ) ? ' aria-current="page"' : '';
-            $output    .= '<a href="' . $url . '"' . $aria_current . '>';
+            // Flag the home link explicitly — under WPML with language
+            // directories its path (e.g. "/en/") is a prefix of every other
+            // page's path, so the JS active-state matcher needs an exact
+            // match here instead of the usual "starts with" match. Compare
+            // paths only (not full URLs) so scheme/host differences don't
+            // cause a false negative.
+            $item_path  = untrailingslashit( (string) wp_parse_url( $item->url, PHP_URL_PATH ) );
+            $home_path  = untrailingslashit( (string) wp_parse_url( home_url( '/' ), PHP_URL_PATH ) );
+            $is_home    = $item_path && $item_path === $home_path;
+            $home_attr  = $is_home ? ' data-nav-home="1"' : '';
+            $output    .= '<a href="' . $url . '"' . $aria_current . $home_attr . '>';
             $output    .= esc_html( $item->title );
             $output    .= '</a>';
         }

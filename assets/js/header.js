@@ -71,11 +71,20 @@
         }
     });
 
-    // Active menu item by current URL
+    // Active menu item by current URL.
+    // The home link (data-nav-home, set server-side) always needs an exact
+    // match — under WPML with language directories its path (e.g. "/en/")
+    // is a prefix of every other page's path, so a "starts with" match
+    // would keep it highlighted everywhere. Other links keep prefix
+    // matching so e.g. "/news/" stays active on single article pages.
     var currentPath = window.location.pathname;
     document.querySelectorAll('.sp-nav__list a').forEach(function (link) {
         var linkPath = new URL(link.href, window.location.origin).pathname;
-        if (linkPath === '/' ? currentPath === '/' : currentPath.indexOf(linkPath) === 0 && linkPath !== '/') {
+        var isHomeLink = link.dataset.navHome === '1';
+        var isActive = isHomeLink
+            ? currentPath === linkPath
+            : linkPath !== '/' && currentPath.indexOf(linkPath) === 0;
+        if (isActive) {
             link.classList.add('sp-is-active');
             var parentDropdown = link.closest('.sp-has-dropdown');
             if (parentDropdown) {

@@ -3,15 +3,14 @@
  * Template part: Home — Services section
  */
 
-// ACF image IDs — WPML copies these from UA to all languages automatically
-// (set to "Copy" in WPML → Settings → Custom Fields Translation)
-$has_acf = function_exists( 'get_field' );
-$img_ids  = [
-    1 => $has_acf ? ( get_field( 'services_card_1_image' ) ?: 0 ) : 0,
-    2 => $has_acf ? ( get_field( 'services_card_2_image' ) ?: 0 ) : 0,
-    3 => $has_acf ? ( get_field( 'services_card_3_image' ) ?: 0 ) : 0,
-    4 => $has_acf ? ( get_field( 'services_card_4_image' ) ?: 0 ) : 0,
-    5 => $has_acf ? ( get_field( 'services_card_5_image' ) ?: 0 ) : 0,
+// Images are the same for every language — always read from the
+// default-language post (see steelplast_get_field_default_lang()).
+$img_ids = [
+    1 => steelplast_get_field_default_lang( 'services_card_1_image' ) ?: 0,
+    2 => steelplast_get_field_default_lang( 'services_card_2_image' ) ?: 0,
+    3 => steelplast_get_field_default_lang( 'services_card_3_image' ) ?: 0,
+    4 => steelplast_get_field_default_lang( 'services_card_4_image' ) ?: 0,
+    5 => steelplast_get_field_default_lang( 'services_card_5_image' ) ?: 0,
 ];
 
 $section_label = steelplast_t( 'steelplast/home/services', 'section_label', 'Our Services' );
@@ -77,34 +76,15 @@ $stamping_image_id = $img_ids[4];
         <!-- Single 3-column grid: row 1 (3 cards) + row 2 (wide card span-2 + 1 card) -->
         <div class="sp-services__grid">
 
-            <?php foreach ( $services_row1 as $service ) : ?>
-                <article class="sp-services__card sp-services__card--with-image" data-service="<?php echo esc_attr( $service['id'] ); ?>">
-
-                    <div class="sp-services__card-image">
-                        <?php if ( $service['image_id'] ) : ?>
-                            <?php echo wp_get_attachment_image( $service['image_id'], 'medium', false, [
-                                'loading' => 'lazy',
-                                'class'   => 'sp-services__card-img',
-                            ] ); ?>
-                        <?php else : ?>
-                            <div class="sp-services__card-image-placeholder" aria-hidden="true"></div>
-                        <?php endif; ?>
-                    </div>
-
-                    <div class="sp-services__card-body">
-                        <h3 class="sp-services__card-title"><?php echo esc_html( $service['title'] ); ?></h3>
-                        <p class="sp-services__card-desc"><?php echo esc_html( $service['desc'] ); ?></p>
-                    </div>
-
-                    <div class="sp-services__card-footer">
-                        <a href="#" class="sp-btn sp-btn--ghost sp-btn--md sp-btn--full" aria-label="<?php echo esc_attr( $service['title'] ); ?> — <?php echo esc_attr( $cta_label ); ?>">
-                            <span><?php echo esc_html( $cta_label ); ?></span>
-                            <span class="sp-btn__icon" aria-hidden="true">↳</span>
-                        </a>
-                    </div>
-
-                </article>
-            <?php endforeach; ?>
+            <?php foreach ( $services_row1 as $service ) :
+                get_template_part( 'template-parts/component-image-card', null, [
+                    'id'        => $service['id'],
+                    'title'     => $service['title'],
+                    'desc'      => $service['desc'],
+                    'image_id'  => $service['image_id'],
+                    'cta_label' => $cta_label,
+                ] );
+            endforeach; ?>
 
             <!-- Stamping — wide card: spans 2 columns, image left + text right -->
             <article class="sp-services__card sp-services__card--wide" data-service="stamping">
@@ -142,32 +122,13 @@ $stamping_image_id = $img_ids[4];
             </article>
 
             <!-- Powder Coating card -->
-            <article class="sp-services__card sp-services__card--with-image" data-service="<?php echo esc_attr( $painting['id'] ); ?>">
-
-                <div class="sp-services__card-image">
-                    <?php if ( $painting['image_id'] ) : ?>
-                        <?php echo wp_get_attachment_image( $painting['image_id'], 'medium', false, [
-                            'loading' => 'lazy',
-                            'class'   => 'sp-services__card-img',
-                        ] ); ?>
-                    <?php else : ?>
-                        <div class="sp-services__card-image-placeholder" aria-hidden="true"></div>
-                    <?php endif; ?>
-                </div>
-
-                <div class="sp-services__card-body">
-                    <h3 class="sp-services__card-title"><?php echo esc_html( $painting['title'] ); ?></h3>
-                    <p class="sp-services__card-desc"><?php echo esc_html( $painting['desc'] ); ?></p>
-                </div>
-
-                <div class="sp-services__card-footer">
-                    <a href="#" class="sp-btn sp-btn--ghost sp-btn--md sp-btn--full" aria-label="<?php echo esc_attr( $painting['title'] ); ?> — <?php echo esc_attr( $cta_label ); ?>">
-                        <span><?php echo esc_html( $cta_label ); ?></span>
-                        <span class="sp-btn__icon" aria-hidden="true">↳</span>
-                    </a>
-                </div>
-
-            </article>
+            <?php get_template_part( 'template-parts/component-image-card', null, [
+                'id'        => $painting['id'],
+                'title'     => $painting['title'],
+                'desc'      => $painting['desc'],
+                'image_id'  => $painting['image_id'],
+                'cta_label' => $cta_label,
+            ] ); ?>
 
         </div><!-- /.sp-services__grid -->
 

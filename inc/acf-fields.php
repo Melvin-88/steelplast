@@ -250,3 +250,94 @@ acf_add_local_field_group( [
     'label_placement'       => 'top',
     'instruction_placement' => 'label',
 ] );
+
+// =============================================
+// Quality Page — section images & downloadable files
+// =============================================
+
+acf_add_local_field_group( [
+    'key'    => 'group_quality_page',
+    'title'  => 'Quality Page — Images & Files',
+    'fields' => [
+        // [01] Equipment cards
+        [
+            'key'           => 'field_quality_equipment_card_1_image',
+            'label'         => 'Equipment card 1 — image',
+            'name'          => 'quality_equipment_card_1_image',
+            'type'          => 'image',
+            'return_format' => 'id',
+            'preview_size'  => 'medium',
+            'mime_types'    => 'jpg,jpeg,png,webp',
+        ],
+        [
+            'key'           => 'field_quality_equipment_card_2_image',
+            'label'         => 'Equipment card 2 — image',
+            'name'          => 'quality_equipment_card_2_image',
+            'type'          => 'image',
+            'return_format' => 'id',
+            'preview_size'  => 'medium',
+            'mime_types'    => 'jpg,jpeg,png,webp',
+        ],
+        [
+            'key'           => 'field_quality_equipment_card_3_image',
+            'label'         => 'Equipment card 3 — image',
+            'name'          => 'quality_equipment_card_3_image',
+            'type'          => 'image',
+            'return_format' => 'id',
+            'preview_size'  => 'medium',
+            'mime_types'    => 'jpg,jpeg,png,webp',
+        ],
+
+        // [03] Reliability
+        [
+            'key'           => 'field_quality_reliability_image',
+            'label'         => 'Reliability section — image',
+            'name'          => 'quality_reliability_image',
+            'type'          => 'image',
+            'return_format' => 'array',
+            'preview_size'  => 'large',
+            'mime_types'    => 'jpg,jpeg,png,webp',
+        ],
+
+        // [04] ISO certification
+        [
+            'key'           => 'field_quality_cert_image',
+            'label'         => 'Certification section — image',
+            'name'          => 'quality_cert_image',
+            'type'          => 'image',
+            'return_format' => 'array',
+            'preview_size'  => 'large',
+            'mime_types'    => 'jpg,jpeg,png,webp',
+        ],
+        [
+            'key'           => 'field_quality_cert_file_1',
+            'label'         => 'Certificate file — ISO 9001 (PDF)',
+            'name'          => 'quality_cert_file_1',
+            'type'          => 'file',
+            'return_format' => 'array',
+            'mime_types'    => 'pdf',
+        ],
+        [
+            'key'           => 'field_quality_cert_file_2',
+            'label'         => 'Certificate file — Technical specifications (PDF)',
+            'name'          => 'quality_cert_file_2',
+            'type'          => 'file',
+            'return_format' => 'array',
+            'mime_types'    => 'pdf',
+        ],
+    ],
+    'location' => [
+        [
+            [
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/template-quality.php',
+            ],
+        ],
+    ],
+    'menu_order'            => 0,
+    'position'              => 'normal',
+    'style'                 => 'default',
+    'label_placement'       => 'top',
+    'instruction_placement' => 'label',
+] );
