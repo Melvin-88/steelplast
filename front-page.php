@@ -8,7 +8,10 @@
 
 get_header();
 
-$video_url = get_template_directory_uri() . '/assets/video/hero.mp4';
+$video_url = function_exists( 'get_field' ) ? get_field( 'hero_video' ) : '';
+if ( ! $video_url ) {
+    $video_url = get_template_directory_uri() . '/assets/video/hero.mp4';
+}
 
 $hero_title       = steelplast_t( 'steelplast/home/hero', 'title',       'BUILD FOR<br>REPEATABILITY' );
 $hero_description = steelplast_t( 'steelplast/home/hero', 'description', 'STEELPLAST is a team that turns ideas into finished products. We provide a full production cycle: from mold design and manufacturing to serial part production.' );
@@ -74,6 +77,8 @@ $stats = [
     <?php get_template_part( 'template-parts/section-quality' ); ?>
 
     <?php get_template_part( 'template-parts/section-collaboration' ); ?>
+
+    <?php get_template_part( 'template-parts/section-news' ); ?>
 
     <?php get_template_part( 'template-parts/section-contact' ); ?>
 

@@ -9,29 +9,18 @@ get_header();
 ?>
 
 <main id="primary" class="sp-main">
-    <div class="container">
+
+    <?php get_template_part( 'template-parts/page-hero' ); ?>
+
+    <div class="content-wrapper sp-page-content">
         <?php while ( have_posts() ) : the_post(); ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <header class="entry-header">
-                    <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-                </header>
-                <?php steelplast_post_thumbnail(); ?>
-                <div class="entry-content">
-                    <?php the_content(); ?>
-                    <?php
-                    wp_link_pages(
-                        array(
-                            'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'steelplast' ) . ' ',
-                            'after'  => '</div>',
-                        )
-                    );
-                    ?>
-                </div>
-            </article>
+            <h2 class="sp-page-content__title"><?php the_title(); ?></h2>
+            <div class="sp-page-content__body">
+                <?php the_content(); ?>
+            </div>
         <?php endwhile; ?>
     </div>
+
 </main>
 
-<?php
-get_sidebar();
-get_footer();
+<?php get_footer();
