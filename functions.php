@@ -135,8 +135,15 @@ function steelplast_scripts() {
         true
     );
 
-    // Contact form JS — on Contacts page and front page
-    if ( is_page_template( 'page-templates/template-contacts.php' ) || is_front_page() ) {
+    // Contact form JS/CSS — only on pages that actually render
+    // template-parts/section-contact.php. Keep this list in sync whenever a
+    // page starts using that partial (grep -rn "section-contact" *.php page-templates/*.php).
+    $contact_form_templates = [
+        'page-templates/template-contacts.php',
+        'page-templates/template-quality.php',
+        'page-templates/page-news.php',
+    ];
+    if ( is_front_page() || is_page_template( $contact_form_templates ) ) {
         $iti_css = get_template_directory() . '/assets/css/vendor/intlTelInput.min.css';
         wp_enqueue_style(
             'intl-tel-input',

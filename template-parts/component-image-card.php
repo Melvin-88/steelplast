@@ -20,7 +20,7 @@ $cta_href  = $args['cta_href']  ?? '#';
 
     <div class="sp-services__card-image">
         <?php if ( $image_id ) : ?>
-            <?php echo wp_get_attachment_image( $image_id, 'medium', false, [
+            <?php echo wp_get_attachment_image( (int) $image_id, 'medium', false, [
                 'loading' => 'lazy',
                 'class'   => 'sp-services__card-img',
             ] ); ?>

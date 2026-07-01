@@ -9,6 +9,14 @@
     background-color: $color-background;
     padding: 60px 0;
 
+    // Used standalone as the entire page (page-templates/template-contacts.php,
+    // no hero above it) — clear the fixed header ourselves in that case only.
+    // When used lower on a page (front page, News, Quality, Contacts Details)
+    // it's not :first-child, so this rule doesn't apply there.
+    .sp-main > &:first-child {
+        padding-top: 140px;
+    }
+
     &__inner {
         position: relative;
         overflow: hidden;
