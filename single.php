@@ -104,7 +104,7 @@ while ( have_posts() ) :
                                         function ( $tag ) {
                                             return sprintf(
                                                 '<a href="%s" class="sp-single-post__tag">%s</a>',
-                                                esc_url( get_tag_link( $tag ) ),
+                                                esc_url( get_tag_link( $tag->term_id ) ),
                                                 esc_html( $tag->name )
                                             );
                                         },
