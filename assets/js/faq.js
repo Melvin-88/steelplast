@@ -12,8 +12,12 @@
         if ( ! item ) return;
 
         var isOpen = toggle.getAttribute( 'aria-expanded' ) === 'true';
+        var answer = document.getElementById( toggle.getAttribute( 'aria-controls' ) );
 
         toggle.setAttribute( 'aria-expanded', String( ! isOpen ) );
         item.classList.toggle( 'is-open', ! isOpen );
+        if ( answer ) {
+            answer.setAttribute( 'aria-hidden', String( isOpen ) );
+        }
     } );
 } )();

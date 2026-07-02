@@ -101,6 +101,7 @@ $faq_items = [
                             id="<?php echo esc_attr( $answer_id ); ?>"
                             role="region"
                             aria-labelledby="<?php echo esc_attr( $question_id ); ?>"
+                            aria-hidden="<?php echo $is_open ? 'false' : 'true'; ?>"
                         >
                             <div class="sp-faq__answer-inner">
                                 <p class="sp-faq__answer-text"><?php echo esc_html( $item['a'] ); ?></p>
