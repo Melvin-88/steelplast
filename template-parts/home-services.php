@@ -20,7 +20,7 @@ $cta_label     = steelplast_t( 'steelplast/home/services', 'cta_label',     'Lea
 
 // Metal Processing card links to the CNC Machining service page, once created
 $metal_page = get_page_by_path( 'механічна-обробка' );
-$metal_url  = $metal_page ? get_permalink( $metal_page ) : '#';
+$metal_url  = $metal_page ? get_permalink( $metal_page ) : '';
 
 // Stamping card links to the Metal Stamping service page, once created
 $stamping_page = get_page_by_path( 'штампування-металу' );
