@@ -1,0 +1,158 @@
+@use 'variables' as *;
+
+// =============================================
+// FAQ Page
+// =============================================
+
+.sp-faq {
+    background-color: $color-background;
+
+    &__intro {
+        max-width: 900px;
+        margin-bottom: 40px;
+    }
+
+    &__intro-title {
+        margin-bottom: 24px;
+    }
+
+    &__intro-desc {
+        max-width: 620px;
+        color: rgba($color-pure-white, 0.7);
+        line-height: $line-height-body-up;
+        white-space: pre-line;
+    }
+
+    // ---- Two-column accordion grid ----
+    &__grid {
+        columns: 2;
+        column-gap: 60px;
+
+        @media (max-width: 900px) {
+            columns: 1;
+        }
+    }
+
+    &__item {
+        break-inside: avoid;
+        border-bottom: 1px solid rgba($color-pure-white, 0.12);
+    }
+
+    &__question {
+        margin: 0;
+        font-size: inherit;
+        font-weight: inherit;
+    }
+
+    &__toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        width: 100%;
+        padding: 20px 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        text-align: left;
+        font-family: $font-family-base;
+        color: $color-pure-white;
+
+        &:focus-visible {
+            outline: 2px solid $color-accent;
+            outline-offset: 4px;
+        }
+    }
+
+    &__toggle-text {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+        letter-spacing: -0.16px;
+        text-transform: uppercase;
+        transition: color 0.2s ease;
+    }
+
+    &__toggle:hover &__toggle-text {
+        color: $color-accent;
+    }
+
+    // ---- Toggle icon: plus → rotates 45° into a cross ----
+    &__icon {
+        position: relative;
+        flex-shrink: 0;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: $color-dark-navy;
+        transition: background-color 0.3s ease, transform 0.35s ease;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background-color: $color-pure-white;
+            transform: translate(-50%, -50%);
+            transition: background-color 0.3s ease;
+        }
+
+        &::before {
+            width: 12px;
+            height: 2px;
+        }
+
+        &::after {
+            width: 2px;
+            height: 12px;
+        }
+    }
+
+    // ---- Open state ----
+    &__item.is-open &__icon {
+        background-color: $color-accent;
+        transform: rotate(45deg);
+    }
+
+    &__item.is-open &__toggle-text {
+        color: $color-accent;
+    }
+
+    // ---- Smooth expand/collapse via grid-template-rows ----
+    &__answer-wrap {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.35s ease;
+    }
+
+    &__item.is-open &__answer-wrap {
+        grid-template-rows: 1fr;
+    }
+
+    &__answer-inner {
+        overflow: hidden;
+        min-height: 0;
+    }
+
+    &__answer-text {
+        max-width: 460px;
+        padding-bottom: 24px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+        color: rgba($color-pure-white, 0.65);
+    }
+
+    // ---- Responsive ----
+    @media (max-width: 480px) {
+        &__intro-title {
+            font-size: 40px;
+            line-height: 44px;
+        }
+
+        &__toggle-text {
+            font-size: 14px;
+        }
+    }
+}

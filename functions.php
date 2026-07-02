@@ -142,6 +142,7 @@ function steelplast_scripts() {
         'page-templates/template-contacts.php',
         'page-templates/template-quality.php',
         'page-templates/page-news.php',
+        'page-templates/template-faq.php',
     ];
     if ( is_front_page() || is_page_template( $contact_form_templates ) || is_singular( 'post' ) ) {
         $iti_css = get_template_directory() . '/assets/css/vendor/intlTelInput.min.css';
@@ -230,6 +231,19 @@ add_action( 'wp_enqueue_scripts', function () {
         get_template_directory_uri() . '/assets/js/collaboration.js',
         array(),
         file_exists( $collab_js ) ? filemtime( $collab_js ) : STEELPLAST_VERSION,
+        true
+    );
+} );
+
+// FAQ accordion JS — FAQ page only
+add_action( 'wp_enqueue_scripts', function () {
+    if ( ! is_page_template( 'page-templates/template-faq.php' ) ) return;
+    $faq_js = get_template_directory() . '/assets/js/faq.js';
+    wp_enqueue_script(
+        'steelplast-faq',
+        get_template_directory_uri() . '/assets/js/faq.js',
+        array(),
+        file_exists( $faq_js ) ? filemtime( $faq_js ) : STEELPLAST_VERSION,
         true
     );
 } );
