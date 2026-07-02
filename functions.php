@@ -137,14 +137,14 @@ function steelplast_scripts() {
 
     // Contact form JS/CSS — only on pages that actually render
     // template-parts/section-contact.php. Keep this list in sync whenever a
-    // page starts using that partial (grep -rn "section-contact" *.php page-templates/*.php).
+    // page starts using that partial (grep -rn "section-contact" *.php page-templates/*.php template-parts/*.php single.php).
     $contact_form_templates = [
         'page-templates/template-contacts.php',
         'page-templates/template-quality.php',
         'page-templates/page-news.php',
         'page-templates/template-faq.php',
     ];
-    if ( is_front_page() || is_page_template( $contact_form_templates ) ) {
+    if ( is_front_page() || is_page_template( $contact_form_templates ) || is_singular( 'post' ) ) {
         $iti_css = get_template_directory() . '/assets/css/vendor/intlTelInput.min.css';
         wp_enqueue_style(
             'intl-tel-input',
@@ -326,6 +326,159 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/contacts/page', 'phone_1_label', 'Sales department (consultations and orders)' );
     icl_register_string( 'steelplast/contacts/page', 'phone_2_label', 'Technical department (drawing questions)' );
     icl_register_string( 'steelplast/contacts/page', 'phone_3_label', 'Partner hotline' );
+
+    // -- steelplast/news/single --
+    icl_register_string( 'steelplast/news/single', 'back_label',      'Back to news' );
+    icl_register_string( 'steelplast/news/single', 'date_label',      'Date created' );
+    icl_register_string( 'steelplast/news/single', 'read_time_label', 'Reading time' );
+    icl_register_string( 'steelplast/news/single', 'read_time_value', '%d minutes' );
+    icl_register_string( 'steelplast/news/single', 'tags_label',      'Tags' );
+
+    // -- steelplast/news/header --
+    icl_register_string( 'steelplast/news/header', 'news_label',   'Articles & News' );
+    icl_register_string( 'steelplast/news/header', 'news_title',   "Stay up to date\nwith company news" );
+    icl_register_string( 'steelplast/news/header', 'news_desc',    'Follow company news, production updates, and completed projects.' );
+    icl_register_string( 'steelplast/news/header', 'news_all_btn', 'All articles' );
+
+    // -- steelplast/news/archive --
+    icl_register_string( 'steelplast/news/archive', 'filter_label',  'Categories' );
+    icl_register_string( 'steelplast/news/archive', 'filter_all',    'All articles' );
+    icl_register_string( 'steelplast/news/archive', 'archive_empty', 'No articles yet. Check back soon.' );
+
+    // -- steelplast/post-card --
+    icl_register_string( 'steelplast/post-card', 'read_more', 'Read more' );
+
+    // -- steelplast/contacts/hero --
+    icl_register_string( 'steelplast/contacts/hero', 'contact_hero_title', 'Still have questions?' );
+    icl_register_string( 'steelplast/contacts/hero', 'contact_hero_desc',  'Leave your request and we will contact you within 2 hours.' );
+
+    // -- steelplast/contacts/form --
+    icl_register_string( 'steelplast/contacts/form', 'contact_form_aria',         'Contact form' );
+    icl_register_string( 'steelplast/contacts/form', 'field_name_placeholder',    'Your name' );
+    icl_register_string( 'steelplast/contacts/form', 'field_email_placeholder',   'E-mail' );
+    icl_register_string( 'steelplast/contacts/form', 'field_phone_placeholder',   'Phone' );
+    icl_register_string( 'steelplast/contacts/form', 'field_comment_placeholder', 'Your message (optional)' );
+    icl_register_string( 'steelplast/contacts/form', 'submit_label',              'Send request' );
+    icl_register_string( 'steelplast/contacts/form', 'success_message',           'Thank you! We will contact you soon.' );
+    icl_register_string( 'steelplast/contacts/form', 'err_name_required',         'Please enter your name' );
+    icl_register_string( 'steelplast/contacts/form', 'err_email_or_phone',        'Please enter email or phone' );
+    icl_register_string( 'steelplast/contacts/form', 'err_email_invalid',         'Invalid email address' );
+    icl_register_string( 'steelplast/contacts/form', 'err_phone_invalid',         'Enter full phone number' );
+    icl_register_string( 'steelplast/contacts/form', 'err_server',                'Something went wrong. Please try again.' );
+    icl_register_string( 'steelplast/contacts/form', 'err_rate_limit',            'Too many requests. Please wait a moment.' );
+    icl_register_string( 'steelplast/contacts/form', 'err_send_failed',           'Failed to send email. Please try again later.' );
+
+    // -- steelplast/home/about-preview --
+    icl_register_string( 'steelplast/home/about-preview', 'tag',         '[02] About us' );
+    icl_register_string( 'steelplast/home/about-preview', 'title',       'WE ENGINEER<br>PRECISION' );
+    icl_register_string( 'steelplast/home/about-preview', 'description', 'SteelPlast is a full-cycle manufacturer specialising in injection mold design, mold production, and high-volume plastic part manufacturing. Over 15 years of engineering precision.' );
+    icl_register_string( 'steelplast/home/about-preview', 'button',      'Learn more about us' );
+
+    // -- steelplast/home/services --
+    icl_register_string( 'steelplast/home/services', 'section_label',   'Our Services' );
+    icl_register_string( 'steelplast/home/services', 'title',           'Modern equipment, manufacturing precision and quality control' );
+    icl_register_string( 'steelplast/home/services', 'description',     'Individual approach to every project, official contracts, staged payments and constant communication' );
+    icl_register_string( 'steelplast/home/services', 'cta_label',       'Learn more' );
+    icl_register_string( 'steelplast/home/services', 'card_1_title',    'Metal Processing' );
+    icl_register_string( 'steelplast/home/services', 'card_1_desc',     'High-precision CNC metal machining for parts of any complexity.' );
+    icl_register_string( 'steelplast/home/services', 'card_2_title',    'Plastic Casting' );
+    icl_register_string( 'steelplast/home/services', 'card_2_desc',     'Manufacturing plastic products by injection molding on modern thermoplastic machines.' );
+    icl_register_string( 'steelplast/home/services', 'card_3_title',    'Laser Metal Cutting' );
+    icl_register_string( 'steelplast/home/services', 'card_3_desc',     'High-precision laser metal cutting for parts of any complexity.' );
+    icl_register_string( 'steelplast/home/services', 'card_4_title',    'Stamping' );
+    icl_register_string( 'steelplast/home/services', 'card_4_desc',     'STEELPLAST manufactures stamped components for various industrial sectors.' );
+    icl_register_string( 'steelplast/home/services', 'card_4_cap',      'Manufacturing capabilities:' );
+    icl_register_string( 'steelplast/home/services', 'card_4_bullet_1', 'Sheet metal processing 0.15–5 mm thick' );
+    icl_register_string( 'steelplast/home/services', 'card_4_bullet_2', 'Crank pneumatic presses' );
+    icl_register_string( 'steelplast/home/services', 'card_4_bullet_3', 'Maximum pressing force — up to 100 t' );
+    icl_register_string( 'steelplast/home/services', 'card_5_title',    'Powder Coating' );
+    icl_register_string( 'steelplast/home/services', 'card_5_desc',     'Powder coating of metal products ensuring uniform and durable finish.' );
+
+    // -- steelplast/collaboration/header --
+    icl_register_string( 'steelplast/collaboration/header', 'collab_label',   'Collaboration' );
+    icl_register_string( 'steelplast/collaboration/header', 'collab_title',   "We don't just fulfill orders —\nwe solve problems" );
+    icl_register_string( 'steelplast/collaboration/header', 'collab_desc_1',  'We build partnerships on reliability, precision, and meeting deadlines. We work with businesses of all sizes, offering flexible manufacturing solutions — from individual parts to serial production.' );
+    icl_register_string( 'steelplast/collaboration/header', 'collab_desc_2',  'We provide support at every stage: from processing the technical specification to quality control of finished products.' );
+
+    // -- steelplast/collaboration/steps --
+    icl_register_string( 'steelplast/collaboration/steps', 'steps_aria',   'How we work' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_1_tag',   'Step 1' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_1_title', 'Submit a request' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_1_text',  'Send a request via the website or contact us directly. Briefly describe the task and requirements for the product.' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_2_tag',   'Step 2' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_2_title', 'Consultation and agreement' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_2_text',  'We discuss technical details, materials, timelines and finalize the specification before production begins.' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_3_tag',   'Step 3' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_3_title', 'Production' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_3_text',  'We manufacture products according to approved parameters with quality control at every stage.' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_4_tag',   'Step 4' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_4_title', 'Delivery of finished products' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_4_text',  'We organize packaging and delivery of finished products within agreed timelines.' );
+
+    // -- steelplast/quality/hero --
+    icl_register_string( 'steelplast/quality/hero', 'title', 'Production and Quality: Standards You Can Trust' );
+
+    // -- steelplast/quality/steps --
+    icl_register_string( 'steelplast/quality/steps', 'label',        'Quality Management System' );
+    icl_register_string( 'steelplast/quality/steps', 'title',        "Our quality management system\ncovers the entire product lifecycle" );
+    icl_register_string( 'steelplast/quality/steps', 'desc_1',       'We have structured our approach so that quality is controlled at every stage — from raw material intake to the finished, shipped product.' );
+    icl_register_string( 'steelplast/quality/steps', 'step_1_tag',   '01' );
+    icl_register_string( 'steelplast/quality/steps', 'step_1_title', 'Unified processing control' );
+    icl_register_string( 'steelplast/quality/steps', 'step_1_text',  'Every processing stage is monitored under a single quality control protocol, from raw material to finished part.' );
+    icl_register_string( 'steelplast/quality/steps', 'step_2_tag',   '02' );
+    icl_register_string( 'steelplast/quality/steps', 'step_2_title', 'Dedicated controller' );
+    icl_register_string( 'steelplast/quality/steps', 'step_2_text',  'A dedicated quality controller is assigned to each production batch, ensuring full accountability.' );
+    icl_register_string( 'steelplast/quality/steps', 'step_3_tag',   '03' );
+    icl_register_string( 'steelplast/quality/steps', 'step_3_title', 'Careful testing' );
+    icl_register_string( 'steelplast/quality/steps', 'step_3_text',  'Finished products undergo thorough testing before shipment to confirm compliance with specifications.' );
+
+    // -- steelplast/quality/cards --
+    icl_register_string( 'steelplast/quality/cards', 'card_1_title', 'IATF 16949 Certified' );
+    icl_register_string( 'steelplast/quality/cards', 'card_1_desc',  'International automotive quality management standard applied at every production stage.' );
+    icl_register_string( 'steelplast/quality/cards', 'card_2_title', 'ISO 9001 Certified' );
+    icl_register_string( 'steelplast/quality/cards', 'card_2_desc',  'Confirmed quality management system ensuring consistent product excellence.' );
+    icl_register_string( 'steelplast/quality/cards', 'card_3_title', '6-Stage Control' );
+    icl_register_string( 'steelplast/quality/cards', 'card_3_desc',  'Multi-step inspection from raw material intake to finished product shipment.' );
+    icl_register_string( 'steelplast/quality/cards', 'card_4_title', 'Zero-Defect Policy' );
+    icl_register_string( 'steelplast/quality/cards', 'card_4_desc',  'Numerous client awards for outstanding quality and exceptional production results.' );
+    icl_register_string( 'steelplast/quality/cards', 'grid_aria',    'Quality certifications' );
+
+    // -- steelplast/quality/header --
+    icl_register_string( 'steelplast/quality/header', 'label',    'Quality of products' );
+    icl_register_string( 'steelplast/quality/header', 'title',    'High product quality' );
+    icl_register_string( 'steelplast/quality/header', 'desc',     'In accordance with IATF and ISO 9001 standards. Numerous client awards for Outstanding Quality and exceptional production results.' );
+    icl_register_string( 'steelplast/quality/header', 'cta_aria', 'Learn more about our quality standards' );
+    icl_register_string( 'steelplast/quality/header', 'cta_text', 'Learn more' );
+
+    // -- steelplast/quality/certification --
+    icl_register_string( 'steelplast/quality/certification', 'title',          'Quality assurance: ISO certification' );
+    icl_register_string( 'steelplast/quality/certification', 'download_label', 'Download file' );
+    icl_register_string( 'steelplast/quality/certification', 'file_1_label',   'ISO 9001 Certificate' );
+    icl_register_string( 'steelplast/quality/certification', 'file_2_label',   'Technical specifications and quality passports' );
+    icl_register_string( 'steelplast/quality/certification', 'label',          'ISO Certificates' );
+    icl_register_string( 'steelplast/quality/certification', 'desc',           'We confirm our high standard of management and production safety not just in words, but in practice. Steel Plast regularly undergoes independent audits to ensure compliance with strict global regulations.' );
+
+    // -- steelplast/quality/reliability --
+    icl_register_string( 'steelplast/quality/reliability', 'title',          'Reliability built into every product' );
+    icl_register_string( 'steelplast/quality/reliability', 'bullet_1_title', 'Longevity' );
+    icl_register_string( 'steelplast/quality/reliability', 'bullet_1_desc',  'Premium raw materials and anti-corrosion technologies guarantee a long service life, even in demanding conditions.' );
+    icl_register_string( 'steelplast/quality/reliability', 'bullet_2_title', 'Compliance with standards' );
+    icl_register_string( 'steelplast/quality/reliability', 'bullet_2_desc',  'Our products meet national and international technical regulations (DSTU / ISO).' );
+    icl_register_string( 'steelplast/quality/reliability', 'bullet_3_title', "Manufacturer's warranty" );
+    icl_register_string( 'steelplast/quality/reliability', 'bullet_3_desc',  'We take full responsibility for every shipped product and provide an official warranty.' );
+    icl_register_string( 'steelplast/quality/reliability', 'label',          'Uncompromising Quality Control' );
+    icl_register_string( 'steelplast/quality/reliability', 'intro',          "We understand that the stability of your operations depends on our components, so we don't compromise on quality." );
+
+    // -- steelplast/quality/equipment --
+    icl_register_string( 'steelplast/quality/equipment', 'card_1_title',  'Modern equipment fleet' );
+    icl_register_string( 'steelplast/quality/equipment', 'card_1_desc',   'Production machinery is regularly upgraded to keep pace with the highest manufacturing standards.' );
+    icl_register_string( 'steelplast/quality/equipment', 'card_2_title',  'Process automation' );
+    icl_register_string( 'steelplast/quality/equipment', 'card_2_desc',   'Automated processes reduce human error and keep quality consistent across every production run.' );
+    icl_register_string( 'steelplast/quality/equipment', 'card_3_title',  'Highly qualified team' );
+    icl_register_string( 'steelplast/quality/equipment', 'card_3_desc',   'Our engineers and operators bring extensive experience in precision manufacturing.' );
+    icl_register_string( 'steelplast/quality/equipment', 'section_label', 'Professional Quality Control' );
+    icl_register_string( 'steelplast/quality/equipment', 'title',         'Our own modern production facility' );
+    icl_register_string( 'steelplast/quality/equipment', 'description',  'Our own modern production facility allows us to deliver projects of any complexity — from serial products to individual orders built from client drawings.' );
 }
 add_action( 'after_setup_theme', 'steelplast_register_wpml_strings' );
 
@@ -366,54 +519,6 @@ function steelplast_get_field_default_lang( $selector, $post_id = null ) {
 
     return get_field( $selector, $post_id );
 }
-
-/**
- * Pre-register all WPML strings so they appear in String Translation
- * without requiring a frontend page visit.
- */
-add_action( 'init', function () {
-    if ( ! function_exists( 'icl_register_string' ) ) {
-        return;
-    }
-
-    $strings = [
-        // Hero
-        'steelplast/home/hero' => [
-            'title'       => 'BUILD FOR<br>REPEATABILITY',
-            'description' => 'STEELPLAST is a team that turns ideas into finished products. We provide a full production cycle: from mold design and manufacturing to serial part production.',
-            'stat_1_label' => 'Cycle repeatability',
-            'stat_2_label' => 'Mold resource',
-            'stat_3_label' => 'Quality control stages',
-        ],
-        // Services
-        'steelplast/home/services' => [
-            'section_label'  => 'Our Services',
-            'title'          => 'Modern equipment, manufacturing precision and quality control',
-            'description'    => 'Individual approach to every project, official contracts, staged payments and constant communication',
-            'cta_label'      => 'Learn more',
-            'card_1_title'   => 'Metal Processing',
-            'card_1_desc'    => 'High-precision CNC metal machining for parts of any complexity.',
-            'card_2_title'   => 'Plastic Casting',
-            'card_2_desc'    => 'Manufacturing plastic products by injection molding on modern thermoplastic machines.',
-            'card_3_title'   => 'Laser Metal Cutting',
-            'card_3_desc'    => 'High-precision laser metal cutting for parts of any complexity.',
-            'card_4_title'   => 'Stamping',
-            'card_4_desc'    => 'STEELPLAST manufactures stamped components for various industrial sectors.',
-            'card_4_cap'     => 'Manufacturing capabilities:',
-            'card_4_bullet_1' => 'Sheet metal processing 0.15–5 mm thick',
-            'card_4_bullet_2' => 'Crank pneumatic presses',
-            'card_4_bullet_3' => 'Maximum pressing force — up to 100 t',
-            'card_5_title'   => 'Powder Coating',
-            'card_5_desc'    => 'Powder coating of metal products ensuring uniform and durable finish.',
-        ],
-    ];
-
-    foreach ( $strings as $context => $items ) {
-        foreach ( $items as $name => $default ) {
-            icl_register_string( $context, $name, $default );
-        }
-    }
-} );
 
 if ( function_exists( 'icl_get_languages' ) || defined( 'ICL_SITEPRESS_VERSION' ) ) {
     add_filter( 'icl_show_translate_link', '__return_false' );
@@ -471,6 +576,18 @@ function steelplast_post_thumbnail() {
 
         <?php
     endif; // End is_singular().
+}
+
+/**
+ * Estimated reading time for a post, in whole minutes (minimum 1).
+ * Uses a unicode-aware word split so Cyrillic content is counted correctly.
+ */
+function steelplast_reading_time( $post_id = null ) {
+    $post_id = $post_id ?: get_the_ID();
+    $content = wp_strip_all_tags( strip_shortcodes( get_post_field( 'post_content', $post_id ) ) );
+    $words   = preg_split( '/\s+/u', trim( $content ), -1, PREG_SPLIT_NO_EMPTY );
+
+    return max( 1, (int) ceil( count( $words ) / 200 ) );
 }
 
 // =============================================
