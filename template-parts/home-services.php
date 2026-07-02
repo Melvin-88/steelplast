@@ -82,13 +82,15 @@ $stamping_image_id = $img_ids[4];
         <div class="sp-services__grid">
 
             <?php foreach ( $services_row1 as $service ) :
+                // Only show the CTA once the service has a real page to link to —
+                // an empty href="#" would just jump to the top of the page.
                 get_template_part( 'template-parts/component-image-card', null, [
                     'id'        => $service['id'],
                     'title'     => $service['title'],
                     'desc'      => $service['desc'],
                     'image_id'  => $service['image_id'],
-                    'cta_label' => $cta_label,
-                    'cta_href'  => $service['url'] ?? '#',
+                    'cta_label' => ! empty( $service['url'] ) ? $cta_label : '',
+                    'cta_href'  => $service['url'] ?? '',
                 ] );
             endforeach; ?>
 
