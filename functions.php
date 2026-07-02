@@ -144,6 +144,10 @@ function steelplast_scripts() {
         'page-templates/page-news.php',
         'page-templates/template-faq.php',
         'page-templates/template-cnc-machining.php',
+        'page-templates/template-metal-stamping.php',
+        'page-templates/template-injection-molding.php',
+        'page-templates/template-mold-manufacturing.php',
+        'page-templates/template-custom-tooling.php',
     ];
     if ( is_front_page() || is_page_template( $contact_form_templates ) || is_singular( 'post' ) ) {
         $iti_css = get_template_directory() . '/assets/css/vendor/intlTelInput.min.css';
