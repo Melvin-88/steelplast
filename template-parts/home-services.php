@@ -20,7 +20,15 @@ $cta_label     = steelplast_t( 'steelplast/home/services', 'cta_label',     'Lea
 
 // Metal Processing card links to the CNC Machining service page, once created
 $metal_page = get_page_by_path( 'механічна-обробка' );
-$metal_url  = $metal_page ? get_permalink( $metal_page ) : '#';
+$metal_url  = $metal_page ? get_permalink( $metal_page ) : '';
+
+// Stamping card links to the Metal Stamping service page, once created
+$stamping_page = get_page_by_path( 'штампування-металу' );
+$stamping_url  = $stamping_page ? get_permalink( $stamping_page ) : '';
+
+// Plastic Casting card links to the Plastic Injection Molding service page, once created
+$plastic_page = get_page_by_path( 'лиття-пластмас' );
+$plastic_url  = $plastic_page ? get_permalink( $plastic_page ) : '';
 
 // Row 1 — 3 cards with image + text
 $services_row1 = [
@@ -36,6 +44,7 @@ $services_row1 = [
         'title'    => steelplast_t( 'steelplast/home/services', 'card_2_title', 'Plastic Casting' ),
         'desc'     => steelplast_t( 'steelplast/home/services', 'card_2_desc',  'Manufacturing plastic products by injection molding on modern thermoplastic machines.' ),
         'image_id' => $img_ids[2],
+        'url'      => $plastic_url,
     ],
     [
         'id'       => 'laser',
@@ -119,12 +128,14 @@ $stamping_image_id = $img_ids[4];
                             <?php endforeach; ?>
                         </ul>
                     </div>
+                    <?php if ( $stamping_url ) : ?>
                     <div class="sp-services__card-footer">
-                        <a href="#" class="sp-btn sp-btn--ghost sp-btn--md sp-btn--full" aria-label="<?php echo esc_attr( $stamping_title ); ?> — <?php echo esc_attr( $cta_label ); ?>">
+                        <a href="<?php echo esc_url( $stamping_url ); ?>" class="sp-btn sp-btn--ghost sp-btn--md sp-btn--full" aria-label="<?php echo esc_attr( $stamping_title ); ?> — <?php echo esc_attr( $cta_label ); ?>">
                             <span><?php echo esc_html( $cta_label ); ?></span>
                             <span class="sp-btn__icon" aria-hidden="true">↳</span>
                         </a>
                     </div>
+                    <?php endif; ?>
                 </div>
 
             </article>
