@@ -143,6 +143,7 @@ function steelplast_scripts() {
         'page-templates/template-quality.php',
         'page-templates/page-news.php',
         'page-templates/template-faq.php',
+        'page-templates/template-cnc-machining.php',
     ];
     if ( is_front_page() || is_page_template( $contact_form_templates ) || is_singular( 'post' ) ) {
         $iti_css = get_template_directory() . '/assets/css/vendor/intlTelInput.min.css';

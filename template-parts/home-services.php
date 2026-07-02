@@ -18,6 +18,10 @@ $title         = steelplast_t( 'steelplast/home/services', 'title',         'Mod
 $description   = steelplast_t( 'steelplast/home/services', 'description',   'Individual approach to every project, official contracts, staged payments and constant communication' );
 $cta_label     = steelplast_t( 'steelplast/home/services', 'cta_label',     'Learn more' );
 
+// Metal Processing card links to the CNC Machining service page, once created
+$metal_page = get_page_by_path( 'механічна-обробка' );
+$metal_url  = $metal_page ? get_permalink( $metal_page ) : '#';
+
 // Row 1 — 3 cards with image + text
 $services_row1 = [
     [
@@ -25,6 +29,7 @@ $services_row1 = [
         'title'    => steelplast_t( 'steelplast/home/services', 'card_1_title', 'Metal Processing' ),
         'desc'     => steelplast_t( 'steelplast/home/services', 'card_1_desc',  'High-precision CNC metal machining for parts of any complexity.' ),
         'image_id' => $img_ids[1],
+        'url'      => $metal_url,
     ],
     [
         'id'       => 'plastic',
@@ -77,12 +82,15 @@ $stamping_image_id = $img_ids[4];
         <div class="sp-services__grid">
 
             <?php foreach ( $services_row1 as $service ) :
+                // Only show the CTA once the service has a real page to link to —
+                // an empty href="#" would just jump to the top of the page.
                 get_template_part( 'template-parts/component-image-card', null, [
                     'id'        => $service['id'],
                     'title'     => $service['title'],
                     'desc'      => $service['desc'],
                     'image_id'  => $service['image_id'],
-                    'cta_label' => $cta_label,
+                    'cta_label' => ! empty( $service['url'] ) ? $cta_label : '',
+                    'cta_href'  => $service['url'] ?? '',
                 ] );
             endforeach; ?>
 
