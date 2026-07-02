@@ -4,6 +4,9 @@
  * Usage: get_template_part( 'template-parts/section-contact' );
  * Args:  array( 'heading' => 'h1' )  — default h2
  *
+ * The form is intentionally identical on every page (same fields, same
+ * title/description) — do not add per-page overrides here.
+ *
  * @package SteelPlast
  */
 

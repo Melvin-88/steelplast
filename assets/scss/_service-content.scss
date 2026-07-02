@@ -1,0 +1,75 @@
+@use 'variables' as *;
+
+// =============================================
+// Service page — long-form SEO text block
+//
+// Light background — inner pages alternate dark/light section by section
+// (see [[project-service-pages-pattern]] memory), and this section sits
+// between two dark ones ("Technical Parameters" above, "About us" below).
+// =============================================
+
+.sp-service-content {
+    padding: 60px 0;
+    background-color: $color-pure-white;
+
+    &__header {
+        max-width: 860px;
+        margin-bottom: 48px;
+
+        .sp-section-label {
+            margin-bottom: 16px;
+        }
+    }
+
+    // .sp-section-title handles font/size/weight; color overridden for white bg
+    &__title {
+        color: $color-black;
+        margin-bottom: 16px;
+    }
+
+    &__intro {
+        color: $color-black;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px;
+    }
+
+    &__topic-heading {
+        font-family: $font-family-base;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 28px;
+        text-transform: uppercase;
+        color: $color-dark-navy;
+        margin-bottom: 16px;
+    }
+
+    &__topic-text {
+        font-family: $font-family-base;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        color: $color-dark-grey;
+        margin-bottom: 16px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    // ---- Responsive ----
+    @media (max-width: 768px) {
+        &__grid {
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        &__title {
+            font-size: 40px;
+            line-height: 44px;
+        }
+    }
+}

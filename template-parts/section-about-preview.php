@@ -5,7 +5,7 @@
  * @package SteelPlast
  */
 
-$tag     = steelplast_t( 'steelplast/home/about-preview', 'tag',         '[02] About us' );
+$tag     = $args['tag'] ?? steelplast_t( 'steelplast/home/about-preview', 'tag', '[02] About us' );
 $title   = steelplast_t( 'steelplast/home/about-preview', 'title',       'WE ENGINEER<br>PRECISION' );
 $desc    = steelplast_t( 'steelplast/home/about-preview', 'description', 'SteelPlast is a full-cycle manufacturer specialising in injection mold design, mold production, and high-volume plastic part manufacturing. Over 15 years of engineering precision.' );
 $btn_txt = steelplast_t( 'steelplast/home/about-preview', 'button',      'Learn more about us' );

@@ -8,6 +8,7 @@
 
 $quality_page = get_page_by_path( 'quality' );
 $quality_url  = $quality_page ? get_permalink( $quality_page ) : '';
+$label_index  = $args['label_index'] ?? '[03]';
 
 // Fixed set of evergreen certification claims — an icon communicates each
 // one more reliably than a photo (there is no meaningful photo of a
@@ -47,7 +48,7 @@ $cards = [
 
             <div class="sp-quality__left">
                 <p class="sp-section-label sp-section-label--light-bg">
-                    <span class="sp-section-label__index" aria-hidden="true">[03]</span>
+                    <span class="sp-section-label__index" aria-hidden="true"><?php echo esc_html( $label_index ); ?></span>
                     <?php echo esc_html( steelplast_t( 'steelplast/quality/header', 'label', 'Quality of products' ) ); ?>
                 </p>
 
