@@ -1,0 +1,99 @@
+@use 'variables' as *;
+
+// =============================================
+// About page — [02] Our advantages (8-card grid, dark)
+// =============================================
+
+.sp-about-advantages {
+    padding: 60px 0;
+    position: relative;
+    overflow: hidden;
+    background-color: $color-background;
+    color: $color-pure-white;
+
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image: url('../img/bg-3.png');
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        background-size: contain;
+        transform: scaleX(-1);
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    > .content-wrapper {
+        position: relative;
+        z-index: 1;
+    }
+
+    &__header {
+        margin-bottom: 40px;
+    }
+
+    &__title {
+        margin-top: 16px;
+        white-space: pre-line;
+        max-width: 900px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+    }
+
+    &__card {
+        background: $color-white;
+        border-radius: 8px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    &__card-num {
+        font-family: $font-family-base;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1;
+        color: $color-accent;
+    }
+
+    &__card-title {
+        font-family: $font-family-base;
+        font-size: $font-size-body;
+        font-weight: 700;
+        line-height: $line-height-body-up;
+        text-transform: uppercase;
+        color: $color-black;
+    }
+
+    &__card-desc {
+        font-family: $font-family-base;
+        font-size: $font-size-body;
+        font-weight: 400;
+        line-height: $line-height-body-up;
+        color: $color-dark-grey;
+    }
+
+    // ---- Responsive ----
+    @media (max-width: 1024px) {
+        &__grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        &__title {
+            font-size: 40px;
+            line-height: 44px;
+        }
+
+        &__grid {
+            grid-template-columns: 1fr;
+        }
+    }
+}

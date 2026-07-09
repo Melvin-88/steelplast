@@ -37,12 +37,18 @@
         if (!dropdown) return;
 
         parent.classList.remove('sp-drop-up');
-        var rect = dropdown.getBoundingClientRect();
-        var spaceBelow = window.innerHeight - rect.bottom;
 
-        if (spaceBelow < 0) {
-            parent.classList.add('sp-drop-up');
-        }
+        // Defer the geometry read to the next frame — reading
+        // getBoundingClientRect() in the same tick as the classList
+        // mutation above forces a synchronous layout flush.
+        requestAnimationFrame(function () {
+            var rect = dropdown.getBoundingClientRect();
+            var spaceBelow = window.innerHeight - rect.bottom;
+
+            if (spaceBelow < 0) {
+                parent.classList.add('sp-drop-up');
+            }
+        });
     }
 
     dropdownToggles.forEach(function (btn) {

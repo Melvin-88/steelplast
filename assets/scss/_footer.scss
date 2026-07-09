@@ -168,7 +168,10 @@
 
 .sp-footer__copy {
     font-size: 12px;
-    color: rgba($color-pure-white, 0.3);
+    // 0.3 failed WCAG AA contrast (2.59:1); 0.45 still only measured 4.24:1
+    // in practice ($color-pure-white is #f6f6f6, not pure white) — 0.55 gives
+    // real margin above the 4.5:1 minimum.
+    color: rgba($color-pure-white, 0.55);
     line-height: 1.5;
     text-align: center;
 }

@@ -141,6 +141,7 @@ function steelplast_scripts() {
     $contact_form_templates = [
         'page-templates/template-contacts.php',
         'page-templates/template-quality.php',
+        'page-templates/template-about.php',
         'page-templates/page-news.php',
         'page-templates/template-faq.php',
         'page-templates/template-cnc-machining.php',
@@ -484,6 +485,388 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/quality/equipment', 'section_label', 'Professional Quality Control' );
     icl_register_string( 'steelplast/quality/equipment', 'title',         'Our own modern production facility' );
     icl_register_string( 'steelplast/quality/equipment', 'description',  'Our own modern production facility allows us to deliver projects of any complexity — from serial products to individual orders built from client drawings.' );
+
+    // ===== Added 2026-07-08: strings from pages built after the previous
+    // registration pass (About page, FAQ, all 5 service pages) had never
+    // been registered with WPML — they existed in templates via
+    // steelplast_t() but icl_t() alone doesn't auto-register anything, so
+    // they were invisible in String Translation and impossible to translate.
+    // See steelplast_t() above: it only looks up an existing translation,
+    // it does not register. Every new steelplast_t() call needs a matching
+    // icl_register_string() line here or it silently falls back to English
+    // on every language, forever. =====
+
+    // -- steelplast/about/hero --
+    icl_register_string( 'steelplast/about/hero', 'title', 'About Steel Plast' );
+
+    // -- steelplast/service-metal-stamping/specs --
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_1_title', 'Materials' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_1_subtitle', 'We stamp:' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_1_item_1', 'Low-carbon steel' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_1_item_2', 'Stainless steel' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_1_item_3', 'Galvanized steel' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_1_item_4', 'Aluminum' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_1_item_5', 'Copper' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_1_item_6', 'Brass' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_1_note', 'Sheet thickness from 0.15 to 5 mm.' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_2_title', 'Stamping Operations' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_2_subtitle', 'Core operations' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_2_group_1_title', 'Cutting' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_2_group_1_item_1', 'Blanking' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_2_group_1_item_2', 'Piercing' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_2_group_1_item_3', 'Trimming' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_2_group_2_title', 'Forming' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_2_group_2_item_1', 'Bending' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_2_group_2_item_2', 'Deep drawing' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_2_group_2_item_3', 'Embossing' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_3_title', 'Equipment & Quality Control' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_3_subtitle', 'Precision you can rely on' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_3_stat_suffix', 'tons' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_3_stat_label', 'Maximum pressing force' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_3_item_1', 'Crank pneumatic presses' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_3_item_2', 'Incoming material inspection' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_3_item_3', 'Die wear monitoring' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_3_item_4', 'First-article inspection' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_4_title', 'Lead Time & Terms' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_4_subtitle', 'Fast & reliable' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_4_stat_suffix', 'business days' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_4_stat_label', 'Production starts from' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_4_badges_label', 'We accept files in:' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_4_note', 'No drawing yet? Our engineers can help prepare documentation and a 3D model for production.' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'label', 'Technical Parameters' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'title', 'Steel Plast delivers a full cycle of metal stamping — from your drawing to a finished part' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'desc_1', 'We work with both one-off orders and serial production, keeping quality consistent at every stage.' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'desc_2', 'Metal stamping shapes flat sheet metal into finished parts using dies and presses — one of the fastest and most cost-effective ways to produce components in volume. Alongside proven cutting and forming processes, we maintain a stable process, tight tolerances, and a skilled team capable of stamping parts of complex geometry.' );
+
+    // -- steelplast/service-metal-stamping/hero --
+    icl_register_string( 'steelplast/service-metal-stamping/hero', 'title', 'Metal Stamping: Precision Sheet Metal Parts' );
+
+    // -- steelplast/service-metal-stamping/content --
+    icl_register_string( 'steelplast/service-metal-stamping/content', 'label', 'Cutting & Forming' );
+    icl_register_string( 'steelplast/service-metal-stamping/content', 'title', 'Sheet Metal Cutting and Forming Services' );
+    icl_register_string( 'steelplast/service-metal-stamping/content', 'intro', 'Steel Plast operates a fleet of stamping presses for cutting and forming sheet metal parts — from small brackets to structural components. Whatever your drawing calls for, our engineers select the tooling and press setup that deliver the best precision and turnaround time.' );
+    icl_register_string( 'steelplast/service-metal-stamping/content', 'topic_1_heading', 'Sheet Metal Cutting' );
+    icl_register_string( 'steelplast/service-metal-stamping/content', 'topic_1_p1', 'Blanking and piercing separate the part outline from the sheet metal strip and create internal features — holes, slots, and cutouts — in a single stroke of the press. This process is fast and repeatable, making it ideal for both prototype runs and high-volume production of flat components.' );
+    icl_register_string( 'steelplast/service-metal-stamping/content', 'topic_1_p2', 'We also perform trimming and shearing to finish part edges to the exact profile specified in your drawing, keeping burr height and edge quality consistent across the full production batch.' );
+    icl_register_string( 'steelplast/service-metal-stamping/content', 'topic_2_heading', 'Sheet Metal Forming' );
+    icl_register_string( 'steelplast/service-metal-stamping/content', 'topic_2_p1', 'Bending reshapes flat blanks into brackets, channels, and enclosures using precision-ground dies, while deep drawing pulls sheet metal into cups, housings, and other three-dimensional shapes without cutting the material.' );
+    icl_register_string( 'steelplast/service-metal-stamping/content', 'topic_2_p2', 'Embossing adds ribs, louvers, and other reinforcing features directly into the sheet, increasing part stiffness without extra material or a separate assembly step.' );
+
+    // -- steelplast/service-metal-stamping/about --
+    icl_register_string( 'steelplast/service-metal-stamping/about', 'tag', '[03] About us' );
+
+    // -- steelplast/service-cnc-machining/hero --
+    icl_register_string( 'steelplast/service-cnc-machining/hero', 'title', 'CNC Metal Machining: Precision Milling & Turning' );
+
+    // -- steelplast/service-cnc-machining/about --
+    icl_register_string( 'steelplast/service-cnc-machining/about', 'tag', '[03] About us' );
+
+    // -- steelplast/service-mold-manufacturing/specs --
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_1_title', 'Mold & Die Types' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_1_subtitle', 'We manufacture:' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_1_item_1', 'Injection molds' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_1_item_2', 'Stamping dies' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_1_item_3', 'Prototype molds' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_1_item_4', 'Multi-cavity production molds' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_1_item_5', 'Overmolding & insert molds' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_1_note', 'Single-cavity to multi-cavity production tooling.' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_2_title', 'Manufacturing Processes' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_2_subtitle', 'Core operations' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_2_group_1_title', 'Machining' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_2_group_1_item_1', '3-axis & 5-axis CNC milling' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_2_group_1_item_2', 'CNC turning' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_2_group_1_item_3', 'Grinding' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_2_group_2_title', 'Finishing' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_2_group_2_item_1', 'Wire & sinker EDM' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_2_group_2_item_2', 'Polishing' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_2_group_2_item_3', 'Heat treatment' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_3_title', 'Precision & Quality Control' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_3_subtitle', 'Tolerances we guarantee' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_3_stat_label', 'Machining tolerance' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_3_item_1', 'Tool steel inspection' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_3_item_2', 'Trial shots & sampling' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_3_item_3', 'Dimensional verification' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_3_item_4', 'Coordinate measuring machines (CMM)' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_4_title', 'Lead Time & Terms' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_4_subtitle', 'Fast & reliable' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_4_stat_suffix', 'business days' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_4_stat_label', 'Lead time starts from' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_4_badges_label', 'We accept files in:' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_4_note', 'We also provide mold and die maintenance and repair for tooling already in production.' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'label', 'Technical Parameters' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'title', 'Steel Plast delivers a full cycle of mold and die manufacturing — from your drawing to a finished tool' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'desc_1', 'We work with both one-off tooling orders and long production programs, keeping quality consistent at every stage.' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'desc_2', 'Every injection mold and stamping die is designed and built in-house, from steel selection to trial shots. Alongside proven CNC machining and EDM processes, we maintain a stable process, tight tolerances, and a skilled tool shop team capable of building tooling of complex geometry.' );
+
+    // -- steelplast/service-mold-manufacturing/hero --
+    icl_register_string( 'steelplast/service-mold-manufacturing/hero', 'title', 'Mold & Die Manufacturing: Custom Tooling Built In-House' );
+
+    // -- steelplast/service-mold-manufacturing/content --
+    icl_register_string( 'steelplast/service-mold-manufacturing/content', 'label', 'Tooling Design & Manufacturing' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/content', 'title', 'Injection Mold and Stamping Die Manufacturing' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/content', 'intro', 'Steel Plast designs and manufactures custom tooling in-house — from injection molds to stamping dies — giving us full control over lead time, precision, and cost. Whatever your part geometry calls for, our engineers select the mold structure, steel grade, and machining strategy that deliver a reliable, long-lasting tool.' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/content', 'topic_1_heading', 'Injection Mold Manufacturing' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/content', 'topic_1_p1', 'We design and manufacture injection molds from 3D model to first trial shot, including cavity and core machining, runner and gate design, and cooling channel layout. Every mold is built to match your production volume — from single-cavity prototype tools to high-cavity-count production molds.' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/content', 'topic_1_p2', 'Trial shots and sampling validate the mold before it goes into series production, confirming that dimensions, surface finish, and cycle time meet your specification.' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/content', 'topic_2_heading', 'Stamping Die Manufacturing' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/content', 'topic_2_p1', 'Stamping dies are engineered for the specific sheet metal operation — blanking, piercing, bending, or deep drawing — and built from hardened tool steel to withstand high-volume production runs.' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/content', 'topic_2_p2', 'We machine die components on CNC milling and EDM equipment, then fit, polish, and heat-treat the tooling to extend die life and keep part quality consistent across the full production run.' );
+
+    // -- steelplast/service-mold-manufacturing/about --
+    icl_register_string( 'steelplast/service-mold-manufacturing/about', 'tag', '[03] About us' );
+
+    // -- steelplast/service-custom-tooling/specs --
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_1_title', 'Tooling Types' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_1_subtitle', 'We manufacture:' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_1_item_1', 'Assembly jigs & fixtures' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_1_item_2', 'Inspection & measuring gauges' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_1_item_3', 'Cutting tools' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_1_item_4', 'Welding fixtures' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_1_item_5', 'Custom test equipment' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_1_note', 'Built to your process, not off a catalog.' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_2_title', 'Design & Manufacturing Process' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_2_subtitle', 'Core operations' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_2_group_1_title', 'Design' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_2_group_1_item_1', 'Requirements review' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_2_group_1_item_2', '3D modeling' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_2_group_1_item_3', 'Design validation' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_2_group_2_title', 'Manufacturing' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_2_group_2_item_1', 'CNC milling & turning' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_2_group_2_item_2', 'Grinding' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_2_group_2_item_3', 'Assembly & calibration' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_3_title', 'Precision & Quality Control' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_3_subtitle', 'Tolerances we guarantee' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_3_stat_label', 'Machining tolerance' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_3_item_1', 'Calibration against reference standards' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_3_item_2', 'Repeatability testing' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_3_item_3', 'Material certification' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_3_item_4', 'Coordinate measuring machines (CMM)' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_4_title', 'Lead Time & Terms' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_4_subtitle', 'Fast & reliable' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_4_stat_suffix', 'business days' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_4_stat_label', 'Production starts from' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_4_badges_label', 'We accept files in:' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_4_note', 'No drawing yet? Describe the task and our engineers will design the tooling from scratch.' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'label', 'Technical Parameters' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'title', 'Steel Plast builds custom tooling and fixtures — from your task to a finished piece of equipment' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'desc_1', 'We work with both one-off requests and equipment for full production lines, keeping quality consistent at every stage.' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'desc_2', 'Some tasks can\'t be solved with an off-the-shelf tool. We design and manufacture jigs, fixtures, gauges, and other custom equipment in-house, matching your exact process instead of forcing your process to match a catalog part.' );
+
+    // -- steelplast/service-custom-tooling/hero --
+    icl_register_string( 'steelplast/service-custom-tooling/hero', 'title', 'Custom Tooling & Fixtures: Made-to-Order Equipment' );
+
+    // -- steelplast/service-custom-tooling/content --
+    icl_register_string( 'steelplast/service-custom-tooling/content', 'label', 'Custom Equipment' );
+    icl_register_string( 'steelplast/service-custom-tooling/content', 'title', 'Custom Tooling and Fixtures for Non-Standard Tasks' );
+    icl_register_string( 'steelplast/service-custom-tooling/content', 'intro', 'Some tasks can\'t be solved with an off-the-shelf tool — a fixture that holds an unusual part, a gauge that checks a feature no catalog instrument measures, or a jig that speeds up a repetitive assembly step. Steel Plast designs and builds this equipment in-house, matched exactly to your process.' );
+    icl_register_string( 'steelplast/service-custom-tooling/content', 'topic_1_heading', 'Jigs & Fixtures' );
+    icl_register_string( 'steelplast/service-custom-tooling/content', 'topic_1_p1', 'Assembly and welding fixtures hold parts in a fixed, repeatable position, removing manual alignment from your process and keeping cycle time and quality consistent across every operator and shift.' );
+    icl_register_string( 'steelplast/service-custom-tooling/content', 'topic_1_p2', 'We design fixtures around your existing workflow — including quick-change elements when a single fixture needs to support several part variants.' );
+    icl_register_string( 'steelplast/service-custom-tooling/content', 'topic_2_heading', 'Inspection & Measuring Gauges' );
+    icl_register_string( 'steelplast/service-custom-tooling/content', 'topic_2_p1', 'Custom gauges check features that standard measuring instruments can\'t reach or aren\'t built for — a specific bore pattern, a contoured surface, or a go/no-go check for a critical dimension.' );
+    icl_register_string( 'steelplast/service-custom-tooling/content', 'topic_2_p2', 'Every gauge is calibrated against a reference standard and validated for repeatability before it goes into your quality control process.' );
+
+    // -- steelplast/service-custom-tooling/about --
+    icl_register_string( 'steelplast/service-custom-tooling/about', 'tag', '[03] About us' );
+
+    // -- steelplast/faq/intro --
+    icl_register_string( 'steelplast/faq/intro', 'title', 'Welcome to our FAQ section!
+We want working with Steel Plast to be transparent and comfortable for you.' );
+    icl_register_string( 'steelplast/faq/intro', 'desc', 'We\'ve gathered answers to the questions our clients ask most often about our products, orders and delivery.
+If you can\'t find what you\'re looking for, our team is always ready to help you personally.' );
+
+    // -- steelplast/faq/list --
+    icl_register_string( 'steelplast/faq/list', 'q_1', 'What does Steel Plast manufacture?' );
+    icl_register_string( 'steelplast/faq/list', 'a_1', 'We specialize in the full-cycle production of technical plastic components through injection molding, along with the design and manufacturing of custom injection molds. Our product range covers plastic and metal-plastic parts, packaging, enclosures and components for the automotive, household appliance, electrical, interior and construction industries.' );
+    icl_register_string( 'steelplast/faq/list', 'q_2', 'Can you manufacture a custom mold for our project?' );
+    icl_register_string( 'steelplast/faq/list', 'a_2', 'Yes. We design and manufacture custom injection molds in-house — from 3D modeling and CNC machining to trial shots and fine-tuning — matching the specifications and volumes of your project.' );
+    icl_register_string( 'steelplast/faq/list', 'q_3', 'What is the minimum order quantity?' );
+    icl_register_string( 'steelplast/faq/list', 'a_3', 'The minimum order quantity depends on the part\'s complexity, mold cost and material. We evaluate every request individually — send us your drawings and we will offer the most efficient production scenario.' );
+    icl_register_string( 'steelplast/faq/list', 'q_4', 'What clamping force range do your injection molding machines cover?' );
+    icl_register_string( 'steelplast/faq/list', 'a_4', 'Our injection molding machines cover a clamping force range from 25 to 800 tons, allowing us to produce parts of different sizes — from small precision components to larger housings and structural parts.' );
+    icl_register_string( 'steelplast/faq/list', 'q_5', 'Which materials can you work with?' );
+    icl_register_string( 'steelplast/faq/list', 'a_5', 'We work with a wide range of technical plastics (granules), including polypropylene, ABS, polyamide (PA6, PA66), polycarbonate and their reinforced or filled grades, selected to match your part\'s requirements.' );
+    icl_register_string( 'steelplast/faq/list', 'q_6', 'Do you offer overmolding or insert molding?' );
+    icl_register_string( 'steelplast/faq/list', 'a_6', 'Yes, we offer overmolding and insert molding, including 2K (two-component) injection, allowing us to combine materials or embed metal inserts directly during the injection cycle.' );
+    icl_register_string( 'steelplast/faq/list', 'q_7', 'How do you ensure dimensional stability and low warpage?' );
+    icl_register_string( 'steelplast/faq/list', 'a_7', 'Every mold and process is validated through trial shots and cavity-by-cavity measurement. We control shrinkage and warpage at the design stage and monitor dimensional stability throughout the entire injection cycle.' );
+    icl_register_string( 'steelplast/faq/list', 'q_8', 'What is the average mold lifespan?' );
+    icl_register_string( 'steelplast/faq/list', 'a_8', 'Mold lifespan (mold resource) depends on the tool steel, part geometry and production volume, and is confirmed for each project individually — we design every mold for reliable, repeatable output across its full service life.' );
+    icl_register_string( 'steelplast/faq/list', 'q_9', 'What quality control stages does production go through?' );
+    icl_register_string( 'steelplast/faq/list', 'a_9', 'Every batch passes through several quality control stages — incoming material inspection, in-process monitoring during the injection cycle, and final dimensional and visual inspection before shipment, in line with ISO 9001.' );
+    icl_register_string( 'steelplast/faq/list', 'q_10', 'How can I place an order?' );
+    icl_register_string( 'steelplast/faq/list', 'a_10', 'Send us your drawings or reference samples via the form on our Contacts page or by email — our team will review the details and get back to you with production options within 2 hours.' );
+
+    // -- steelplast/service-injection-molding/specs --
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_title', 'Materials' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_subtitle', 'We mold:' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_item_1', 'Polypropylene (PP)' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_item_2', 'ABS' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_item_3', 'Polyamide (PA6, PA66)' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_item_4', 'Polycarbonate (PC)' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_item_5', 'Reinforced & filled grades' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_item_6', 'TPE / TPU' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_note', 'From small precision components to large housings.' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_title', 'Molding Processes' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_subtitle', 'Core capabilities' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_group_1_title', 'Standard Injection' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_group_1_item_1', 'Single-component molding' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_group_1_item_2', 'Insert molding' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_group_1_item_3', 'Overmolding' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_group_2_title', 'Advanced' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_group_2_item_1', '2K (two-component) injection' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_group_2_item_2', 'Gas-assisted injection' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_title', 'Precision & Quality Control' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_subtitle', 'Dimensional stability we guarantee' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_stat_label', 'Molding tolerance' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_item_1', 'Incoming resin inspection' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_item_2', 'Shrinkage & warpage control' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_item_3', 'First-shot validation' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_item_4', 'Coordinate measuring machines (CMM)' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_title', 'Equipment & Terms' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_subtitle', 'Fast & reliable' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_stat_suffix', 'tons' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_stat_label', 'Clamping force range' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_badges_label', 'We accept files in:' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_note', 'No mold yet? We design and manufacture the injection mold in-house — from 3D model to first shot.' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'label', 'Technical Parameters' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'title', 'Steel Plast delivers a full cycle of plastic injection molding — from your drawing to a finished part' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'desc_1', 'We work with both one-off orders and serial production, keeping quality consistent at every stage.' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'desc_2', 'Injection molding melts technical plastics and injects them into a mold cavity — the most efficient way to produce plastic parts at volume. Alongside proven molding processes, we maintain a stable process, tight tolerances, and a skilled team capable of molding parts of complex geometry.' );
+
+    // -- steelplast/service-injection-molding/hero --
+    icl_register_string( 'steelplast/service-injection-molding/hero', 'title', 'Plastic Injection Molding: Precision Technical Parts' );
+
+    // -- steelplast/service-injection-molding/content --
+    icl_register_string( 'steelplast/service-injection-molding/content', 'label', 'Molding Capabilities' );
+    icl_register_string( 'steelplast/service-injection-molding/content', 'title', 'Injection Molding Process and Capabilities' );
+    icl_register_string( 'steelplast/service-injection-molding/content', 'intro', 'Steel Plast operates a fleet of injection molding machines, giving us the flexibility to produce technical plastic parts of virtually any geometry — from small precision components to large housings. Whatever your drawing calls for, our engineers select the material, process, and mold design that deliver the best precision and turnaround time.' );
+    icl_register_string( 'steelplast/service-injection-molding/content', 'topic_1_heading', 'Injection Molding' );
+    icl_register_string( 'steelplast/service-injection-molding/content', 'topic_1_p1', 'Injection molding melts plastic granules and injects them under pressure into a mold cavity, where the part cools and solidifies before ejection. This process is fast, repeatable, and cost-effective at scale, making it the standard choice for producing plastic components in volumes from a few hundred to millions of parts.' );
+    icl_register_string( 'steelplast/service-injection-molding/content', 'topic_1_p2', 'We control every injection cycle — melt temperature, injection speed, and clamping force — to keep dimensional stability and cycle repeatability consistent across the full production run.' );
+    icl_register_string( 'steelplast/service-injection-molding/content', 'topic_2_heading', 'Overmolding & 2K Molding' );
+    icl_register_string( 'steelplast/service-injection-molding/content', 'topic_2_p1', 'Overmolding and insert molding embed a metal or plastic insert directly into the part during the injection cycle, combining materials in a single component without a separate assembly step.' );
+    icl_register_string( 'steelplast/service-injection-molding/content', 'topic_2_p2', '2K (two-component) injection molds two different materials or colors into one part in a single cycle — commonly used for soft-touch grips, seals, and multi-color housings.' );
+
+    // -- steelplast/service-injection-molding/about --
+    icl_register_string( 'steelplast/service-injection-molding/about', 'tag', '[03] About us' );
+
+    // -- steelplast/about/intro --
+    icl_register_string( 'steelplast/about/intro', 'label', 'Who we are' );
+    icl_register_string( 'steelplast/about/intro', 'title', 'A Ukrainian full-cycle manufacturer with 10+ years of experience' );
+    icl_register_string( 'steelplast/about/intro', 'desc_1', 'We specialize in metalworking, mold production, metal stamping and plastic injection molding.' );
+    icl_register_string( 'steelplast/about/intro', 'desc_2', 'We help businesses turn ideas into a finished product, providing a complete manufacturing process — from engineering design and mold development to serial production and delivery of the finished goods to the client.' );
+    icl_register_string( 'steelplast/about/intro', 'desc_3', 'Our facility is equipped with modern high-precision machinery, including CNC turning and milling machines, EDM systems, injection molding machines and stamping presses. This allows us to deliver projects of any complexity while maintaining the highest standards of quality and precision.' );
+
+    // -- steelplast/about/audience --
+    icl_register_string( 'steelplast/about/audience', 'label', 'Why choose us' );
+    icl_register_string( 'steelplast/about/audience', 'title', 'Who we help' );
+    icl_register_string( 'steelplast/about/audience', 'desc_1', 'Our clients are manufacturing companies, machine-building businesses, design bureaus, startups, furniture and construction product manufacturers, and other companies that need quality metal or plastic components.' );
+    icl_register_string( 'steelplast/about/audience', 'desc_2', 'We believe successful production starts with a reliable partnership. That is why Steel Plast is not just a contractor, but a team that takes responsibility for the result and helps clients deliver on their most demanding manufacturing tasks.' );
+
+    // -- steelplast/about/advantages --
+    icl_register_string( 'steelplast/about/advantages', 'label', 'Our advantages' );
+    icl_register_string( 'steelplast/about/advantages', 'title', 'We combine modern technology, team experience
+and quality control at every stage of production.' );
+
+    // -- steelplast/about/advantages-cards --
+    icl_register_string( 'steelplast/about/advantages-cards', 'card_1_title', 'Full production cycle' );
+    icl_register_string( 'steelplast/about/advantages-cards', 'card_1_desc', 'We perform the full range of work — from engineering design and documentation to manufacturing the finished product.' );
+    icl_register_string( 'steelplast/about/advantages-cards', 'card_2_title', 'Modern equipment' );
+    icl_register_string( 'steelplast/about/advantages-cards', 'card_2_desc', 'We use high-precision machinery and technology that ensure stable quality and accuracy of every part.' );
+    icl_register_string( 'steelplast/about/advantages-cards', 'card_3_title', 'Experienced team' );
+    icl_register_string( 'steelplast/about/advantages-cards', 'card_3_desc', 'Every project is handled by qualified engineers, designers and technologists with years of experience.' );
+    icl_register_string( 'steelplast/about/advantages-cards', 'card_4_title', 'Individual approach' );
+    icl_register_string( 'steelplast/about/advantages-cards', 'card_4_desc', 'We develop solutions that take into account technical requirements, production specifics and the client\'s goals.' );
+    icl_register_string( 'steelplast/about/advantages-cards', 'card_5_title', 'Quality control' );
+    icl_register_string( 'steelplast/about/advantages-cards', 'card_5_desc', 'We inspect products at every stage of production, guaranteeing compliance with technical standards.' );
+    icl_register_string( 'steelplast/about/advantages-cards', 'card_6_title', 'Flexible production' );
+    icl_register_string( 'steelplast/about/advantages-cards', 'card_6_desc', 'We work with single orders and prototypes as well as with large-scale serial batches.' );
+    icl_register_string( 'steelplast/about/advantages-cards', 'card_7_title', 'On-time delivery' );
+    icl_register_string( 'steelplast/about/advantages-cards', 'card_7_desc', 'Optimized production processes allow us to complete orders within agreed deadlines without any loss of quality.' );
+    icl_register_string( 'steelplast/about/advantages-cards', 'card_8_title', 'Reliable partnership' );
+    icl_register_string( 'steelplast/about/advantages-cards', 'card_8_desc', 'We build long-term relationships with clients, ensuring open communication and a responsible approach to every project.' );
+
+    // -- steelplast/about/equipment --
+    icl_register_string( 'steelplast/about/equipment', 'label', 'Our equipment' );
+    icl_register_string( 'steelplast/about/equipment', 'title', 'Modern manufacturing requires modern technology' );
+    icl_register_string( 'steelplast/about/equipment', 'desc', 'That\'s why Steel Plast uses high-precision equipment that allows us to perform a wide range of metalworking and manufacturing tasks while maintaining the highest quality standards.' );
+
+    // -- steelplast/about/equipment-cards --
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_1_title', 'Swiss-type automatic lathe' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_1_lead', 'What it does:' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_1_bullet_1', 'Produces small, highly precise parts — pins, shafts, screws, and components for medical devices, watches and electronics.' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_1_bullet_2', 'Can turn, mill, drill and thread — all in a single pass.' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_1_bullet_3', 'Runs fully automatically without an operator — just load the bar stock and the machine handles the rest.' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_2_title', 'Crank stamping presses' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_2_desc_1', 'A crank stamping press is a machine that shapes metal using the force of impact.' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_2_desc_2', 'It transforms a flat metal sheet into a finished part — press, strike, and the shape is ready.' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_3_title', 'Injection molding machines' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_3_lead', 'How does it work?' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_3_desc_1', 'Plastic granules are fed in, melted down to a liquid state inside the machine, and then injected under high pressure into a mold.' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_4_title', 'Wire-cut and sinker EDM machines' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_4_desc_1', 'An EDM machine is a machine that cuts metal... using electricity!' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_4_desc_2', 'Not with a cutting tool or a mill — but with an electric spark that erodes metal with micron-level precision.' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_5_title', '5-axis CNC milling machines' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_5_lead', 'What it does:' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_5_bullet_1', 'Mills, drills and cuts complex shapes.' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_5_bullet_2', 'Produces 3D surfaces, blades, housings and mold cavities.' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_5_bullet_3', 'Works with metal, plastic and composite materials.' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_5_bullet_4', 'Accuracy of up to 0.001 mm.' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_6_title', 'CNC turn-mill machines (2023–2024)' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_6_lead', 'They can do it all:' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_6_bullet_1', 'Turning, milling, drilling, threading — all on a single part, without stopping!' );
+
+    // -- steelplast/service-cnc-machining/specs --
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'label', 'Technical Parameters' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'title', 'Steel Plast delivers a full cycle of CNC metal machining — from your drawing to a finished part' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'desc_1', 'We work with both one-off orders and serial production, keeping quality consistent at every stage.' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'desc_2', 'CNC metal machining relies on computer numerical control — the foundation of modern precision manufacturing. Alongside proven turning and milling processes, we maintain a stable process, tight tolerances, and a skilled team capable of machining parts of complex geometry.' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_1_title', 'Materials' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_1_subtitle', 'We machine:' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_1_item_1', 'Structural steel' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_1_item_2', 'Tool steel' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_1_item_3', 'Stainless steel' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_1_item_4', 'Aluminum' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_1_item_5', 'Brass' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_1_item_6', 'Copper' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_1_item_7', 'Titanium' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_1_note', 'From small precision parts to large-format workpieces.' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_2_title', 'Machining Types' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_2_subtitle', 'Core operations' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_2_group_1_title', 'Turning' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_2_group_1_item_1', 'OD & ID turning' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_2_group_1_item_2', 'Threading' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_2_group_1_item_3', 'Grooving & parting' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_2_group_2_title', 'Milling' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_2_group_2_item_1', 'Facing' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_2_group_2_item_2', 'Slotting & pocketing' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_2_group_2_item_3', 'Complex contours' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_2_group_2_item_4', '3D milling' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_title', 'Precision & Quality Control' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_subtitle', 'Tolerances we guarantee' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_stat_label', 'Machining tolerance' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_item_1', 'Incoming material inspection' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_item_2', 'Part geometry control' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_item_3', 'Calibrated tooling' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_item_4', 'Coordinate measuring machines (CMM)' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_4_title', 'Lead Time & Terms' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_4_subtitle', 'Fast & reliable' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_4_stat_suffix', 'business days' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_4_stat_label', 'Production starts from' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_4_badges_label', 'We accept files in:' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_4_note', 'No drawing yet? Our engineers can help prepare documentation and a 3D model for production.' );
+
+    // -- steelplast/service-cnc-machining/content --
+    icl_register_string( 'steelplast/service-cnc-machining/content', 'label', 'CNC Milling & Turning' );
+    icl_register_string( 'steelplast/service-cnc-machining/content', 'title', 'CNC Milling and CNC Turning Services' );
+    icl_register_string( 'steelplast/service-cnc-machining/content', 'intro', 'Steel Plast operates a fleet of CNC milling and turning centers, giving us the flexibility to machine parts of virtually any geometry — from flat brackets to complex rotational components. Whatever your drawing calls for, our engineers select the process, tooling, and setup that deliver the best precision and turnaround time.' );
+    icl_register_string( 'steelplast/service-cnc-machining/content', 'topic_1_heading', 'CNC Milling' );
+    icl_register_string( 'steelplast/service-cnc-machining/content', 'topic_1_p1', 'Our CNC milling centers remove material from a solid workpiece to produce flat surfaces, pockets, slots, and complex 3D contours with tight positional accuracy. Multi-axis milling lets us machine undercuts and curved geometries in a single setup, which shortens lead times and keeps tolerances consistent across the whole part.' );
+    icl_register_string( 'steelplast/service-cnc-machining/content', 'topic_1_p2', 'CNC milling is our go-to process for housings, brackets, plates, and mold components — parts that combine several features on more than one face. We machine both prototypes and full production runs from the same program, so a part that works in testing scales directly into series manufacturing.' );
+    icl_register_string( 'steelplast/service-cnc-machining/content', 'topic_2_heading', 'CNC Turning' );
+    icl_register_string( 'steelplast/service-cnc-machining/content', 'topic_2_p1', 'CNC turning rotates the workpiece against a cutting tool to produce cylindrical and rotationally symmetric parts — shafts, bushings, flanges, pins, and threaded components. Our lathes handle external and internal turning, threading, grooving, and parting-off in a single cycle, minimizing repositioning and keeping runout to a minimum.' );
+    icl_register_string( 'steelplast/service-cnc-machining/content', 'topic_2_p2', 'Turned parts are common in automotive, industrial equipment, and fastener applications where round geometry and axial precision matter most. We machine turned components from steel, stainless steel, aluminum, and brass, and can combine turning with subsequent milling operations for parts that need both round and flat features.' );
 }
 add_action( 'after_setup_theme', 'steelplast_register_wpml_strings' );
 

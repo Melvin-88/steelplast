@@ -9,15 +9,27 @@
 get_header();
 ?>
 
-<main id="primary" class="site-main page-about">
-    <div class="content-wrapper">
-        <?php while ( have_posts() ) : the_post(); ?>
-            <h1 class="page-title"><?php the_title(); ?></h1>
-            <div class="entry-content">
-                <?php the_content(); ?>
-            </div>
-        <?php endwhile; ?>
-    </div>
+<main id="primary" class="sp-main page-about">
+
+    <?php
+    get_template_part( 'template-parts/page-hero', null, [
+        'title'  => steelplast_t( 'steelplast/about/hero', 'title', 'About Steel Plast' ),
+        'height' => 440,
+    ] );
+    ?>
+
+    <?php get_template_part( 'template-parts/section-about-intro' ); ?>
+
+    <?php get_template_part( 'template-parts/section-about-advantages' ); ?>
+
+    <?php get_template_part( 'template-parts/section-about-audience' ); ?>
+
+    <?php get_template_part( 'template-parts/section-about-equipment' ); ?>
+
+    <?php get_template_part( 'template-parts/section-news' ); ?>
+
+    <?php get_template_part( 'template-parts/section-contact' ); ?>
+
 </main>
 
 <?php

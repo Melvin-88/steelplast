@@ -35,7 +35,7 @@ $categories = get_categories( [
 $base_url = get_permalink();
 ?>
 
-<main id="main" class="sp-main" role="main">
+<main id="primary" class="sp-main" role="main">
 
     <?php
     get_template_part( 'template-parts/page-hero', null, [
@@ -75,7 +75,7 @@ $base_url = get_permalink();
 
                 <div class="sp-news-archive__grid">
                     <?php while ( $news_query->have_posts() ) : $news_query->the_post(); ?>
-                        <?php get_template_part( 'template-parts/post-card', null, [ 'post_id' => get_the_ID() ] ); ?>
+                        <?php get_template_part( 'template-parts/post-card', null, [ 'post_id' => get_the_ID(), 'heading' => 'h2' ] ); ?>
                     <?php endwhile; wp_reset_postdata(); ?>
                 </div>
 
