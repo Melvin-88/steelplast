@@ -59,25 +59,15 @@ $cards = [
         ],
         'image_id' => steelplast_get_field_default_lang( 'about_equipment_card_5_image' ) ?: 0,
     ],
-];
-
-// A 6th machine may be added later — the ACF image field and grid layout
-// already support it, only a new $cards entry needs to be appended above.
-$card_6_image = steelplast_get_field_default_lang( 'about_equipment_card_6_image' ) ?: 0;
-$card_6_title = steelplast_t( 'steelplast/about/equipment-cards', 'card_6_title', 'CNC turn-mill machines (2023–2024)' );
-if ( $card_6_title ) {
-    $cards[] = [
-        'title'   => $card_6_title,
+    [
+        'title'   => steelplast_t( 'steelplast/about/equipment-cards', 'card_6_title', 'CNC turn-mill machines (2023–2024)' ),
         'lead'    => steelplast_t( 'steelplast/about/equipment-cards', 'card_6_lead', 'They can do it all:' ),
-        'bullets' => array_filter( [
+        'bullets' => [
             steelplast_t( 'steelplast/about/equipment-cards', 'card_6_bullet_1', 'Turning, milling, drilling, threading — all on a single part, without stopping!' ),
-            steelplast_t( 'steelplast/about/equipment-cards', 'card_6_bullet_2', '' ),
-            steelplast_t( 'steelplast/about/equipment-cards', 'card_6_bullet_3', '' ),
-            steelplast_t( 'steelplast/about/equipment-cards', 'card_6_bullet_4', '' ),
-        ] ),
-        'image_id' => $card_6_image,
-    ];
-}
+        ],
+        'image_id' => steelplast_get_field_default_lang( 'about_equipment_card_6_image' ) ?: 0,
+    ],
+];
 ?>
 
 <section class="sp-about-equipment" aria-labelledby="sp-about-equipment-title">
