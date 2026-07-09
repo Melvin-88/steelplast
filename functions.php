@@ -385,20 +385,20 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/home/services', 'title',           'Modern equipment, manufacturing precision and quality control' );
     icl_register_string( 'steelplast/home/services', 'description',     'Individual approach to every project, official contracts, staged payments and constant communication' );
     icl_register_string( 'steelplast/home/services', 'cta_label',       'Learn more' );
-    icl_register_string( 'steelplast/home/services', 'card_1_title',    'Metal Processing' );
-    icl_register_string( 'steelplast/home/services', 'card_1_desc',     'High-precision CNC metal machining for parts of any complexity.' );
-    icl_register_string( 'steelplast/home/services', 'card_2_title',    'Plastic Casting' );
-    icl_register_string( 'steelplast/home/services', 'card_2_desc',     'Manufacturing plastic products by injection molding on modern thermoplastic machines.' );
-    icl_register_string( 'steelplast/home/services', 'card_3_title',    'Laser Metal Cutting' );
-    icl_register_string( 'steelplast/home/services', 'card_3_desc',     'High-precision laser metal cutting for parts of any complexity.' );
-    icl_register_string( 'steelplast/home/services', 'card_4_title',    'Stamping' );
-    icl_register_string( 'steelplast/home/services', 'card_4_desc',     'STEELPLAST manufactures stamped components for various industrial sectors.' );
+    icl_register_string( 'steelplast/home/services', 'card_1_title',    'Metal Stamping' );
+    icl_register_string( 'steelplast/home/services', 'card_1_desc',     'Precision sheet metal stamping — blanking, bending and deep drawing — for parts from 0.15 to 5 mm thick.' );
+    icl_register_string( 'steelplast/home/services', 'card_2_title',    'Plastic Injection Molding' );
+    icl_register_string( 'steelplast/home/services', 'card_2_desc',     'Injection molding of technical plastics on modern thermoplastic machines, from prototypes to volume production.' );
+    icl_register_string( 'steelplast/home/services', 'card_3_title',    'Mold & Die Manufacturing' );
+    icl_register_string( 'steelplast/home/services', 'card_3_desc',     'In-house design and manufacture of injection molds and stamping dies, built to your part from steel selection to trial shots.' );
+    icl_register_string( 'steelplast/home/services', 'card_4_title',    'Mechanical Machining' );
+    icl_register_string( 'steelplast/home/services', 'card_4_desc',     'Full-cycle CNC turning and milling for metal parts of any complexity — from a single prototype to serial production.' );
     icl_register_string( 'steelplast/home/services', 'card_4_cap',      'Manufacturing capabilities:' );
-    icl_register_string( 'steelplast/home/services', 'card_4_bullet_1', 'Sheet metal processing 0.15–5 mm thick' );
-    icl_register_string( 'steelplast/home/services', 'card_4_bullet_2', 'Crank pneumatic presses' );
-    icl_register_string( 'steelplast/home/services', 'card_4_bullet_3', 'Maximum pressing force — up to 100 t' );
-    icl_register_string( 'steelplast/home/services', 'card_5_title',    'Powder Coating' );
-    icl_register_string( 'steelplast/home/services', 'card_5_desc',     'Powder coating of metal products ensuring uniform and durable finish.' );
+    icl_register_string( 'steelplast/home/services', 'card_4_bullet_1', 'CNC turning and milling in a single process chain' );
+    icl_register_string( 'steelplast/home/services', 'card_4_bullet_2', 'Structural, tool and stainless steel, aluminum, brass, titanium' );
+    icl_register_string( 'steelplast/home/services', 'card_4_bullet_3', 'Machining tolerance up to ±0.005 mm' );
+    icl_register_string( 'steelplast/home/services', 'card_5_title',    'Custom Tooling & Fixtures' );
+    icl_register_string( 'steelplast/home/services', 'card_5_desc',     'Assembly jigs, inspection gauges and welding fixtures, designed and built in-house to fit your exact process.' );
 
     // -- steelplast/collaboration/header --
     icl_register_string( 'steelplast/collaboration/header', 'collab_label',   'Collaboration' );
