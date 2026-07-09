@@ -4,7 +4,7 @@
 
 $color-white:       #ffffff;
 $color-pure-white:  #f6f6f6;
-$color-dark-grey:   #8a8a8a;
+$color-dark-grey:   #707070; // darkened from #8a8a8a — that shade failed WCAG AA contrast (3.45:1) on white/light card backgrounds
 $color-dark-navy:   #121c2e;
 $color-background:  #0f0f0f;
 $color-black:       #090a0c;

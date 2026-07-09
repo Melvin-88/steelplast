@@ -374,3 +374,95 @@ acf_add_local_field_group( [
     'label_placement'       => 'top',
     'instruction_placement' => 'label',
 ] );
+
+// =============================================
+// About Page — Images
+// =============================================
+
+acf_add_local_field_group( [
+    'key'    => 'group_about_page',
+    'title'  => 'About Page — Images',
+    'fields' => [
+        // [03] Who we help
+        [
+            'key'           => 'field_about_audience_image',
+            'label'         => 'Who we help section — image',
+            'name'          => 'about_audience_image',
+            'type'          => 'image',
+            'return_format' => 'array',
+            'preview_size'  => 'large',
+            'mime_types'    => 'jpg,jpeg,png,webp',
+        ],
+
+        // [04] Equipment cards — photo optional per card, 6 slots (not every
+        // machine is guaranteed to have a photo uploaded)
+        [
+            'key'           => 'field_about_equipment_card_1_image',
+            'label'         => 'Equipment card 1 — image (Swiss-type automatic lathe)',
+            'name'          => 'about_equipment_card_1_image',
+            'type'          => 'image',
+            'return_format' => 'id',
+            'preview_size'  => 'medium',
+            'mime_types'    => 'jpg,jpeg,png,webp',
+        ],
+        [
+            'key'           => 'field_about_equipment_card_2_image',
+            'label'         => 'Equipment card 2 — image (Crank stamping presses)',
+            'name'          => 'about_equipment_card_2_image',
+            'type'          => 'image',
+            'return_format' => 'id',
+            'preview_size'  => 'medium',
+            'mime_types'    => 'jpg,jpeg,png,webp',
+        ],
+        [
+            'key'           => 'field_about_equipment_card_3_image',
+            'label'         => 'Equipment card 3 — image (Injection molding machines)',
+            'name'          => 'about_equipment_card_3_image',
+            'type'          => 'image',
+            'return_format' => 'id',
+            'preview_size'  => 'medium',
+            'mime_types'    => 'jpg,jpeg,png,webp',
+        ],
+        [
+            'key'           => 'field_about_equipment_card_4_image',
+            'label'         => 'Equipment card 4 — image (Wire-cut and sinker EDM machines)',
+            'name'          => 'about_equipment_card_4_image',
+            'type'          => 'image',
+            'return_format' => 'id',
+            'preview_size'  => 'medium',
+            'mime_types'    => 'jpg,jpeg,png,webp',
+        ],
+        [
+            'key'           => 'field_about_equipment_card_5_image',
+            'label'         => 'Equipment card 5 — image (5-axis CNC milling machines)',
+            'name'          => 'about_equipment_card_5_image',
+            'type'          => 'image',
+            'return_format' => 'id',
+            'preview_size'  => 'medium',
+            'mime_types'    => 'jpg,jpeg,png,webp',
+        ],
+        [
+            'key'           => 'field_about_equipment_card_6_image',
+            'label'         => 'Equipment card 6 — image (optional 6th machine, add title/desc via WPML String Translation once known)',
+            'name'          => 'about_equipment_card_6_image',
+            'type'          => 'image',
+            'return_format' => 'id',
+            'preview_size'  => 'medium',
+            'mime_types'    => 'jpg,jpeg,png,webp',
+        ],
+    ],
+    'location' => [
+        [
+            [
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'page-templates/template-about.php',
+            ],
+        ],
+    ],
+    'menu_order'            => 0,
+    'position'              => 'normal',
+    'style'                 => 'default',
+    'label_placement'       => 'top',
+    'instruction_placement' => 'label',
+] );

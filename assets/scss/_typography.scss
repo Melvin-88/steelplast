@@ -78,7 +78,8 @@ h5 {
         color: var(--color-navy, #{$color-dark-navy});
 
         .sp-section-label__index {
-            color: rgba($color-dark-navy, 0.50);
+            // 0.50 failed WCAG AA contrast (3.31:1) on light backgrounds
+            color: rgba($color-dark-navy, 0.65);
         }
     }
 }

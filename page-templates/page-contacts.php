@@ -61,7 +61,7 @@ $locations = [ [
 ] ];
 ?>
 
-<main id="main" class="sp-main sp-contacts-page" role="main">
+<main id="primary" class="sp-main sp-contacts-page" role="main">
 
     <section class="sp-contacts-page__hero">
         <div class="content-wrapper">
