@@ -139,7 +139,7 @@ acf_add_local_field_group( [
     'fields' => [
         [
             'key'           => 'field_services_card_1_image',
-            'label'         => 'Card 1 — Metal Processing',
+            'label'         => 'Card 1 — Metal Stamping',
             'name'          => 'services_card_1_image',
             'type'          => 'image',
             'return_format' => 'id',
@@ -148,7 +148,7 @@ acf_add_local_field_group( [
         ],
         [
             'key'           => 'field_services_card_2_image',
-            'label'         => 'Card 2 — Plastic Casting',
+            'label'         => 'Card 2 — Plastic Injection Molding',
             'name'          => 'services_card_2_image',
             'type'          => 'image',
             'return_format' => 'id',
@@ -157,7 +157,7 @@ acf_add_local_field_group( [
         ],
         [
             'key'           => 'field_services_card_3_image',
-            'label'         => 'Card 3 — Laser Cutting',
+            'label'         => 'Card 3 — Mold & Die Manufacturing',
             'name'          => 'services_card_3_image',
             'type'          => 'image',
             'return_format' => 'id',
@@ -166,7 +166,7 @@ acf_add_local_field_group( [
         ],
         [
             'key'           => 'field_services_card_4_image',
-            'label'         => 'Card 4 — Stamping (side image)',
+            'label'         => 'Card 4 — Mechanical Machining (side image)',
             'name'          => 'services_card_4_image',
             'type'          => 'image',
             'return_format' => 'id',
@@ -175,7 +175,7 @@ acf_add_local_field_group( [
         ],
         [
             'key'           => 'field_services_card_5_image',
-            'label'         => 'Card 5 — Powder Coating',
+            'label'         => 'Card 5 — Custom Tooling & Fixtures',
             'name'          => 'services_card_5_image',
             'type'          => 'image',
             'return_format' => 'id',
