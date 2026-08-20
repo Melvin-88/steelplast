@@ -33,7 +33,7 @@ if ( ! empty( $file_2['url'] ) ) {
 <section class="sp-quality-cert" aria-labelledby="quality-cert-title">
     <div class="content-wrapper sp-quality-cert__inner">
 
-        <div class="sp-quality-cert__content">
+        <div class="sp-quality-cert__content" data-sp-animate>
             <p class="sp-section-label sp-section-label--dark-bg">
                 <span class="sp-section-label__index" aria-hidden="true">[04]</span>
                 <?php echo esc_html( steelplast_t( 'steelplast/quality/certification', 'label', 'ISO Certificates' ) ); ?>
@@ -75,7 +75,7 @@ if ( ! empty( $file_2['url'] ) ) {
         </div>
 
         <?php if ( $image ) : ?>
-            <div class="sp-quality-cert__image">
+            <div class="sp-quality-cert__image" data-sp-animate>
                 <img
                     src="<?php echo esc_url( $image['url'] ); ?>"
                     width="<?php echo esc_attr( $image['width'] ); ?>"

@@ -30,7 +30,7 @@ $bullets = [
 <section class="sp-quality-reliability" aria-labelledby="quality-reliability-title">
     <div class="content-wrapper">
 
-        <div class="sp-quality-reliability__header">
+        <div class="sp-quality-reliability__header" data-sp-animate>
 
             <div class="sp-quality-reliability__intro-col">
                 <p class="sp-section-label sp-section-label--light-bg">
@@ -59,7 +59,7 @@ $bullets = [
         </div>
 
         <?php if ( $image ) : ?>
-            <div class="sp-quality-reliability__image">
+            <div class="sp-quality-reliability__image" data-sp-animate>
                 <img
                     src="<?php echo esc_url( $image['url'] ); ?>"
                     width="<?php echo esc_attr( $image['width'] ); ?>"

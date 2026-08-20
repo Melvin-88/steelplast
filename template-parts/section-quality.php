@@ -46,7 +46,7 @@ $cards = [
 
         <div class="sp-quality__layout">
 
-            <div class="sp-quality__left">
+            <div class="sp-quality__left" data-sp-animate>
                 <p class="sp-section-label sp-section-label--light-bg">
                     <span class="sp-section-label__index" aria-hidden="true"><?php echo esc_html( $label_index ); ?></span>
                     <?php echo esc_html( steelplast_t( 'steelplast/quality/header', 'label', 'Quality of products' ) ); ?>
@@ -72,11 +72,11 @@ $cards = [
                 <?php endif; ?>
             </div>
 
-            <div class="sp-quality__grid" role="list"
+            <div class="sp-quality__grid" role="list" data-sp-animate-group
                  aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/quality/cards', 'grid_aria', 'Quality certifications' ) ); ?>">
 
                 <?php foreach ( $cards as $card ) : ?>
-                <article class="sp-quality__card" role="listitem">
+                <article class="sp-quality__card" role="listitem" data-sp-animate>
 
                     <div class="sp-quality__card-header">
                         <div class="sp-quality__card-icon" aria-hidden="true">

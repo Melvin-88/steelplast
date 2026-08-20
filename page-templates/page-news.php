@@ -48,7 +48,7 @@ $base_url = get_permalink();
         <div class="content-wrapper">
 
             <?php if ( ! empty( $categories ) ) : ?>
-                <nav class="sp-news-archive__filter" aria-label="<?php esc_attr_e( 'Filter by category', 'steelplast' ); ?>">
+                <nav class="sp-news-archive__filter" data-sp-animate aria-label="<?php esc_attr_e( 'Filter by category', 'steelplast' ); ?>">
                     <span class="sp-news-archive__filter-label">
                         <?php echo esc_html( steelplast_t( 'steelplast/news/archive', 'filter_label', 'Categories' ) ); ?>
                     </span>
@@ -73,7 +73,7 @@ $base_url = get_permalink();
 
             <?php if ( $news_query->have_posts() ) : ?>
 
-                <div class="sp-news-archive__grid">
+                <div class="sp-news-archive__grid" data-sp-animate-group>
                     <?php while ( $news_query->have_posts() ) : $news_query->the_post(); ?>
                         <?php get_template_part( 'template-parts/post-card', null, [ 'post_id' => get_the_ID(), 'heading' => 'h2' ] ); ?>
                     <?php endwhile; wp_reset_postdata(); ?>

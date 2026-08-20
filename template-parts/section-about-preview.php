@@ -7,7 +7,7 @@
 
 $tag     = $args['tag'] ?? steelplast_t( 'steelplast/home/about-preview', 'tag', '[02] About us' );
 $title   = steelplast_t( 'steelplast/home/about-preview', 'title',       'WE ENGINEER<br>PRECISION' );
-$desc    = steelplast_t( 'steelplast/home/about-preview', 'description', 'SteelPlast is a full-cycle manufacturer specialising in injection mold design, mold production, and high-volume plastic part manufacturing. Over 15 years of engineering precision.' );
+$desc    = steelplast_t( 'steelplast/home/about-preview', 'description', 'SteelPlast is a full-cycle manufacturer specialising in CNC metal machining, injection mold design, mold production, and high-volume plastic part manufacturing. 10+ years of engineering precision.' );
 $btn_txt = steelplast_t( 'steelplast/home/about-preview', 'button',      'Learn more about us' );
 
 $about_page = get_page_by_path( 'about' );
@@ -28,7 +28,7 @@ $img3_url = $img3_id ? wp_get_attachment_image_url( $img3_id, 'large' ) : '';
     <div class="sp-about-preview__inner content-wrapper">
 
         <!-- Left column -->
-        <div class="sp-about-preview__content">
+        <div class="sp-about-preview__content" data-sp-animate>
             <span class="sp-about-preview__tag"><?php echo esc_html( $tag ); ?></span>
             <h2 class="sp-section-title sp-about-preview__title"><?php echo wp_kses( $title, [ 'br' => [] ] ); ?></h2>
             <p class="sp-section-desc sp-about-preview__desc"><?php echo esc_html( $desc ); ?></p>
@@ -38,7 +38,7 @@ $img3_url = $img3_id ? wp_get_attachment_image_url( $img3_id, 'large' ) : '';
         </div>
 
         <!-- Right column: 3 chevron-clipped images (decorative) -->
-        <div class="sp-about-preview__images" aria-hidden="true">
+        <div class="sp-about-preview__images" aria-hidden="true" data-sp-animate>
 
             <?php if ( $img1_url ) : ?>
             <!-- Image 1 — left-pointing chevron -->

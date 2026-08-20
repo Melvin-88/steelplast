@@ -16,7 +16,7 @@ $cta_label = $args['cta_label'] ?? '';
 $cta_href  = $args['cta_href']  ?? '#';
 ?>
 
-<article class="sp-services__card sp-services__card--with-image" data-service="<?php echo esc_attr( $card_id ); ?>">
+<article class="sp-services__card sp-services__card--with-image" data-service="<?php echo esc_attr( $card_id ); ?>" data-sp-animate>
 
     <div class="sp-services__card-image">
         <?php if ( $image_id ) : ?>

@@ -18,7 +18,7 @@ $desc = [
 <section class="sp-about-intro" aria-labelledby="sp-about-intro-title">
 
     <div class="content-wrapper">
-        <div class="sp-about-intro__content">
+        <div class="sp-about-intro__content" data-sp-animate>
             <p class="sp-section-label sp-section-label--light-bg">
                 <span class="sp-section-label__index" aria-hidden="true">[01]</span>
                 <?php echo esc_html( $label ); ?>

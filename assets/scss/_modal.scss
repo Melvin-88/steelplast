@@ -1,0 +1,103 @@
+@use 'variables' as *;
+
+// =============================================
+// Generic modal (sitewide) — used by the quick-contact modal, reusable
+// for any future modal via data-sp-modal / data-sp-modal-open.
+// =============================================
+
+body.sp-modal-open {
+    overflow: hidden;
+}
+
+.sp-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .25s ease, visibility 0s linear .25s;
+
+    &.is-open {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity .25s ease, visibility 0s linear 0s;
+
+        .sp-modal__dialog {
+            transform: translateY(0);
+        }
+    }
+}
+
+.sp-modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba($color-black, 0.72);
+}
+
+.sp-modal__dialog {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 480px;
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    background: $color-pure-white;
+    padding: 48px 40px;
+    transform: translateY(16px);
+    transition: transform .3s cubic-bezier(.16, .8, .24, 1);
+}
+
+.sp-modal__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    line-height: 1;
+    color: $color-black;
+
+    &:focus-visible {
+        outline: 2px solid $color-accent;
+        outline-offset: 2px;
+        border-radius: 2px;
+    }
+}
+
+.sp-modal__title {
+    font-family: $font-family-base;
+    font-size: 32px;
+    line-height: 1.15;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $color-black;
+    margin-bottom: 12px;
+    padding-right: 24px;
+}
+
+.sp-modal__desc {
+    font-size: $font-size-body;
+    line-height: $line-height-body-up;
+    color: $color-dark-grey;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 480px) {
+    .sp-modal__dialog {
+        padding: 32px 24px;
+    }
+
+    .sp-modal__title {
+        font-size: 24px;
+    }
+}

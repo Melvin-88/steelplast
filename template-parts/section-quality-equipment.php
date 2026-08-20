@@ -34,7 +34,7 @@ $cards = [
 <section class="sp-services" aria-labelledby="quality-equipment-title">
     <div class="content-wrapper">
 
-        <header class="sp-services__header">
+        <header class="sp-services__header" data-sp-animate>
             <p class="sp-section-label sp-section-label--light-bg">
                 <span class="sp-section-label__index" aria-hidden="true">[01]</span>
                 <?php echo esc_html( steelplast_t( 'steelplast/quality/equipment', 'section_label', 'Professional Quality Control' ) ); ?>
@@ -47,7 +47,7 @@ $cards = [
             </p>
         </header>
 
-        <div class="sp-services__grid">
+        <div class="sp-services__grid" data-sp-animate-group>
             <?php foreach ( $cards as $card ) : ?>
                 <?php get_template_part( 'template-parts/component-image-card', null, $card ); ?>
             <?php endforeach; ?>

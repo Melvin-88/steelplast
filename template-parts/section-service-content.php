@@ -43,7 +43,7 @@ $topics = $args['topics'] ?? [
 <section class="sp-service-content" aria-labelledby="service-content-title">
     <div class="content-wrapper">
 
-        <div class="sp-service-content__header">
+        <div class="sp-service-content__header" data-sp-animate>
             <p class="sp-section-label sp-section-label--light-bg">
                 <span class="sp-section-label__index" aria-hidden="true"><?php echo esc_html( $label_index ); ?></span>
                 <?php echo esc_html( $label ); ?>
@@ -56,9 +56,9 @@ $topics = $args['topics'] ?? [
             <?php endif; ?>
         </div>
 
-        <div class="sp-service-content__grid">
+        <div class="sp-service-content__grid" data-sp-animate-group>
             <?php foreach ( $topics as $topic ) : ?>
-                <div class="sp-service-content__topic">
+                <div class="sp-service-content__topic" data-sp-animate>
                     <h3 class="sp-service-content__topic-heading"><?php echo esc_html( $topic['heading'] ); ?></h3>
                     <?php foreach ( $topic['paragraphs'] as $paragraph ) : ?>
                         <p class="sp-service-content__topic-text"><?php echo esc_html( $paragraph ); ?></p>

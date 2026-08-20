@@ -135,75 +135,82 @@ function steelplast_scripts() {
         true
     );
 
-    // Contact form JS/CSS — only on pages that actually render
-    // template-parts/section-contact.php. Keep this list in sync whenever a
-    // page starts using that partial (grep -rn "section-contact" *.php page-templates/*.php template-parts/*.php single.php).
-    $contact_form_templates = [
-        'page-templates/template-contacts.php',
-        'page-templates/template-quality.php',
-        'page-templates/template-about.php',
-        'page-templates/page-news.php',
-        'page-templates/template-faq.php',
-        'page-templates/template-cnc-machining.php',
-        'page-templates/template-metal-stamping.php',
-        'page-templates/template-injection-molding.php',
-        'page-templates/template-mold-manufacturing.php',
-        'page-templates/template-custom-tooling.php',
-    ];
-    if ( is_front_page() || is_page_template( $contact_form_templates ) || is_singular( 'post' ) ) {
-        $iti_css = get_template_directory() . '/assets/css/vendor/intlTelInput.min.css';
-        wp_enqueue_style(
-            'intl-tel-input',
-            get_template_directory_uri() . '/assets/css/vendor/intlTelInput.min.css',
-            array(),
-            file_exists( $iti_css ) ? filemtime( $iti_css ) : STEELPLAST_VERSION
-        );
-        // Fix flag paths + force light dropdown theme — must be AFTER vendor CSS
-        $flags_uri = get_template_directory_uri() . '/assets/img';
-        wp_add_inline_style( 'intl-tel-input', sprintf(
-            ':root{--iti-path-flags-1x:url("%1$s/flags.webp");--iti-path-flags-2x:url("%1$s/flags@2x.webp");}
-            .iti__dropdown-content,.iti__dropdown-content *{color:#090a0c!important;box-sizing:border-box;}
-            .iti__dropdown-content{background:#ffffff!important;border:1px solid rgba(9,10,12,.12)!important;box-shadow:0 8px 24px rgba(9,10,12,.12)!important;}
-            .iti__search-input{color:#090a0c!important;background:#ffffff!important;border-bottom:1px solid rgba(9,10,12,.12)!important;}
-            .iti__country{color:#090a0c!important;background:#ffffff!important;}
-            .iti__country:hover,.iti__country--highlight{background:rgba(9,10,12,.06)!important;}
-            .iti__country-name{color:#090a0c!important;}
-            .iti__dial-code{color:#8a8a8a!important;}
-            .iti__selected-dial-code{color:#090a0c!important;}
-            .iti__selected-country-primary,.iti__selected-country{color:#090a0c!important;}',
-            esc_url( $flags_uri )
-        ) );
+    // Scroll-reveal animations — lightweight, sitewide, no dependencies.
+    $animations_js = get_template_directory() . '/assets/js/animations.js';
+    wp_enqueue_script(
+        'steelplast-animations',
+        get_template_directory_uri() . '/assets/js/animations.js',
+        array(),
+        file_exists( $animations_js ) ? filemtime( $animations_js ) : STEELPLAST_VERSION,
+        true
+    );
 
-        $iti_js = get_template_directory() . '/assets/js/vendor/intlTelInputWithUtils.min.js';
-        wp_enqueue_script(
-            'intl-tel-input',
-            get_template_directory_uri() . '/assets/js/vendor/intlTelInputWithUtils.min.js',
-            array(),
-            file_exists( $iti_js ) ? filemtime( $iti_js ) : STEELPLAST_VERSION,
-            true
-        );
+    // Contact form JS/CSS — sitewide. The quick-contact modal (footer.php)
+    // renders template-parts/contact-form.php on every page, and the full
+    // section-contact.php form is used by most templates already, so these
+    // assets are needed everywhere rather than gated per-template.
+    $iti_css = get_template_directory() . '/assets/css/vendor/intlTelInput.min.css';
+    wp_enqueue_style(
+        'intl-tel-input',
+        get_template_directory_uri() . '/assets/css/vendor/intlTelInput.min.css',
+        array(),
+        file_exists( $iti_css ) ? filemtime( $iti_css ) : STEELPLAST_VERSION
+    );
+    // Fix flag paths + force light dropdown theme — must be AFTER vendor CSS
+    $flags_uri = get_template_directory_uri() . '/assets/img';
+    wp_add_inline_style( 'intl-tel-input', sprintf(
+        ':root{--iti-path-flags-1x:url("%1$s/flags.webp");--iti-path-flags-2x:url("%1$s/flags@2x.webp");}
+        .iti__dropdown-content,.iti__dropdown-content *{color:#090a0c!important;box-sizing:border-box;}
+        .iti__dropdown-content{background:#ffffff!important;border:1px solid rgba(9,10,12,.12)!important;box-shadow:0 8px 24px rgba(9,10,12,.12)!important;}
+        .iti__search-input{color:#090a0c!important;background:#ffffff!important;border-bottom:1px solid rgba(9,10,12,.12)!important;}
+        .iti__country{color:#090a0c!important;background:#ffffff!important;}
+        .iti__country:hover,.iti__country--highlight{background:rgba(9,10,12,.06)!important;}
+        .iti__country-name{color:#090a0c!important;}
+        .iti__dial-code{color:#8a8a8a!important;}
+        .iti__selected-dial-code{color:#090a0c!important;}
+        .iti__selected-country-primary,.iti__selected-country{color:#090a0c!important;}',
+        esc_url( $flags_uri )
+    ) );
 
-        $contact_js = get_template_directory() . '/assets/js/contact-form.js';
-        wp_enqueue_script(
-            'steelplast-contact',
-            get_template_directory_uri() . '/assets/js/contact-form.js',
-            array( 'intl-tel-input' ),
-            file_exists( $contact_js ) ? filemtime( $contact_js ) : STEELPLAST_VERSION,
-            true
-        );
-        wp_localize_script( 'steelplast-contact', 'spContact', array(
-            'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
-            'flagsUrl1x' => get_template_directory_uri() . '/assets/img/flags.webp',
-            'flagsUrl2x' => get_template_directory_uri() . '/assets/img/flags@2x.webp',
-            'i18n'    => array(
-                'nameRequired' => steelplast_t( 'steelplast/contacts/form', 'err_name_required', 'Please enter your name' ),
-                'emailOrPhone' => steelplast_t( 'steelplast/contacts/form', 'err_email_or_phone', 'Please enter email or phone' ),
-                'emailInvalid' => steelplast_t( 'steelplast/contacts/form', 'err_email_invalid', 'Invalid email address' ),
-                'phoneInvalid' => steelplast_t( 'steelplast/contacts/form', 'err_phone_invalid', 'Enter full phone number' ),
-                'serverError'  => steelplast_t( 'steelplast/contacts/form', 'err_server', 'Something went wrong. Please try again.' ),
-            ),
-        ) );
-    }
+    $iti_js = get_template_directory() . '/assets/js/vendor/intlTelInputWithUtils.min.js';
+    wp_enqueue_script(
+        'intl-tel-input',
+        get_template_directory_uri() . '/assets/js/vendor/intlTelInputWithUtils.min.js',
+        array(),
+        file_exists( $iti_js ) ? filemtime( $iti_js ) : STEELPLAST_VERSION,
+        true
+    );
+
+    $contact_js = get_template_directory() . '/assets/js/contact-form.js';
+    wp_enqueue_script(
+        'steelplast-contact',
+        get_template_directory_uri() . '/assets/js/contact-form.js',
+        array( 'intl-tel-input' ),
+        file_exists( $contact_js ) ? filemtime( $contact_js ) : STEELPLAST_VERSION,
+        true
+    );
+    wp_localize_script( 'steelplast-contact', 'spContact', array(
+        'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
+        'flagsUrl1x' => get_template_directory_uri() . '/assets/img/flags.webp',
+        'flagsUrl2x' => get_template_directory_uri() . '/assets/img/flags@2x.webp',
+        'i18n'    => array(
+            'nameRequired' => steelplast_t( 'steelplast/contacts/form', 'err_name_required', 'Please enter your name' ),
+            'emailOrPhone' => steelplast_t( 'steelplast/contacts/form', 'err_email_or_phone', 'Please enter email or phone' ),
+            'emailInvalid' => steelplast_t( 'steelplast/contacts/form', 'err_email_invalid', 'Invalid email address' ),
+            'phoneInvalid' => steelplast_t( 'steelplast/contacts/form', 'err_phone_invalid', 'Enter full phone number' ),
+            'serverError'  => steelplast_t( 'steelplast/contacts/form', 'err_server', 'Something went wrong. Please try again.' ),
+        ),
+    ) );
+
+    // Quick-contact modal — sitewide, triggered via data-sp-modal-open.
+    $modal_js = get_template_directory() . '/assets/js/modal.js';
+    wp_enqueue_script(
+        'steelplast-modal',
+        get_template_directory_uri() . '/assets/js/modal.js',
+        array(),
+        file_exists( $modal_js ) ? filemtime( $modal_js ) : STEELPLAST_VERSION,
+        true
+    );
 
     // Pass available WPML languages to JS for browser language detection
     if ( function_exists( 'icl_get_languages' ) ) {
@@ -310,6 +317,12 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/global/footer', 'copyright',    'All rights reserved.' );
     // Social URLs are managed via Customizer → Site Settings → Social Media
 
+    // -- steelplast/global/modal-contact -- quick-contact modal, triggerable
+    // from any page via data-sp-modal-open="quick-contact" (see header CTA, single.php)
+    icl_register_string( 'steelplast/global/modal-contact', 'title',      'Get in touch' );
+    icl_register_string( 'steelplast/global/modal-contact', 'desc',       'Leave your contact details and we will get back to you shortly.' );
+    icl_register_string( 'steelplast/global/modal-contact', 'close_aria', 'Close' );
+
     // -- steelplast/home/hero --
     icl_register_string( 'steelplast/home/hero', 'title',       'BUILD FOR<br>REPEATABILITY' );
     icl_register_string( 'steelplast/home/hero', 'description', 'STEELPLAST is a team that turns ideas into finished products. We provide a full production cycle: from mold design and manufacturing to serial part production.' );
@@ -377,7 +390,7 @@ function steelplast_register_wpml_strings() {
     // -- steelplast/home/about-preview --
     icl_register_string( 'steelplast/home/about-preview', 'tag',         '[02] About us' );
     icl_register_string( 'steelplast/home/about-preview', 'title',       'WE ENGINEER<br>PRECISION' );
-    icl_register_string( 'steelplast/home/about-preview', 'description', 'SteelPlast is a full-cycle manufacturer specialising in injection mold design, mold production, and high-volume plastic part manufacturing. Over 15 years of engineering precision.' );
+    icl_register_string( 'steelplast/home/about-preview', 'description', 'SteelPlast is a full-cycle manufacturer specialising in CNC metal machining, injection mold design, mold production, and high-volume plastic part manufacturing. 10+ years of engineering precision.' );
     icl_register_string( 'steelplast/home/about-preview', 'button',      'Learn more about us' );
 
     // -- steelplast/home/services --

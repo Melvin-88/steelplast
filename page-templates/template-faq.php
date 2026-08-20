@@ -50,7 +50,7 @@ $faq_items = [
     ],
     [
         'q' => steelplast_t( 'steelplast/faq/list', 'q_10', 'How can I place an order?' ),
-        'a' => steelplast_t( 'steelplast/faq/list', 'a_10', 'Send us your drawings or reference samples via the form on our Contacts page or by email — our team will review the details and get back to you with production options within 2 hours.' ),
+        'a' => steelplast_t( 'steelplast/faq/list', 'a_10', 'Send us your drawings or reference samples via the form on our Contacts page or by email — our team will review the details and get back to you with production options within 2 hours. We accept files in the following formats: STEP, PDF, x_t.' ),
     ],
 ];
 ?>
@@ -67,7 +67,7 @@ $faq_items = [
     <section class="sp-faq sp-section" aria-labelledby="faq-intro-title">
         <div class="content-wrapper">
 
-            <div class="sp-faq__intro">
+            <div class="sp-faq__intro" data-sp-animate>
                 <h2 id="faq-intro-title" class="sp-faq__intro-title sp-section-title">
                     <?php echo wp_kses( nl2br( esc_html( $intro_title ) ), [ 'br' => [] ] ); ?>
                 </h2>
@@ -76,14 +76,14 @@ $faq_items = [
                 </p>
             </div>
 
-            <div class="sp-faq__grid">
+            <div class="sp-faq__grid" data-sp-animate-group>
                 <?php foreach ( $faq_items as $index => $item ) :
                     $n         = $index + 1;
                     $is_open   = ( 0 === $index );
                     $answer_id  = 'faq-answer-' . $n;
                     $question_id = 'faq-question-' . $n;
                     ?>
-                    <div class="sp-faq__item<?php echo $is_open ? ' is-open' : ''; ?>" data-faq-item>
+                    <div class="sp-faq__item<?php echo $is_open ? ' is-open' : ''; ?>" data-faq-item data-sp-animate>
                         <h3 class="sp-faq__question">
                             <button
                                 type="button"

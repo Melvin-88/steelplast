@@ -52,7 +52,7 @@ $cards = [
 <section class="sp-about-advantages" aria-labelledby="sp-about-advantages-title">
     <div class="content-wrapper">
 
-        <header class="sp-about-advantages__header">
+        <header class="sp-about-advantages__header" data-sp-animate>
             <p class="sp-section-label sp-section-label--dark-bg">
                 <span class="sp-section-label__index" aria-hidden="true">[02]</span>
                 <?php echo esc_html( $label ); ?>
@@ -62,9 +62,9 @@ $cards = [
             </h2>
         </header>
 
-        <div class="sp-about-advantages__grid" role="list">
+        <div class="sp-about-advantages__grid" role="list" data-sp-animate-group>
             <?php foreach ( $cards as $i => $card ) : $n = $i + 1; ?>
-                <article class="sp-about-advantages__card" role="listitem">
+                <article class="sp-about-advantages__card" role="listitem" data-sp-animate>
                     <span class="sp-about-advantages__card-num" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $n ) ); ?></span>
                     <h3 class="sp-about-advantages__card-title"><?php echo esc_html( $card['title'] ); ?></h3>
                     <p class="sp-about-advantages__card-desc"><?php echo esc_html( $card['desc'] ); ?></p>

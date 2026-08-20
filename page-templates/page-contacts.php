@@ -37,7 +37,7 @@ for ( $i = 1; $i <= 2; $i++ ) {
 
 // Phone labels from WPML
 $phone_labels = [
-    1 => steelplast_t( 'steelplast/contacts/page', 'phone_1_label', 'Sales department (consultations and orders)' ),
+    1 => steelplast_t( 'steelplast/contacts/page', 'phone_1_label', 'General inquiries' ),
     2 => steelplast_t( 'steelplast/contacts/page', 'phone_2_label', 'Technical department (drawing questions)' ),
     3 => steelplast_t( 'steelplast/contacts/page', 'phone_3_label', 'Partner hotline' ),
 ];
@@ -74,10 +74,10 @@ $locations = [ [
 
     <section class="sp-contacts-page__info" aria-label="<?php esc_attr_e( 'Contact information', 'steelplast' ); ?>">
         <div class="content-wrapper">
-            <div class="sp-contacts-page__columns">
+            <div class="sp-contacts-page__columns" data-sp-animate-group>
 
                 <?php if ( ! empty( $emails ) ) : ?>
-                    <div class="sp-contacts-page__col">
+                    <div class="sp-contacts-page__col" data-sp-animate>
                         <h2 class="sp-contacts-page__col-title">
                             <?php echo esc_html( steelplast_t( 'steelplast/contacts/page', 'emails_heading', 'Email' ) ); ?>
                         </h2>
@@ -97,7 +97,7 @@ $locations = [ [
                 <?php endif; ?>
 
                 <?php if ( ! empty( $phones ) ) : ?>
-                    <div class="sp-contacts-page__col">
+                    <div class="sp-contacts-page__col" data-sp-animate>
                         <h2 class="sp-contacts-page__col-title">
                             <?php echo esc_html( steelplast_t( 'steelplast/contacts/page', 'phones_heading', 'Phone' ) ); ?>
                         </h2>
@@ -117,7 +117,7 @@ $locations = [ [
                 <?php endif; ?>
 
                 <?php if ( ! empty( $locations ) ) : ?>
-                    <div class="sp-contacts-page__col">
+                    <div class="sp-contacts-page__col" data-sp-animate>
                         <h2 class="sp-contacts-page__col-title">
                             <?php echo esc_html( steelplast_t( 'steelplast/contacts/page', 'locations_heading', 'Our locations' ) ); ?>
                         </h2>
@@ -151,7 +151,7 @@ if ( $map_url ) {
 
 if ( $map_url ) : ?>
         <section class="sp-contacts-page__map" aria-label="<?php esc_attr_e( 'Map', 'steelplast' ); ?>">
-            <div class="content-wrapper">
+            <div class="content-wrapper" data-sp-animate>
                 <iframe
                     class="sp-contacts-page__map-frame"
                     src="<?php echo esc_url( $map_url ); ?>"

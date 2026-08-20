@@ -68,9 +68,9 @@ while ( have_posts() ) :
                     </a>
                 </div>
 
-                <div class="sp-single-post__layout">
+                <div class="sp-single-post__layout" data-sp-animate-group>
 
-                    <aside class="sp-single-post__sidebar">
+                    <aside class="sp-single-post__sidebar" data-sp-animate>
 
                         <div class="sp-single-post__meta">
                             <span class="sp-single-post__meta-label">
@@ -116,9 +116,17 @@ while ( have_posts() ) :
                             </div>
                         <?php endif; ?>
 
+                        <a
+                            href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>"
+                            class="sp-btn sp-btn--primary sp-btn--md sp-btn--on-light sp-single-post__cta"
+                            data-sp-modal-open="quick-contact"
+                        >
+                            <?php echo esc_html( steelplast_t( 'steelplast/global/header', 'cta', 'Get in touch' ) ); ?>
+                        </a>
+
                     </aside>
 
-                    <div class="sp-single-post__content entry-content">
+                    <div class="sp-single-post__content entry-content" data-sp-animate>
                         <?php the_content(); ?>
                     </div>
 

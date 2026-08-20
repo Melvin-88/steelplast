@@ -78,7 +78,7 @@ $stamping_image_id = $img_ids[4];
 <section class="sp-services" aria-labelledby="services-title">
     <div class="sp-wrap">
 
-        <header class="sp-services__header">
+        <header class="sp-services__header" data-sp-animate>
             <p class="sp-section-label sp-section-label--light-bg">
                 <span class="sp-section-label__index" aria-hidden="true">[01]</span>
                 <?php echo esc_html( $section_label ); ?>
@@ -88,7 +88,7 @@ $stamping_image_id = $img_ids[4];
         </header>
 
         <!-- Single 3-column grid: row 1 (3 cards) + row 2 (wide card span-2 + 1 card) -->
-        <div class="sp-services__grid">
+        <div class="sp-services__grid" data-sp-animate-group>
 
             <?php foreach ( $services_row1 as $service ) :
                 // Only show the CTA once the service has a real page to link to —
@@ -104,7 +104,7 @@ $stamping_image_id = $img_ids[4];
             endforeach; ?>
 
             <!-- Stamping — wide card: spans 2 columns, image left + text right -->
-            <article class="sp-services__card sp-services__card--wide" data-service="stamping">
+            <article class="sp-services__card sp-services__card--wide" data-service="stamping" data-sp-animate>
 
                 <div class="sp-services__card-image sp-services__card-image--side">
                     <?php if ( $stamping_image_id ) : ?>

@@ -27,7 +27,7 @@ $thumb_src = $thumb_id
 $read_more_label = steelplast_t( 'steelplast/post-card', 'read_more', 'Read more' );
 ?>
 
-<article class="sp-post-card" aria-label="<?php echo esc_attr( $title ); ?>">
+<article class="sp-post-card" aria-label="<?php echo esc_attr( $title ); ?>" data-sp-animate>
 
     <a class="sp-post-card__image-wrap" href="<?php echo esc_url( $link ); ?>" tabindex="-1" aria-hidden="true">
         <?php if ( $thumb_src ) : ?>

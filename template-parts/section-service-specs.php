@@ -50,7 +50,7 @@ $cards = $args['cards'] ?? [
                 ],
             ],
         ],
-        'note' => steelplast_t( $ctx, 'card_1_note', 'From small precision parts to large-format workpieces.' ),
+        'note' => steelplast_t( $ctx, 'card_1_note', 'Parts from 0.5 mm. Minimum order: 1 piece.' ),
     ],
     [
         'title'    => steelplast_t( $ctx, 'card_2_title', 'Machining Types' ),
@@ -110,7 +110,7 @@ $cards = $args['cards'] ?? [
             [
                 'type'  => 'badges',
                 'label' => steelplast_t( $ctx, 'card_4_badges_label', 'We accept files in:' ),
-                'items' => [ 'DWG', 'DXF', 'STEP', 'IGES' ],
+                'items' => [ 'STEP', 'PDF', 'x_t' ],
             ],
         ],
         'note' => steelplast_t( $ctx, 'card_4_note', "No drawing yet? Our engineers can help prepare documentation and a 3D model for production." ),
@@ -121,7 +121,7 @@ $cards = $args['cards'] ?? [
 <section class="sp-service-specs" aria-labelledby="service-specs-title">
     <div class="content-wrapper">
 
-        <div class="sp-service-specs__header">
+        <div class="sp-service-specs__header" data-sp-animate>
             <p class="sp-section-label sp-section-label--dark-bg">
                 <span class="sp-section-label__index" aria-hidden="true"><?php echo esc_html( $label_index ); ?></span>
                 <?php echo esc_html( $label ); ?>
@@ -136,9 +136,9 @@ $cards = $args['cards'] ?? [
             </div>
         </div>
 
-        <div class="sp-service-specs__grid">
+        <div class="sp-service-specs__grid" data-sp-animate-group>
             <?php foreach ( $cards as $i => $card ) : $n = $i + 1; ?>
-                <article class="sp-service-specs__card">
+                <article class="sp-service-specs__card" data-sp-animate>
                     <span class="sp-service-specs__card-num" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $n ) ); ?></span>
 
                     <div class="sp-service-specs__card-head">

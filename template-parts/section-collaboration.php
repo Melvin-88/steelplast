@@ -49,7 +49,7 @@ $steps_class = 'sp-collab__steps' . ( 4 !== $steps_count ? ' sp-collab__steps--c
 <section class="sp-collab" aria-labelledby="sp-collab-title">
     <div class="content-wrapper">
 
-        <div class="sp-collab__header">
+        <div class="sp-collab__header" data-sp-animate>
             <p class="sp-section-label sp-section-label--dark-bg">
                 <span class="sp-section-label__index" aria-hidden="true"><?php echo esc_html( $label_index ); ?></span>
                 <?php echo esc_html( $label ); ?>

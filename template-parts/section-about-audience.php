@@ -20,7 +20,7 @@ $desc  = [
 <section class="sp-about-audience" aria-labelledby="sp-about-audience-title">
     <div class="content-wrapper">
 
-        <div class="sp-about-audience__header">
+        <div class="sp-about-audience__header" data-sp-animate>
 
             <div class="sp-about-audience__intro-col">
                 <p class="sp-section-label sp-section-label--light-bg">
@@ -41,7 +41,7 @@ $desc  = [
         </div>
 
         <?php if ( $image ) : ?>
-            <div class="sp-about-audience__image">
+            <div class="sp-about-audience__image" data-sp-animate>
                 <img
                     src="<?php echo esc_url( $image['url'] ); ?>"
                     width="<?php echo esc_attr( $image['width'] ); ?>"

@@ -53,7 +53,7 @@
 
             <?php steelplast_language_switcher(); ?>
 
-            <a href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>" class="sp-btn sp-btn--outline sp-btn--sm">
+            <a href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>" class="sp-btn sp-btn--outline sp-btn--sm" data-sp-modal-open="quick-contact">
                 <?php echo esc_html( steelplast_t( 'steelplast/global/header', 'cta', 'Get in touch' ) ); ?>
             </a>
         </div>

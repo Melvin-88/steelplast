@@ -23,7 +23,7 @@ $archive_url = home_url( '/news/' );
 <section class="sp-news" aria-labelledby="sp-news-title">
     <div class="content-wrapper">
 
-        <div class="sp-news__header">
+        <div class="sp-news__header" data-sp-animate>
             <div class="sp-news__header-left">
                 <p class="sp-section-label sp-section-label--light-bg">
                     <span class="sp-section-label__index" aria-hidden="true">[05]</span>
@@ -46,7 +46,7 @@ $archive_url = home_url( '/news/' );
             </a>
         </div>
 
-        <div class="sp-news__grid">
+        <div class="sp-news__grid" data-sp-animate-group>
             <?php while ( $news_query->have_posts() ) : $news_query->the_post(); ?>
                 <?php get_template_part( 'template-parts/post-card', null, [ 'post_id' => get_the_ID() ] ); ?>
             <?php endwhile; wp_reset_postdata(); ?>

@@ -47,3 +47,10 @@ build/
 # Logs
 *.log
 logs/
+
+# Claude Code local settings (machine-specific permissions/paths)
+.claude/settings.local.json
+
+# Agent skills cache (fetched via skills-lock.json, regenerable)
+.claude/skills/
+.agents/skills/

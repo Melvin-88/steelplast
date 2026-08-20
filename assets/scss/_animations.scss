@@ -1,0 +1,46 @@
+// =============================================
+// Scroll-reveal animations
+// =============================================
+//
+// Progressive enhancement: elements are fully visible by default. The
+// hidden state only applies once JS adds .js-animate to <html> (see
+// assets/js/animations.js), so no-JS visitors and search crawlers always
+// see full content. Uses opacity + transform only — never affects layout,
+// so it cannot cause CLS. Elements visible on first paint are revealed
+// instantly (no transition), so LCP/above-the-fold content is unaffected.
+
+.js-animate [data-sp-animate] {
+    opacity: 0;
+    transform: translateY(28px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .js-animate [data-sp-animate] {
+        transition: opacity .7s cubic-bezier(.16, .8, .24, 1),
+                     transform .7s cubic-bezier(.16, .8, .24, 1);
+        transition-delay: var(--sp-delay, 0s);
+    }
+}
+
+.js-animate [data-sp-animate].sp-in-view {
+    opacity: 1;
+    transform: none;
+}
+
+.js-animate [data-sp-animate].sp-no-transition {
+    transition: none !important;
+    transition-delay: 0s !important;
+}
+
+// Staggered reveal for card/grid groups — direct [data-sp-animate]
+// children get an incremental delay so they cascade in rather than
+// popping together.
+[data-sp-animate-group] {
+    > [data-sp-animate] {
+        @for $i from 1 through 8 {
+            &:nth-child(#{$i}) {
+                --sp-delay: #{($i - 1) * 0.08}s;
+            }
+        }
+    }
+}
