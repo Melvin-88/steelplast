@@ -54,9 +54,10 @@ $steps_class = 'sp-collab__steps' . ( 4 !== $steps_count ? ' sp-collab__steps--c
                 <span class="sp-section-label__index" aria-hidden="true"><?php echo esc_html( $label_index ); ?></span>
                 <?php echo esc_html( $label ); ?>
             </p>
-            <h2 class="sp-collab__title sp-section-title" id="sp-collab-title">
-                <?php echo esc_html( $title ); ?>
-            </h2>
+            <?php // white-space: pre-line keeps every newline, so nothing may sit between the tag and the text. ?>
+            <h2 class="sp-collab__title sp-section-title" id="sp-collab-title"><?php
+                echo esc_html( $title );
+            ?></h2>
             <div class="sp-collab__desc">
                 <?php foreach ( $desc as $paragraph ) : ?>
                     <p class="sp-section-desc"><?php echo esc_html( $paragraph ); ?></p>

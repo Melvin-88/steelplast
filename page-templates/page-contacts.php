@@ -57,7 +57,7 @@ for ( $i = 1; $i <= 3; $i++ ) {
 // Location — from WPML strings
 $locations = [ [
     'label'   => steelplast_t( 'steelplast/contacts/page', 'location_label',   'Head office and production' ),
-    'address' => steelplast_t( 'steelplast/contacts/page', 'location_address', "Avtobazivska St., 6\nPoltava, 36000\nPoltava region, Ukraine" ),
+    'address' => steelplast_t( 'steelplast/contacts/page', 'location_address', "Avtobazivska St., 2/9\nPoltava, 36000\nPoltava region, Ukraine" ),
 ] ];
 ?>
 

@@ -15,29 +15,23 @@ $img_ids = [
 
 $section_label = steelplast_t( 'steelplast/home/services', 'section_label', 'Our Services' );
 $title         = steelplast_t( 'steelplast/home/services', 'title',         'Modern equipment, manufacturing precision and quality control' );
-$description   = steelplast_t( 'steelplast/home/services', 'description',   'Individual approach to every project, official contracts, staged payments and constant communication' );
 $cta_label     = steelplast_t( 'steelplast/home/services', 'cta_label',     'Learn more' );
 
-// Metal Processing card links to the CNC Machining service page, once created
-$metal_page = get_page_by_path( 'механічна-обробка' );
-$metal_url  = $metal_page ? get_permalink( $metal_page ) : '';
-
-// Stamping card links to the Metal Stamping service page, once created
-$stamping_page = get_page_by_path( 'штампування-металу' );
-$stamping_url  = $stamping_page ? get_permalink( $stamping_page ) : '';
-
-// Plastic Casting card links to the Plastic Injection Molding service page, once created
-$plastic_page = get_page_by_path( 'лиття-пластмас' );
-$plastic_url  = $plastic_page ? get_permalink( $plastic_page ) : '';
+// Every card links to its own service page, named by its default-language slug.
+$stamping_url  = steelplast_page_url( 'штампування-металу' );
+$plastic_url   = steelplast_page_url( 'лиття-пластмас' );
+$molds_url     = steelplast_page_url( 'прес-форми-та-штампи' );
+$machining_url = steelplast_page_url( 'механічна-обробка' );
+$tooling_url   = steelplast_page_url( 'технологічне-оснащення' );
 
 // Row 1 — 3 cards with image + text
 $services_row1 = [
     [
-        'id'       => 'metal',
+        'id'       => 'stamping',
         'title'    => steelplast_t( 'steelplast/home/services', 'card_1_title', 'Metal Processing' ),
         'desc'     => steelplast_t( 'steelplast/home/services', 'card_1_desc',  'High-precision CNC metal machining for parts of any complexity.' ),
         'image_id' => $img_ids[1],
-        'url'      => $metal_url,
+        'url'      => $stamping_url,
     ],
     [
         'id'       => 'plastic',
@@ -47,32 +41,34 @@ $services_row1 = [
         'url'      => $plastic_url,
     ],
     [
-        'id'       => 'laser',
+        'id'       => 'molds',
         'title'    => steelplast_t( 'steelplast/home/services', 'card_3_title', 'Laser Metal Cutting' ),
         'desc'     => steelplast_t( 'steelplast/home/services', 'card_3_desc',  'High-precision laser metal cutting for parts of any complexity.' ),
         'image_id' => $img_ids[3],
+        'url'      => $molds_url,
     ],
 ];
 
-// Row 2 — stamping (text-only card) data
-$stamping_title   = steelplast_t( 'steelplast/home/services', 'card_4_title', 'Stamping' );
-$stamping_desc    = steelplast_t( 'steelplast/home/services', 'card_4_desc',  'STEELPLAST manufactures stamped components for various industrial sectors.' );
-$stamping_cap     = steelplast_t( 'steelplast/home/services', 'card_4_cap',   'Manufacturing capabilities:' );
-$stamping_bullets = [
+// Row 2 — wide card (card 4) data
+$wide_title   = steelplast_t( 'steelplast/home/services', 'card_4_title', 'Stamping' );
+$wide_desc    = steelplast_t( 'steelplast/home/services', 'card_4_desc',  'STEELPLAST manufactures stamped components for various industrial sectors.' );
+$wide_cap     = steelplast_t( 'steelplast/home/services', 'card_4_cap',   'Manufacturing capabilities:' );
+$wide_bullets = [
     steelplast_t( 'steelplast/home/services', 'card_4_bullet_1', 'Sheet metal processing 0.15–5 mm thick' ),
     steelplast_t( 'steelplast/home/services', 'card_4_bullet_2', 'Crank pneumatic presses' ),
     steelplast_t( 'steelplast/home/services', 'card_4_bullet_3', 'Maximum pressing force — up to 100 t' ),
 ];
 
-// Row 2 — painting card (image + text)
-$painting = [
-    'id'       => 'painting',
+// Row 2 — last card (card 5, image + text)
+$last_card = [
+    'id'       => 'tooling',
     'title'    => steelplast_t( 'steelplast/home/services', 'card_5_title', 'Powder Coating' ),
     'desc'     => steelplast_t( 'steelplast/home/services', 'card_5_desc',  'Powder coating of metal products ensuring uniform and durable finish.' ),
     'image_id' => $img_ids[5],
+    'url'      => $tooling_url,
 ];
 
-$stamping_image_id = $img_ids[4];
+$wide_image_id = $img_ids[4];
 ?>
 
 <section class="sp-services" aria-labelledby="services-title">
@@ -84,7 +80,6 @@ $stamping_image_id = $img_ids[4];
                 <?php echo esc_html( $section_label ); ?>
             </p>
             <h2 id="services-title" class="sp-services__title sp-section-title"><?php echo esc_html( $title ); ?></h2>
-            <p class="sp-services__description sp-section-desc"><?php echo esc_html( $description ); ?></p>
         </header>
 
         <!-- Single 3-column grid: row 1 (3 cards) + row 2 (wide card span-2 + 1 card) -->
@@ -103,12 +98,12 @@ $stamping_image_id = $img_ids[4];
                 ] );
             endforeach; ?>
 
-            <!-- Stamping — wide card: spans 2 columns, image left + text right -->
-            <article class="sp-services__card sp-services__card--wide" data-service="stamping" data-sp-animate>
+            <!-- Card 4 — wide card: spans 2 columns, image left + text right -->
+            <article class="sp-services__card sp-services__card--wide" data-service="machining" data-sp-animate>
 
                 <div class="sp-services__card-image sp-services__card-image--side">
-                    <?php if ( $stamping_image_id ) : ?>
-                        <?php echo wp_get_attachment_image( $stamping_image_id, 'large', false, [
+                    <?php if ( $wide_image_id ) : ?>
+                        <?php echo wp_get_attachment_image( $wide_image_id, 'large', false, [
                             'loading' => 'lazy',
                             'class'   => 'sp-services__card-img',
                         ] ); ?>
@@ -119,18 +114,18 @@ $stamping_image_id = $img_ids[4];
 
                 <div class="sp-services__card-inner">
                     <div class="sp-services__card-body">
-                        <h3 class="sp-services__card-title"><?php echo esc_html( $stamping_title ); ?></h3>
-                        <p class="sp-services__card-desc"><?php echo esc_html( $stamping_desc ); ?></p>
-                        <p class="sp-services__card-cap"><?php echo esc_html( $stamping_cap ); ?></p>
+                        <h3 class="sp-services__card-title"><?php echo esc_html( $wide_title ); ?></h3>
+                        <p class="sp-services__card-desc"><?php echo esc_html( $wide_desc ); ?></p>
+                        <p class="sp-services__card-cap"><?php echo esc_html( $wide_cap ); ?></p>
                         <ul class="sp-services__card-bullets">
-                            <?php foreach ( $stamping_bullets as $bullet ) : ?>
+                            <?php foreach ( $wide_bullets as $bullet ) : ?>
                                 <li><?php echo esc_html( $bullet ); ?></li>
                             <?php endforeach; ?>
                         </ul>
                     </div>
-                    <?php if ( $stamping_url ) : ?>
+                    <?php if ( $machining_url ) : ?>
                     <div class="sp-services__card-footer">
-                        <a href="<?php echo esc_url( $stamping_url ); ?>" class="sp-btn sp-btn--ghost sp-btn--md sp-btn--full" aria-label="<?php echo esc_attr( $stamping_title ); ?> — <?php echo esc_attr( $cta_label ); ?>">
+                        <a href="<?php echo esc_url( $machining_url ); ?>" class="sp-btn sp-btn--ghost sp-btn--md sp-btn--full" aria-label="<?php echo esc_attr( $wide_title ); ?> — <?php echo esc_attr( $cta_label ); ?>">
                             <span><?php echo esc_html( $cta_label ); ?></span>
                             <span class="sp-btn__icon" aria-hidden="true">↳</span>
                         </a>
@@ -140,13 +135,14 @@ $stamping_image_id = $img_ids[4];
 
             </article>
 
-            <!-- Powder Coating card -->
+            <!-- Card 5 -->
             <?php get_template_part( 'template-parts/component-image-card', null, [
-                'id'        => $painting['id'],
-                'title'     => $painting['title'],
-                'desc'      => $painting['desc'],
-                'image_id'  => $painting['image_id'],
-                'cta_label' => $cta_label,
+                'id'        => $last_card['id'],
+                'title'     => $last_card['title'],
+                'desc'      => $last_card['desc'],
+                'image_id'  => $last_card['image_id'],
+                'cta_label' => ! empty( $last_card['url'] ) ? $cta_label : '',
+                'cta_href'  => $last_card['url'],
             ] ); ?>
 
         </div><!-- /.sp-services__grid -->

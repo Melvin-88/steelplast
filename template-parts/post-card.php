@@ -55,7 +55,9 @@ $read_more_label = steelplast_t( 'steelplast/post-card', 'read_more', 'Read more
         </<?php echo esc_attr( $heading ); ?>>
 
         <?php if ( $excerpt ) : ?>
-            <p class="sp-post-card__excerpt"><?php echo esc_html( $excerpt ); ?></p>
+            <?php // Inner span: a flex item cannot be a -webkit-box, so the clamp
+            // has to live one level down. ?>
+            <p class="sp-post-card__excerpt"><span><?php echo esc_html( $excerpt ); ?></span></p>
         <?php endif; ?>
 
         <a

@@ -17,7 +17,9 @@
     &__title {
         color: #000;
         margin-top: 16px;
-        max-width: 900px;
+        // A step below .sp-section-title (clamp(32px, 6.4vw, 64px)); no width
+        // cap, so the heading uses the full column on every page that reuses it.
+        font-size: clamp(28px, 5.4vw, 54px);
     }
 
     // .sp-section-desc handles font/size/weight; color overridden for white bg
@@ -157,10 +159,14 @@
             margin-bottom: 4px;
 
             &::before {
-                content: '•';
+                content: '';
                 position: absolute;
                 left: 0;
-                color: $color-pure-white;
+                top: ($line-height-body - 5px) * 0.5;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background-color: $color-pure-white;
             }
         }
     }

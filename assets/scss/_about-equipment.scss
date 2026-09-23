@@ -33,16 +33,22 @@
         border: 1px solid rgba($color-pure-white, 0.08);
         border-radius: 8px;
         overflow: hidden;
-        display: flex;
-        flex-direction: column;
         padding: 24px;
+
+        // Heading, photo and text each sit in a row track shared with the other
+        // cards of the same row, so a title that wraps to two lines pushes every
+        // photo in that row down together instead of only its own. The tracks
+        // still size themselves to the tallest card — nothing is pinned.
+        display: grid;
+        grid-template-rows: subgrid;
+        grid-row: span 3;
+        row-gap: 16px;
     }
 
     &__card-header {
         display: flex;
         align-items: baseline;
         gap: 12px;
-        margin-bottom: 16px;
     }
 
     &__card-num {
@@ -64,18 +70,19 @@
     }
 
     &__card-media {
+        position: relative;
         width: 100%;
         aspect-ratio: 4 / 3;
         border-radius: 8px;
         overflow: hidden;
-        margin-bottom: 16px;
         background: rgba($color-pure-white, 0.04);
 
         img,
         .sp-about-equipment__card-img {
+            position: relative;
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
             display: block;
         }
     }
@@ -113,10 +120,14 @@
             position: relative;
 
             &::before {
-                content: '•';
+                content: '';
                 position: absolute;
                 left: 0;
-                color: $color-accent;
+                top: (20px - 5px) * 0.5;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background-color: $color-accent;
             }
         }
     }

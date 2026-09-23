@@ -145,6 +145,18 @@ function steelplast_scripts() {
         true
     );
 
+    // Hero counters — front page only.
+    if ( is_front_page() ) {
+        $counter_js = get_template_directory() . '/assets/js/hero-counter.js';
+        wp_enqueue_script(
+            'steelplast-hero-counter',
+            get_template_directory_uri() . '/assets/js/hero-counter.js',
+            array(),
+            file_exists( $counter_js ) ? filemtime( $counter_js ) : STEELPLAST_VERSION,
+            true
+        );
+    }
+
     // Contact form JS/CSS — sitewide. The quick-contact modal (footer.php)
     // renders template-parts/contact-form.php on every page, and the full
     // section-contact.php form is used by most templates already, so these
@@ -335,7 +347,7 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/contacts/page', 'phones_heading',    'Phone' );
     icl_register_string( 'steelplast/contacts/page', 'locations_heading', 'Our locations' );
     icl_register_string( 'steelplast/contacts/page', 'location_label',   'Head office and production' );
-    icl_register_string( 'steelplast/contacts/page', 'location_address', "Avtobazivska St., 6\nPoltava, 36000\nPoltava region, Ukraine" );
+    icl_register_string( 'steelplast/contacts/page', 'location_address', "Avtobazivska St., 2/9\nPoltava, 36000\nPoltava region, Ukraine" );
 
     // Email labels
     icl_register_string( 'steelplast/contacts/page', 'email_1_label', 'General inquiries and orders' );
@@ -396,7 +408,6 @@ function steelplast_register_wpml_strings() {
     // -- steelplast/home/services --
     icl_register_string( 'steelplast/home/services', 'section_label',   'Our Services' );
     icl_register_string( 'steelplast/home/services', 'title',           'Modern equipment, manufacturing precision and quality control' );
-    icl_register_string( 'steelplast/home/services', 'description',     'Individual approach to every project, official contracts, staged payments and constant communication' );
     icl_register_string( 'steelplast/home/services', 'cta_label',       'Learn more' );
     icl_register_string( 'steelplast/home/services', 'card_1_title',    'Metal Processing' );
     icl_register_string( 'steelplast/home/services', 'card_1_desc',     'High-precision CNC metal machining for parts of any complexity.' );
@@ -919,6 +930,91 @@ function steelplast_get_field_default_lang( $selector, $post_id = null ) {
     }
 
     return get_field( $selector, $post_id );
+}
+
+/**
+ * Permalink of a page addressed by its default-language slug.
+ *
+ * Slugs are translated per language, so hard-coding a path breaks the link in
+ * every language but one. Callers name the page once, by its slug in the
+ * default language, and WPML resolves the translation being rendered.
+ *
+ * Usage: steelplast_page_url( 'контакти' )
+ */
+function steelplast_page_url( $slug ) {
+    static $cache = array();
+
+    if ( array_key_exists( $slug, $cache ) ) {
+        return $cache[ $slug ];
+    }
+
+    $page = get_page_by_path( $slug );
+    $id   = $page ? (int) $page->ID : 0;
+
+    // get_page_by_path() is not language-aware and may hand back any
+    // translation, so normalise to the original post before mapping forward.
+    if ( $id && function_exists( 'icl_object_id' ) ) {
+        $default = apply_filters( 'wpml_default_language', null );
+        $id      = ( $default ? (int) icl_object_id( $id, 'page', true, $default ) : 0 ) ?: $id;
+        $id      = (int) apply_filters( 'wpml_object_id', $id, 'page', true ) ?: $id;
+    }
+
+    $cache[ $slug ] = $id ? get_permalink( $id ) : home_url( '/' );
+
+    return $cache[ $slug ];
+}
+
+/**
+ * One hero counter: the figure as of today, plus how to render it.
+ *
+ * The editor stores a measured value, the date it was measured and a daily
+ * increment, so the page keeps counting without anyone touching the admin.
+ * The result is rounded DOWN to the displayed precision on purpose: at 0.1m
+ * steps 2,790,000 still reads "2.7m" and only becomes "2.8m" once it is
+ * genuinely past 2.8m, which is what the client asked for.
+ *
+ * @return array{value:float,decimals:int,suffix:string,text:string}|null
+ */
+function steelplast_hero_stat( $index ) {
+    $base = steelplast_get_field_default_lang( "hero_stat_{$index}_base" );
+    if ( $base === false || $base === null || $base === '' ) {
+        return null;
+    }
+
+    $per_day = (float) steelplast_get_field_default_lang( "hero_stat_{$index}_per_day" );
+    $since   = steelplast_get_field_default_lang( "hero_stat_{$index}_since" );
+    $format  = steelplast_get_field_default_lang( "hero_stat_{$index}_format" ) ?: 'plain';
+
+    $raw = (float) $base;
+
+    if ( $per_day && $since ) {
+        $tz    = wp_timezone();
+        $start = DateTimeImmutable::createFromFormat( 'Ymd|', (string) $since, $tz );
+        $today = new DateTimeImmutable( 'today', $tz );
+
+        // A base date in the future means the figure has not started growing yet.
+        if ( $start && $start < $today ) {
+            $raw += $per_day * (int) $start->diff( $today )->format( '%a' );
+        }
+    }
+
+    // [ divisor, decimals, suffix ]
+    $formats = [
+        'millions'  => [ 1000000, 1, 'm' ],
+        'thousands' => [ 1000,    0, 'k' ],
+        'plain'     => [ 1,       0, ''  ],
+    ];
+    [ $divisor, $decimals, $suffix ] = $formats[ $format ] ?? $formats['plain'];
+
+    $step  = $divisor / pow( 10, $decimals );   // smallest visible increment
+    $value = floor( $raw / $step ) * $step / $divisor;
+
+    return [
+        'value'    => $value,
+        'decimals' => $decimals,
+        'suffix'   => $suffix,
+        'text'     => number_format( $value, $decimals, '.', '' ) . $suffix,
+    ];
 }
 
 if ( function_exists( 'icl_get_languages' ) || defined( 'ICL_SITEPRESS_VERSION' ) ) {

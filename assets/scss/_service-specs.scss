@@ -116,13 +116,16 @@
             padding-left: 14px;
             position: relative;
 
+            // A drawn square instead of the ▪ glyph: glyph metrics put the
+            // marker on the baseline, a box can be centred on the line box.
             &::before {
-                content: '▪';
+                content: '';
                 position: absolute;
                 left: 0;
-                color: $color-accent;
-                font-size: 10px;
-                top: 7px;
+                top: (22px - 6px) * 0.5;
+                width: 6px;
+                height: 6px;
+                background-color: $color-accent;
             }
         }
     }

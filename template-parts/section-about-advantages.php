@@ -57,9 +57,10 @@ $cards = [
                 <span class="sp-section-label__index" aria-hidden="true">[02]</span>
                 <?php echo esc_html( $label ); ?>
             </p>
-            <h2 class="sp-about-advantages__title sp-section-title" id="sp-about-advantages-title">
-                <?php echo esc_html( $title ); ?>
-            </h2>
+            <?php // white-space: pre-line keeps every newline, so nothing may sit between the tag and the text. ?>
+            <h2 class="sp-about-advantages__title sp-section-title" id="sp-about-advantages-title"><?php
+                echo esc_html( $title );
+            ?></h2>
         </header>
 
         <div class="sp-about-advantages__grid" role="list" data-sp-animate-group>

@@ -71,9 +71,10 @@ $faq_items = [
                 <h2 id="faq-intro-title" class="sp-faq__intro-title sp-section-title">
                     <?php echo wp_kses( nl2br( esc_html( $intro_title ) ), [ 'br' => [] ] ); ?>
                 </h2>
-                <p class="sp-faq__intro-desc sp-section-desc">
-                    <?php echo wp_kses( nl2br( esc_html( $intro_desc ) ), [ 'br' => [] ] ); ?>
-                </p>
+                <?php // white-space: pre-line keeps every newline, so nothing may sit between the tag and the text. ?>
+                <p class="sp-faq__intro-desc sp-section-desc"><?php
+                    echo wp_kses( nl2br( esc_html( $intro_desc ) ), [ 'br' => [] ] );
+                ?></p>
             </div>
 
             <div class="sp-faq__grid" data-sp-animate-group>

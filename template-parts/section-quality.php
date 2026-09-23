@@ -1,14 +1,21 @@
 <?php
 /**
- * Quality section — [03] with 4 certification cards.
+ * Quality section — [03] with certification cards.
  * Usage: get_template_part( 'template-parts/section-quality' );
+ *
+ * Accepts 'exclude' — card numbers (1-4) to leave out on this page. The card
+ * texts are shared WPML strings, so a page that should not show one has to
+ * drop it here rather than by blanking the string for every other page.
+ * Accepts 'columns' — how many cards sit in a row; the grid stays 2-up unless
+ * a page asks for something else.
  *
  * @package SteelPlast
  */
 
-$quality_page = get_page_by_path( 'quality' );
-$quality_url  = $quality_page ? get_permalink( $quality_page ) : '';
-$label_index  = $args['label_index'] ?? '[03]';
+$quality_url = steelplast_page_url( 'якість' );
+$label_index = $args['label_index'] ?? '[03]';
+$exclude     = $args['exclude'] ?? [];
+$columns     = $args['columns'] ?? null;
 
 // Fixed set of evergreen certification claims — an icon communicates each
 // one more reliably than a photo (there is no meaningful photo of a
@@ -39,9 +46,14 @@ $cards = [
         'icon'  => '<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 4h10v6a5 5 0 0 1-10 0V4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 6H6a3 3 0 0 0 3 5M19 6h3a3 3 0 0 1-3 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M14 15v3M10 22h8M11 22c0-2 1-3 3-3s3 1 3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     ],
 ];
+
+foreach ( $exclude as $n ) {
+    unset( $cards[ (int) $n - 1 ] );
+}
+$cards = array_values( $cards );
 ?>
 
-<section class="sp-quality" aria-labelledby="sp-quality-title">
+<section class="sp-quality<?php echo $columns ? ' sp-quality--wide-grid' : ''; ?>" aria-labelledby="sp-quality-title">
     <div class="content-wrapper">
 
         <div class="sp-quality__layout">
@@ -73,6 +85,7 @@ $cards = [
             </div>
 
             <div class="sp-quality__grid" role="list" data-sp-animate-group
+                 <?php if ( $columns ) : ?>style="--sp-quality-cols: <?php echo (int) $columns; ?>"<?php endif; ?>
                  aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/quality/cards', 'grid_aria', 'Quality certifications' ) ); ?>">
 
                 <?php foreach ( $cards as $card ) : ?>

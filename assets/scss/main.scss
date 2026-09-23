@@ -109,6 +109,10 @@ a {
     width: 100%;
     margin: 0 auto;
     padding: 0 32px;
+
+    @media (max-width: 360px) {
+        padding: 0 20px;
+    }
 }
 
 // single.php has no hero — its content sits directly under the fixed header

@@ -68,6 +68,7 @@ $cards = [
         'image_id' => steelplast_get_field_default_lang( 'about_equipment_card_6_image' ) ?: 0,
     ],
 ];
+
 ?>
 
 <section class="sp-about-equipment" aria-labelledby="sp-about-equipment-title">
@@ -95,6 +96,7 @@ $cards = [
                         <h3 class="sp-about-equipment__card-title"><?php echo esc_html( $card['title'] ); ?></h3>
                     </div>
 
+                    <?php // Every photo is stored cropped to the 4/3 card frame, so it just fills it. ?>
                     <div class="sp-about-equipment__card-media">
                         <?php if ( ! empty( $card['image_id'] ) ) : ?>
                             <?php echo wp_get_attachment_image( (int) $card['image_id'], 'large', false, [

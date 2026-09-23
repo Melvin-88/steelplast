@@ -17,7 +17,7 @@ if ( ! $news_query->have_posts() ) {
     return;
 }
 
-$archive_url = home_url( '/news/' );
+$archive_url = steelplast_page_url( 'новини' );
 ?>
 
 <section class="sp-news" aria-labelledby="sp-news-title">
@@ -29,9 +29,10 @@ $archive_url = home_url( '/news/' );
                     <span class="sp-section-label__index" aria-hidden="true">[05]</span>
                     <?php echo esc_html( steelplast_t( 'steelplast/news/header', 'news_label', 'Articles & News' ) ); ?>
                 </p>
-                <h2 class="sp-news__title sp-section-title sp-section-title--dark" id="sp-news-title">
-                    <?php echo esc_html( steelplast_t( 'steelplast/news/header', 'news_title', "Stay up to date\nwith company news" ) ); ?>
-                </h2>
+                <?php // white-space: pre-line keeps every newline, so nothing may sit between the tag and the text. ?>
+                <h2 class="sp-news__title sp-section-title sp-section-title--dark" id="sp-news-title"><?php
+                    echo esc_html( steelplast_t( 'steelplast/news/header', 'news_title', "Stay up to date\nwith company news" ) );
+                ?></h2>
                 <p class="sp-section-desc sp-section-desc--dark sp-news__desc">
                     <?php echo esc_html( steelplast_t( 'steelplast/news/header', 'news_desc', 'Follow company news, production updates, and completed projects.' ) ); ?>
                 </p>

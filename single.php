@@ -13,7 +13,7 @@ while ( have_posts() ) :
     $post_id      = get_the_ID();
     $reading_time = steelplast_reading_time( $post_id );
     $tags         = get_the_tags( $post_id );
-    $news_url     = home_url( '/news/' );
+    $news_url     = steelplast_page_url( 'новини' );
 
     // Dedicated, high-resolution cover image for the large header area — separate from
     // the featured image (used for the news card thumbnail) to avoid stretching a small
@@ -117,7 +117,7 @@ while ( have_posts() ) :
                         <?php endif; ?>
 
                         <a
-                            href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>"
+                            href="<?php echo esc_url( steelplast_page_url( 'контакти' ) ); ?>"
                             class="sp-btn sp-btn--primary sp-btn--md sp-btn--on-light sp-single-post__cta"
                             data-sp-modal-open="quick-contact"
                         >

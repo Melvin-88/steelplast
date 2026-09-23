@@ -17,20 +17,20 @@ if ( ! $video_url ) {
 $hero_title       = steelplast_t( 'steelplast/home/hero', 'title',       'BUILD FOR<br>REPEATABILITY' );
 $hero_description = steelplast_t( 'steelplast/home/hero', 'description', 'STEELPLAST is a team that turns ideas into finished products. We provide a full production cycle: from mold design and manufacturing to serial part production.' );
 
-$stats = [
-    [
-        'value' => '98.7%',
-        'label' => steelplast_t( 'steelplast/home/hero', 'stat_1_label', 'Cycle repeatability' ),
-    ],
-    [
-        'value' => '120k',
-        'label' => steelplast_t( 'steelplast/home/hero', 'stat_2_label', 'Mold resource' ),
-    ],
-    [
-        'value' => '6x',
-        'label' => steelplast_t( 'steelplast/home/hero', 'stat_3_label', 'Quality control stages' ),
-    ],
+// Figures come from the admin and grow on their own; see steelplast_hero_stat().
+$stat_labels = [
+    1 => steelplast_t( 'steelplast/home/hero', 'stat_1_label', 'Cycle repeatability' ),
+    2 => steelplast_t( 'steelplast/home/hero', 'stat_2_label', 'Mold resource' ),
+    3 => steelplast_t( 'steelplast/home/hero', 'stat_3_label', 'Quality control stages' ),
 ];
+
+$stats = [];
+foreach ( $stat_labels as $i => $label ) {
+    $stat = steelplast_hero_stat( $i );
+    if ( $stat ) {
+        $stats[] = $stat + [ 'label' => $label ];
+    }
+}
 ?>
 
 <main id="primary" class="sp-main">
@@ -60,7 +60,12 @@ $stats = [
             <div class="sp-hero__stats" aria-label="<?php esc_attr_e( 'Key statistics', 'steelplast' ); ?>">
                 <?php foreach ( $stats as $stat ) : ?>
                     <div class="sp-hero__stat">
-                        <span class="sp-hero__stat-value"><?php echo esc_html( $stat['value'] ); ?></span>
+                        <?php // The final figure is in the markup, so it is correct without JS. ?>
+                        <span class="sp-hero__stat-value"
+                            data-sp-count="<?php echo esc_attr( $stat['value'] ); ?>"
+                            data-sp-count-decimals="<?php echo esc_attr( $stat['decimals'] ); ?>"
+                            data-sp-count-suffix="<?php echo esc_attr( $stat['suffix'] ); ?>"
+                        ><?php echo esc_html( $stat['text'] ); ?></span>
                         <span class="sp-hero__stat-divider" aria-hidden="true"></span>
                         <span class="sp-hero__stat-label"><?php echo esc_html( $stat['label'] ); ?></span>
                     </div>
@@ -75,7 +80,12 @@ $stats = [
 
     <?php get_template_part( 'template-parts/section-about-preview' ); ?>
 
-    <?php get_template_part( 'template-parts/section-quality' ); ?>
+    <?php // Card 1 (IATF 16949) is not shown on the home page; the three that
+    // remain sit in a single row rather than wrapping to a second one.
+    get_template_part( 'template-parts/section-quality', null, [
+        'exclude' => [ 1 ],
+        'columns' => 3,
+    ] ); ?>
 
     <?php get_template_part( 'template-parts/section-collaboration' ); ?>
 

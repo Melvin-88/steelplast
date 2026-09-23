@@ -97,10 +97,14 @@ h5 {
 .sp-section-title {
     color: var(--Pure-White, #{$color-pure-white});
     font-family: $font-family-base;
-    font-size: 64px;
+    // Fluid: at a flat 64px one long Ukrainian word ("Слідкуйте") is wider than
+    // a phone screen and pushes the whole section past the viewport. Reaches the
+    // full 64px from 1000px up, so desktop is unchanged.
+    font-size: clamp(32px, 6.4vw, 64px);
     font-style: normal;
     font-weight: 700;
-    line-height: 64px;
+    line-height: 1;
+    overflow-wrap: break-word;
     text-transform: uppercase;
 }
 

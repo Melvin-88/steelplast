@@ -466,3 +466,83 @@ acf_add_local_field_group( [
     'label_placement'       => 'top',
     'instruction_placement' => 'label',
 ] );
+
+// =============================================
+// Home Page — Hero counters
+// =============================================
+// Each figure is stored in raw units together with how fast it grows, so the
+// number on the page keeps counting up on its own instead of needing an edit
+// every day. The template rounds it down for display (see steelplast_hero_stat).
+
+$steelplast_hero_stat_fields = [];
+
+foreach ( [ 1, 2, 3 ] as $i ) {
+    $steelplast_hero_stat_fields[] = [
+        'key'     => "field_hero_stat_{$i}_message",
+        'label'   => "Показник {$i}",
+        'name'    => '',
+        'type'    => 'message',
+        'message' => '<hr style="margin:0 0 4px">',
+    ];
+    $steelplast_hero_stat_fields[] = [
+        'key'          => "field_hero_stat_{$i}_base",
+        'label'        => "Показник {$i} — базове значення",
+        'name'         => "hero_stat_{$i}_base",
+        'type'         => 'number',
+        'instructions' => 'Повне число, без скорочень. Наприклад 10900000 для 10.9m.',
+        'wrapper'      => [ 'width' => '25' ],
+    ];
+    $steelplast_hero_stat_fields[] = [
+        'key'          => "field_hero_stat_{$i}_since",
+        'label'        => 'Станом на дату',
+        'name'         => "hero_stat_{$i}_since",
+        'type'         => 'date_picker',
+        'display_format' => 'd.m.Y',
+        'return_format'  => 'Ymd',
+        'first_day'      => 1,
+        'instructions'   => 'Коли це значення було виміряне. Від цієї дати рахується приріст.',
+        'wrapper'        => [ 'width' => '25' ],
+    ];
+    $steelplast_hero_stat_fields[] = [
+        'key'          => "field_hero_stat_{$i}_per_day",
+        'label'        => 'Приріст за добу',
+        'name'         => "hero_stat_{$i}_per_day",
+        'type'         => 'number',
+        'default_value' => 0,
+        'instructions' => 'Скільки додається щодня. 0 — показник не росте.',
+        'wrapper'      => [ 'width' => '25' ],
+    ];
+    $steelplast_hero_stat_fields[] = [
+        'key'     => "field_hero_stat_{$i}_format",
+        'label'   => 'Як показувати',
+        'name'    => "hero_stat_{$i}_format",
+        'type'    => 'select',
+        'choices' => [
+            'millions'  => 'Мільйони — 10.9m',
+            'thousands' => 'Тисячі — 120k',
+            'plain'     => 'Як є — 80',
+        ],
+        'default_value' => 'plain',
+        'wrapper'       => [ 'width' => '25' ],
+    ];
+}
+
+acf_add_local_field_group( [
+    'key'    => 'group_home_hero_stats',
+    'title'  => 'Home — Hero counters',
+    'fields' => $steelplast_hero_stat_fields,
+    'location' => [
+        [
+            [
+                'param'    => 'page_template',
+                'operator' => '==',
+                'value'    => 'front-page.php',
+            ],
+        ],
+    ],
+    'menu_order'            => -9,
+    'position'              => 'normal',
+    'style'                 => 'default',
+    'label_placement'       => 'top',
+    'instruction_placement' => 'label',
+] );

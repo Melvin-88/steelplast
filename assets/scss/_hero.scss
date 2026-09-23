@@ -7,7 +7,10 @@
 .sp-hero {
     position: relative;
     width: 100%;
-    height: 100dvh;
+    // min-height, not height: on a phone the title, copy and stats together are
+    // taller than the viewport, and a fixed height pushed the bottom-aligned
+    // content up until the heading sat behind the header.
+    min-height: 100dvh;
     overflow: hidden;
     display: flex;
     align-items: flex-end;
@@ -48,29 +51,49 @@
         padding: 0 32px 60px;
         display: grid;
         grid-template-columns: 1fr 340px;
-        align-items: flex-end;
+        align-items: flex-start;
         gap: 32px;
 
         @media (max-width: 1024px) {
             grid-template-columns: 1fr;
         }
+
+        @media (max-width: 768px) {
+            padding-top: 104px;
+        }
+
+        @media (max-width: 360px) {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
     }
 
     // ── Left: text block ──────────────────────
     &__content {
+        min-width: 0;
         display: flex;
         flex-direction: column;
         gap: 24px;
     }
 
     &__title {
-        font-size: clamp(48px, 6vw, $font-size-h1);
+        // 48px was the floor, but a 14-letter Ukrainian word ("ПОВТОРЮВАНОСТІ")
+        // needs 416px at that size and a phone only offers 311. break-word is the
+        // backstop for whatever copy lands here later.
+        font-size: clamp(32px, 6vw, $font-size-h1);
         line-height: 1;
         font-weight: 800;
         text-transform: uppercase;
         letter-spacing: -0.02em;
+        overflow-wrap: break-word;
         color: $color-pure-white;
         margin: 0;
+
+        // 320px leaves 256px of line: one step smaller keeps the longest word
+        // whole instead of letting break-word split it.
+        @media (max-width: 360px) {
+            font-size: 28px;
+        }
     }
 
     &__description {
@@ -106,11 +129,15 @@
     }
 
     &__stat-value {
+        display: block;
+        text-align: right;
         font-size: clamp(32px, 4vw, 48px);
         font-weight: 700;
         color: $color-accent;
         line-height: 1;
         padding-bottom: 12px;
+        // Equal-width digits: without this the number jitters while counting up.
+        font-variant-numeric: tabular-nums;
     }
 
     &__stat-divider {
@@ -121,7 +148,7 @@
     }
 
     &__stat-label {
-        font-size: 13px;
+        font-size: 14px;
         color: $color-pure-white;
         line-height: 1.4;
         text-align: right;

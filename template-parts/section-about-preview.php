@@ -10,8 +10,7 @@ $title   = steelplast_t( 'steelplast/home/about-preview', 'title',       'WE ENG
 $desc    = steelplast_t( 'steelplast/home/about-preview', 'description', 'SteelPlast is a full-cycle manufacturer specialising in CNC metal machining, injection mold design, mold production, and high-volume plastic part manufacturing. 10+ years of engineering precision.' );
 $btn_txt = steelplast_t( 'steelplast/home/about-preview', 'button',      'Learn more about us' );
 
-$about_page = get_page_by_path( 'about' );
-$about_url  = $about_page ? get_permalink( $about_page->ID ) : home_url( '/about/' );
+$about_url = steelplast_page_url( 'про-компанію' );
 
 // Images are the same for every language — always read from the
 // default-language post (see steelplast_get_field_default_lang()).

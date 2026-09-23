@@ -16,6 +16,12 @@
         align-items: start;
     }
 
+    // Three cards in a row need more than half the section to stay readable,
+    // so the pages that ask for that layout give the grid the larger share.
+    &--wide-grid &__layout {
+        grid-template-columns: 1fr 1.5fr;
+    }
+
     // ---- Left column ----
     &__left {
         display: flex;
@@ -39,10 +45,12 @@
         max-width: 420px;
     }
 
-    // ---- Right grid: 2×2 ----
+    // ---- Right grid ----
     &__grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        // Column count comes from the template — it equals the number of cards
+        // actually rendered, so they always sit on one row.
+        grid-template-columns: repeat(var(--sp-quality-cols, 2), 1fr);
         gap: 16px;
     }
 
@@ -54,6 +62,9 @@
         overflow: hidden;
         display: flex;
         flex-direction: column;
+        // The card reacts to the width it actually gets, so the layout holds
+        // whether there are two cards in a row or four.
+        container-type: inline-size;
     }
 
     &__card-header {
@@ -94,6 +105,9 @@
         font-weight: 600;
         line-height: $line-height-h5;
         color: $color-black;
+        // Without this the title refuses to shrink and spills past the card.
+        min-width: 0;
+        overflow-wrap: break-word;
     }
 
     &__card-desc {
@@ -125,5 +139,42 @@
             font-size: 40px;
             line-height: 44px;
         }
+    }
+}
+
+// A narrow card — three or more side by side — has too little room left of the
+// icon for a heading, so the heading drops underneath it.
+@container (max-width: 280px) {
+    .sp-quality__card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .sp-quality__card-icon {
+        width: 48px;
+        height: 48px;
+        align-self: center;
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    // stretch, not just text-align: a flex item in a column only spans its own
+    // content, so without this the heading would centre inside its own width.
+    .sp-quality__card-title {
+        align-self: stretch;
+        text-align: center;
+    }
+
+    // In a column this narrow, long Ukrainian words wrap whole and leave lines
+    // ending 100px short. Hyphenation lets them split, and only then is there
+    // little enough slack for justification to close the edge without opening
+    // gaps between words.
+    .sp-quality__card-desc {
+        hyphens: auto;
+        text-align: justify;
     }
 }

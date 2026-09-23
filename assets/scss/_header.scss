@@ -75,10 +75,10 @@
 .sp-dropdown__toggle {
     color: var(--Pure-White, #{$color-pure-white});
     font-family: $font-family-base;
-    font-size: $font-size-caption;
+    font-size: $font-size-body;
     font-style: normal;
     font-weight: 400;
-    line-height: $line-height-caption;
+    line-height: $line-height-body;
     letter-spacing: -0.12px;
     text-decoration: none;
     background: none;
@@ -158,9 +158,9 @@ a.current-menu-item,
         display: block;
         padding: 16px 24px;
         color: var(--Pure-White, #{$color-pure-white});
-        font-size: $font-size-caption;
+        font-size: $font-size-body;
         font-weight: 400;
-        line-height: $line-height-caption;
+        line-height: $line-height-body;
         letter-spacing: -0.12px;
         text-decoration: none;
         transition: color 0.15s ease;
@@ -196,9 +196,9 @@ a.current-menu-item,
 .sp-header__contacts {
     color: var(--Pure-White, #{$color-pure-white});
     font-family: $font-family-base;
-    font-size: $font-size-caption;
+    font-size: $font-size-body;
     font-weight: 400;
-    line-height: $line-height-caption;
+    line-height: $line-height-body;
     letter-spacing: -0.12px;
     text-decoration: none;
 
@@ -362,6 +362,11 @@ a.current-menu-item,
 }
 
 @media (max-width: 768px) {
+    // Only the trademark fits next to the CTA and the burger.
+    .sp-header__logo img {
+        width: 40px;
+    }
+
     .sp-header__burger {
         display: flex;
     }

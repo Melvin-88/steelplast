@@ -22,13 +22,21 @@
 
         <!-- Logo -->
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="sp-header__logo" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) . ' — ' . __( 'home page', 'steelplast' ) ); ?>">
-            <img
-                src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-header.svg' ); ?>"
-                alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"
-                width="160"
-                height="40"
-                loading="eager"
-            >
+            <picture>
+                <source
+                    media="(max-width: 768px)"
+                    srcset="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-mark.svg' ); ?>"
+                    width="40"
+                    height="40"
+                >
+                <img
+                    src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/logo-header.svg' ); ?>"
+                    alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>"
+                    width="160"
+                    height="40"
+                    loading="eager"
+                >
+            </picture>
         </a>
 
         <!-- Primary navigation -->
@@ -47,13 +55,13 @@
 
         <!-- Actions: contacts / language / CTA -->
         <div class="sp-header__actions">
-            <a href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>" class="sp-header__contacts<?php echo is_page_template( 'page-templates/page-contacts.php' ) ? ' current-menu-item' : ''; ?>">
+            <a href="<?php echo esc_url( steelplast_page_url( 'контакти' ) ); ?>" class="sp-header__contacts<?php echo is_page_template( 'page-templates/page-contacts.php' ) ? ' current-menu-item' : ''; ?>">
                 <?php echo esc_html( steelplast_t( 'steelplast/global/header', 'contacts', 'Contacts' ) ); ?>
             </a>
 
             <?php steelplast_language_switcher(); ?>
 
-            <a href="<?php echo esc_url( home_url( '/contacts/' ) ); ?>" class="sp-btn sp-btn--outline sp-btn--sm" data-sp-modal-open="quick-contact">
+            <a href="<?php echo esc_url( steelplast_page_url( 'контакти' ) ); ?>" class="sp-btn sp-btn--outline sp-btn--sm" data-sp-modal-open="quick-contact">
                 <?php echo esc_html( steelplast_t( 'steelplast/global/header', 'cta', 'Get in touch' ) ); ?>
             </a>
         </div>
