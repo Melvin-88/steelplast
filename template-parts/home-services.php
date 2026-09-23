@@ -10,7 +10,7 @@ for ( $i = 1; $i <= 6; $i++ ) {
     $img_ids[ $i ] = steelplast_get_field_default_lang( "services_card_{$i}_image" ) ?: 0;
 }
 
-$section_label = steelplast_t( 'steelplast/home/services', 'section_label', 'Our Services' );
+$section_label = steelplast_t( 'steelplast/home/services', 'section_label', 'Services' );
 $title         = steelplast_t( 'steelplast/home/services', 'title',         'Modern equipment, manufacturing precision and quality control' );
 $cta_label     = steelplast_t( 'steelplast/home/services', 'cta_label',     'Learn more' );
 
@@ -20,36 +20,36 @@ $services = [
     [
         'id'    => 'stamping',
         'slug'  => 'штампування-металу',
-        'title' => steelplast_t( 'steelplast/home/services', 'card_1_title', 'Metal Processing' ),
-        'desc'  => steelplast_t( 'steelplast/home/services', 'card_1_desc',  'High-precision CNC metal machining for parts of any complexity.' ),
+        'title' => steelplast_t( 'steelplast/home/services', 'card_1_title', 'Metal Stamping' ),
+        'desc'  => steelplast_t( 'steelplast/home/services', 'card_1_desc',  'Sheet metal stamping — blanking, bending and drawing.' ),
         'image' => $img_ids[1],
     ],
     [
         'id'    => 'plastic',
         'slug'  => 'лиття-пластмас',
-        'title' => steelplast_t( 'steelplast/home/services', 'card_2_title', 'Plastic Casting' ),
-        'desc'  => steelplast_t( 'steelplast/home/services', 'card_2_desc',  'Manufacturing plastic products by injection molding on modern thermoplastic machines.' ),
+        'title' => steelplast_t( 'steelplast/home/services', 'card_2_title', 'Plastic Injection Molding' ),
+        'desc'  => steelplast_t( 'steelplast/home/services', 'card_2_desc',  'Plastic injection molding on modern machines — from prototypes to series production.' ),
         'image' => $img_ids[2],
     ],
     [
         'id'    => 'molds',
         'slug'  => 'прес-форми-та-штампи',
-        'title' => steelplast_t( 'steelplast/home/services', 'card_3_title', 'Laser Metal Cutting' ),
-        'desc'  => steelplast_t( 'steelplast/home/services', 'card_3_desc',  'High-precision laser metal cutting for parts of any complexity.' ),
+        'title' => steelplast_t( 'steelplast/home/services', 'card_3_title', 'Molds & Dies' ),
+        'desc'  => steelplast_t( 'steelplast/home/services', 'card_3_desc',  'Design and manufacture of molds and dies — from enquiry to finished product.' ),
         'image' => $img_ids[3],
     ],
     [
         'id'    => 'machining',
         'slug'  => 'механічна-обробка',
-        'title' => steelplast_t( 'steelplast/home/services', 'card_4_title', 'Stamping' ),
-        'desc'  => steelplast_t( 'steelplast/home/services', 'card_4_desc',  'STEELPLAST manufactures stamped components for various industrial sectors.' ),
+        'title' => steelplast_t( 'steelplast/home/services', 'card_4_title', 'CNC Metal Machining' ),
+        'desc'  => steelplast_t( 'steelplast/home/services', 'card_4_desc',  'CNC turning and milling for complex parts — from a single piece to series production.' ),
         'image' => $img_ids[4],
     ],
     [
         'id'    => 'tooling',
         'slug'  => 'технологічне-оснащення',
-        'title' => steelplast_t( 'steelplast/home/services', 'card_5_title', 'Powder Coating' ),
-        'desc'  => steelplast_t( 'steelplast/home/services', 'card_5_desc',  'Powder coating of metal products ensuring uniform and durable finish.' ),
+        'title' => steelplast_t( 'steelplast/home/services', 'card_5_title', 'Custom Tooling' ),
+        'desc'  => steelplast_t( 'steelplast/home/services', 'card_5_desc',  'Assembly fixtures, inspection gauges and jigs, designed and built for your process.' ),
         'image' => $img_ids[5],
     ],
     [

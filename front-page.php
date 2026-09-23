@@ -14,14 +14,14 @@ if ( ! $video_url ) {
     $video_url = get_template_directory_uri() . '/assets/video/hero.mp4';
 }
 
-$hero_title       = steelplast_t( 'steelplast/home/hero', 'title',       'BUILD FOR<br>REPEATABILITY' );
-$hero_description = steelplast_t( 'steelplast/home/hero', 'description', 'STEELPLAST is a team that turns ideas into finished products. We provide a full production cycle: from mold design and manufacturing to serial part production.' );
+$hero_title       = steelplast_t( 'steelplast/home/hero', 'title',       'Design Manufacture Scale' );
+$hero_description = steelplast_t( 'steelplast/home/hero', 'description', 'STEELPLAST takes on the whole route — from concept to series production, whatever the complexity or scale.' );
 
 // Figures come from the admin and grow on their own; see steelplast_hero_stat().
 $stat_labels = [
-    1 => steelplast_t( 'steelplast/home/hero', 'stat_1_label', 'Cycle repeatability' ),
-    2 => steelplast_t( 'steelplast/home/hero', 'stat_2_label', 'Mold resource' ),
-    3 => steelplast_t( 'steelplast/home/hero', 'stat_3_label', 'Quality control stages' ),
+    1 => steelplast_t( 'steelplast/home/hero', 'stat_1_label', 'Plastic parts manufactured' ),
+    2 => steelplast_t( 'steelplast/home/hero', 'stat_2_label', 'Metal parts manufactured' ),
+    3 => steelplast_t( 'steelplast/home/hero', 'stat_3_label', 'Projects delivered in 2025/2026' ),
 ];
 
 $stats = [];

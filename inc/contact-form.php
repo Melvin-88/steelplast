@@ -15,7 +15,7 @@ function steelplast_register_contact_strings() {
 
     $ctx = 'steelplast/contacts/hero';
     icl_register_string( $ctx, 'contact_hero_title', 'Still have questions?' );
-    icl_register_string( $ctx, 'contact_hero_desc',  'Leave your request and we will contact you within 2 hours.' );
+    icl_register_string( $ctx, 'contact_hero_desc',  'Leave your request and we will get in touch.' );
 
     $ctx = 'steelplast/contacts/form';
     icl_register_string( $ctx, 'contact_form_aria',        'Contact form' );

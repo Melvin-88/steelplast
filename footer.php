@@ -23,7 +23,7 @@
             </a>
 
             <div class="sp-footer__desc">
-                <?php echo esc_html( steelplast_t( 'steelplast/global/footer', 'description', 'We specialize in supplying high-quality components for the automotive, household, electrical, interior and construction industries.' ) ); ?>
+                <?php echo esc_html( steelplast_t( 'steelplast/global/footer', 'description', 'We specialize in supplying high-quality components for the automotive, medical, household, electrical, furniture and construction industries.' ) ); ?>
             </div>
         </div>
 

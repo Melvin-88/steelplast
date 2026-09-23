@@ -323,7 +323,7 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/global/header', 'cta',      'Get in touch' );
 
     // -- steelplast/global/footer --
-    icl_register_string( 'steelplast/global/footer', 'description',  'We specialize in supplying high-quality components for the automotive, household, electrical, interior and construction industries.' );
+    icl_register_string( 'steelplast/global/footer', 'description',  'We specialize in supplying high-quality components for the automotive, medical, household, electrical, furniture and construction industries.' );
     icl_register_string( 'steelplast/global/footer', 'menu_title',   'MENU' );
     icl_register_string( 'steelplast/global/footer', 'social_title', 'FOLLOW US' );
     icl_register_string( 'steelplast/global/footer', 'copyright',    'All rights reserved.' );
@@ -336,11 +336,11 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/global/modal-contact', 'close_aria', 'Close' );
 
     // -- steelplast/home/hero --
-    icl_register_string( 'steelplast/home/hero', 'title',       'BUILD FOR<br>REPEATABILITY' );
-    icl_register_string( 'steelplast/home/hero', 'description', 'STEELPLAST is a team that turns ideas into finished products. We provide a full production cycle: from mold design and manufacturing to serial part production.' );
-    icl_register_string( 'steelplast/home/hero', 'stat_1_label', 'Cycle repeatability' );
-    icl_register_string( 'steelplast/home/hero', 'stat_2_label', 'Mold resource' );
-    icl_register_string( 'steelplast/home/hero', 'stat_3_label', 'Quality control stages' );
+    icl_register_string( 'steelplast/home/hero', 'title',       'Design Manufacture Scale' );
+    icl_register_string( 'steelplast/home/hero', 'description', 'STEELPLAST takes on the whole route — from concept to series production, whatever the complexity or scale.' );
+    icl_register_string( 'steelplast/home/hero', 'stat_1_label', 'Plastic parts manufactured' );
+    icl_register_string( 'steelplast/home/hero', 'stat_2_label', 'Metal parts manufactured' );
+    icl_register_string( 'steelplast/home/hero', 'stat_3_label', 'Projects delivered in 2025/2026' );
 
     // -- steelplast/contacts/page --
     icl_register_string( 'steelplast/contacts/page', 'emails_heading',    'Email' );
@@ -381,7 +381,7 @@ function steelplast_register_wpml_strings() {
 
     // -- steelplast/contacts/hero --
     icl_register_string( 'steelplast/contacts/hero', 'contact_hero_title', 'Still have questions?' );
-    icl_register_string( 'steelplast/contacts/hero', 'contact_hero_desc',  'Leave your request and we will contact you within 2 hours.' );
+    icl_register_string( 'steelplast/contacts/hero', 'contact_hero_desc',  'Leave your request and we will get in touch.' );
 
     // -- steelplast/contacts/form --
     icl_register_string( 'steelplast/contacts/form', 'contact_form_aria',         'Contact form' );
@@ -406,41 +406,41 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/home/about-preview', 'button',      'Learn more about us' );
 
     // -- steelplast/home/services --
-    icl_register_string( 'steelplast/home/services', 'section_label',   'Our Services' );
+    icl_register_string( 'steelplast/home/services', 'section_label',   'Services' );
     icl_register_string( 'steelplast/home/services', 'title',           'Modern equipment, manufacturing precision and quality control' );
     icl_register_string( 'steelplast/home/services', 'cta_label',       'Learn more' );
-    icl_register_string( 'steelplast/home/services', 'card_1_title',    'Metal Processing' );
-    icl_register_string( 'steelplast/home/services', 'card_1_desc',     'High-precision CNC metal machining for parts of any complexity.' );
-    icl_register_string( 'steelplast/home/services', 'card_2_title',    'Plastic Casting' );
-    icl_register_string( 'steelplast/home/services', 'card_2_desc',     'Manufacturing plastic products by injection molding on modern thermoplastic machines.' );
-    icl_register_string( 'steelplast/home/services', 'card_3_title',    'Laser Metal Cutting' );
-    icl_register_string( 'steelplast/home/services', 'card_3_desc',     'High-precision laser metal cutting for parts of any complexity.' );
-    icl_register_string( 'steelplast/home/services', 'card_4_title',    'Stamping' );
-    icl_register_string( 'steelplast/home/services', 'card_4_desc',     'STEELPLAST manufactures stamped components for various industrial sectors.' );
-    icl_register_string( 'steelplast/home/services', 'card_5_title',    'Powder Coating' );
-    icl_register_string( 'steelplast/home/services', 'card_5_desc',     'Powder coating of metal products ensuring uniform and durable finish.' );
+    icl_register_string( 'steelplast/home/services', 'card_1_title',    'Metal Stamping' );
+    icl_register_string( 'steelplast/home/services', 'card_1_desc',     'Sheet metal stamping — blanking, bending and drawing.' );
+    icl_register_string( 'steelplast/home/services', 'card_2_title',    'Plastic Injection Molding' );
+    icl_register_string( 'steelplast/home/services', 'card_2_desc',     'Plastic injection molding on modern machines — from prototypes to series production.' );
+    icl_register_string( 'steelplast/home/services', 'card_3_title',    'Molds & Dies' );
+    icl_register_string( 'steelplast/home/services', 'card_3_desc',     'Design and manufacture of molds and dies — from enquiry to finished product.' );
+    icl_register_string( 'steelplast/home/services', 'card_4_title',    'CNC Metal Machining' );
+    icl_register_string( 'steelplast/home/services', 'card_4_desc',     'CNC turning and milling for complex parts — from a single piece to series production.' );
+    icl_register_string( 'steelplast/home/services', 'card_5_title',    'Custom Tooling' );
+    icl_register_string( 'steelplast/home/services', 'card_5_desc',     'Assembly fixtures, inspection gauges and jigs, designed and built for your process.' );
     icl_register_string( 'steelplast/home/services', 'card_6_title',     'Springs & Wire Products' );
     icl_register_string( 'steelplast/home/services', 'card_6_desc',      'Made-to-order springs and formed wire parts, from a drawing or a sample.' );
 
     // -- steelplast/collaboration/header --
     icl_register_string( 'steelplast/collaboration/header', 'collab_label',   'Collaboration' );
-    icl_register_string( 'steelplast/collaboration/header', 'collab_title',   "We don't just fulfill orders —\nwe solve problems" );
-    icl_register_string( 'steelplast/collaboration/header', 'collab_desc_1',  'We build partnerships on reliability, precision, and meeting deadlines. We work with businesses of all sizes, offering flexible manufacturing solutions — from individual parts to serial production.' );
+    icl_register_string( 'steelplast/collaboration/header', 'collab_title',   "LET'S BUILD SOMETHING THAT HAS TO WORK." );
+    icl_register_string( 'steelplast/collaboration/header', 'collab_desc_1',  'You come to us with an idea, a drawing or a specific production problem — we help you find the route to a finished product. We see the project through, start production and scale it.' );
     icl_register_string( 'steelplast/collaboration/header', 'collab_desc_2',  'We provide support at every stage: from processing the technical specification to quality control of finished products.' );
 
     // -- steelplast/collaboration/steps --
     icl_register_string( 'steelplast/collaboration/steps', 'steps_aria',   'How we work' );
     icl_register_string( 'steelplast/collaboration/steps', 'step_1_tag',   'Step 1' );
-    icl_register_string( 'steelplast/collaboration/steps', 'step_1_title', 'Submit a request' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_1_title', 'YOUR ENQUIRY' );
     icl_register_string( 'steelplast/collaboration/steps', 'step_1_text',  'Send a request via the website or contact us directly. Briefly describe the task and requirements for the product.' );
     icl_register_string( 'steelplast/collaboration/steps', 'step_2_tag',   'Step 2' );
-    icl_register_string( 'steelplast/collaboration/steps', 'step_2_title', 'Consultation and agreement' );
-    icl_register_string( 'steelplast/collaboration/steps', 'step_2_text',  'We discuss technical details, materials, timelines and finalize the specification before production begins.' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_2_title', 'A SOLUTION FOR YOUR PROJECT' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_2_text',  'We agree the technical specification before production begins.' );
     icl_register_string( 'steelplast/collaboration/steps', 'step_3_tag',   'Step 3' );
-    icl_register_string( 'steelplast/collaboration/steps', 'step_3_title', 'Production' );
-    icl_register_string( 'steelplast/collaboration/steps', 'step_3_text',  'We manufacture products according to approved parameters with quality control at every stage.' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_3_title', 'INTO PRODUCTION' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_3_text',  'We manufacture to the approved requirements, with quality control at every stage.' );
     icl_register_string( 'steelplast/collaboration/steps', 'step_4_tag',   'Step 4' );
-    icl_register_string( 'steelplast/collaboration/steps', 'step_4_title', 'Delivery of finished products' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_4_title', 'FINISHED RESULT' );
     icl_register_string( 'steelplast/collaboration/steps', 'step_4_text',  'We organize packaging and delivery of finished products within agreed timelines.' );
 
     // -- steelplast/quality/hero --
@@ -949,7 +949,7 @@ add_action( 'after_setup_theme', 'steelplast_register_wpml_strings' );
 
 /**
  * Helper: get translated string by context + key.
- * Usage: steelplast_t( 'steelplast/home/hero', 'title', 'Default' )
+ * Usage: steelplast_t( 'steelplast/home/hero', 'title', 'Design Manufacture Scale' )
  */
 function steelplast_t( $context, $name, $default ) {
     if ( function_exists( 'icl_t' ) ) {

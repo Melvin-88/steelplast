@@ -14,30 +14,30 @@
 
 $label_index = $args['label_index'] ?? '[04]';
 $label       = $args['label']       ?? steelplast_t( 'steelplast/collaboration/header', 'collab_label', 'Collaboration' );
-$title       = $args['title']       ?? steelplast_t( 'steelplast/collaboration/header', 'collab_title', "We don't just fulfill orders —\nwe solve problems" );
+$title       = $args['title']       ?? steelplast_t( 'steelplast/collaboration/header', 'collab_title', "LET'S BUILD SOMETHING THAT HAS TO WORK." );
 $desc        = $args['desc']        ?? [
-    steelplast_t( 'steelplast/collaboration/header', 'collab_desc_1', 'We build partnerships on reliability, precision, and meeting deadlines. We work with businesses of all sizes, offering flexible manufacturing solutions — from individual parts to serial production.' ),
+    steelplast_t( 'steelplast/collaboration/header', 'collab_desc_1', 'You come to us with an idea, a drawing or a specific production problem — we help you find the route to a finished product. We see the project through, start production and scale it.' ),
     steelplast_t( 'steelplast/collaboration/header', 'collab_desc_2', 'We provide support at every stage: from processing the technical specification to quality control of finished products.' ),
 ];
 $steps       = $args['steps'] ?? [
     [
         'tag'   => steelplast_t( 'steelplast/collaboration/steps', 'step_1_tag', 'Step 1' ),
-        'title' => steelplast_t( 'steelplast/collaboration/steps', 'step_1_title', 'Submit a request' ),
+        'title' => steelplast_t( 'steelplast/collaboration/steps', 'step_1_title', 'YOUR ENQUIRY' ),
         'text'  => steelplast_t( 'steelplast/collaboration/steps', 'step_1_text', 'Send a request via the website or contact us directly. Briefly describe the task and requirements for the product.' ),
     ],
     [
         'tag'   => steelplast_t( 'steelplast/collaboration/steps', 'step_2_tag', 'Step 2' ),
-        'title' => steelplast_t( 'steelplast/collaboration/steps', 'step_2_title', 'Consultation and agreement' ),
-        'text'  => steelplast_t( 'steelplast/collaboration/steps', 'step_2_text', 'We discuss technical details, materials, timelines and finalize the specification before production begins.' ),
+        'title' => steelplast_t( 'steelplast/collaboration/steps', 'step_2_title', 'A SOLUTION FOR YOUR PROJECT' ),
+        'text'  => steelplast_t( 'steelplast/collaboration/steps', 'step_2_text', 'We agree the technical specification before production begins.' ),
     ],
     [
         'tag'   => steelplast_t( 'steelplast/collaboration/steps', 'step_3_tag', 'Step 3' ),
-        'title' => steelplast_t( 'steelplast/collaboration/steps', 'step_3_title', 'Production' ),
-        'text'  => steelplast_t( 'steelplast/collaboration/steps', 'step_3_text', 'We manufacture products according to approved parameters with quality control at every stage.' ),
+        'title' => steelplast_t( 'steelplast/collaboration/steps', 'step_3_title', 'INTO PRODUCTION' ),
+        'text'  => steelplast_t( 'steelplast/collaboration/steps', 'step_3_text', 'We manufacture to the approved requirements, with quality control at every stage.' ),
     ],
     [
         'tag'   => steelplast_t( 'steelplast/collaboration/steps', 'step_4_tag', 'Step 4' ),
-        'title' => steelplast_t( 'steelplast/collaboration/steps', 'step_4_title', 'Delivery of finished products' ),
+        'title' => steelplast_t( 'steelplast/collaboration/steps', 'step_4_title', 'FINISHED RESULT' ),
         'text'  => steelplast_t( 'steelplast/collaboration/steps', 'step_4_text', 'We organize packaging and delivery of finished products within agreed timelines.' ),
     ],
 ];

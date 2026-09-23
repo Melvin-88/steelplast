@@ -35,7 +35,7 @@ $heading_tag = ( ! empty( $args['heading'] ) && in_array( strtolower( (string) $
                     <?php echo esc_html( steelplast_t( 'steelplast/contacts/hero', 'contact_hero_title', 'Still have questions?' ) ); ?>
                 </<?php echo esc_attr( $heading_tag ); ?>>
                 <p class="sp-contact-section__desc sp-section-desc">
-                    <?php echo esc_html( steelplast_t( 'steelplast/contacts/hero', 'contact_hero_desc', 'Leave your request and we will contact you within 2 hours.' ) ); ?>
+                    <?php echo esc_html( steelplast_t( 'steelplast/contacts/hero', 'contact_hero_desc', 'Leave your request and we will get in touch.' ) ); ?>
                 </p>
             </div>
 
