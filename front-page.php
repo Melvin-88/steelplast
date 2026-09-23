@@ -80,12 +80,7 @@ foreach ( $stat_labels as $i => $label ) {
 
     <?php get_template_part( 'template-parts/section-about-preview' ); ?>
 
-    <?php // Card 1 (IATF 16949) is not shown on the home page; the three that
-    // remain sit in a single row rather than wrapping to a second one.
-    get_template_part( 'template-parts/section-quality', null, [
-        'exclude' => [ 1 ],
-        'columns' => 3,
-    ] ); ?>
+    <?php get_template_part( 'template-parts/section-quality' ); ?>
 
     <?php get_template_part( 'template-parts/section-collaboration' ); ?>
 

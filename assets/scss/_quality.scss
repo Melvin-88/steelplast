@@ -9,17 +9,13 @@
     background-color: $color-pure-white;
 
     // ---- Two-column layout: left info + right grid ----
+    // Three cards in a row need more than half the section to stay readable,
+    // hence the larger share for the grid rather than an even split.
     &__layout {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1.5fr;
         gap: 60px;
         align-items: start;
-    }
-
-    // Three cards in a row need more than half the section to stay readable,
-    // so the pages that ask for that layout give the grid the larger share.
-    &--wide-grid &__layout {
-        grid-template-columns: 1fr 1.5fr;
     }
 
     // ---- Left column ----
@@ -48,9 +44,7 @@
     // ---- Right grid ----
     &__grid {
         display: grid;
-        // Column count comes from the template — it equals the number of cards
-        // actually rendered, so they always sit on one row.
-        grid-template-columns: repeat(var(--sp-quality-cols, 2), 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 16px;
     }
 
