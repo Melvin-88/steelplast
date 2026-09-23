@@ -60,7 +60,6 @@
     // .sp-section-desc handles font/size/weight; color overridden for white bg
     &__desc {
         color: $color-dark-grey;
-        max-width: 320px;
     }
 
     &__form-wrap {
@@ -245,10 +244,6 @@
 
     .sp-contact-section__text {
         padding: 40px 24px;
-    }
-
-    .sp-contact-section__desc {
-        max-width: 100%;
     }
 
     .sp-contact-section__form-wrap {
