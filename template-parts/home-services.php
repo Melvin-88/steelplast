@@ -5,70 +5,61 @@
 
 // Images are the same for every language — always read from the
 // default-language post (see steelplast_get_field_default_lang()).
-$img_ids = [
-    1 => steelplast_get_field_default_lang( 'services_card_1_image' ) ?: 0,
-    2 => steelplast_get_field_default_lang( 'services_card_2_image' ) ?: 0,
-    3 => steelplast_get_field_default_lang( 'services_card_3_image' ) ?: 0,
-    4 => steelplast_get_field_default_lang( 'services_card_4_image' ) ?: 0,
-    5 => steelplast_get_field_default_lang( 'services_card_5_image' ) ?: 0,
-];
+$img_ids = [];
+for ( $i = 1; $i <= 6; $i++ ) {
+    $img_ids[ $i ] = steelplast_get_field_default_lang( "services_card_{$i}_image" ) ?: 0;
+}
 
 $section_label = steelplast_t( 'steelplast/home/services', 'section_label', 'Our Services' );
 $title         = steelplast_t( 'steelplast/home/services', 'title',         'Modern equipment, manufacturing precision and quality control' );
 $cta_label     = steelplast_t( 'steelplast/home/services', 'cta_label',     'Learn more' );
 
-// Every card links to its own service page, named by its default-language slug.
-$stamping_url  = steelplast_page_url( 'штампування-металу' );
-$plastic_url   = steelplast_page_url( 'лиття-пластмас' );
-$molds_url     = steelplast_page_url( 'прес-форми-та-штампи' );
-$machining_url = steelplast_page_url( 'механічна-обробка' );
-$tooling_url   = steelplast_page_url( 'технологічне-оснащення' );
-
-// Row 1 — 3 cards with image + text
-$services_row1 = [
+// One card per service page, all the same shape. Slugs are the default-language
+// ones; steelplast_page_url() resolves them to the language being rendered.
+$services = [
     [
-        'id'       => 'stamping',
-        'title'    => steelplast_t( 'steelplast/home/services', 'card_1_title', 'Metal Processing' ),
-        'desc'     => steelplast_t( 'steelplast/home/services', 'card_1_desc',  'High-precision CNC metal machining for parts of any complexity.' ),
-        'image_id' => $img_ids[1],
-        'url'      => $stamping_url,
+        'id'    => 'stamping',
+        'slug'  => 'штампування-металу',
+        'title' => steelplast_t( 'steelplast/home/services', 'card_1_title', 'Metal Processing' ),
+        'desc'  => steelplast_t( 'steelplast/home/services', 'card_1_desc',  'High-precision CNC metal machining for parts of any complexity.' ),
+        'image' => $img_ids[1],
     ],
     [
-        'id'       => 'plastic',
-        'title'    => steelplast_t( 'steelplast/home/services', 'card_2_title', 'Plastic Casting' ),
-        'desc'     => steelplast_t( 'steelplast/home/services', 'card_2_desc',  'Manufacturing plastic products by injection molding on modern thermoplastic machines.' ),
-        'image_id' => $img_ids[2],
-        'url'      => $plastic_url,
+        'id'    => 'plastic',
+        'slug'  => 'лиття-пластмас',
+        'title' => steelplast_t( 'steelplast/home/services', 'card_2_title', 'Plastic Casting' ),
+        'desc'  => steelplast_t( 'steelplast/home/services', 'card_2_desc',  'Manufacturing plastic products by injection molding on modern thermoplastic machines.' ),
+        'image' => $img_ids[2],
     ],
     [
-        'id'       => 'molds',
-        'title'    => steelplast_t( 'steelplast/home/services', 'card_3_title', 'Laser Metal Cutting' ),
-        'desc'     => steelplast_t( 'steelplast/home/services', 'card_3_desc',  'High-precision laser metal cutting for parts of any complexity.' ),
-        'image_id' => $img_ids[3],
-        'url'      => $molds_url,
+        'id'    => 'molds',
+        'slug'  => 'прес-форми-та-штампи',
+        'title' => steelplast_t( 'steelplast/home/services', 'card_3_title', 'Laser Metal Cutting' ),
+        'desc'  => steelplast_t( 'steelplast/home/services', 'card_3_desc',  'High-precision laser metal cutting for parts of any complexity.' ),
+        'image' => $img_ids[3],
+    ],
+    [
+        'id'    => 'machining',
+        'slug'  => 'механічна-обробка',
+        'title' => steelplast_t( 'steelplast/home/services', 'card_4_title', 'Stamping' ),
+        'desc'  => steelplast_t( 'steelplast/home/services', 'card_4_desc',  'STEELPLAST manufactures stamped components for various industrial sectors.' ),
+        'image' => $img_ids[4],
+    ],
+    [
+        'id'    => 'tooling',
+        'slug'  => 'технологічне-оснащення',
+        'title' => steelplast_t( 'steelplast/home/services', 'card_5_title', 'Powder Coating' ),
+        'desc'  => steelplast_t( 'steelplast/home/services', 'card_5_desc',  'Powder coating of metal products ensuring uniform and durable finish.' ),
+        'image' => $img_ids[5],
+    ],
+    [
+        'id'    => 'wire',
+        'slug'  => 'пружини-та-вироби-з-дроту',
+        'title' => steelplast_t( 'steelplast/home/services', 'card_6_title', 'Springs & Wire Products' ),
+        'desc'  => steelplast_t( 'steelplast/home/services', 'card_6_desc',  'Made-to-order springs and formed wire parts, from a drawing or a sample.' ),
+        'image' => $img_ids[6],
     ],
 ];
-
-// Row 2 — wide card (card 4) data
-$wide_title   = steelplast_t( 'steelplast/home/services', 'card_4_title', 'Stamping' );
-$wide_desc    = steelplast_t( 'steelplast/home/services', 'card_4_desc',  'STEELPLAST manufactures stamped components for various industrial sectors.' );
-$wide_cap     = steelplast_t( 'steelplast/home/services', 'card_4_cap',   'Manufacturing capabilities:' );
-$wide_bullets = [
-    steelplast_t( 'steelplast/home/services', 'card_4_bullet_1', 'Sheet metal processing 0.15–5 mm thick' ),
-    steelplast_t( 'steelplast/home/services', 'card_4_bullet_2', 'Crank pneumatic presses' ),
-    steelplast_t( 'steelplast/home/services', 'card_4_bullet_3', 'Maximum pressing force — up to 100 t' ),
-];
-
-// Row 2 — last card (card 5, image + text)
-$last_card = [
-    'id'       => 'tooling',
-    'title'    => steelplast_t( 'steelplast/home/services', 'card_5_title', 'Powder Coating' ),
-    'desc'     => steelplast_t( 'steelplast/home/services', 'card_5_desc',  'Powder coating of metal products ensuring uniform and durable finish.' ),
-    'image_id' => $img_ids[5],
-    'url'      => $tooling_url,
-];
-
-$wide_image_id = $img_ids[4];
 ?>
 
 <section class="sp-services" aria-labelledby="services-title">
@@ -82,68 +73,18 @@ $wide_image_id = $img_ids[4];
             <h2 id="services-title" class="sp-services__title sp-section-title"><?php echo esc_html( $title ); ?></h2>
         </header>
 
-        <!-- Single 3-column grid: row 1 (3 cards) + row 2 (wide card span-2 + 1 card) -->
         <div class="sp-services__grid" data-sp-animate-group>
 
-            <?php foreach ( $services_row1 as $service ) :
-                // Only show the CTA once the service has a real page to link to —
-                // an empty href="#" would just jump to the top of the page.
+            <?php foreach ( $services as $service ) :
                 get_template_part( 'template-parts/component-image-card', null, [
                     'id'        => $service['id'],
                     'title'     => $service['title'],
                     'desc'      => $service['desc'],
-                    'image_id'  => $service['image_id'],
-                    'cta_label' => ! empty( $service['url'] ) ? $cta_label : '',
-                    'cta_href'  => $service['url'] ?? '',
+                    'image_id'  => $service['image'],
+                    'cta_label' => $cta_label,
+                    'cta_href'  => steelplast_page_url( $service['slug'] ),
                 ] );
             endforeach; ?>
-
-            <!-- Card 4 — wide card: spans 2 columns, image left + text right -->
-            <article class="sp-services__card sp-services__card--wide" data-service="machining" data-sp-animate>
-
-                <div class="sp-services__card-image sp-services__card-image--side">
-                    <?php if ( $wide_image_id ) : ?>
-                        <?php echo wp_get_attachment_image( $wide_image_id, 'large', false, [
-                            'loading' => 'lazy',
-                            'class'   => 'sp-services__card-img',
-                        ] ); ?>
-                    <?php else : ?>
-                        <div class="sp-services__card-image-placeholder" aria-hidden="true"></div>
-                    <?php endif; ?>
-                </div>
-
-                <div class="sp-services__card-inner">
-                    <div class="sp-services__card-body">
-                        <h3 class="sp-services__card-title"><?php echo esc_html( $wide_title ); ?></h3>
-                        <p class="sp-services__card-desc"><?php echo esc_html( $wide_desc ); ?></p>
-                        <p class="sp-services__card-cap"><?php echo esc_html( $wide_cap ); ?></p>
-                        <ul class="sp-services__card-bullets">
-                            <?php foreach ( $wide_bullets as $bullet ) : ?>
-                                <li><?php echo esc_html( $bullet ); ?></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                    <?php if ( $machining_url ) : ?>
-                    <div class="sp-services__card-footer">
-                        <a href="<?php echo esc_url( $machining_url ); ?>" class="sp-btn sp-btn--ghost sp-btn--md sp-btn--full" aria-label="<?php echo esc_attr( $wide_title ); ?> — <?php echo esc_attr( $cta_label ); ?>">
-                            <span><?php echo esc_html( $cta_label ); ?></span>
-                            <span class="sp-btn__icon" aria-hidden="true">↳</span>
-                        </a>
-                    </div>
-                    <?php endif; ?>
-                </div>
-
-            </article>
-
-            <!-- Card 5 -->
-            <?php get_template_part( 'template-parts/component-image-card', null, [
-                'id'        => $last_card['id'],
-                'title'     => $last_card['title'],
-                'desc'      => $last_card['desc'],
-                'image_id'  => $last_card['image_id'],
-                'cta_label' => ! empty( $last_card['url'] ) ? $cta_label : '',
-                'cta_href'  => $last_card['url'],
-            ] ); ?>
 
         </div><!-- /.sp-services__grid -->
 

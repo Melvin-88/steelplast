@@ -417,12 +417,10 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/home/services', 'card_3_desc',     'High-precision laser metal cutting for parts of any complexity.' );
     icl_register_string( 'steelplast/home/services', 'card_4_title',    'Stamping' );
     icl_register_string( 'steelplast/home/services', 'card_4_desc',     'STEELPLAST manufactures stamped components for various industrial sectors.' );
-    icl_register_string( 'steelplast/home/services', 'card_4_cap',      'Manufacturing capabilities:' );
-    icl_register_string( 'steelplast/home/services', 'card_4_bullet_1', 'Sheet metal processing 0.15–5 mm thick' );
-    icl_register_string( 'steelplast/home/services', 'card_4_bullet_2', 'Crank pneumatic presses' );
-    icl_register_string( 'steelplast/home/services', 'card_4_bullet_3', 'Maximum pressing force — up to 100 t' );
     icl_register_string( 'steelplast/home/services', 'card_5_title',    'Powder Coating' );
     icl_register_string( 'steelplast/home/services', 'card_5_desc',     'Powder coating of metal products ensuring uniform and durable finish.' );
+    icl_register_string( 'steelplast/home/services', 'card_6_title',     'Springs & Wire Products' );
+    icl_register_string( 'steelplast/home/services', 'card_6_desc',      'Made-to-order springs and formed wire parts, from a drawing or a sample.' );
 
     // -- steelplast/collaboration/header --
     icl_register_string( 'steelplast/collaboration/header', 'collab_label',   'Collaboration' );

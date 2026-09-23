@@ -60,24 +60,6 @@
             pointer-events: none;
         }
 
-        // ---- Type: wide (Stamping) — spans 2 grid cols, image left + text right ----
-        &--wide {
-            grid-column: span 2;
-            flex-direction: row;
-
-            &::after {
-                width: 40%;
-                height: 40%;
-            }
-        }
-    }
-
-    // ---- Card inner (used inside wide card) ----
-    &__card-inner {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        min-width: 0;
     }
 
     // ---- Card image ----
@@ -135,42 +117,6 @@
         color: $color-pure-white;
     }
 
-    &__card-cap {
-        font-family: $font-family-base;
-        font-size: $font-size-body;
-        font-weight: 400;
-        line-height: $line-height-body;
-        color: $color-pure-white;
-        margin-top: 16px;
-    }
-
-    &__card-bullets {
-        list-style: none;
-        margin-top: 8px;
-
-        li {
-            font-family: $font-family-base;
-            font-size: $font-size-body;
-            font-weight: 400;
-            line-height: $line-height-body;
-            color: $color-pure-white;
-            padding-left: 16px;
-            position: relative;
-            margin-bottom: 4px;
-
-            &::before {
-                content: '';
-                position: absolute;
-                left: 0;
-                top: ($line-height-body - 5px) * 0.5;
-                width: 5px;
-                height: 5px;
-                border-radius: 50%;
-                background-color: $color-pure-white;
-            }
-        }
-    }
-
     // ---- Card footer ----
     &__card-footer {
         padding: 0 24px 24px;
@@ -184,25 +130,11 @@
         &__grid {
             grid-template-columns: repeat(2, 1fr);
         }
-
-        &__card--wide {
-            grid-column: span 2;
-            flex-direction: column;
-
-            .sp-services__card-image--side {
-                width: 100%;
-                height: 176px;
-            }
-        }
     }
 
     @media (max-width: 640px) {
         &__grid {
             grid-template-columns: 1fr;
-        }
-
-        &__card--wide {
-            grid-column: span 1;
         }
 
         &__title {
