@@ -17,9 +17,8 @@
     &__title {
         color: #000;
         margin-top: 16px;
-        // A step below .sp-section-title (clamp(32px, 6.4vw, 64px)); no width
-        // cap, so the heading uses the full column on every page that reuses it.
-        font-size: clamp(28px, 5.4vw, 54px);
+        // Size comes from .sp-section-title — it is capped at 55px there now,
+        // which is what this override used to be for.
     }
 
     // .sp-section-desc handles font/size/weight; color overridden for white bg

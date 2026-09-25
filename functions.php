@@ -401,8 +401,8 @@ function steelplast_register_wpml_strings() {
 
     // -- steelplast/home/about-preview --
     icl_register_string( 'steelplast/home/about-preview', 'tag',         '[02] About us' );
-    icl_register_string( 'steelplast/home/about-preview', 'title',       'WE ENGINEER<br>PRECISION' );
-    icl_register_string( 'steelplast/home/about-preview', 'description', 'SteelPlast is a full-cycle manufacturer specialising in CNC metal machining, injection mold design, mold production, and high-volume plastic part manufacturing. 10+ years of engineering precision.' );
+    icl_register_string( 'steelplast/home/about-preview', 'title',       'We turn drawings into parts, and parts into series' );
+    icl_register_string( 'steelplast/home/about-preview', 'description', 'STEELPLAST brings together CNC metal machining, mold design and manufacture, and series production of plastic components. 10+ years of building things that work.' );
     icl_register_string( 'steelplast/home/about-preview', 'button',      'Learn more about us' );
 
     // -- steelplast/home/services --
@@ -426,20 +426,19 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/collaboration/header', 'collab_label',   'Collaboration' );
     icl_register_string( 'steelplast/collaboration/header', 'collab_title',   "LET'S BUILD SOMETHING THAT HAS TO WORK." );
     icl_register_string( 'steelplast/collaboration/header', 'collab_desc_1',  'You come to us with an idea, a drawing or a specific production problem — we help you find the route to a finished product. We see the project through, start production and scale it.' );
-    icl_register_string( 'steelplast/collaboration/header', 'collab_desc_2',  'We provide support at every stage: from processing the technical specification to quality control of finished products.' );
 
     // -- steelplast/collaboration/steps --
     icl_register_string( 'steelplast/collaboration/steps', 'steps_aria',   'How we work' );
-    icl_register_string( 'steelplast/collaboration/steps', 'step_1_tag',   'Step 1' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_1_tag',   'Stage 1' );
     icl_register_string( 'steelplast/collaboration/steps', 'step_1_title', 'YOUR ENQUIRY' );
     icl_register_string( 'steelplast/collaboration/steps', 'step_1_text',  'Send a request via the website or contact us directly. Briefly describe the task and requirements for the product.' );
-    icl_register_string( 'steelplast/collaboration/steps', 'step_2_tag',   'Step 2' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_2_tag',   'Stage 2' );
     icl_register_string( 'steelplast/collaboration/steps', 'step_2_title', 'A SOLUTION FOR YOUR PROJECT' );
     icl_register_string( 'steelplast/collaboration/steps', 'step_2_text',  'We agree the technical specification before production begins.' );
-    icl_register_string( 'steelplast/collaboration/steps', 'step_3_tag',   'Step 3' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_3_tag',   'Stage 3' );
     icl_register_string( 'steelplast/collaboration/steps', 'step_3_title', 'INTO PRODUCTION' );
     icl_register_string( 'steelplast/collaboration/steps', 'step_3_text',  'We manufacture to the approved requirements, with quality control at every stage.' );
-    icl_register_string( 'steelplast/collaboration/steps', 'step_4_tag',   'Step 4' );
+    icl_register_string( 'steelplast/collaboration/steps', 'step_4_tag',   'Stage 4' );
     icl_register_string( 'steelplast/collaboration/steps', 'step_4_title', 'FINISHED RESULT' );
     icl_register_string( 'steelplast/collaboration/steps', 'step_4_text',  'We organize packaging and delivery of finished products within agreed timelines.' );
 
@@ -473,7 +472,7 @@ function steelplast_register_wpml_strings() {
 
     // -- steelplast/quality/header --
     icl_register_string( 'steelplast/quality/header', 'label',    'Quality of products' );
-    icl_register_string( 'steelplast/quality/header', 'title',    'High product quality' );
+    icl_register_string( 'steelplast/quality/header', 'title',    'Quality is not a separate stage. It is the basis of everything we make.' );
     icl_register_string( 'steelplast/quality/header', 'desc',     'In accordance with IATF and ISO 9001 standards. Numerous client awards for Outstanding Quality and exceptional production results.' );
     icl_register_string( 'steelplast/quality/header', 'cta_aria', 'Learn more about our quality standards' );
     icl_register_string( 'steelplast/quality/header', 'cta_text', 'Learn more' );

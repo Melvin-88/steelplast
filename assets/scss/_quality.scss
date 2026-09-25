@@ -8,23 +8,12 @@
     padding: 60px 0;
     background-color: $color-pure-white;
 
-    // ---- Two-column layout: left info + right grid ----
-    // Three cards in a row need more than half the section to stay readable,
-    // hence the larger share for the grid rather than an even split.
-    &__layout {
-        display: grid;
-        grid-template-columns: 1fr 1.5fr;
-        gap: 60px;
-        align-items: start;
-    }
-
-    // ---- Left column ----
+    // ---- Intro text, then the cards; both span the full section width ----
     &__left {
         display: flex;
         flex-direction: column;
         gap: 24px;
-        position: sticky;
-        top: 100px;
+        margin-bottom: 40px;
     }
 
     &__cta-wrap {
@@ -113,17 +102,6 @@
     }
 
     // ---- Responsive ----
-    @media (max-width: 1024px) {
-        &__layout {
-            grid-template-columns: 1fr;
-            gap: 40px;
-        }
-
-        &__left {
-            position: static;
-        }
-    }
-
     @media (max-width: 480px) {
         &__grid {
             grid-template-columns: 1fr;

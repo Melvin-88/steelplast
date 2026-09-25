@@ -17,26 +17,25 @@ $label       = $args['label']       ?? steelplast_t( 'steelplast/collaboration/h
 $title       = $args['title']       ?? steelplast_t( 'steelplast/collaboration/header', 'collab_title', "LET'S BUILD SOMETHING THAT HAS TO WORK." );
 $desc        = $args['desc']        ?? [
     steelplast_t( 'steelplast/collaboration/header', 'collab_desc_1', 'You come to us with an idea, a drawing or a specific production problem — we help you find the route to a finished product. We see the project through, start production and scale it.' ),
-    steelplast_t( 'steelplast/collaboration/header', 'collab_desc_2', 'We provide support at every stage: from processing the technical specification to quality control of finished products.' ),
 ];
 $steps       = $args['steps'] ?? [
     [
-        'tag'   => steelplast_t( 'steelplast/collaboration/steps', 'step_1_tag', 'Step 1' ),
+        'tag'   => steelplast_t( 'steelplast/collaboration/steps', 'step_1_tag', 'Stage 1' ),
         'title' => steelplast_t( 'steelplast/collaboration/steps', 'step_1_title', 'YOUR ENQUIRY' ),
         'text'  => steelplast_t( 'steelplast/collaboration/steps', 'step_1_text', 'Send a request via the website or contact us directly. Briefly describe the task and requirements for the product.' ),
     ],
     [
-        'tag'   => steelplast_t( 'steelplast/collaboration/steps', 'step_2_tag', 'Step 2' ),
+        'tag'   => steelplast_t( 'steelplast/collaboration/steps', 'step_2_tag', 'Stage 2' ),
         'title' => steelplast_t( 'steelplast/collaboration/steps', 'step_2_title', 'A SOLUTION FOR YOUR PROJECT' ),
         'text'  => steelplast_t( 'steelplast/collaboration/steps', 'step_2_text', 'We agree the technical specification before production begins.' ),
     ],
     [
-        'tag'   => steelplast_t( 'steelplast/collaboration/steps', 'step_3_tag', 'Step 3' ),
+        'tag'   => steelplast_t( 'steelplast/collaboration/steps', 'step_3_tag', 'Stage 3' ),
         'title' => steelplast_t( 'steelplast/collaboration/steps', 'step_3_title', 'INTO PRODUCTION' ),
         'text'  => steelplast_t( 'steelplast/collaboration/steps', 'step_3_text', 'We manufacture to the approved requirements, with quality control at every stage.' ),
     ],
     [
-        'tag'   => steelplast_t( 'steelplast/collaboration/steps', 'step_4_tag', 'Step 4' ),
+        'tag'   => steelplast_t( 'steelplast/collaboration/steps', 'step_4_tag', 'Stage 4' ),
         'title' => steelplast_t( 'steelplast/collaboration/steps', 'step_4_title', 'FINISHED RESULT' ),
         'text'  => steelplast_t( 'steelplast/collaboration/steps', 'step_4_text', 'We organize packaging and delivery of finished products within agreed timelines.' ),
     ],

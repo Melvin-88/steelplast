@@ -50,7 +50,7 @@ $cards = [
                 </p>
 
                 <h2 class="sp-quality__title sp-section-title" id="sp-quality-title">
-                    <?php echo esc_html( steelplast_t( 'steelplast/quality/header', 'title', 'High product quality' ) ); ?>
+                    <?php echo esc_html( steelplast_t( 'steelplast/quality/header', 'title', 'Quality is not a separate stage. It is the basis of everything we make.' ) ); ?>
                 </h2>
 
                 <p class="sp-quality__desc sp-section-desc">
