@@ -13,7 +13,7 @@ get_header();
 
     <?php
     get_template_part( 'template-parts/page-hero', null, [
-        'title'  => steelplast_t( 'steelplast/about/hero', 'title', 'About Steel Plast' ),
+        'title'  => steelplast_t( 'steelplast/about/hero', 'title', 'Who We Are and What We Make' ),
         'height' => 440,
     ] );
     ?>

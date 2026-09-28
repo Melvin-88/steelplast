@@ -518,7 +518,7 @@ function steelplast_register_wpml_strings() {
     // on every language, forever. =====
 
     // -- steelplast/about/hero --
-    icl_register_string( 'steelplast/about/hero', 'title', 'About Steel Plast' );
+    icl_register_string( 'steelplast/about/hero', 'title', 'Who We Are and What We Make' );
 
     // -- steelplast/service-metal-stamping/specs --
     icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_1_title', 'Materials' );
@@ -828,15 +828,15 @@ If you can\'t find what you\'re looking for, our team is always ready to help yo
     icl_register_string( 'steelplast/service-injection-molding/about', 'tag', '[03] About us' );
 
     // -- steelplast/about/intro --
-    icl_register_string( 'steelplast/about/intro', 'label', 'Who we are' );
-    icl_register_string( 'steelplast/about/intro', 'title', 'A Ukrainian full-cycle manufacturer with 10+ years of experience' );
-    icl_register_string( 'steelplast/about/intro', 'desc_1', 'We specialize in metalworking, mold production, metal stamping and plastic injection molding.' );
-    icl_register_string( 'steelplast/about/intro', 'desc_2', 'We help businesses turn ideas into a finished product, providing a complete manufacturing process — from engineering design and mold development to serial production and delivery of the finished goods to the client.' );
-    icl_register_string( 'steelplast/about/intro', 'desc_3', 'Our facility is equipped with modern high-precision machinery, including CNC turning and milling machines, EDM systems, injection molding machines and stamping presses. This allows us to deliver projects of any complexity while maintaining the highest standards of quality and precision.' );
+    icl_register_string( 'steelplast/about/intro', 'label', 'Steel Plast is' );
+    icl_register_string( 'steelplast/about/intro', 'title', 'Modern manufacturing for the light engineering industry' );
+    icl_register_string( 'steelplast/about/intro', 'desc_1', 'We bring the key manufacturing processes together in one place: metalworking, mold making, metal stamping and plastic injection molding. We take a project on at any stage — from the initial idea and engineering design through to the start of series production and the finished goods.' );
+    icl_register_string( 'steelplast/about/intro', 'desc_2', 'A full cycle inside a single plant means fewer links in the chain, more control and a clear result at every stage.' );
+    icl_register_string( 'steelplast/about/intro', 'desc_3', 'Our facility is equipped with modern high-precision machinery, including CNC turning, milling and EDM machines, injection molding machines and stamping presses. This lets us deliver projects of any complexity while holding to the highest standards of quality and precision.' );
 
     // -- steelplast/about/audience --
     icl_register_string( 'steelplast/about/audience', 'label', 'Why choose us' );
-    icl_register_string( 'steelplast/about/audience', 'title', 'Who we help' );
+    icl_register_string( 'steelplast/about/audience', 'title', 'Who We Manufacture For' );
     icl_register_string( 'steelplast/about/audience', 'desc_1', 'Our clients are manufacturing companies, machine-building businesses, design bureaus, startups, furniture and construction product manufacturers, and other companies that need quality metal or plastic components.' );
     icl_register_string( 'steelplast/about/audience', 'desc_2', 'We believe successful production starts with a reliable partnership. That is why Steel Plast is not just a contractor, but a team that takes responsibility for the result and helps clients deliver on their most demanding manufacturing tasks.' );
 
@@ -866,32 +866,30 @@ and quality control at every stage of production.' );
     // -- steelplast/about/equipment --
     icl_register_string( 'steelplast/about/equipment', 'label', 'Our equipment' );
     icl_register_string( 'steelplast/about/equipment', 'title', 'Modern manufacturing requires modern technology' );
-    icl_register_string( 'steelplast/about/equipment', 'desc', 'That\'s why Steel Plast uses high-precision equipment that allows us to perform a wide range of metalworking and manufacturing tasks while maintaining the highest quality standards.' );
+    icl_register_string( 'steelplast/about/equipment', 'desc', 'That is why SteelPlast uses high-precision automated equipment that lets us deliver products of the highest quality.' );
 
     // -- steelplast/about/equipment-cards --
     icl_register_string( 'steelplast/about/equipment-cards', 'card_1_title', 'Swiss-type automatic lathe' );
     icl_register_string( 'steelplast/about/equipment-cards', 'card_1_lead', 'What it does:' );
     icl_register_string( 'steelplast/about/equipment-cards', 'card_1_bullet_1', 'Produces small, highly precise parts — pins, shafts, screws, and components for medical devices, watches and electronics.' );
-    icl_register_string( 'steelplast/about/equipment-cards', 'card_1_bullet_2', 'Can turn, mill, drill and thread — all in a single pass.' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_1_bullet_2', 'They can turn, mill, drill and thread.' );
     icl_register_string( 'steelplast/about/equipment-cards', 'card_1_bullet_3', 'Runs fully automatically without an operator — just load the bar stock and the machine handles the rest.' );
     icl_register_string( 'steelplast/about/equipment-cards', 'card_2_title', 'Crank stamping presses' );
-    icl_register_string( 'steelplast/about/equipment-cards', 'card_2_desc_1', 'A crank stamping press is a machine that shapes metal using the force of impact.' );
-    icl_register_string( 'steelplast/about/equipment-cards', 'card_2_desc_2', 'It transforms a flat metal sheet into a finished part — press, strike, and the shape is ready.' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_2_desc_1', 'A crank stamping press is a machine that forms, bends, cuts and draws metal by compression force.' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_2_desc_2', 'Its main advantages: productivity, energy efficiency and high repeatability.' );
     icl_register_string( 'steelplast/about/equipment-cards', 'card_3_title', 'Injection molding machines' );
     icl_register_string( 'steelplast/about/equipment-cards', 'card_3_lead', 'How does it work?' );
-    icl_register_string( 'steelplast/about/equipment-cards', 'card_3_desc_1', 'Plastic granules are fed in, melted down to a liquid state inside the machine, and then injected under high pressure into a mold.' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_3_desc_1', 'Plastic granules are fed into the machine, melted down to a liquid state and injected under high pressure into the mold.' );
     icl_register_string( 'steelplast/about/equipment-cards', 'card_4_title', 'Wire-cut and sinker EDM machines' );
-    icl_register_string( 'steelplast/about/equipment-cards', 'card_4_desc_1', 'An EDM machine is a machine that cuts metal... using electricity!' );
-    icl_register_string( 'steelplast/about/equipment-cards', 'card_4_desc_2', 'Not with a cutting tool or a mill — but with an electric spark that erodes metal with micron-level precision.' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_4_desc_1', 'An EDM, or electrical discharge machine, works metal not with a cutter or a mill but with an electric spark that erodes it to micron precision.' );
     icl_register_string( 'steelplast/about/equipment-cards', 'card_5_title', '5-axis CNC milling machines' );
     icl_register_string( 'steelplast/about/equipment-cards', 'card_5_lead', 'What it does:' );
     icl_register_string( 'steelplast/about/equipment-cards', 'card_5_bullet_1', 'Mills, drills and cuts complex shapes.' );
-    icl_register_string( 'steelplast/about/equipment-cards', 'card_5_bullet_2', 'Produces 3D surfaces, blades, housings and mold cavities.' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_5_bullet_2', 'They produce 3D surfaces, blades, housings and other complex parts.' );
     icl_register_string( 'steelplast/about/equipment-cards', 'card_5_bullet_3', 'Works with metal, plastic and composite materials.' );
-    icl_register_string( 'steelplast/about/equipment-cards', 'card_5_bullet_4', 'Accuracy of up to 0.001 mm.' );
-    icl_register_string( 'steelplast/about/equipment-cards', 'card_6_title', 'CNC turn-mill machines (2023–2024)' );
-    icl_register_string( 'steelplast/about/equipment-cards', 'card_6_lead', 'They can do it all:' );
-    icl_register_string( 'steelplast/about/equipment-cards', 'card_6_bullet_1', 'Turning, milling, drilling, threading — all on a single part, without stopping!' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_6_title', 'CNC turn-mill machines' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_6_lead', 'What they do:' );
+    icl_register_string( 'steelplast/about/equipment-cards', 'card_6_bullet_1', 'Turning, milling, drilling, threading — every operation without a re-setup!' );
 
     // -- steelplast/service-cnc-machining/specs --
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'label', 'Technical Parameters' );

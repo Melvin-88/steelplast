@@ -6,12 +6,12 @@
  * @package SteelPlast
  */
 
-$label = steelplast_t( 'steelplast/about/intro', 'label', 'Who we are' );
-$title = steelplast_t( 'steelplast/about/intro', 'title', 'A Ukrainian full-cycle manufacturer with 10+ years of experience' );
+$label = steelplast_t( 'steelplast/about/intro', 'label', 'Steel Plast is' );
+$title = steelplast_t( 'steelplast/about/intro', 'title', 'Modern manufacturing for the light engineering industry' );
 $desc = [
-    steelplast_t( 'steelplast/about/intro', 'desc_1', 'We specialize in metalworking, mold production, metal stamping and plastic injection molding.' ),
-    steelplast_t( 'steelplast/about/intro', 'desc_2', 'We help businesses turn ideas into a finished product, providing a complete manufacturing process — from engineering design and mold development to serial production and delivery of the finished goods to the client.' ),
-    steelplast_t( 'steelplast/about/intro', 'desc_3', 'Our facility is equipped with modern high-precision machinery, including CNC turning and milling machines, EDM systems, injection molding machines and stamping presses. This allows us to deliver projects of any complexity while maintaining the highest standards of quality and precision.' ),
+    steelplast_t( 'steelplast/about/intro', 'desc_1', 'We bring the key manufacturing processes together in one place: metalworking, mold making, metal stamping and plastic injection molding. We take a project on at any stage — from the initial idea and engineering design through to the start of series production and the finished goods.' ),
+    steelplast_t( 'steelplast/about/intro', 'desc_2', 'A full cycle inside a single plant means fewer links in the chain, more control and a clear result at every stage.' ),
+    steelplast_t( 'steelplast/about/intro', 'desc_3', 'Our facility is equipped with modern high-precision machinery, including CNC turning, milling and EDM machines, injection molding machines and stamping presses. This lets us deliver projects of any complexity while holding to the highest standards of quality and precision.' ),
 ];
 ?>
 

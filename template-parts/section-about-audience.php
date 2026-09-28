@@ -10,7 +10,7 @@
 $image = steelplast_get_field_default_lang( 'about_audience_image' );
 
 $label = steelplast_t( 'steelplast/about/audience', 'label', 'Why choose us' );
-$title = steelplast_t( 'steelplast/about/audience', 'title', 'Who we help' );
+$title = steelplast_t( 'steelplast/about/audience', 'title', 'Who We Manufacture For' );
 $desc  = [
     steelplast_t( 'steelplast/about/audience', 'desc_1', 'Our clients are manufacturing companies, machine-building businesses, design bureaus, startups, furniture and construction product manufacturers, and other companies that need quality metal or plastic components.' ),
     steelplast_t( 'steelplast/about/audience', 'desc_2', 'We believe successful production starts with a reliable partnership. That is why Steel Plast is not just a contractor, but a team that takes responsibility for the result and helps clients deliver on their most demanding manufacturing tasks.' ),
