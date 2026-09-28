@@ -27,7 +27,8 @@
     &__content {
         display: flex;
         flex-direction: column;
-        max-width: 620px;
+        // Keeps the copy clear of the map that bleeds in on the right.
+        max-width: 650px;
     }
 
     &__title {

@@ -6,12 +6,35 @@
 
 .sp-about-equipment {
     padding: 60px 0;
+    position: relative;
+    overflow: hidden;
     background-color: $color-background;
     color: $color-pure-white;
 
+    // Same backdrop as .sp-about-preview on the home page.
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 60%;
+        height: 100%;
+        background-image: url('../img/collab-bg.png');
+        background-repeat: no-repeat;
+        background-position: right bottom;
+        background-size: cover;
+        opacity: 0.6;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    > .content-wrapper {
+        position: relative;
+        z-index: 1;
+    }
+
     &__header {
         margin-bottom: 40px;
-        max-width: 720px;
     }
 
     &__title {
@@ -47,7 +70,7 @@
 
     &__card-header {
         display: flex;
-        align-items: baseline;
+        align-items: center;
         gap: 12px;
     }
 
