@@ -99,7 +99,7 @@ $specs_cards = [
 
     <?php
     get_template_part( 'template-parts/page-hero', null, [
-        'title'  => steelplast_t( 'steelplast/service-metal-stamping/hero', 'title', 'Metal Stamping: Precision Sheet Metal Parts' ),
+        'title'  => steelplast_t( 'steelplast/service-metal-stamping/hero', 'title', 'Metal Stamping' ),
         'height' => 440,
     ] );
     ?>
@@ -109,8 +109,7 @@ $specs_cards = [
         'label'  => steelplast_t( 'steelplast/service-metal-stamping/specs', 'label', 'Technical Parameters' ),
         'title'  => steelplast_t( 'steelplast/service-metal-stamping/specs', 'title', 'Steel Plast delivers a full cycle of metal stamping — from your drawing to a finished part' ),
         'desc'   => [
-            steelplast_t( 'steelplast/service-metal-stamping/specs', 'desc_1', 'We work with both one-off orders and serial production, keeping quality consistent at every stage.' ),
-            steelplast_t( 'steelplast/service-metal-stamping/specs', 'desc_2', 'Metal stamping shapes flat sheet metal into finished parts using dies and presses — one of the fastest and most cost-effective ways to produce components in volume. Alongside proven cutting and forming processes, we maintain a stable process, tight tolerances, and a skilled team capable of stamping parts of complex geometry.' ),
+            steelplast_t( 'steelplast/service-metal-stamping/specs', 'desc_2', 'Stamping forms sheet metal into finished parts using dedicated tooling — dies mounted on crank presses. It is one of the fastest and most cost-effective ways to produce parts in series.' ),
         ],
         'cards'  => $specs_cards,
     ] );
@@ -120,7 +119,7 @@ $specs_cards = [
     get_template_part( 'template-parts/section-service-content', null, [
         'label'  => steelplast_t( 'steelplast/service-metal-stamping/content', 'label', 'Cutting & Forming' ),
         'title'  => steelplast_t( 'steelplast/service-metal-stamping/content', 'title', 'Sheet Metal Cutting and Forming Services' ),
-        'intro'  => steelplast_t( 'steelplast/service-metal-stamping/content', 'intro', 'Steel Plast operates a fleet of stamping presses for cutting and forming sheet metal parts — from small brackets to structural components. Whatever your drawing calls for, our engineers select the tooling and press setup that deliver the best precision and turnaround time.' ),
+        'intro'  => steelplast_t( 'steelplast/service-metal-stamping/content', 'intro', 'Steel Plast operates a fleet of stamping presses for cutting and forming sheet metal parts — from small brackets to structural components. Depending on what the customer needs, we can make a dedicated die or run a die supplied by the client.' ),
         'topics' => [
             [
                 'heading'    => steelplast_t( 'steelplast/service-metal-stamping/content', 'topic_1_heading', 'Sheet Metal Cutting' ),
@@ -132,7 +131,7 @@ $specs_cards = [
             [
                 'heading'    => steelplast_t( 'steelplast/service-metal-stamping/content', 'topic_2_heading', 'Sheet Metal Forming' ),
                 'paragraphs' => [
-                    steelplast_t( 'steelplast/service-metal-stamping/content', 'topic_2_p1', 'Bending reshapes flat blanks into brackets, channels, and enclosures using precision-ground dies, while deep drawing pulls sheet metal into cups, housings, and other three-dimensional shapes without cutting the material.' ),
+                    steelplast_t( 'steelplast/service-metal-stamping/content', 'topic_2_p1', 'Bending reshapes flat blanks into brackets, channels, and enclosures, while deep drawing forms sheet metal into cylinders, housings, and other three-dimensional shapes without cutting the material.' ),
                     steelplast_t( 'steelplast/service-metal-stamping/content', 'topic_2_p2', 'Embossing adds ribs, louvers, and other reinforcing features directly into the sheet, increasing part stiffness without extra material or a separate assembly step.' ),
                 ],
             ],

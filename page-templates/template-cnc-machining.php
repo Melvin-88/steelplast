@@ -13,7 +13,7 @@ get_header();
 
     <?php
     get_template_part( 'template-parts/page-hero', null, [
-        'title'  => steelplast_t( 'steelplast/service-cnc-machining/hero', 'title', 'CNC Metal Machining: Precision Milling & Turning' ),
+        'title'  => steelplast_t( 'steelplast/service-cnc-machining/hero', 'title', 'Metal Machining' ),
         'height' => 440,
     ] );
     ?>

@@ -103,9 +103,9 @@ $cards = $args['cards'] ?? [
         'blocks'   => [
             [
                 'type'   => 'stat',
-                'value'  => '3',
-                'suffix' => steelplast_t( $ctx, 'card_4_stat_suffix', 'business days' ),
-                'label'  => steelplast_t( $ctx, 'card_4_stat_label', 'Production starts from' ),
+                'value'  => steelplast_t( $ctx, 'card_4_stat_value', 'from 2' ),
+                'suffix' => steelplast_t( $ctx, 'card_4_stat_suffix', 'weeks' ),
+                'label'  => steelplast_t( $ctx, 'card_4_stat_label', 'Project start' ),
             ],
             [
                 'type'  => 'badges',
@@ -171,7 +171,7 @@ $cards = $args['cards'] ?? [
                                 case 'stat': ?>
                                     <div class="sp-service-specs__stat">
                                         <span class="sp-service-specs__stat-value">
-                                            <?php echo esc_html( $block['value'] ); ?><?php if ( ! empty( $block['suffix'] ) ) : ?><span class="sp-service-specs__stat-suffix"><?php echo esc_html( $block['suffix'] ); ?></span><?php endif; ?>
+                                            <?php echo esc_html( $block['value'] ); ?><?php if ( ! empty( $block['suffix'] ) ) : ?> <span class="sp-service-specs__stat-suffix"><?php echo esc_html( $block['suffix'] ); ?></span><?php endif; ?>
                                         </span>
                                         <span class="sp-service-specs__stat-label"><?php echo esc_html( $block['label'] ); ?></span>
                                     </div>

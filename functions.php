@@ -532,7 +532,7 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_1_note', 'Sheet thickness from 0.15 to 5 mm.' );
     icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_2_title', 'Stamping Operations' );
     icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_2_subtitle', 'Core operations' );
-    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_2_group_1_title', 'Cutting' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_2_group_1_title', 'Separating operations' );
     icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_2_group_1_item_1', 'Blanking' );
     icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_2_group_1_item_2', 'Piercing' );
     icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_2_group_1_item_3', 'Trimming' );
@@ -556,28 +556,27 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/service-metal-stamping/specs', 'card_4_note', 'No drawing yet? Our engineers can help prepare documentation and a 3D model for production.' );
     icl_register_string( 'steelplast/service-metal-stamping/specs', 'label', 'Technical Parameters' );
     icl_register_string( 'steelplast/service-metal-stamping/specs', 'title', 'Steel Plast delivers a full cycle of metal stamping — from your drawing to a finished part' );
-    icl_register_string( 'steelplast/service-metal-stamping/specs', 'desc_1', 'We work with both one-off orders and serial production, keeping quality consistent at every stage.' );
-    icl_register_string( 'steelplast/service-metal-stamping/specs', 'desc_2', 'Metal stamping shapes flat sheet metal into finished parts using dies and presses — one of the fastest and most cost-effective ways to produce components in volume. Alongside proven cutting and forming processes, we maintain a stable process, tight tolerances, and a skilled team capable of stamping parts of complex geometry.' );
+    icl_register_string( 'steelplast/service-metal-stamping/specs', 'desc_2', 'Stamping forms sheet metal into finished parts using dedicated tooling — dies mounted on crank presses. It is one of the fastest and most cost-effective ways to produce parts in series.' );
 
     // -- steelplast/service-metal-stamping/hero --
-    icl_register_string( 'steelplast/service-metal-stamping/hero', 'title', 'Metal Stamping: Precision Sheet Metal Parts' );
+    icl_register_string( 'steelplast/service-metal-stamping/hero', 'title', 'Metal Stamping' );
 
     // -- steelplast/service-metal-stamping/content --
     icl_register_string( 'steelplast/service-metal-stamping/content', 'label', 'Cutting & Forming' );
     icl_register_string( 'steelplast/service-metal-stamping/content', 'title', 'Sheet Metal Cutting and Forming Services' );
-    icl_register_string( 'steelplast/service-metal-stamping/content', 'intro', 'Steel Plast operates a fleet of stamping presses for cutting and forming sheet metal parts — from small brackets to structural components. Whatever your drawing calls for, our engineers select the tooling and press setup that deliver the best precision and turnaround time.' );
+    icl_register_string( 'steelplast/service-metal-stamping/content', 'intro', 'Steel Plast operates a fleet of stamping presses for cutting and forming sheet metal parts — from small brackets to structural components. Depending on what the customer needs, we can make a dedicated die or run a die supplied by the client.' );
     icl_register_string( 'steelplast/service-metal-stamping/content', 'topic_1_heading', 'Sheet Metal Cutting' );
     icl_register_string( 'steelplast/service-metal-stamping/content', 'topic_1_p1', 'Blanking and piercing separate the part outline from the sheet metal strip and create internal features — holes, slots, and cutouts — in a single stroke of the press. This process is fast and repeatable, making it ideal for both prototype runs and high-volume production of flat components.' );
     icl_register_string( 'steelplast/service-metal-stamping/content', 'topic_1_p2', 'We also perform trimming and shearing to finish part edges to the exact profile specified in your drawing, keeping burr height and edge quality consistent across the full production batch.' );
     icl_register_string( 'steelplast/service-metal-stamping/content', 'topic_2_heading', 'Sheet Metal Forming' );
-    icl_register_string( 'steelplast/service-metal-stamping/content', 'topic_2_p1', 'Bending reshapes flat blanks into brackets, channels, and enclosures using precision-ground dies, while deep drawing pulls sheet metal into cups, housings, and other three-dimensional shapes without cutting the material.' );
+    icl_register_string( 'steelplast/service-metal-stamping/content', 'topic_2_p1', 'Bending reshapes flat blanks into brackets, channels, and enclosures, while deep drawing forms sheet metal into cylinders, housings, and other three-dimensional shapes without cutting the material.' );
     icl_register_string( 'steelplast/service-metal-stamping/content', 'topic_2_p2', 'Embossing adds ribs, louvers, and other reinforcing features directly into the sheet, increasing part stiffness without extra material or a separate assembly step.' );
 
     // -- steelplast/service-metal-stamping/about --
     icl_register_string( 'steelplast/service-metal-stamping/about', 'tag', '[03] About us' );
 
     // -- steelplast/service-cnc-machining/hero --
-    icl_register_string( 'steelplast/service-cnc-machining/hero', 'title', 'CNC Metal Machining: Precision Milling & Turning' );
+    icl_register_string( 'steelplast/service-cnc-machining/hero', 'title', 'Metal Machining' );
 
     // -- steelplast/service-cnc-machining/about --
     icl_register_string( 'steelplast/service-cnc-machining/about', 'tag', '[03] About us' );
@@ -905,7 +904,7 @@ and quality control at every stage of production.' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_1_item_5', 'Brass' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_1_item_6', 'Copper' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_1_item_7', 'Titanium' );
-    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_1_note', 'From small precision parts to large-format workpieces.' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_1_note', 'Parts from Ø0.5 mm.' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_2_title', 'Machining Types' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_2_subtitle', 'Core operations' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_2_group_1_title', 'Turning' );
@@ -923,11 +922,12 @@ and quality control at every stage of production.' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_item_1', 'Incoming material inspection' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_item_2', 'Part geometry control' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_item_3', 'Calibrated tooling' );
-    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_item_4', 'Coordinate measuring machines (CMM)' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_item_4', 'Optical measuring devices' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_4_title', 'Lead Time & Terms' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_4_subtitle', 'Fast & reliable' );
-    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_4_stat_suffix', 'business days' );
-    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_4_stat_label', 'Production starts from' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_4_stat_value', 'from 2' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_4_stat_suffix', 'weeks' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_4_stat_label', 'Project start' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_4_badges_label', 'We accept files in:' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_4_note', 'No drawing yet? Our engineers can help prepare documentation and a 3D model for production.' );
 
@@ -936,11 +936,11 @@ and quality control at every stage of production.' );
     icl_register_string( 'steelplast/service-cnc-machining/content', 'title', 'CNC Milling and CNC Turning Services' );
     icl_register_string( 'steelplast/service-cnc-machining/content', 'intro', 'Steel Plast operates a fleet of CNC milling and turning centers, giving us the flexibility to machine parts of virtually any geometry — from flat brackets to complex rotational components. Whatever your drawing calls for, our engineers select the process, tooling, and setup that deliver the best precision and turnaround time.' );
     icl_register_string( 'steelplast/service-cnc-machining/content', 'topic_1_heading', 'CNC Milling' );
-    icl_register_string( 'steelplast/service-cnc-machining/content', 'topic_1_p1', 'Our CNC milling centers remove material from a solid workpiece to produce flat surfaces, pockets, slots, and complex 3D contours with tight positional accuracy. Multi-axis milling lets us machine undercuts and curved geometries in a single setup, which shortens lead times and keeps tolerances consistent across the whole part.' );
-    icl_register_string( 'steelplast/service-cnc-machining/content', 'topic_1_p2', 'CNC milling is our go-to process for housings, brackets, plates, and mold components — parts that combine several features on more than one face. We machine both prototypes and full production runs from the same program, so a part that works in testing scales directly into series manufacturing.' );
+    icl_register_string( 'steelplast/service-cnc-machining/content', 'topic_1_p1', 'Our CNC machining centers mill material from a solid workpiece to produce flat surfaces, pockets, slots, and complex 3D contours with high accuracy. Multi-axis milling lets us machine undercuts and curved geometries in a single setup, which shortens lead times and keeps dimensions consistent across the whole part.' );
+    icl_register_string( 'steelplast/service-cnc-machining/content', 'topic_1_p2', 'CNC milling is our core process for housings, brackets, plates, and mold components. We machine both prototypes and production batches at high throughput.' );
     icl_register_string( 'steelplast/service-cnc-machining/content', 'topic_2_heading', 'CNC Turning' );
-    icl_register_string( 'steelplast/service-cnc-machining/content', 'topic_2_p1', 'CNC turning rotates the workpiece against a cutting tool to produce cylindrical and rotationally symmetric parts — shafts, bushings, flanges, pins, and threaded components. Our lathes handle external and internal turning, threading, grooving, and parting-off in a single cycle, minimizing repositioning and keeping runout to a minimum.' );
-    icl_register_string( 'steelplast/service-cnc-machining/content', 'topic_2_p2', 'Turned parts are common in automotive, industrial equipment, and fastener applications where round geometry and axial precision matter most. We machine turned components from steel, stainless steel, aluminum, and brass, and can combine turning with subsequent milling operations for parts that need both round and flat features.' );
+    icl_register_string( 'steelplast/service-cnc-machining/content', 'topic_2_p1', 'CNC turning rotates the workpiece against a cutting tool to produce cylindrical and other rotational shapes — shafts, bushings, flanges, pins, and threaded parts. Our lathes handle external and internal turning, threading, grooving, and parting-off in a single cycle, which minimizes the number of setups.' );
+    icl_register_string( 'steelplast/service-cnc-machining/content', 'topic_2_p2', 'Finished parts are common in automotive, industrial equipment, and fastener applications where round geometry and axial precision matter most. We machine parts from steel, stainless steel, aluminum, copper, and brass, and can combine turning with subsequent milling for parts that need both round and flat features.' );
 }
 add_action( 'after_setup_theme', 'steelplast_register_wpml_strings' );
 
