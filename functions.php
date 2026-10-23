@@ -745,8 +745,7 @@ function steelplast_register_wpml_strings() {
 
 
     // -- steelplast/faq/intro --
-    icl_register_string( 'steelplast/faq/intro', 'title', 'Welcome to our FAQ section!
-We want working with Steel Plast to be transparent and comfortable for you.' );
+    icl_register_string( 'steelplast/faq/intro', 'title', 'We want working with Steel Plast to be transparent and comfortable for you.' );
     icl_register_string( 'steelplast/faq/intro', 'desc', 'We\'ve gathered answers to the questions our clients ask most often about our products, orders and delivery.
 If you can\'t find what you\'re looking for, our team is always ready to help you personally.' );
 

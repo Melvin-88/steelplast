@@ -8,7 +8,7 @@
 
 get_header();
 
-$intro_title = steelplast_t( 'steelplast/faq/intro', 'title', "Welcome to our FAQ section!\nWe want working with Steel Plast to be transparent and comfortable for you." );
+$intro_title = steelplast_t( 'steelplast/faq/intro', 'title', 'We want working with Steel Plast to be transparent and comfortable for you.' );
 $intro_desc  = steelplast_t( 'steelplast/faq/intro', 'desc', "We've gathered answers to the questions our clients ask most often about our products, orders and delivery.\nIf you can't find what you're looking for, our team is always ready to help you personally." );
 
 $faq_items = [
