@@ -45,13 +45,15 @@ $services = [
         'desc'  => steelplast_t( 'steelplast/home/services', 'card_4_desc',  'CNC turning and milling for complex parts — from a single piece to series production.' ),
         'image' => $img_ids[4],
     ],
-    [
-        'id'    => 'tooling',
-        'slug'  => 'технологічне-оснащення',
-        'title' => steelplast_t( 'steelplast/home/services', 'card_5_title', 'Custom Tooling' ),
-        'desc'  => steelplast_t( 'steelplast/home/services', 'card_5_desc',  'Assembly fixtures, inspection gauges and jigs, designed and built for your process.' ),
-        'image' => $img_ids[5],
-    ],
+    // Технологічне оснащення тимчасово приховане — сторінка переведена в чернетку.
+    // Щоб повернути: опублікувати сторінку і розкоментувати цю картку.
+    // [
+    //     'id'    => 'tooling',
+    //     'slug'  => 'технологічне-оснащення',
+    //     'title' => steelplast_t( 'steelplast/home/services', 'card_5_title', 'Custom Tooling' ),
+    //     'desc'  => steelplast_t( 'steelplast/home/services', 'card_5_desc',  'Assembly fixtures, inspection gauges and jigs, designed and built for your process.' ),
+    //     'image' => $img_ids[5],
+    // ],
     [
         'id'    => 'wire',
         'slug'  => 'пружини-та-вироби-з-дроту',
