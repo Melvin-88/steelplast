@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://steelplast.local/*)",
+      "Bash(curl -s \"http://steelplast.local/*)",
+      "Bash(curl -sI http://steelplast.local/*)",
+      "mcp__e5835f76-b5c1-4908-b2c2-71d88f63bfa6__get_values",
+      "mcp__e5835f76-b5c1-4908-b2c2-71d88f63bfa6__get_spreadsheet",
+      "mcp__Claude_Browser__preview_start",
+      "mcp__Claude_Browser__preview_list",
+      "mcp__Claude_Browser__preview_logs",
+      "mcp__Claude_Browser__navigate",
+      "mcp__Claude_Browser__resize_window",
+      "mcp__Claude_Browser__tabs_context",
+      "mcp__Claude_Browser__tabs_select",
+      "mcp__Claude_Browser__read_page",
+      "mcp__Claude_Browser__get_page_text",
+      "mcp__Claude_Browser__find",
+      "mcp__Claude_Browser__read_console_messages",
+      "mcp__Claude_Browser__read_network_requests",
+      "mcp__claude-in-chrome__tabs_context_mcp",
+      "mcp__claude-in-chrome__navigate",
+      "mcp__claude-in-chrome__read_page",
+      "mcp__claude-in-chrome__get_page_text",
+      "mcp__claude-in-chrome__find",
+      "mcp__claude-in-chrome__read_console_messages",
+      "mcp__terminal__read_terminal",
+      "mcp__terminal__list_terminal_tabs",
+      "mcp__ebf8f8f7-3856-49cd-abd7-45f7beb8c1a9__read_file_content",
+      "mcp__ebf8f8f7-3856-49cd-abd7-45f7beb8c1a9__search_files",
+      "mcp__ebf8f8f7-3856-49cd-abd7-45f7beb8c1a9__get_file_metadata",
+      "mcp__fc443a44-5ab5-4b85-9b67-c6e4d3354d4d__notion-fetch",
+      "mcp__fc443a44-5ab5-4b85-9b67-c6e4d3354d4d__notion-search"
+    ]
+  }
+}
