@@ -26,15 +26,15 @@ $topics = $args['topics'] ?? [
     [
         'heading'    => steelplast_t( $ctx, 'topic_1_heading', 'CNC Milling' ),
         'paragraphs' => [
-            steelplast_t( $ctx, 'topic_1_p1', 'Our CNC milling centers remove material from a solid workpiece to produce flat surfaces, pockets, slots, and complex 3D contours with tight positional accuracy. Multi-axis milling lets us machine undercuts and curved geometries in a single setup, which shortens lead times and keeps tolerances consistent across the whole part.' ),
-            steelplast_t( $ctx, 'topic_1_p2', 'CNC milling is our go-to process for housings, brackets, plates, and mold components — parts that combine several features on more than one face. We machine both prototypes and full production runs from the same program, so a part that works in testing scales directly into series manufacturing.' ),
+            steelplast_t( $ctx, 'topic_1_p1', 'Our CNC machining centers mill material from a solid workpiece to produce flat surfaces, pockets, slots, and complex 3D contours with high accuracy. Multi-axis milling lets us machine undercuts and curved geometries in a single setup, which shortens lead times and keeps dimensions consistent across the whole part.' ),
+            steelplast_t( $ctx, 'topic_1_p2', 'CNC milling is our core process for housings, brackets, plates, and mold components. We machine both prototypes and production batches at high throughput.' ),
         ],
     ],
     [
         'heading'    => steelplast_t( $ctx, 'topic_2_heading', 'CNC Turning' ),
         'paragraphs' => [
-            steelplast_t( $ctx, 'topic_2_p1', 'CNC turning rotates the workpiece against a cutting tool to produce cylindrical and rotationally symmetric parts — shafts, bushings, flanges, pins, and threaded components. Our lathes handle external and internal turning, threading, grooving, and parting-off in a single cycle, minimizing repositioning and keeping runout to a minimum.' ),
-            steelplast_t( $ctx, 'topic_2_p2', 'Turned parts are common in automotive, industrial equipment, and fastener applications where round geometry and axial precision matter most. We machine turned components from steel, stainless steel, aluminum, and brass, and can combine turning with subsequent milling operations for parts that need both round and flat features.' ),
+            steelplast_t( $ctx, 'topic_2_p1', 'CNC turning rotates the workpiece against a cutting tool to produce cylindrical and other rotational shapes — shafts, bushings, flanges, pins, and threaded parts. Our lathes handle external and internal turning, threading, grooving, and parting-off in a single cycle, which minimizes the number of setups.' ),
+            steelplast_t( $ctx, 'topic_2_p2', 'Finished parts are common in automotive, industrial equipment, and fastener applications where round geometry and axial precision matter most. We machine parts from steel, stainless steel, aluminum, copper, and brass, and can combine turning with subsequent milling for parts that need both round and flat features.' ),
         ],
     ],
 ];

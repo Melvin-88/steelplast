@@ -50,7 +50,7 @@ $faq_items = [
     ],
     [
         'q' => steelplast_t( 'steelplast/faq/list', 'q_10', 'How can I place an order?' ),
-        'a' => steelplast_t( 'steelplast/faq/list', 'a_10', 'Send us your drawings or reference samples via the form on our Contacts page or by email — our team will review the details and get back to you with production options within 2 hours. We accept files in the following formats: STEP, PDF, x_t.' ),
+        'a' => steelplast_t( 'steelplast/faq/list', 'a_10', 'Send us your drawings or reference samples via the form on our Contacts page or by email — our team will review the details and get back to you with production options within 2 hours.' ),
     ],
 ];
 ?>

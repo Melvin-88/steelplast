@@ -37,7 +37,7 @@ for ( $i = 1; $i <= 2; $i++ ) {
 
 // Phone labels from WPML
 $phone_labels = [
-    1 => steelplast_t( 'steelplast/contacts/page', 'phone_1_label', 'General inquiries' ),
+    1 => steelplast_t( 'steelplast/contacts/page', 'phone_1_label', 'Sales department (consultations and orders)' ),
     2 => steelplast_t( 'steelplast/contacts/page', 'phone_2_label', 'Technical department (drawing questions)' ),
     3 => steelplast_t( 'steelplast/contacts/page', 'phone_3_label', 'Partner hotline' ),
 ];

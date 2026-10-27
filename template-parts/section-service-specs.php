@@ -24,6 +24,9 @@
 
 $ctx = 'steelplast/service-cnc-machining/specs';
 
+// Один перелік форматів файлів на всі сервісні сторінки — картка може його не передавати.
+$file_formats = [ 'DWG', 'DXF', 'STEP', 'IGES', 'PDF', 'x_t' ];
+
 $label_index = $args['label_index'] ?? '[01]';
 $label       = $args['label']       ?? steelplast_t( $ctx, 'label', 'Technical Parameters' );
 $title       = $args['title']       ?? steelplast_t( $ctx, 'title', "Steel Plast delivers a full cycle of CNC metal machining — from your drawing to a finished part" );
@@ -50,7 +53,7 @@ $cards = $args['cards'] ?? [
                 ],
             ],
         ],
-        'note' => steelplast_t( $ctx, 'card_1_note', 'Parts from 0.5 mm. Minimum order: 1 piece.' ),
+        'note' => steelplast_t( $ctx, 'card_1_note', 'Parts from Ø0.5 mm.' ),
     ],
     [
         'title'    => steelplast_t( $ctx, 'card_2_title', 'Machining Types' ),
@@ -92,7 +95,7 @@ $cards = $args['cards'] ?? [
                     steelplast_t( $ctx, 'card_3_item_1', 'Incoming material inspection' ),
                     steelplast_t( $ctx, 'card_3_item_2', 'Part geometry control' ),
                     steelplast_t( $ctx, 'card_3_item_3', 'Calibrated tooling' ),
-                    steelplast_t( $ctx, 'card_3_item_4', 'Coordinate measuring machines (CMM)' ),
+                    steelplast_t( $ctx, 'card_3_item_4', 'Optical measuring devices' ),
                 ],
             ],
         ],
@@ -110,7 +113,6 @@ $cards = $args['cards'] ?? [
             [
                 'type'  => 'badges',
                 'label' => steelplast_t( $ctx, 'card_4_badges_label', 'We accept files in:' ),
-                'items' => [ 'STEP', 'PDF', 'x_t' ],
             ],
         ],
         'note' => steelplast_t( $ctx, 'card_4_note', "No drawing yet? Our engineers can help prepare documentation and a 3D model for production." ),
@@ -182,7 +184,7 @@ $cards = $args['cards'] ?? [
                                         <p class="sp-service-specs__badges-label"><?php echo esc_html( $block['label'] ); ?></p>
                                     <?php endif; ?>
                                     <div class="sp-service-specs__badges">
-                                        <?php foreach ( $block['items'] as $badge ) : ?>
+                                        <?php foreach ( $block['items'] ?? $file_formats as $badge ) : ?>
                                             <span class="sp-service-specs__badge"><?php echo esc_html( $badge ); ?></span>
                                         <?php endforeach; ?>
                                     </div>

@@ -35,7 +35,7 @@ $specs_cards = [
         'blocks'   => [
             [
                 'type'    => 'group',
-                'heading' => steelplast_t( $ctx, 'card_2_group_1_title', 'Cutting' ),
+                'heading' => steelplast_t( $ctx, 'card_2_group_1_title', 'Separating operations' ),
                 'items'   => [
                     steelplast_t( $ctx, 'card_2_group_1_item_1', 'Blanking' ),
                     steelplast_t( $ctx, 'card_2_group_1_item_2', 'Piercing' ),
@@ -87,7 +87,6 @@ $specs_cards = [
             [
                 'type'  => 'badges',
                 'label' => steelplast_t( $ctx, 'card_4_badges_label', 'We accept files in:' ),
-                'items' => [ 'DWG', 'DXF', 'STEP', 'IGES' ],
             ],
         ],
         'note' => steelplast_t( $ctx, 'card_4_note', 'No drawing yet? Our engineers can help prepare documentation and a 3D model for production.' ),
