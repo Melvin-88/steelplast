@@ -714,16 +714,15 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_1_item_3', 'Torsion springs' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_1_item_4', 'Flat and shaped springs' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_1_item_5', 'Retaining and spring rings' );
-    icl_register_string( 'steelplast/service-wire-products/specs', 'card_1_note', 'Wire diameter from 0.3 to 4 mm.' );
+    icl_register_string( 'steelplast/service-wire-products/specs', 'card_1_note', 'Wire diameter from 0.4 to 2.5 mm; 0.5 to 2.0 mm for compression and extension springs.' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_2_title', 'Wire Products' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_2_subtitle', 'Core operations' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_2_group_1_title', 'Forming' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_2_group_1_item_1', 'Spring coiling' );
-    icl_register_string( 'steelplast/service-wire-products/specs', 'card_2_group_1_item_2', '2D and 3D wire bending' );
+    icl_register_string( 'steelplast/service-wire-products/specs', 'card_2_group_1_item_2', 'Formed wire components' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_2_group_1_item_3', 'Rings, hooks and clips' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_2_group_2_title', 'Finishing' );
-    icl_register_string( 'steelplast/service-wire-products/specs', 'card_2_group_2_item_1', 'Resistance welding' );
-    icl_register_string( 'steelplast/service-wire-products/specs', 'card_2_group_2_item_2', 'Heat treatment and tempering' );
+    icl_register_string( 'steelplast/service-wire-products/specs', 'card_2_group_2_item_2', 'Heat treatment' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_2_group_2_item_3', 'Electroplated or powder coating' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_3_title', 'Materials & Precision' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_3_subtitle', 'We work with' );
@@ -731,9 +730,9 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_3_item_1', 'Spring wire' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_3_item_2', 'Stainless steel' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_3_item_3', 'Galvanised and low-carbon wire' );
-    icl_register_string( 'steelplast/service-wire-products/specs', 'card_3_item_4', 'Brass and bronze' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_4_title', 'Lead Time & Terms' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_4_subtitle', 'Fast & reliable' );
+    icl_register_string( 'steelplast/service-wire-products/specs', 'card_4_stat_value', 'from 7' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_4_stat_suffix', 'business days' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_4_stat_label', 'Production starts from' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_4_badges_label', 'We accept files in:' );
@@ -744,10 +743,10 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/service-wire-products/content', 'title', 'Springs and Formed Wire Parts for Industry and Everyday Products' );
     icl_register_string( 'steelplast/service-wire-products/content', 'intro', 'A spring is rarely a product in itself — it works inside a lock, a furniture mechanism, a household appliance or an agricultural assembly, and how long that assembly lasts depends on it. We make parts like these in small and medium batches, to a drawing or to a sample.' );
     icl_register_string( 'steelplast/service-wire-products/content', 'topic_1_heading', 'Made-to-Order Springs' );
-    icl_register_string( 'steelplast/service-wire-products/content', 'topic_1_p1', 'We coil compression, extension and torsion springs from wire between 0.3 and 4 mm. The calculation starts from how the part behaves in the assembly: working load, travel, fitting diameters and the number of cycles it has to survive.' );
+    icl_register_string( 'steelplast/service-wire-products/content', 'topic_1_p1', 'We coil compression, extension and torsion springs from wire between 0.4 and 2 mm. The calculation starts from how the part behaves in the assembly: working load, travel, fitting diameters and the number of cycles it has to survive.' );
     icl_register_string( 'steelplast/service-wire-products/content', 'topic_1_p2', 'After coiling every spring is heat treated to relieve stress — that step is what decides whether it still holds its rated load after thousands of cycles.' );
     icl_register_string( 'steelplast/service-wire-products/content', 'topic_2_heading', 'Formed Wire Parts' );
-    icl_register_string( 'steelplast/service-wire-products/content', 'topic_2_p1', 'Rings, clips, hooks, retainers, wire frames and baskets — 2D and 3D bending to your drawing. Closed contours are joined by resistance welding.' );
+    icl_register_string( 'steelplast/service-wire-products/content', 'topic_2_p1', 'Rings, clips, hooks, retainers, wire frames and baskets — formed wire components made to your drawing.' );
     icl_register_string( 'steelplast/service-wire-products/content', 'topic_2_p2', 'Finished parts can be delivered electroplated or powder coated, depending on where they will work: indoors, in a damp environment or outdoors.' );
 
     // -- steelplast/service-wire-products/about --

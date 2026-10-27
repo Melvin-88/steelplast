@@ -26,7 +26,7 @@ $specs_cards = [
                 ],
             ],
         ],
-        'note' => steelplast_t( $ctx, 'card_1_note', 'Wire diameter from 0.3 to 4 mm.' ),
+        'note' => steelplast_t( $ctx, 'card_1_note', 'Wire diameter from 0.4 to 2.5 mm; 0.5 to 2.0 mm for compression and extension springs.' ),
     ],
     [
         'title'    => steelplast_t( $ctx, 'card_2_title', 'Wire Products' ),
@@ -37,7 +37,7 @@ $specs_cards = [
                 'heading' => steelplast_t( $ctx, 'card_2_group_1_title', 'Forming' ),
                 'items'   => [
                     steelplast_t( $ctx, 'card_2_group_1_item_1', 'Spring coiling' ),
-                    steelplast_t( $ctx, 'card_2_group_1_item_2', '2D and 3D wire bending' ),
+                    steelplast_t( $ctx, 'card_2_group_1_item_2', 'Formed wire components' ),
                     steelplast_t( $ctx, 'card_2_group_1_item_3', 'Rings, hooks and clips' ),
                 ],
             ],
@@ -45,8 +45,7 @@ $specs_cards = [
                 'type'    => 'group',
                 'heading' => steelplast_t( $ctx, 'card_2_group_2_title', 'Finishing' ),
                 'items'   => [
-                    steelplast_t( $ctx, 'card_2_group_2_item_1', 'Resistance welding' ),
-                    steelplast_t( $ctx, 'card_2_group_2_item_2', 'Heat treatment and tempering' ),
+                    steelplast_t( $ctx, 'card_2_group_2_item_2', 'Heat treatment' ),
                     steelplast_t( $ctx, 'card_2_group_2_item_3', 'Electroplated or powder coating' ),
                 ],
             ],
@@ -67,7 +66,6 @@ $specs_cards = [
                     steelplast_t( $ctx, 'card_3_item_1', 'Spring wire' ),
                     steelplast_t( $ctx, 'card_3_item_2', 'Stainless steel' ),
                     steelplast_t( $ctx, 'card_3_item_3', 'Galvanised and low-carbon wire' ),
-                    steelplast_t( $ctx, 'card_3_item_4', 'Brass and bronze' ),
                 ],
             ],
         ],
@@ -78,7 +76,7 @@ $specs_cards = [
         'blocks'   => [
             [
                 'type'   => 'stat',
-                'value'  => '7',
+                'value'  => steelplast_t( $ctx, 'card_4_stat_value', 'from 7' ),
                 'suffix' => steelplast_t( $ctx, 'card_4_stat_suffix', 'business days' ),
                 'label'  => steelplast_t( $ctx, 'card_4_stat_label', 'Production starts from' ),
             ],
@@ -123,14 +121,14 @@ $specs_cards = [
             [
                 'heading'    => steelplast_t( 'steelplast/service-wire-products/content', 'topic_1_heading', 'Made-to-Order Springs' ),
                 'paragraphs' => [
-                    steelplast_t( 'steelplast/service-wire-products/content', 'topic_1_p1', 'We coil compression, extension and torsion springs from wire between 0.3 and 4 mm. The calculation starts from how the part behaves in the assembly: working load, travel, fitting diameters and the number of cycles it has to survive.' ),
+                    steelplast_t( 'steelplast/service-wire-products/content', 'topic_1_p1', 'We coil compression, extension and torsion springs from wire between 0.4 and 2 mm. The calculation starts from how the part behaves in the assembly: working load, travel, fitting diameters and the number of cycles it has to survive.' ),
                     steelplast_t( 'steelplast/service-wire-products/content', 'topic_1_p2', 'After coiling every spring is heat treated to relieve stress — that step is what decides whether it still holds its rated load after thousands of cycles.' ),
                 ],
             ],
             [
                 'heading'    => steelplast_t( 'steelplast/service-wire-products/content', 'topic_2_heading', 'Formed Wire Parts' ),
                 'paragraphs' => [
-                    steelplast_t( 'steelplast/service-wire-products/content', 'topic_2_p1', 'Rings, clips, hooks, retainers, wire frames and baskets — 2D and 3D bending to your drawing. Closed contours are joined by resistance welding.' ),
+                    steelplast_t( 'steelplast/service-wire-products/content', 'topic_2_p1', 'Rings, clips, hooks, retainers, wire frames and baskets — formed wire components made to your drawing.' ),
                     steelplast_t( 'steelplast/service-wire-products/content', 'topic_2_p2', 'Finished parts can be delivered electroplated or powder coated, depending on where they will work: indoors, in a damp environment or outdoors.' ),
                 ],
             ],
