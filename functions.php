@@ -834,7 +834,7 @@ If you can\'t find what you\'re looking for, our team is always ready to help yo
     icl_register_string( 'steelplast/service-injection-molding/about', 'tag', '[03] About us' );
 
     // -- steelplast/about/intro --
-    icl_register_string( 'steelplast/about/intro', 'label', 'About Steel Plast' );
+    icl_register_string( 'steelplast/about/intro', 'label', 'Steel Plast is' );
     icl_register_string( 'steelplast/about/intro', 'title', 'Modern manufacturing for the light engineering industry' );
     icl_register_string( 'steelplast/about/intro', 'desc_1', 'We bring the key manufacturing processes together in one place: metalworking, mold making, metal stamping and plastic injection molding. We take a project on at any stage — from the initial idea and engineering design through to the start of series production and the finished goods.' );
     icl_register_string( 'steelplast/about/intro', 'desc_2', 'A full cycle inside a single plant means fewer links in the chain, more control and a clear result at every stage.' );
