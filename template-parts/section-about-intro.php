@@ -6,7 +6,7 @@
  * @package SteelPlast
  */
 
-$label = steelplast_t( 'steelplast/about/intro', 'label', 'Steel Plast is' );
+$label = steelplast_t( 'steelplast/about/intro', 'label', 'About Steel Plast' );
 $title = steelplast_t( 'steelplast/about/intro', 'title', 'Modern manufacturing for the light engineering industry' );
 $desc = [
     steelplast_t( 'steelplast/about/intro', 'desc_1', 'We bring the key manufacturing processes together in one place: metalworking, mold making, metal stamping and plastic injection molding. We take a project on at any stage — from the initial idea and engineering design through to the start of series production and the finished goods.' ),
