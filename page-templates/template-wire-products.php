@@ -37,8 +37,10 @@ $specs_cards = [
                 'heading' => steelplast_t( $ctx, 'card_2_group_1_title', 'Forming' ),
                 'items'   => [
                     steelplast_t( $ctx, 'card_2_group_1_item_1', 'Spring coiling' ),
-                    steelplast_t( $ctx, 'card_2_group_1_item_2', 'Formed wire components' ),
+                    // Довгий пункт стоїть останнім: у дві колонки він переносився на
+                    // другий рядок і розганяв відступ між сусідніми пунктами.
                     steelplast_t( $ctx, 'card_2_group_1_item_3', 'Rings, hooks and clips' ),
+                    steelplast_t( $ctx, 'card_2_group_1_item_2', 'Formed wire components' ),
                 ],
             ],
             [
@@ -95,7 +97,7 @@ $specs_cards = [
 
     <?php
     get_template_part( 'template-parts/page-hero', null, [
-        'title'  => steelplast_t( 'steelplast/service-wire-products/hero', 'title', 'Springs and Wire Products Made to Order' ),
+        'title'  => steelplast_t( 'steelplast/service-wire-products/hero', 'title', 'Springs and Wire Products' ),
         'height' => 440,
     ] );
     ?>

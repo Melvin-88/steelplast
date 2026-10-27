@@ -700,7 +700,7 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/service-custom-tooling/about', 'tag', '[03] About us' );
 
     // -- steelplast/service-wire-products/hero --
-    icl_register_string( 'steelplast/service-wire-products/hero', 'title', 'Springs and Wire Products Made to Order' );
+    icl_register_string( 'steelplast/service-wire-products/hero', 'title', 'Springs and Wire Products' );
 
     // -- steelplast/service-wire-products/specs --
     icl_register_string( 'steelplast/service-wire-products/specs', 'label', 'Technical Parameters' );
