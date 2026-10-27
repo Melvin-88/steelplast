@@ -15,7 +15,7 @@ if ( ! $video_url ) {
 }
 
 $hero_title       = steelplast_t( 'steelplast/home/hero', 'title',       'Design Manufacture Scale' );
-$hero_description = steelplast_t( 'steelplast/home/hero', 'description', 'STEELPLAST takes on the whole route — from concept to series production, whatever the complexity or scale.' );
+$hero_description = steelplast_t( 'steelplast/home/hero', 'description', 'Steel Plast takes on the whole route — from concept to series production, whatever the complexity or scale.' );
 
 // Figures come from the admin and grow on their own; see steelplast_hero_stat().
 $stat_labels = [

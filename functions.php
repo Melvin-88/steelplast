@@ -337,7 +337,7 @@ function steelplast_register_wpml_strings() {
 
     // -- steelplast/home/hero --
     icl_register_string( 'steelplast/home/hero', 'title',       'Design Manufacture Scale' );
-    icl_register_string( 'steelplast/home/hero', 'description', 'STEELPLAST takes on the whole route — from concept to series production, whatever the complexity or scale.' );
+    icl_register_string( 'steelplast/home/hero', 'description', 'Steel Plast takes on the whole route — from concept to series production, whatever the complexity or scale.' );
     icl_register_string( 'steelplast/home/hero', 'stat_1_label', 'Plastic parts manufactured' );
     icl_register_string( 'steelplast/home/hero', 'stat_2_label', 'Metal parts manufactured' );
     icl_register_string( 'steelplast/home/hero', 'stat_3_label', 'Projects delivered in 2025/2026' );
@@ -402,7 +402,7 @@ function steelplast_register_wpml_strings() {
     // -- steelplast/home/about-preview --
     icl_register_string( 'steelplast/home/about-preview', 'tag',         '[02] About us' );
     icl_register_string( 'steelplast/home/about-preview', 'title',       'We turn drawings into parts, and parts into series' );
-    icl_register_string( 'steelplast/home/about-preview', 'description', 'STEELPLAST brings together CNC metal machining, mold design and manufacture, and series production of plastic components. 10+ years of building things that work.' );
+    icl_register_string( 'steelplast/home/about-preview', 'description', 'Steel Plast brings together CNC metal machining, mold design and manufacture, and series production of plastic components. 10+ years of building things that work.' );
     icl_register_string( 'steelplast/home/about-preview', 'button',      'Learn more about us' );
 
     // -- steelplast/home/services --
@@ -872,7 +872,7 @@ and quality control at every stage of production.' );
     // -- steelplast/about/equipment --
     icl_register_string( 'steelplast/about/equipment', 'label', 'Our equipment' );
     icl_register_string( 'steelplast/about/equipment', 'title', 'Modern manufacturing requires modern technology' );
-    icl_register_string( 'steelplast/about/equipment', 'desc', 'That is why SteelPlast uses high-precision automated equipment that lets us deliver products of the highest quality.' );
+    icl_register_string( 'steelplast/about/equipment', 'desc', 'That is why Steel Plast uses high-precision automated equipment that lets us deliver products of the highest quality.' );
 
     // -- steelplast/about/equipment-cards --
     icl_register_string( 'steelplast/about/equipment-cards', 'card_1_title', 'Swiss-type automatic lathe' );

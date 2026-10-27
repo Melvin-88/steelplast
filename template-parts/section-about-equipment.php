@@ -10,7 +10,7 @@
 
 $label = steelplast_t( 'steelplast/about/equipment', 'label', 'Our equipment' );
 $title = steelplast_t( 'steelplast/about/equipment', 'title', 'Modern manufacturing requires modern technology' );
-$desc  = steelplast_t( 'steelplast/about/equipment', 'desc', 'That is why SteelPlast uses high-precision automated equipment that lets us deliver products of the highest quality.' );
+$desc  = steelplast_t( 'steelplast/about/equipment', 'desc', 'That is why Steel Plast uses high-precision automated equipment that lets us deliver products of the highest quality.' );
 
 // Photos are the same for every language — always read from the default-language post
 $cards = [
