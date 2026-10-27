@@ -85,6 +85,7 @@ $specs_cards = [
             [
                 'type'  => 'badges',
                 'label' => steelplast_t( $ctx, 'card_4_badges_label', 'We accept files in:' ),
+                'items' => [ 'DWG', 'DXF', 'STEP', 'PDF' ],
             ],
         ],
         'note' => steelplast_t( $ctx, 'card_4_note', 'No drawing? Send us a sample part and we will reproduce its geometry.' ),
