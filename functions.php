@@ -778,25 +778,25 @@ If you can\'t find what you\'re looking for, our team is always ready to help yo
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_item_2', 'ABS' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_item_3', 'Polyamide (PA6, PA66)' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_item_4', 'Polycarbonate (PC)' );
-    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_item_5', 'Reinforced & filled grades' );
-    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_item_6', 'TPE / TPU' );
-    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_note', 'From small precision components to large housings.' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_item_5', 'Polyethylenes (LDPE, HDPE)' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_item_6', 'TPE / TPU / TPV' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_item_7', 'PS / HIPS' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_item_8', 'POM' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_item_9', 'SAN' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_1_item_10', 'PVC' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_title', 'Molding Processes' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_subtitle', 'Core capabilities' );
-    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_group_1_title', 'Standard Injection' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_group_1_item_1', 'Single-component molding' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_group_1_item_2', 'Insert molding' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_group_1_item_3', 'Overmolding' );
-    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_group_2_title', 'Advanced' );
-    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_group_2_item_1', '2K (two-component) injection' );
-    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_group_2_item_2', 'Gas-assisted injection' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_2_group_2_item_1', 'Molding with mold temperature control' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_title', 'Precision & Quality Control' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_subtitle', 'Dimensional stability we guarantee' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_stat_label', 'Molding tolerance' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_item_1', 'Incoming resin inspection' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_item_2', 'Shrinkage & warpage control' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_item_3', 'First-shot validation' );
-    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_item_4', 'Coordinate measuring machines (CMM)' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_item_4', 'Production to a part check-list' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_title', 'Equipment & Terms' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_subtitle', 'Fast & reliable' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_stat_suffix', 'tons' );
@@ -804,23 +804,22 @@ If you can\'t find what you\'re looking for, our team is always ready to help yo
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_badges_label', 'We accept files in:' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_note', 'No mold yet? We design and manufacture the injection mold in-house — from 3D model to first shot.' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'label', 'Technical Parameters' );
-    icl_register_string( 'steelplast/service-injection-molding/specs', 'title', 'Steel Plast delivers a full cycle of plastic injection molding — from your drawing to a finished part' );
-    icl_register_string( 'steelplast/service-injection-molding/specs', 'desc_1', 'We work with both one-off orders and serial production, keeping quality consistent at every stage.' );
-    icl_register_string( 'steelplast/service-injection-molding/specs', 'desc_2', 'Injection molding melts technical plastics and injects them into a mold cavity — the most efficient way to produce plastic parts at volume. Alongside proven molding processes, we maintain a stable process, tight tolerances, and a skilled team capable of molding parts of complex geometry.' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'title', 'Steel Plast delivers a full cycle of plastic injection molding — from material selection to the finished part' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'desc_2', 'Injection molding is a process in which molten plastic is injected under pressure into a mold cavity by an injection molding machine. For large volumes it is the most cost-effective way to produce plastic parts, unlike 3D printing.' );
 
     // -- steelplast/service-injection-molding/hero --
-    icl_register_string( 'steelplast/service-injection-molding/hero', 'title', 'Plastic Injection Molding: Precision Technical Parts' );
+    icl_register_string( 'steelplast/service-injection-molding/hero', 'title', 'Plastic Injection Molding' );
 
     // -- steelplast/service-injection-molding/content --
     icl_register_string( 'steelplast/service-injection-molding/content', 'label', 'Molding Capabilities' );
     icl_register_string( 'steelplast/service-injection-molding/content', 'title', 'Injection Molding Process and Capabilities' );
-    icl_register_string( 'steelplast/service-injection-molding/content', 'intro', 'Steel Plast operates a fleet of injection molding machines, giving us the flexibility to produce technical plastic parts of virtually any geometry — from small precision components to large housings. Whatever your drawing calls for, our engineers select the material, process, and mold design that deliver the best precision and turnaround time.' );
+    icl_register_string( 'steelplast/service-injection-molding/content', 'intro', 'Steel Plast operates a modern fleet of injection molding machines, giving us the flexibility to produce plastic parts — from small precision components to large housings. Whatever your drawing calls for, our engineers select the material, the process, and the mold design that deliver the best precision and turnaround time.' );
     icl_register_string( 'steelplast/service-injection-molding/content', 'topic_1_heading', 'Injection Molding' );
     icl_register_string( 'steelplast/service-injection-molding/content', 'topic_1_p1', 'Injection molding melts plastic granules and injects them under pressure into a mold cavity, where the part cools and solidifies before ejection. This process is fast, repeatable, and cost-effective at scale, making it the standard choice for producing plastic components in volumes from a few hundred to millions of parts.' );
     icl_register_string( 'steelplast/service-injection-molding/content', 'topic_1_p2', 'We control every injection cycle — melt temperature, injection speed, and clamping force — to keep dimensional stability and cycle repeatability consistent across the full production run.' );
-    icl_register_string( 'steelplast/service-injection-molding/content', 'topic_2_heading', 'Overmolding & 2K Molding' );
+    icl_register_string( 'steelplast/service-injection-molding/content', 'topic_2_heading', 'Insert Molding' );
     icl_register_string( 'steelplast/service-injection-molding/content', 'topic_2_p1', 'Overmolding and insert molding embed a metal or plastic insert directly into the part during the injection cycle, combining materials in a single component without a separate assembly step.' );
-    icl_register_string( 'steelplast/service-injection-molding/content', 'topic_2_p2', '2K (two-component) injection molds two different materials or colors into one part in a single cycle — commonly used for soft-touch grips, seals, and multi-color housings.' );
+    icl_register_string( 'steelplast/service-injection-molding/content', 'topic_2_p2', 'Overmolding — a finished plastic part is placed into a mold and overmolded with another polymer. This combines the properties of both materials in a single part.' );
 
     // -- steelplast/service-injection-molding/about --
     icl_register_string( 'steelplast/service-injection-molding/about', 'tag', '[03] About us' );

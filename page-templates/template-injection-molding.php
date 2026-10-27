@@ -22,32 +22,29 @@ $specs_cards = [
                     steelplast_t( $ctx, 'card_1_item_2', 'ABS' ),
                     steelplast_t( $ctx, 'card_1_item_3', 'Polyamide (PA6, PA66)' ),
                     steelplast_t( $ctx, 'card_1_item_4', 'Polycarbonate (PC)' ),
-                    steelplast_t( $ctx, 'card_1_item_5', 'Reinforced & filled grades' ),
-                    steelplast_t( $ctx, 'card_1_item_6', 'TPE / TPU' ),
+                    steelplast_t( $ctx, 'card_1_item_5', 'Polyethylenes (LDPE, HDPE)' ),
+                    steelplast_t( $ctx, 'card_1_item_6', 'TPE / TPU / TPV' ),
+                    steelplast_t( $ctx, 'card_1_item_7', 'PS / HIPS' ),
+                    steelplast_t( $ctx, 'card_1_item_8', 'POM' ),
+                    steelplast_t( $ctx, 'card_1_item_9', 'SAN' ),
+                    steelplast_t( $ctx, 'card_1_item_10', 'PVC' ),
                 ],
             ],
         ],
-        'note' => steelplast_t( $ctx, 'card_1_note', 'From small precision components to large housings.' ),
     ],
     [
         'title'    => steelplast_t( $ctx, 'card_2_title', 'Molding Processes' ),
         'subtitle' => steelplast_t( $ctx, 'card_2_subtitle', 'Core capabilities' ),
+        // Обидва заголовки груп прибрані за таблицею, тож список став суцільним.
+        // Ключі лишені як були, щоб не втратити наявні переклади.
         'blocks'   => [
             [
-                'type'    => 'group',
-                'heading' => steelplast_t( $ctx, 'card_2_group_1_title', 'Standard Injection' ),
-                'items'   => [
+                'type'  => 'bullets',
+                'items' => [
                     steelplast_t( $ctx, 'card_2_group_1_item_1', 'Single-component molding' ),
                     steelplast_t( $ctx, 'card_2_group_1_item_2', 'Insert molding' ),
                     steelplast_t( $ctx, 'card_2_group_1_item_3', 'Overmolding' ),
-                ],
-            ],
-            [
-                'type'    => 'group',
-                'heading' => steelplast_t( $ctx, 'card_2_group_2_title', 'Advanced' ),
-                'items'   => [
-                    steelplast_t( $ctx, 'card_2_group_2_item_1', '2K (two-component) injection' ),
-                    steelplast_t( $ctx, 'card_2_group_2_item_2', 'Gas-assisted injection' ),
+                    steelplast_t( $ctx, 'card_2_group_2_item_1', 'Molding with mold temperature control' ),
                 ],
             ],
         ],
@@ -67,7 +64,7 @@ $specs_cards = [
                     steelplast_t( $ctx, 'card_3_item_1', 'Incoming resin inspection' ),
                     steelplast_t( $ctx, 'card_3_item_2', 'Shrinkage & warpage control' ),
                     steelplast_t( $ctx, 'card_3_item_3', 'First-shot validation' ),
-                    steelplast_t( $ctx, 'card_3_item_4', 'Coordinate measuring machines (CMM)' ),
+                    steelplast_t( $ctx, 'card_3_item_4', 'Production to a part check-list' ),
                 ],
             ],
         ],
@@ -97,7 +94,7 @@ $specs_cards = [
 
     <?php
     get_template_part( 'template-parts/page-hero', null, [
-        'title'  => steelplast_t( 'steelplast/service-injection-molding/hero', 'title', 'Plastic Injection Molding: Precision Technical Parts' ),
+        'title'  => steelplast_t( 'steelplast/service-injection-molding/hero', 'title', 'Plastic Injection Molding' ),
         'height' => 440,
     ] );
     ?>
@@ -105,10 +102,9 @@ $specs_cards = [
     <?php
     get_template_part( 'template-parts/section-service-specs', null, [
         'label'  => steelplast_t( 'steelplast/service-injection-molding/specs', 'label', 'Technical Parameters' ),
-        'title'  => steelplast_t( 'steelplast/service-injection-molding/specs', 'title', 'Steel Plast delivers a full cycle of plastic injection molding — from your drawing to a finished part' ),
+        'title'  => steelplast_t( 'steelplast/service-injection-molding/specs', 'title', 'Steel Plast delivers a full cycle of plastic injection molding — from material selection to the finished part' ),
         'desc'   => [
-            steelplast_t( 'steelplast/service-injection-molding/specs', 'desc_1', 'We work with both one-off orders and serial production, keeping quality consistent at every stage.' ),
-            steelplast_t( 'steelplast/service-injection-molding/specs', 'desc_2', 'Injection molding melts technical plastics and injects them into a mold cavity — the most efficient way to produce plastic parts at volume. Alongside proven molding processes, we maintain a stable process, tight tolerances, and a skilled team capable of molding parts of complex geometry.' ),
+            steelplast_t( 'steelplast/service-injection-molding/specs', 'desc_2', 'Injection molding is a process in which molten plastic is injected under pressure into a mold cavity by an injection molding machine. For large volumes it is the most cost-effective way to produce plastic parts, unlike 3D printing.' ),
         ],
         'cards'  => $specs_cards,
     ] );
@@ -118,7 +114,7 @@ $specs_cards = [
     get_template_part( 'template-parts/section-service-content', null, [
         'label'  => steelplast_t( 'steelplast/service-injection-molding/content', 'label', 'Molding Capabilities' ),
         'title'  => steelplast_t( 'steelplast/service-injection-molding/content', 'title', 'Injection Molding Process and Capabilities' ),
-        'intro'  => steelplast_t( 'steelplast/service-injection-molding/content', 'intro', 'Steel Plast operates a fleet of injection molding machines, giving us the flexibility to produce technical plastic parts of virtually any geometry — from small precision components to large housings. Whatever your drawing calls for, our engineers select the material, process, and mold design that deliver the best precision and turnaround time.' ),
+        'intro'  => steelplast_t( 'steelplast/service-injection-molding/content', 'intro', 'Steel Plast operates a modern fleet of injection molding machines, giving us the flexibility to produce plastic parts — from small precision components to large housings. Whatever your drawing calls for, our engineers select the material, the process, and the mold design that deliver the best precision and turnaround time.' ),
         'topics' => [
             [
                 'heading'    => steelplast_t( 'steelplast/service-injection-molding/content', 'topic_1_heading', 'Injection Molding' ),
@@ -128,10 +124,10 @@ $specs_cards = [
                 ],
             ],
             [
-                'heading'    => steelplast_t( 'steelplast/service-injection-molding/content', 'topic_2_heading', 'Overmolding & 2K Molding' ),
+                'heading'    => steelplast_t( 'steelplast/service-injection-molding/content', 'topic_2_heading', 'Insert Molding' ),
                 'paragraphs' => [
                     steelplast_t( 'steelplast/service-injection-molding/content', 'topic_2_p1', 'Overmolding and insert molding embed a metal or plastic insert directly into the part during the injection cycle, combining materials in a single component without a separate assembly step.' ),
-                    steelplast_t( 'steelplast/service-injection-molding/content', 'topic_2_p2', '2K (two-component) injection molds two different materials or colors into one part in a single cycle — commonly used for soft-touch grips, seals, and multi-color housings.' ),
+                    steelplast_t( 'steelplast/service-injection-molding/content', 'topic_2_p2', 'Overmolding — a finished plastic part is placed into a mold and overmolded with another polymer. This combines the properties of both materials in a single part.' ),
                 ],
             ],
         ],
