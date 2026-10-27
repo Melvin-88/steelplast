@@ -97,10 +97,11 @@ h5 {
 .sp-section-title {
     color: var(--Pure-White, #{$color-pure-white});
     font-family: $font-family-base;
-    // Fluid, capped at 55px. The floor matters too: at a flat large size one
-    // long Ukrainian word ("Слідкуйте") is wider than a phone screen and pushes
-    // the whole section past the viewport.
-    font-size: clamp(32px, 6.4vw, 55px);
+    // Тримається нижче .sp-page-hero__title (64px / 36px на мобільному) на будь-якій
+    // ширині — H1 сторінки має читатись як головний заголовок, а не як сусід.
+    // Нижня межа важлива й сама: при фіксованому великому розмірі одне довге
+    // українське слово («Слідкуйте») ширше за екран телефона й розпирає секцію.
+    font-size: clamp(28px, 4vw, 44px);
     font-style: normal;
     font-weight: 700;
     line-height: 1;

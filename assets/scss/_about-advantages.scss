@@ -86,10 +86,6 @@
     }
 
     @media (max-width: 480px) {
-        &__title {
-            font-size: 40px;
-            line-height: 44px;
-        }
 
         &__grid {
             grid-template-columns: 1fr;
