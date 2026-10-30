@@ -745,6 +745,7 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/service-wire-products/content', 'topic_1_heading', 'Made-to-Order Springs' );
     icl_register_string( 'steelplast/service-wire-products/content', 'topic_1_p1', 'We coil compression, extension and torsion springs from wire between 0.4 and 2 mm. The calculation starts from how the part behaves in the assembly: working load, travel, fitting diameters and the number of cycles it has to survive.' );
     icl_register_string( 'steelplast/service-wire-products/content', 'topic_1_p2', 'After coiling every spring is heat treated to relieve stress — that step is what decides whether it still holds its rated load after thousands of cycles.' );
+    icl_register_string( 'steelplast/service-wire-products/content', 'topic_1_p3', 'Springs like these work in furniture and lock mechanisms, household appliances, agricultural assemblies and machine-building units: anywhere a part has to compress and return to shape thousands of times.' );
     icl_register_string( 'steelplast/service-wire-products/content', 'topic_2_heading', 'Formed Wire Parts' );
     icl_register_string( 'steelplast/service-wire-products/content', 'topic_2_p1', 'Rings, clips, hooks, retainers, wire frames and baskets — formed wire components made to your drawing.' );
     icl_register_string( 'steelplast/service-wire-products/content', 'topic_2_p2', 'Finished parts can be delivered electroplated or powder coated, depending on where they will work: indoors, in a damp environment or outdoors.' );

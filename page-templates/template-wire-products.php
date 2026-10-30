@@ -125,6 +125,7 @@ $specs_cards = [
                 'paragraphs' => [
                     steelplast_t( 'steelplast/service-wire-products/content', 'topic_1_p1', 'We coil compression, extension and torsion springs from wire between 0.4 and 2 mm. The calculation starts from how the part behaves in the assembly: working load, travel, fitting diameters and the number of cycles it has to survive.' ),
                     steelplast_t( 'steelplast/service-wire-products/content', 'topic_1_p2', 'After coiling every spring is heat treated to relieve stress — that step is what decides whether it still holds its rated load after thousands of cycles.' ),
+                    steelplast_t( 'steelplast/service-wire-products/content', 'topic_1_p3', 'Springs like these work in furniture and lock mechanisms, household appliances, agricultural assemblies and machine-building units: anywhere a part has to compress and return to shape thousands of times.' ),
                 ],
             ],
             [
