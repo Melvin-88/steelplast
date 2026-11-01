@@ -51,6 +51,14 @@
                 'fallback_cb'    => 'steelplast_fallback_nav',
             ) );
             ?>
+
+            <!-- Shown only in the burger panel, where the header actions are hidden -->
+            <div class="sp-header__nav-extra">
+                <a href="<?php echo esc_url( steelplast_page_url( 'контакти' ) ); ?>" class="sp-header__contacts<?php echo is_page_template( 'page-templates/page-contacts.php' ) ? ' current-menu-item' : ''; ?>">
+                    <?php echo esc_html( steelplast_t( 'steelplast/global/header', 'contacts', 'Contact' ) ); ?>
+                </a>
+                <?php steelplast_language_switcher(); ?>
+            </div>
         </nav>
 
         <!-- Actions: contacts / language / CTA -->

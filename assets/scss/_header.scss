@@ -361,12 +361,19 @@ a.current-menu-item,
     }
 }
 
+.sp-header__nav-extra {
+    display: none;
+}
+
 @media (max-width: 768px) {
     // Only the trademark fits next to the CTA and the burger.
     .sp-header__logo img {
         width: 40px;
     }
+}
 
+// The full menu needs ~1340px in the longest language (DE), so narrower screens get the burger.
+@media (max-width: 1359px) {
     .sp-header__burger {
         display: flex;
     }
@@ -416,5 +423,32 @@ a.current-menu-item,
 
     .sp-has-dropdown.sp-is-open .sp-nav__dropdown {
         display: block;
+    }
+
+    .sp-header__nav-extra {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        width: 100%;
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+
+        // Languages are listed openly instead of in a dropdown.
+        .sp-lang__toggle {
+            display: none;
+        }
+
+        .sp-lang__dropdown {
+            position: static;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0;
+            background: none;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+        }
     }
 }
