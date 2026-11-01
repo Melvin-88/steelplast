@@ -40,8 +40,8 @@ $uid = $args['uid'] ?? 'sp-contact';
             type="email"
             name="sp_email"
             class="sp-form-input"
-            placeholder="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/form', 'field_email_placeholder', 'E-mail' ) ); ?>"
-            aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/form', 'field_email_placeholder', 'E-mail' ) ); ?>"
+            placeholder="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/form', 'field_email_placeholder', 'Email' ) ); ?>"
+            aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/form', 'field_email_placeholder', 'Email' ) ); ?>"
             autocomplete="email"
             maxlength="150"
         >
@@ -87,7 +87,7 @@ $uid = $args['uid'] ?? 'sp-contact';
             <span><?php echo esc_html( steelplast_t( 'steelplast/contacts/form', 'field_files_label', 'Attach files' ) ); ?></span>
         </label>
         <p class="sp-form-file-hint">
-            <?php echo esc_html( steelplast_t( 'steelplast/contacts/form', 'field_files_hint', 'Optional — up to 3 files, 5 MB each: images, PDF, STEP, x_t, TXT, CSV, Word, Excel' ) ); ?>
+            <?php echo esc_html( steelplast_t( 'steelplast/contacts/form', 'field_files_hint', 'Optional — up to 3 files, max. 5 MB each: images, PDF, STEP, x_t, TXT, CSV, Word, Excel' ) ); ?>
         </p>
         <ul class="sp-form-file-list" aria-live="polite"></ul>
         <span class="sp-form-error" aria-live="polite"></span>
@@ -103,6 +103,6 @@ $uid = $args['uid'] ?? 'sp-contact';
     </div>
 
     <div class="sp-form-success" role="status" aria-live="polite" hidden>
-        <?php echo esc_html( steelplast_t( 'steelplast/contacts/form', 'success_message', 'Thank you! We will contact you soon.' ) ); ?>
+        <?php echo esc_html( steelplast_t( 'steelplast/contacts/form', 'success_message', 'Thank you! We will get back to you shortly.' ) ); ?>
     </div>
 </form>

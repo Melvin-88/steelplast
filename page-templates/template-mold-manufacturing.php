@@ -23,11 +23,11 @@ $specs_cards = [
                 'items'   => [
                     steelplast_t( $ctx, 'card_1_group_1_item_1', 'Single-cavity molds' ),
                     steelplast_t( $ctx, 'card_1_group_1_item_2', 'Multi-cavity molds' ),
-                    steelplast_t( $ctx, 'card_1_group_1_item_3', 'Two-plate & three-plate molds' ),
+                    steelplast_t( $ctx, 'card_1_group_1_item_3', 'Two-plate and three-plate molds' ),
                     steelplast_t( $ctx, 'card_1_group_1_item_4', 'Hot-runner molds' ),
                     steelplast_t( $ctx, 'card_1_group_1_item_5', 'Overmolding molds' ),
                     steelplast_t( $ctx, 'card_1_item_3', 'Prototype molds' ),
-                    steelplast_t( $ctx, 'card_1_item_5', 'Insert molds for embedded components' ),
+                    steelplast_t( $ctx, 'card_1_item_5', 'Insert molds for metal and embedded components' ),
                 ],
             ],
             [
@@ -38,7 +38,7 @@ $specs_cards = [
                     steelplast_t( $ctx, 'card_1_group_2_item_2', 'Bending dies' ),
                     steelplast_t( $ctx, 'card_1_group_2_item_3', 'Forming dies' ),
                     steelplast_t( $ctx, 'card_1_group_2_item_4', 'Drawing dies' ),
-                    steelplast_t( $ctx, 'card_1_group_2_item_5', 'Combination dies' ),
+                    steelplast_t( $ctx, 'card_1_group_2_item_5', 'Compound dies' ),
                 ],
             ],
         ],
@@ -51,10 +51,10 @@ $specs_cards = [
                 'type'    => 'group',
                 'heading' => steelplast_t( $ctx, 'card_2_group_1_title', 'Machining' ),
                 'items'   => [
-                    steelplast_t( $ctx, 'card_2_group_1_item_1', '3-axis & 5-axis CNC milling' ),
+                    steelplast_t( $ctx, 'card_2_group_1_item_1', '3-axis and 5-axis CNC milling' ),
                     steelplast_t( $ctx, 'card_2_group_1_item_2', 'CNC turning' ),
                     // Електроерозію перенесено з «Фінішної обробки»; ключ лишений, щоб не втратити переклади.
-                    steelplast_t( $ctx, 'card_2_group_2_item_1', 'Wire & sinker EDM' ),
+                    steelplast_t( $ctx, 'card_2_group_2_item_1', 'Wire and sinker EDM' ),
                     steelplast_t( $ctx, 'card_2_group_1_item_3', 'Grinding' ),
                 ],
             ],
@@ -82,7 +82,7 @@ $specs_cards = [
                 'type'  => 'bullets',
                 'items' => [
                     steelplast_t( $ctx, 'card_3_item_1', 'Incoming material inspection' ),
-                    steelplast_t( $ctx, 'card_3_item_2', 'Trial shots & sampling' ),
+                    steelplast_t( $ctx, 'card_3_item_2', 'Trial shots and sample testing' ),
                     steelplast_t( $ctx, 'card_3_item_3', 'In-process inspection' ),
                     steelplast_t( $ctx, 'card_3_item_4', 'High-precision mechanical and optical measuring instruments' ),
                 ],
@@ -97,14 +97,14 @@ $specs_cards = [
                 'type'   => 'stat',
                 'value'  => steelplast_t( $ctx, 'card_4_stat_value', 'from 1' ),
                 'suffix' => steelplast_t( $ctx, 'card_4_stat_suffix', 'month' ),
-                'label'  => steelplast_t( $ctx, 'card_4_stat_label', 'Lead time starts from' ),
+                'label'  => steelplast_t( $ctx, 'card_4_stat_label', 'Lead time' ),
             ],
             [
                 'type'  => 'badges',
-                'label' => steelplast_t( $ctx, 'card_4_badges_label', 'We accept files in:' ),
+                'label' => steelplast_t( $ctx, 'card_4_badges_label', 'Accepted file formats:' ),
             ],
         ],
-        'note' => steelplast_t( $ctx, 'card_4_note', 'We also provide mold and die maintenance and repair for tooling already in production.' ),
+        'note' => steelplast_t( $ctx, 'card_4_note', 'We also provide maintenance and repair of molds and dies already in production.' ),
     ],
 ];
 ?>
@@ -113,18 +113,18 @@ $specs_cards = [
 
     <?php
     get_template_part( 'template-parts/page-hero', null, [
-        'title'  => steelplast_t( 'steelplast/service-mold-manufacturing/hero', 'title', 'Mold & Die Manufacturing' ),
+        'title'  => steelplast_t( 'steelplast/service-mold-manufacturing/hero', 'title', 'Mold and Die Manufacturing' ),
         'height' => 440,
     ] );
     ?>
 
     <?php
     get_template_part( 'template-parts/section-service-specs', null, [
-        'label'  => steelplast_t( 'steelplast/service-mold-manufacturing/specs', 'label', 'Technical Parameters' ),
-        'title'  => steelplast_t( 'steelplast/service-mold-manufacturing/specs', 'title', 'Steel Plast delivers a full cycle of mold and die manufacturing — from your drawing to finished tooling' ),
+        'label'  => steelplast_t( 'steelplast/service-mold-manufacturing/specs', 'label', 'Technical Specifications' ),
+        'title'  => steelplast_t( 'steelplast/service-mold-manufacturing/specs', 'title', 'Steel Plast delivers the full cycle of mold and die manufacturing — from your drawing to finished tooling' ),
         'desc'   => [
-            steelplast_t( 'steelplast/service-mold-manufacturing/specs', 'desc_1', 'We work with both one-off tooling orders and long production programs, keeping quality consistent at every stage.' ),
-            steelplast_t( 'steelplast/service-mold-manufacturing/specs', 'desc_2', 'Every injection mold and stamping die is designed and built in-house, from steel selection to trial samples. Alongside proven CNC machining and EDM processes, we maintain a stable process, tight tolerances, and a skilled tool shop team capable of building tooling of complex geometry.' ),
+            steelplast_t( 'steelplast/service-mold-manufacturing/specs', 'desc_1', 'We handle both one-off tooling orders and long-term production programs, keeping quality consistent at every stage.' ),
+            steelplast_t( 'steelplast/service-mold-manufacturing/specs', 'desc_2', 'Every injection mold and stamping die is designed and built in-house, from steel selection to trial samples. Alongside proven CNC machining and EDM processes, we ensure a stable process and tight tolerances, backed by a toolroom team capable of building tooling with complex geometry.' ),
         ],
         'cards'  => $specs_cards,
     ] );
@@ -133,21 +133,21 @@ $specs_cards = [
     <?php
     get_template_part( 'template-parts/section-service-content', null, [
         'label'  => steelplast_t( 'steelplast/service-mold-manufacturing/content', 'label', 'Tooling Design & Manufacturing' ),
-        'title'  => steelplast_t( 'steelplast/service-mold-manufacturing/content', 'title', 'Injection Mold and Stamping Die Manufacturing' ),
-        'intro'  => steelplast_t( 'steelplast/service-mold-manufacturing/content', 'intro', 'Steel Plast designs and manufactures custom tooling in-house, which gives us full control over lead time, precision, and cost. Depending on the part geometry, our engineers select the mold structure, steel grade, and machining strategy that deliver a reliable, long-lasting tool.' ),
+        'title'  => steelplast_t( 'steelplast/service-mold-manufacturing/content', 'title', 'Mold and Die Manufacturing' ),
+        'intro'  => steelplast_t( 'steelplast/service-mold-manufacturing/content', 'intro', 'Steel Plast designs and builds custom tooling in-house, which gives us full control over lead times, precision and cost. Depending on the part geometry, our engineers choose the mold design, steel grade and machining strategy that ensure a reliable, long-lasting tool.' ),
         'topics' => [
             [
                 'heading'    => steelplast_t( 'steelplast/service-mold-manufacturing/content', 'topic_1_heading', 'Injection Mold Manufacturing' ),
                 'paragraphs' => [
-                    steelplast_t( 'steelplast/service-mold-manufacturing/content', 'topic_1_p1', 'Mold manufacturing starts with the technical specification — a feasibility study and a review of your drawings or a sample of the required part. Next come mold design and 3D modeling, and the choice of steel grade to match the required tool life. Then metal machining: milling and drilling, wire and sinker EDM, and grinding. The cycle closes with polishing of the molding surfaces and assembly of the tooling.' ),
-                    steelplast_t( 'steelplast/service-mold-manufacturing/content', 'topic_1_p2', 'Trial shots and sampling validate the mold before it goes into series production, confirming that dimensions, surface finish, and cycle time match the part specification.' ),
+                    steelplast_t( 'steelplast/service-mold-manufacturing/content', 'topic_1_p1', 'Mold manufacturing begins with the technical specification — a feasibility study and a review of the drawings or a sample of the required part. Next come mold design and 3D modeling, and the selection of a steel grade to match the required tool life. Then comes machining: milling and drilling, wire and sinker EDM, and grinding. The cycle is completed by polishing the molding surfaces and assembling the tool.' ),
+                    steelplast_t( 'steelplast/service-mold-manufacturing/content', 'topic_1_p2', 'Trial shots and sample testing confirm that the mold is ready before it goes into series production, verifying that dimensions, surface quality and part cycle time meet the specification.' ),
                 ],
             ],
             [
                 'heading'    => steelplast_t( 'steelplast/service-mold-manufacturing/content', 'topic_2_heading', 'Stamping Die Manufacturing' ),
                 'paragraphs' => [
-                    steelplast_t( 'steelplast/service-mold-manufacturing/content', 'topic_2_p1', 'Stamping dies are engineered for the specific sheet metal operation — blanking, piercing, bending, or deep drawing. They are built from hardened tool steel to withstand high-volume production runs.' ),
-                    steelplast_t( 'steelplast/service-mold-manufacturing/content', 'topic_2_p2', 'We machine die components on CNC milling and EDM equipment, then fit, heat-treat, and polish the tooling to extend die life and keep part quality consistent across the full production run.' ),
+                    steelplast_t( 'steelplast/service-mold-manufacturing/content', 'topic_2_p1', 'Stamping dies are designed for a specific sheet metal operation — blanking, piercing, bending or deep drawing. They are made of hardened tool steel to withstand high-volume production.' ),
+                    steelplast_t( 'steelplast/service-mold-manufacturing/content', 'topic_2_p2', 'We machine die components on CNC milling and EDM equipment, then fit, heat-treat and polish the tooling to extend die life and maintain consistent part quality throughout the entire production batch.' ),
                 ],
             ],
         ],

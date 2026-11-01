@@ -43,7 +43,7 @@ $specs_cards = [
                 'items' => [
                     steelplast_t( $ctx, 'card_2_group_1_item_1', 'Single-component molding' ),
                     steelplast_t( $ctx, 'card_2_group_1_item_2', 'Insert molding' ),
-                    steelplast_t( $ctx, 'card_2_group_1_item_3', 'Overmolding' ),
+                    steelplast_t( $ctx, 'card_2_group_1_item_3', 'Metal insert molding' ),
                     steelplast_t( $ctx, 'card_2_group_2_item_1', 'Molding with mold temperature control' ),
                 ],
             ],
@@ -61,10 +61,10 @@ $specs_cards = [
             [
                 'type'  => 'bullets',
                 'items' => [
-                    steelplast_t( $ctx, 'card_3_item_1', 'Incoming resin inspection' ),
-                    steelplast_t( $ctx, 'card_3_item_2', 'Shrinkage & warpage control' ),
-                    steelplast_t( $ctx, 'card_3_item_3', 'First-shot validation' ),
-                    steelplast_t( $ctx, 'card_3_item_4', 'Production to a part check-list' ),
+                    steelplast_t( $ctx, 'card_3_item_1', 'Incoming raw material inspection' ),
+                    steelplast_t( $ctx, 'card_3_item_2', 'Shrinkage and warpage control' ),
+                    steelplast_t( $ctx, 'card_3_item_3', 'First-shot inspection' ),
+                    steelplast_t( $ctx, 'card_3_item_4', 'Production to a part-specific checklist' ),
                 ],
             ],
         ],
@@ -76,7 +76,7 @@ $specs_cards = [
             [
                 'type'   => 'stat',
                 'value'  => '35–400',
-                'suffix' => steelplast_t( $ctx, 'card_4_stat_suffix', 'tons' ),
+                'suffix' => steelplast_t( $ctx, 'card_4_stat_suffix', 't' ),
                 'label'  => steelplast_t( $ctx, 'card_4_stat_label', 'Clamping force range' ),
             ],
             [
@@ -88,14 +88,14 @@ $specs_cards = [
             [
                 // Габарити не вміщаються у 40px цифру stat-блоку, тож ідуть рядком.
                 'type' => 'text',
-                'text' => steelplast_t( $ctx, 'card_4_dimensions', 'Mold size: 250×200 mm to 750×1200 mm' ),
+                'text' => steelplast_t( $ctx, 'card_4_dimensions', 'Mold dimensions: from 250×200 mm to 750×1200 mm' ),
             ],
             [
                 'type'  => 'badges',
-                'label' => steelplast_t( $ctx, 'card_4_badges_label', 'We accept files in:' ),
+                'label' => steelplast_t( $ctx, 'card_4_badges_label', 'Accepted file formats:' ),
             ],
         ],
-        'note' => steelplast_t( $ctx, 'card_4_note', 'No mold yet? We design and manufacture the injection mold in-house — from 3D model to first shot.' ),
+        'note' => steelplast_t( $ctx, 'card_4_note', 'No mold yet? We design and build the mold in-house — from 3D model to first shot.' ),
     ],
 ];
 ?>
@@ -111,10 +111,10 @@ $specs_cards = [
 
     <?php
     get_template_part( 'template-parts/section-service-specs', null, [
-        'label'  => steelplast_t( 'steelplast/service-injection-molding/specs', 'label', 'Technical Parameters' ),
-        'title'  => steelplast_t( 'steelplast/service-injection-molding/specs', 'title', 'Steel Plast delivers a full cycle of plastic injection molding — from material selection to the finished part' ),
+        'label'  => steelplast_t( 'steelplast/service-injection-molding/specs', 'label', 'Technical Specifications' ),
+        'title'  => steelplast_t( 'steelplast/service-injection-molding/specs', 'title', 'Steel Plast delivers the full cycle of plastic injection molding — from material selection to the finished part' ),
         'desc'   => [
-            steelplast_t( 'steelplast/service-injection-molding/specs', 'desc_2', 'Injection molding is a process in which molten plastic is injected under pressure into a mold cavity by an injection molding machine. For large volumes it is the most cost-effective way to produce plastic parts, unlike 3D printing.' ),
+            steelplast_t( 'steelplast/service-injection-molding/specs', 'desc_2', 'Plastic injection molding is a process in which molten plastic is injected under pressure into a mold cavity by an injection molding machine. Unlike 3D printing, it is the most cost-effective way to produce plastic parts in large volumes.' ),
         ],
         'cards'  => $specs_cards,
     ] );
@@ -124,20 +124,20 @@ $specs_cards = [
     get_template_part( 'template-parts/section-service-content', null, [
         'label'  => steelplast_t( 'steelplast/service-injection-molding/content', 'label', 'Molding Capabilities' ),
         'title'  => steelplast_t( 'steelplast/service-injection-molding/content', 'title', 'Injection Molding Process and Capabilities' ),
-        'intro'  => steelplast_t( 'steelplast/service-injection-molding/content', 'intro', 'Steel Plast operates a modern fleet of injection molding machines, giving us the flexibility to produce plastic parts — from small precision components to large housings. Whatever your drawing calls for, our engineers select the material, the process, and the mold design that deliver the best precision and turnaround time.' ),
+        'intro'  => steelplast_t( 'steelplast/service-injection-molding/content', 'intro', 'Steel Plast operates a modern fleet of injection molding machines, giving us the flexibility to produce plastic parts — from small precision components to large housings. Whatever your drawing requires, our engineers select the material, process and mold design that deliver the best precision and the shortest lead times.' ),
         'topics' => [
             [
                 'heading'    => steelplast_t( 'steelplast/service-injection-molding/content', 'topic_1_heading', 'Injection Molding' ),
                 'paragraphs' => [
-                    steelplast_t( 'steelplast/service-injection-molding/content', 'topic_1_p1', 'Injection molding melts plastic granules and injects them under pressure into a mold cavity, where the part cools and solidifies before ejection. This process is fast, repeatable, and cost-effective at scale, making it the standard choice for producing plastic components in volumes from a few hundred to millions of parts.' ),
-                    steelplast_t( 'steelplast/service-injection-molding/content', 'topic_1_p2', 'We control every injection cycle — melt temperature, injection speed, and clamping force — to keep dimensional stability and cycle repeatability consistent across the full production run.' ),
+                    steelplast_t( 'steelplast/service-injection-molding/content', 'topic_1_p1', 'Injection molding melts plastic pellets and injects them under pressure into a mold cavity, where the part cools and solidifies before ejection. The process is fast, repeatable and cost-effective at high volumes, which makes it the standard choice for producing plastic parts in batches from a few hundred to millions of pieces.' ),
+                    steelplast_t( 'steelplast/service-injection-molding/content', 'topic_1_p2', 'We control every molding cycle — melt temperature, injection speed and clamping force — to maintain dimensional stability and cycle repeatability throughout the entire production batch.' ),
                 ],
             ],
             [
                 'heading'    => steelplast_t( 'steelplast/service-injection-molding/content', 'topic_2_heading', 'Insert Molding' ),
                 'paragraphs' => [
-                    steelplast_t( 'steelplast/service-injection-molding/content', 'topic_2_p1', 'Overmolding and insert molding embed a metal or plastic insert directly into the part during the injection cycle, combining materials in a single component without a separate assembly step.' ),
-                    steelplast_t( 'steelplast/service-injection-molding/content', 'topic_2_p2', 'Overmolding — a finished plastic part is placed into a mold and overmolded with another polymer. This combines the properties of both materials in a single part.' ),
+                    steelplast_t( 'steelplast/service-injection-molding/content', 'topic_2_p1', 'Insert molding embeds a metal or plastic insert directly in the part during the molding cycle, combining materials in a single component without a separate assembly step.' ),
+                    steelplast_t( 'steelplast/service-injection-molding/content', 'topic_2_p2', 'Overmolding: a finished plastic part is placed in a mold and another polymer is molded over it. This combines the properties of the selected materials in a single part.' ),
                 ],
             ],
         ],

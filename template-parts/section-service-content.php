@@ -19,22 +19,22 @@ $ctx = 'steelplast/service-cnc-machining/content';
 
 $label_index = $args['label_index'] ?? '[02]';
 $label       = $args['label']       ?? steelplast_t( $ctx, 'label', 'CNC Milling & Turning' );
-$title       = $args['title']       ?? steelplast_t( $ctx, 'title', 'CNC Milling and CNC Turning Services' );
-$intro       = $args['intro']       ?? steelplast_t( $ctx, 'intro', 'Steel Plast operates a fleet of CNC milling and turning centers, giving us the flexibility to machine parts of virtually any geometry — from flat brackets to complex rotational components. Whatever your drawing calls for, our engineers select the process, tooling, and setup that deliver the best precision and turnaround time.' );
+$title       = $args['title']       ?? steelplast_t( $ctx, 'title', 'CNC Milling and Turning Services' );
+$intro       = $args['intro']       ?? steelplast_t( $ctx, 'intro', 'Steel Plast operates a fleet of CNC milling and turning machines, which allows us to machine parts of virtually any geometry — from flat brackets to complex rotational parts. Whatever your drawing requires, our engineers select the process, tooling and setup that deliver the best precision and the shortest lead times.' );
 
 $topics = $args['topics'] ?? [
     [
         'heading'    => steelplast_t( $ctx, 'topic_1_heading', 'CNC Milling' ),
         'paragraphs' => [
-            steelplast_t( $ctx, 'topic_1_p1', 'Our CNC machining centers mill material from a solid workpiece to produce flat surfaces, pockets, slots, and complex 3D contours with high accuracy. Multi-axis milling lets us machine undercuts and curved geometries in a single setup, which shortens lead times and keeps dimensions consistent across the whole part.' ),
-            steelplast_t( $ctx, 'topic_1_p2', 'CNC milling is our core process for housings, brackets, plates, and mold components. We machine both prototypes and production batches at high throughput.' ),
+            steelplast_t( $ctx, 'topic_1_p1', 'Our CNC machining centers mill material from a solid workpiece to produce flat surfaces, pockets, slots and complex 3D contours with high precision. Multi-axis milling lets us machine undercuts and curved surfaces in a single setup, which shortens lead times and keeps dimensions consistent across the entire part.' ),
+            steelplast_t( $ctx, 'topic_1_p2', 'CNC milling is our core technology for producing housings, brackets, plates and mold components. We machine both prototypes and production batches at high speed.' ),
         ],
     ],
     [
         'heading'    => steelplast_t( $ctx, 'topic_2_heading', 'CNC Turning' ),
         'paragraphs' => [
-            steelplast_t( $ctx, 'topic_2_p1', 'CNC turning rotates the workpiece against a cutting tool to produce cylindrical and other rotational shapes — shafts, bushings, flanges, pins, and threaded parts. Our lathes handle external and internal turning, threading, grooving, and parting-off in a single cycle, which minimizes the number of setups.' ),
-            steelplast_t( $ctx, 'topic_2_p2', 'Finished parts are common in automotive, industrial equipment, and fastener applications where round geometry and axial precision matter most. We machine parts from steel, stainless steel, aluminum, copper, and brass, and can combine turning with subsequent milling for parts that need both round and flat features.' ),
+            steelplast_t( $ctx, 'topic_2_p1', 'CNC turning rotates the workpiece against a cutting tool to produce cylindrical and other rotational shapes — shafts, bushings, flanges, pins and threaded parts. Our machines perform external and internal turning, threading, grooving and parting off in a single cycle, minimizing the number of setups.' ),
+            steelplast_t( $ctx, 'topic_2_p2', 'Finished parts are widely used in the automotive industry, industrial equipment and fasteners, where round geometry and axial precision matter most. We manufacture parts from steel, stainless steel, aluminum, copper and brass, and can combine turning with subsequent milling for parts that need both round and flat features.' ),
         ],
     ],
 ];

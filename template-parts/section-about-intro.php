@@ -7,11 +7,11 @@
  */
 
 $label = steelplast_t( 'steelplast/about/intro', 'label', 'Steel Plast is' );
-$title = steelplast_t( 'steelplast/about/intro', 'title', 'Modern manufacturing for the light engineering industry' );
+$title = steelplast_t( 'steelplast/about/intro', 'title', 'Modern Manufacturing in Light Engineering' );
 $desc = [
-    steelplast_t( 'steelplast/about/intro', 'desc_1', 'We bring the key manufacturing processes together in one place: metalworking, mold making, metal stamping and plastic injection molding. We take a project on at any stage — from the initial idea and engineering design through to the start of series production and the finished goods.' ),
-    steelplast_t( 'steelplast/about/intro', 'desc_2', 'A full cycle inside a single plant means fewer links in the chain, more control and a clear result at every stage.' ),
-    steelplast_t( 'steelplast/about/intro', 'desc_3', 'Our facility is equipped with modern high-precision machinery, including CNC turning, milling and EDM machines, injection molding machines and stamping presses. This lets us deliver projects of any complexity while holding to the highest standards of quality and precision.' ),
+    steelplast_t( 'steelplast/about/intro', 'desc_1', 'We bring the key manufacturing processes together in one place: metalworking, mold making, metal stamping and plastic injection molding. We take on a project at any stage — from concept and engineering development to series launch and finished products.' ),
+    steelplast_t( 'steelplast/about/intro', 'desc_2', 'A full cycle under one roof means fewer handoffs, more control and a clear result at every stage.' ),
+    steelplast_t( 'steelplast/about/intro', 'desc_3', 'Our facility is equipped with modern high-precision machinery, including CNC turning, milling and EDM machines, injection molding machines and stamping presses. This allows us to deliver projects of any complexity while meeting the highest standards of quality and precision.' ),
 ];
 ?>
 

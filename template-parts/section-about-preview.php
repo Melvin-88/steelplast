@@ -6,8 +6,8 @@
  */
 
 $tag     = $args['tag'] ?? steelplast_t( 'steelplast/home/about-preview', 'tag', '[02] About us' );
-$title   = steelplast_t( 'steelplast/home/about-preview', 'title',       'We turn drawings into parts, and parts into series' );
-$desc    = steelplast_t( 'steelplast/home/about-preview', 'description', 'Steel Plast brings together CNC metal machining, mold design and manufacture, and series production of plastic components. 10+ years of building things that work.' );
+$title   = steelplast_t( 'steelplast/home/about-preview', 'title',       'We turn drawings into parts, and parts into series production' );
+$desc    = steelplast_t( 'steelplast/home/about-preview', 'description', 'Steel Plast combines CNC metal machining, mold design and manufacturing, and series production of plastic components. 10+ years of making things that work.' );
 $btn_txt = steelplast_t( 'steelplast/home/about-preview', 'button',      'Learn more about us' );
 
 $about_url = steelplast_page_url( 'про-компанію' );

@@ -8,49 +8,49 @@
 
 get_header();
 
-$intro_title = steelplast_t( 'steelplast/faq/intro', 'title', 'We want working with Steel Plast to be transparent and comfortable for you.' );
-$intro_desc  = steelplast_t( 'steelplast/faq/intro', 'desc', "We've gathered answers to the questions our clients ask most often about our products, orders and delivery.\nIf you can't find what you're looking for, our team is always ready to help you personally." );
+$intro_title = steelplast_t( 'steelplast/faq/intro', 'title', 'We want working with Steel Plast to be transparent and easy for you.' );
+$intro_desc  = steelplast_t( 'steelplast/faq/intro', 'desc', "Here you'll find answers to the questions our clients ask most often: about our products, orders and delivery.\nIf you can't find what you need, our team is always ready to help you personally." );
 
 $faq_items = [
     [
         'q' => steelplast_t( 'steelplast/faq/list', 'q_1', 'What does Steel Plast manufacture?' ),
-        'a' => steelplast_t( 'steelplast/faq/list', 'a_1', "We specialize in the full-cycle production of technical plastic components through injection molding, along with the design and manufacturing of custom injection molds. Our product range covers plastic and metal-plastic parts, packaging, enclosures and components for the automotive, household appliance, electrical, interior and construction industries." ),
+        'a' => steelplast_t( 'steelplast/faq/list', 'a_1', 'We specialize in CNC metal machining (turning and milling) and in producing engineering plastic parts by injection molding, as well as designing and manufacturing injection molds. We offer machined metal parts, plastic and metal-plastic products, packaging, housings and components for the automotive, industrial, electrical, medical, agricultural, aerospace and construction industries.' ),
     ],
     [
-        'q' => steelplast_t( 'steelplast/faq/list', 'q_2', 'Can you manufacture a custom mold for our project?' ),
-        'a' => steelplast_t( 'steelplast/faq/list', 'a_2', 'Yes. We design and manufacture custom injection molds in-house — from 3D modeling and CNC machining to trial shots and fine-tuning — matching the specifications and volumes of your project.' ),
+        'q' => steelplast_t( 'steelplast/faq/list', 'q_2', 'Can you make an injection mold for our project?' ),
+        'a' => steelplast_t( 'steelplast/faq/list', 'a_2', 'Yes. We design and build injection molds in-house: from 3D modeling and CNC machining to trial shots and fine-tuning, in line with your project\'s specifications and volumes.' ),
     ],
     [
         'q' => steelplast_t( 'steelplast/faq/list', 'q_3', 'What is the minimum order quantity?' ),
-        'a' => steelplast_t( 'steelplast/faq/list', 'a_3', 'The minimum order quantity depends on the part\'s complexity, mold cost and material. We evaluate every request individually — send us your drawings and we will offer the most efficient production scenario.' ),
+        'a' => steelplast_t( 'steelplast/faq/list', 'a_3', 'The minimum order quantity depends on the complexity of the part, the cost of the mold and the material. We review every request individually. Send us your drawing, and we will propose the optimal production scenario.' ),
     ],
     [
         'q' => steelplast_t( 'steelplast/faq/list', 'q_4', 'What clamping force range do your injection molding machines cover?' ),
-        'a' => steelplast_t( 'steelplast/faq/list', 'a_4', 'Our injection molding machines cover a clamping force range from 25 to 800 tons, allowing us to produce parts of different sizes — from small precision components to larger housings and structural parts.' ),
+        'a' => steelplast_t( 'steelplast/faq/list', 'a_4', 'Our injection molding machines cover a clamping force range of 35 to 400 metric tons, which allows us to produce parts of various sizes, from small precision components to large housings and structural parts.' ),
     ],
     [
-        'q' => steelplast_t( 'steelplast/faq/list', 'q_5', 'Which materials can you work with?' ),
-        'a' => steelplast_t( 'steelplast/faq/list', 'a_5', 'We work with a wide range of technical plastics (granules), including polypropylene, ABS, polyamide (PA6, PA66), polycarbonate and their reinforced or filled grades, selected to match your part\'s requirements.' ),
+        'q' => steelplast_t( 'steelplast/faq/list', 'q_5', 'What materials do you work with?' ),
+        'a' => steelplast_t( 'steelplast/faq/list', 'a_5', 'We work with a wide range of engineering plastics (pellets): polypropylene (PP), ABS, polyamide (PA6, PA66), polycarbonate (PC), polyethylenes (LDPE, HDPE), TPE / TPU / TPV, PS / HIPS, POM, SAN and PVC, as well as their reinforced and filled grades, selected to suit the requirements of your part.' ),
     ],
     [
-        'q' => steelplast_t( 'steelplast/faq/list', 'q_6', 'Do you offer overmolding or insert molding?' ),
-        'a' => steelplast_t( 'steelplast/faq/list', 'a_6', 'Yes, we offer overmolding and insert molding, including 2K (two-component) injection, allowing us to combine materials or embed metal inserts directly during the injection cycle.' ),
+        'q' => steelplast_t( 'steelplast/faq/list', 'q_6', 'Do you offer two-component molding or insert molding?' ),
+        'a' => steelplast_t( 'steelplast/faq/list', 'a_6', 'Yes, we offer two-component (2K) molding and insert molding, which allow us to combine materials or embed metal inserts directly during the molding cycle.' ),
     ],
     [
-        'q' => steelplast_t( 'steelplast/faq/list', 'q_7', 'How do you ensure dimensional stability and low warpage?' ),
-        'a' => steelplast_t( 'steelplast/faq/list', 'a_7', 'Every mold and process is validated through trial shots and cavity-by-cavity measurement. We control shrinkage and warpage at the design stage and monitor dimensional stability throughout the entire injection cycle.' ),
+        'q' => steelplast_t( 'steelplast/faq/list', 'q_7', 'How do you ensure dimensional stability and minimal warpage?' ),
+        'a' => steelplast_t( 'steelplast/faq/list', 'a_7', 'Every mold and process is validated through trial shots and part-by-part measurement. We control shrinkage and warpage from the design stage and monitor dimensional stability throughout the entire molding cycle.' ),
     ],
     [
-        'q' => steelplast_t( 'steelplast/faq/list', 'q_8', 'What is the average mold lifespan?' ),
-        'a' => steelplast_t( 'steelplast/faq/list', 'a_8', 'Mold lifespan (mold resource) depends on the tool steel, part geometry and production volume, and is confirmed for each project individually — we design every mold for reliable, repeatable output across its full service life.' ),
+        'q' => steelplast_t( 'steelplast/faq/list', 'q_8', 'What is the typical service life of a mold?' ),
+        'a' => steelplast_t( 'steelplast/faq/list', 'a_8', 'Mold service life depends on the tool steel grade, part geometry and production volume, and is confirmed individually for each project. We design every mold for reliable, repeatable production throughout its entire service life.' ),
     ],
     [
         'q' => steelplast_t( 'steelplast/faq/list', 'q_9', 'What quality control stages does production go through?' ),
-        'a' => steelplast_t( 'steelplast/faq/list', 'a_9', 'Every batch passes through several quality control stages — incoming material inspection, in-process monitoring during the injection cycle, and final dimensional and visual inspection before shipment, in line with ISO 9001.' ),
+        'a' => steelplast_t( 'steelplast/faq/list', 'a_9', 'Every batch goes through several inspection stages: incoming material inspection, in-process monitoring during the molding cycle, and final dimensional and visual inspection before shipment, in accordance with ISO 9001.' ),
     ],
     [
-        'q' => steelplast_t( 'steelplast/faq/list', 'q_10', 'How can I place an order?' ),
-        'a' => steelplast_t( 'steelplast/faq/list', 'a_10', 'Send us your drawings or reference samples via the form on our Contacts page or by email — our team will review the details and get back to you with production options within 2 hours.' ),
+        'q' => steelplast_t( 'steelplast/faq/list', 'q_10', 'How do I place an order?' ),
+        'a' => steelplast_t( 'steelplast/faq/list', 'a_10', 'Send us your drawings or samples via the form on our Contact page or by email. Our team will review the details and get back to you with production options within 2 hours. We accept files in STEP, PDF and x_t formats.' ),
     ],
 ];
 ?>

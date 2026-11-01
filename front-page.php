@@ -15,13 +15,13 @@ if ( ! $video_url ) {
 }
 
 $hero_title       = steelplast_t( 'steelplast/home/hero', 'title',       'Design Manufacture Scale' );
-$hero_description = steelplast_t( 'steelplast/home/hero', 'description', 'Steel Plast takes on the whole route — from concept to series production, whatever the complexity or scale.' );
+$hero_description = steelplast_t( 'steelplast/home/hero', 'description', 'Steel Plast takes care of the entire journey — from concept to series production, whatever the complexity or scale.' );
 
 // Figures come from the admin and grow on their own; see steelplast_hero_stat().
 $stat_labels = [
     1 => steelplast_t( 'steelplast/home/hero', 'stat_1_label', 'Plastic parts manufactured' ),
     2 => steelplast_t( 'steelplast/home/hero', 'stat_2_label', 'Metal parts manufactured' ),
-    3 => steelplast_t( 'steelplast/home/hero', 'stat_3_label', 'Projects delivered in 2025/2026' ),
+    3 => steelplast_t( 'steelplast/home/hero', 'stat_3_label', 'Projects completed in 2025/2026' ),
 ];
 
 $stats = [];

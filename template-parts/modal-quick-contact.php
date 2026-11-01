@@ -22,10 +22,10 @@
         </button>
 
         <h2 id="sp-modal-quick-contact-title" class="sp-modal__title">
-            <?php echo esc_html( steelplast_t( 'steelplast/global/modal-contact', 'title', 'Get in touch' ) ); ?>
+            <?php echo esc_html( steelplast_t( 'steelplast/global/modal-contact', 'title', 'Contact us' ) ); ?>
         </h2>
         <p class="sp-modal__desc">
-            <?php echo esc_html( steelplast_t( 'steelplast/global/modal-contact', 'desc', 'Leave your contact details and we will get back to you shortly.' ) ); ?>
+            <?php echo esc_html( steelplast_t( 'steelplast/global/modal-contact', 'desc', 'Leave your contact details, and we will get back to you shortly.' ) ); ?>
         </p>
 
         <?php get_template_part( 'template-parts/contact-form', null, [ 'uid' => 'sp-contact-modal' ] ); ?>

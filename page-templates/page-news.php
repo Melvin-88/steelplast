@@ -103,7 +103,7 @@ $base_url = get_permalink();
             <?php else : ?>
 
                 <p class="sp-news-archive__empty">
-                    <?php echo esc_html( steelplast_t( 'steelplast/news/archive', 'archive_empty', 'No articles yet. Check back soon.' ) ); ?>
+                    <?php echo esc_html( steelplast_t( 'steelplast/news/archive', 'archive_empty', 'No articles yet. Check back later.' ) ); ?>
                 </p>
 
             <?php endif; ?>

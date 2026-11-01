@@ -56,7 +56,7 @@
         <!-- Actions: contacts / language / CTA -->
         <div class="sp-header__actions">
             <a href="<?php echo esc_url( steelplast_page_url( 'контакти' ) ); ?>" class="sp-header__contacts<?php echo is_page_template( 'page-templates/page-contacts.php' ) ? ' current-menu-item' : ''; ?>">
-                <?php echo esc_html( steelplast_t( 'steelplast/global/header', 'contacts', 'Contacts' ) ); ?>
+                <?php echo esc_html( steelplast_t( 'steelplast/global/header', 'contacts', 'Contact' ) ); ?>
             </a>
 
             <?php steelplast_language_switcher(); ?>
