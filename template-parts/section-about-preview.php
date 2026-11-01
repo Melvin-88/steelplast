@@ -23,7 +23,7 @@ $img2_url = $img2_id ? wp_get_attachment_image_url( $img2_id, 'large' ) : '';
 $img3_url = $img3_id ? wp_get_attachment_image_url( $img3_id, 'large' ) : '';
 ?>
 
-<section class="sp-about-preview" aria-label="<?php esc_attr_e( 'About us preview', 'steelplast' ); ?>">
+<section class="sp-about-preview" aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/home/about-preview', 'section_aria', 'About us' ) ); ?>">
     <div class="sp-about-preview__inner content-wrapper">
 
         <!-- Left column -->

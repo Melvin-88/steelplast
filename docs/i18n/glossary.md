@@ -52,10 +52,10 @@
 | усадка | shrinkage | Schwindung | skurcz |
 | жолоблення, короблення | warpage | Verzug | paczenie |
 | пробна відливка | trial shot | Abmusterung | wtrysk próbny |
-| перша відливка | first shot | Erstmuster | pierwsza wypraska |
+| перша відливка | first shot | Erstmuster (не «erster Schuss») | pierwsza wypraska (не «pierwszy wtrysk») |
 | пластикова деталь (відливка) | molded part | Spritzgussteil | wypraska |
 | гранули | pellets | Granulat | granulat |
-| технічні пластмаси | engineering plastics | technische Kunststoffe | tworzywa konstrukcyjne |
+| технічні пластмаси | engineering plastics | technische Kunststoffe | tworzywa termoplastyczne (PP, PE, PVC — не «konstrukcyjne») |
 | армовані / наповнені марки | reinforced / filled grades | verstärkte / gefüllte Typen | gatunki wzmacniane / napełniane |
 | ресурс прес-форми | mold service life | Werkzeugstandzeit | trwałość formy |
 
@@ -158,7 +158,9 @@
 | креслення | drawing | Zeichnung | rysunek techniczny |
 | серійне виробництво | series production | Serienfertigung | produkcja seryjna |
 | великосерійне виробництво | high-volume production | Großserienfertigung | produkcja wielkoseryjna |
-| партія | batch | Charge | partia |
+| партія | batch | Los, Fertigungslos (не «Charge» — це партія матеріалу) | partia |
+| технолог (виробництва) | process engineer | Fertigungstechniker (не «Verfahrenstechniker» — це хімік-технолог) | technolog |
+| обладнання (верстати) | equipment, machinery | Maschinen, Maschinenpark (не «Ausrüstung») | wyposażenie, park maszynowy |
 | відвантаження | shipment | Versand | wysyłka |
 | термін виготовлення | lead time | Lieferzeit | czas realizacji |
 | робочі дні | business days | Werktage | dni robocze |

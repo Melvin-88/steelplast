@@ -35,7 +35,7 @@ foreach ( $stat_labels as $i => $label ) {
 
 <main id="primary" class="sp-main">
 
-    <section class="sp-hero" aria-label="<?php esc_attr_e( 'Hero section', 'steelplast' ); ?>">
+    <section class="sp-hero" aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/home/hero', 'section_aria', 'Introduction' ) ); ?>">
 
         <video
             class="sp-hero__video"
@@ -57,7 +57,7 @@ foreach ( $stat_labels as $i => $label ) {
                 <p class="sp-hero__description"><?php echo esc_html( $hero_description ); ?></p>
             </div>
 
-            <div class="sp-hero__stats" aria-label="<?php esc_attr_e( 'Key statistics', 'steelplast' ); ?>">
+            <div class="sp-hero__stats" aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/home/hero', 'stats_aria', 'Key figures' ) ); ?>">
                 <?php foreach ( $stats as $stat ) : ?>
                     <div class="sp-hero__stat">
                         <?php // The final figure is in the markup, so it is correct without JS. ?>

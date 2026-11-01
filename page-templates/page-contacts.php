@@ -72,7 +72,7 @@ $locations = [ [
         </div>
     </section>
 
-    <section class="sp-contacts-page__info" aria-label="<?php esc_attr_e( 'Contact information', 'steelplast' ); ?>">
+    <section class="sp-contacts-page__info" aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/page', 'info_aria', 'Contact information' ) ); ?>">
         <div class="content-wrapper">
             <div class="sp-contacts-page__columns" data-sp-animate-group>
 
@@ -150,7 +150,7 @@ if ( $map_url ) {
 }
 
 if ( $map_url ) : ?>
-        <section class="sp-contacts-page__map" aria-label="<?php esc_attr_e( 'Map', 'steelplast' ); ?>">
+        <section class="sp-contacts-page__map" aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/page', 'map_aria', 'Map' ) ); ?>">
             <div class="content-wrapper" data-sp-animate>
                 <iframe
                     class="sp-contacts-page__map-frame"
@@ -161,7 +161,7 @@ if ( $map_url ) : ?>
                     allowfullscreen=""
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
-                    title="<?php esc_attr_e( 'Location map', 'steelplast' ); ?>"
+                    title="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/page', 'map_title', 'Map of our location' ) ); ?>"
                 ></iframe>
             </div>
         </section>

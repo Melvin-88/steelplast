@@ -15,13 +15,13 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<a class="sp-skip" href="#primary"><?php esc_html_e( 'Skip to content', 'steelplast' ); ?></a>
+<a class="sp-skip" href="#primary"><?php echo esc_html( steelplast_t( 'steelplast/global/a11y', 'skip_link', 'Skip to content' ) ); ?></a>
 
 <header id="masthead" class="sp-header" role="banner">
     <div class="sp-header__inner sp-wrap">
 
         <!-- Logo -->
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="sp-header__logo" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) . ' — ' . __( 'home page', 'steelplast' ) ); ?>">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="sp-header__logo" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) . ' — ' . steelplast_t( 'steelplast/global/a11y', 'home_link', 'home page' ) ); ?>">
             <picture>
                 <source
                     media="(max-width: 768px)"
@@ -40,7 +40,7 @@
         </a>
 
         <!-- Primary navigation -->
-        <nav id="site-navigation" class="sp-header__nav" aria-label="<?php esc_attr_e( 'Primary menu', 'steelplast' ); ?>">
+        <nav id="site-navigation" class="sp-header__nav" aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/global/a11y', 'primary_menu', 'Main menu' ) ); ?>">
             <?php
             wp_nav_menu( array(
                 'theme_location' => 'primary',
@@ -67,7 +67,7 @@
         </div>
 
         <!-- Burger (mobile) -->
-        <button type="button" class="sp-header__burger" aria-expanded="false" aria-controls="site-navigation" aria-label="<?php esc_attr_e( 'Open menu', 'steelplast' ); ?>">
+        <button type="button" class="sp-header__burger" aria-expanded="false" aria-controls="site-navigation" aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/global/a11y', 'open_menu', 'Open menu' ) ); ?>">
             <span></span>
             <span></span>
             <span></span>

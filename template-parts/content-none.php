@@ -8,15 +8,15 @@
 
 <section class="no-results not-found">
     <header class="page-header">
-        <h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'steelplast' ); ?></h1>
+        <h1 class="page-title"><?php echo esc_html( steelplast_t( 'steelplast/global/not-found', 'title', 'Nothing found' ) ); ?></h1>
     </header>
 
     <div class="page-content">
         <?php if ( is_search() ) : ?>
-            <p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'steelplast' ); ?></p>
+            <p><?php echo esc_html( steelplast_t( 'steelplast/global/not-found', 'search_none', 'Sorry, nothing matched your search. Please try different keywords.' ) ); ?></p>
             <?php get_search_form(); ?>
         <?php else : ?>
-            <p><?php esc_html_e( 'It seems we can\'t find what you\'re looking for. Perhaps searching can help.', 'steelplast' ); ?></p>
+            <p><?php echo esc_html( steelplast_t( 'steelplast/global/not-found', 'none', "We can't find what you're looking for. Perhaps searching can help." ) ); ?></p>
             <?php get_search_form(); ?>
         <?php endif; ?>
     </div>

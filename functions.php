@@ -333,6 +333,23 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/global/header', 'contacts', 'Contact' );
     icl_register_string( 'steelplast/global/header', 'cta',      'Get in touch' );
 
+    // -- Labels for screen readers and keyboard users, plus the empty-results page --
+    icl_register_string( 'steelplast/global/a11y', 'skip_link', 'Skip to content' );
+    icl_register_string( 'steelplast/global/a11y', 'home_link', 'home page' );
+    icl_register_string( 'steelplast/global/a11y', 'primary_menu', 'Main menu' );
+    icl_register_string( 'steelplast/global/a11y', 'open_menu', 'Open menu' );
+    icl_register_string( 'steelplast/home/hero', 'section_aria', 'Introduction' );
+    icl_register_string( 'steelplast/home/hero', 'stats_aria', 'Key figures' );
+    icl_register_string( 'steelplast/home/about-preview', 'section_aria', 'About us' );
+    icl_register_string( 'steelplast/contacts/page', 'info_aria', 'Contact information' );
+    icl_register_string( 'steelplast/contacts/page', 'map_aria', 'Map' );
+    icl_register_string( 'steelplast/contacts/page', 'map_title', 'Map of our location' );
+    icl_register_string( 'steelplast/news/archive', 'filter_aria', 'Filter by category' );
+    icl_register_string( 'steelplast/news/archive', 'pagination_aria', 'Article navigation' );
+    icl_register_string( 'steelplast/global/not-found', 'title', 'Nothing found' );
+    icl_register_string( 'steelplast/global/not-found', 'search_none', 'Sorry, nothing matched your search. Please try different keywords.' );
+    icl_register_string( 'steelplast/global/not-found', 'none', "We can't find what you're looking for. Perhaps searching can help." );
+
     // -- steelplast/global/footer --
     icl_register_string( 'steelplast/global/footer', 'description',  'We specialize in supplying high-quality components for the automotive, medical, household goods, electrical, furniture and construction industries.' );
     icl_register_string( 'steelplast/global/footer', 'menu_title',   'MENU' );
@@ -1104,6 +1121,15 @@ if ( function_exists( 'icl_get_languages' ) || defined( 'ICL_SITEPRESS_VERSION' 
     add_filter( 'icl_show_translate_link', '__return_false' );
     add_filter( 'wpml_show_footer_language_selector', '__return_false' );
     add_filter( 'wpml_footer_language_selector', '__return_false' );
+
+    // x-default is for visitors whose language the site lacks — foreign
+    // buyers, whom English serves better than the Ukrainian original.
+    add_filter( 'wpml_hreflangs', function ( $items ) {
+        if ( isset( $items['en'] ) ) {
+            $items['x-default'] = $items['en'];
+        }
+        return $items;
+    } );
     remove_action( 'wp_footer', array( 'SitePress', 'footer_language_selector' ) );
 
     add_action( 'wp_footer', function () {
@@ -1191,7 +1217,13 @@ function steelplast_language_switcher() {
         }
     }
 
-    $current_code = esc_html( strtoupper( $current_lang['language_code'] ) );
+    // "UK" reads as the United Kingdom to the English-speaking visitors who
+    // most need the switcher, so Ukrainian is labelled by its country code.
+    $label = function ( $code ) {
+        return 'uk' === $code ? 'UA' : strtoupper( $code );
+    };
+
+    $current_code = esc_html( $label( $current_lang['language_code'] ) );
     ?>
     <div class="sp-lang sp-has-dropdown">
         <button type="button" class="sp-lang__toggle sp-dropdown__toggle" aria-expanded="false" aria-haspopup="true">
@@ -1210,7 +1242,7 @@ function steelplast_language_switcher() {
                         <?php if ( ! empty( $lang['country_flag_url'] ) ) : ?>
                             <img src="<?php echo esc_url( $lang['country_flag_url'] ); ?>" alt="" width="18" height="14" aria-hidden="true">
                         <?php endif; ?>
-                        <?php echo esc_html( strtoupper( $lang['language_code'] ) ); ?>
+                        <?php echo esc_html( $label( $lang['language_code'] ) ); ?>
                     </a>
                 </li>
             <?php endforeach; ?>
