@@ -87,7 +87,7 @@ $uid = $args['uid'] ?? 'sp-contact';
             <span><?php echo esc_html( steelplast_t( 'steelplast/contacts/form', 'field_files_label', 'Attach files' ) ); ?></span>
         </label>
         <p class="sp-form-file-hint">
-            <?php echo esc_html( steelplast_t( 'steelplast/contacts/form', 'field_files_hint', 'Optional — up to 3 files, 5 MB each: images, PDF, TXT, CSV, Word, Excel' ) ); ?>
+            <?php echo esc_html( steelplast_t( 'steelplast/contacts/form', 'field_files_hint', 'Optional — up to 3 files, 5 MB each: images, PDF, STEP, x_t, TXT, CSV, Word, Excel' ) ); ?>
         </p>
         <ul class="sp-form-file-list" aria-live="polite"></ul>
         <span class="sp-form-error" aria-live="polite"></span>

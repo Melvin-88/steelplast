@@ -775,7 +775,7 @@ If you can\'t find what you\'re looking for, our team is always ready to help yo
     icl_register_string( 'steelplast/faq/list', 'q_3', 'What is the minimum order quantity?' );
     icl_register_string( 'steelplast/faq/list', 'a_3', 'The minimum order quantity depends on the part\'s complexity, mold cost and material. We evaluate every request individually — send us your drawings and we will offer the most efficient production scenario.' );
     icl_register_string( 'steelplast/faq/list', 'q_4', 'What clamping force range do your injection molding machines cover?' );
-    icl_register_string( 'steelplast/faq/list', 'a_4', 'Our injection molding machines cover a clamping force range from 25 to 800 tons, allowing us to produce parts of different sizes — from small precision components to larger housings and structural parts.' );
+    icl_register_string( 'steelplast/faq/list', 'a_4', 'Our injection molding machines cover a clamping force range from 35 to 400 tons, allowing us to produce parts of different sizes — from small precision components to larger housings and structural parts.' );
     icl_register_string( 'steelplast/faq/list', 'q_5', 'Which materials can you work with?' );
     icl_register_string( 'steelplast/faq/list', 'a_5', 'We work with a broad range of technical plastics (granules): polypropylene (PP), ABS, polyamide (PA6, PA66), polycarbonate (PC), polyethylenes (LDPE, HDPE), TPE / TPU / TPV, PS / HIPS, POM, SAN, PVC, along with their reinforced and filled grades, selected to match your part\'s requirements.' );
     icl_register_string( 'steelplast/faq/list', 'q_6', 'Do you offer overmolding or insert molding?' );

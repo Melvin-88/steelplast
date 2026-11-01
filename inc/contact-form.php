@@ -34,7 +34,7 @@ function steelplast_register_contact_strings() {
     icl_register_string( $ctx, 'err_send_failed',          'Failed to send email. Please try again later.' );
     icl_register_string( $ctx, 'err_server',               'Something went wrong. Please try again.' );
     icl_register_string( $ctx, 'field_files_label',         'Attach files' );
-    icl_register_string( $ctx, 'field_files_hint',          'Optional — up to 3 files, 5 MB each: images, PDF, TXT, CSV, Word, Excel' );
+    icl_register_string( $ctx, 'field_files_hint',          'Optional — up to 3 files, 5 MB each: images, PDF, STEP, x_t, TXT, CSV, Word, Excel' );
     icl_register_string( $ctx, 'err_files_count',           'You can attach up to 3 files.' );
     icl_register_string( $ctx, 'err_files_size',            'Files are too large — up to 5 MB each and 10 MB in total.' );
     icl_register_string( $ctx, 'err_files_type',            'That file type is not accepted.' );
@@ -55,9 +55,6 @@ function steelplast_contact_upload_rules() {
         'max_file_bytes'  => 5 * MB_IN_BYTES,
         'max_total_bytes' => 10 * MB_IN_BYTES,
         // ext => mime, in the shape wp_check_filetype_and_ext() expects.
-        // Legacy .doc/.xls are left out on purpose: finfo reports both as the
-        // generic OLE2 container, so by content they cannot be told apart from
-        // any other OLE2 file, macro documents and installers included.
         'mimes' => array(
             'jpg|jpeg' => 'image/jpeg',
             'png'      => 'image/png',
@@ -68,6 +65,19 @@ function steelplast_contact_upload_rules() {
             'csv'      => 'text/csv',
             'docx'     => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
             'xlsx'     => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        ),
+        // Formats libmagic cannot pin down: it reports plain text for the CAD
+        // exports and one generic OLE2 container for legacy Office. These are
+        // matched on the format's own leading bytes instead, which still turns
+        // away anything merely renamed, an .exe or an archive included.
+        // Known limit: every OLE2 file shares that signature, so the .doc/.xls
+        // check cannot tell a document from an installer or a macro carrier.
+        'signatures' => array(
+            'stp'  => 'ISO-10303-21',
+            'step' => 'ISO-10303-21',
+            'x_t'  => '**ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+            'doc'  => "\xD0\xCF\x11\xE0\xA1\xB1\x1A\xE1",
+            'xls'  => "\xD0\xCF\x11\xE0\xA1\xB1\x1A\xE1",
         ),
     );
 }
@@ -85,7 +95,40 @@ function steelplast_contact_upload_accept() {
         }
     }
 
+    foreach ( array_keys( $rules['signatures'] ) as $ext ) {
+        $exts[] = '.' . $ext;
+    }
+
     return implode( ',', $exts );
+}
+
+/**
+ * True when the file opens with the signature registered for its extension.
+ * Used for the formats wp_check_filetype_and_ext() cannot identify by content.
+ */
+function steelplast_contact_signature_matches( $path, $ext, array $rules ) {
+    if ( ! isset( $rules['signatures'][ $ext ] ) ) {
+        return false;
+    }
+
+    $signature = $rules['signatures'][ $ext ];
+    $handle    = fopen( $path, 'rb' );
+    if ( ! $handle ) {
+        return false;
+    }
+
+    $head = fread( $handle, 64 );
+    fclose( $handle );
+
+    if ( ! is_string( $head ) || '' === $head ) {
+        return false;
+    }
+
+    // CAD exporters sometimes prepend a BOM or blank lines; the binary OLE2
+    // signature opens with a byte this trim list does not touch.
+    $head = ltrim( $head, "\xEF\xBB\xBF \t\r\n" );
+
+    return 0 === strncmp( $head, $signature, strlen( $signature ) );
 }
 
 /**
@@ -145,14 +188,16 @@ function steelplast_contact_collect_uploads() {
 
         // Reads the real content type, so an executable renamed .png is rejected.
         $check = wp_check_filetype_and_ext( $tmp, $name, $rules['mimes'] );
-        if ( empty( $check['ext'] ) || empty( $check['type'] ) ) {
+        $ext   = $check['ext'] ?: strtolower( (string) pathinfo( $name, PATHINFO_EXTENSION ) );
+
+        if ( empty( $check['ext'] ) && ! steelplast_contact_signature_matches( $tmp, $ext, $rules ) ) {
             $out['error'] = steelplast_t( $ctx, 'err_files_type', 'That file type is not accepted.' );
             return $out;
         }
 
         // wp_mail keys attachments by the name it shows, so duplicate names
         // would overwrite each other.
-        $label = sanitize_file_name( $name ) ?: 'file.' . $check['ext'];
+        $label = sanitize_file_name( $name ) ?: 'file.' . $ext;
         $shown = $label;
         $n     = 1;
         while ( isset( $out['attachments'][ $shown ] ) ) {
