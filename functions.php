@@ -811,6 +811,9 @@ If you can\'t find what you\'re looking for, our team is always ready to help yo
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_subtitle', 'Fast & reliable' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_stat_suffix', 'tons' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_stat_label', 'Clamping force range' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_stat2_suffix', 'cm³' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_stat2_label', 'Shot volume' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_dimensions', 'Mold size: 250×200 mm to 750×1200 mm' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_badges_label', 'We accept files in:' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_4_note', 'No mold yet? We design and manufacture the injection mold in-house — from 3D model to first shot.' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'label', 'Technical Parameters' );

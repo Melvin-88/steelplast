@@ -75,9 +75,20 @@ $specs_cards = [
         'blocks'   => [
             [
                 'type'   => 'stat',
-                'value'  => '25–800',
+                'value'  => '35–400',
                 'suffix' => steelplast_t( $ctx, 'card_4_stat_suffix', 'tons' ),
                 'label'  => steelplast_t( $ctx, 'card_4_stat_label', 'Clamping force range' ),
+            ],
+            [
+                'type'   => 'stat',
+                'value'  => '20–1200',
+                'suffix' => steelplast_t( $ctx, 'card_4_stat2_suffix', 'cm³' ),
+                'label'  => steelplast_t( $ctx, 'card_4_stat2_label', 'Shot volume' ),
+            ],
+            [
+                // Габарити не вміщаються у 40px цифру stat-блоку, тож ідуть рядком.
+                'type' => 'text',
+                'text' => steelplast_t( $ctx, 'card_4_dimensions', 'Mold size: 250×200 mm to 750×1200 mm' ),
             ],
             [
                 'type'  => 'badges',
