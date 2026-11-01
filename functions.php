@@ -201,6 +201,7 @@ function steelplast_scripts() {
         file_exists( $contact_js ) ? filemtime( $contact_js ) : STEELPLAST_VERSION,
         true
     );
+    $upload_rules = steelplast_contact_upload_rules();
     wp_localize_script( 'steelplast-contact', 'spContact', array(
         'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
         'flagsUrl1x' => get_template_directory_uri() . '/assets/img/flags.webp',
@@ -211,6 +212,15 @@ function steelplast_scripts() {
             'emailInvalid' => steelplast_t( 'steelplast/contacts/form', 'err_email_invalid', 'Invalid email address' ),
             'phoneInvalid' => steelplast_t( 'steelplast/contacts/form', 'err_phone_invalid', 'Enter full phone number' ),
             'serverError'  => steelplast_t( 'steelplast/contacts/form', 'err_server', 'Something went wrong. Please try again.' ),
+            'filesCount'   => steelplast_t( 'steelplast/contacts/form', 'err_files_count', 'You can attach up to 3 files.' ),
+            'filesSize'    => steelplast_t( 'steelplast/contacts/form', 'err_files_size', 'Files are too large — up to 5 MB each and 10 MB in total.' ),
+            'filesType'    => steelplast_t( 'steelplast/contacts/form', 'err_files_type', 'That file type is not accepted.' ),
+        ),
+        'files'   => array(
+            'maxFiles'      => $upload_rules['max_files'],
+            'maxFileBytes'  => $upload_rules['max_file_bytes'],
+            'maxTotalBytes' => $upload_rules['max_total_bytes'],
+            'accept'        => explode( ',', steelplast_contact_upload_accept() ),
         ),
     ) );
 

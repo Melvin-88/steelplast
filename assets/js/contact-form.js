@@ -97,6 +97,8 @@
             .then( ( res ) => {
                 if ( res.success ) {
                     form.reset();
+                    const fileList = form.querySelector( '.sp-form-file-list' );
+                    if ( fileList ) fileList.innerHTML = '';
                     if ( itiInstance ) itiInstance.setNumber( '' );
                     if ( successEl ) successEl.hidden = false;
                     btn.disabled = false;
@@ -112,10 +114,68 @@
             } );
     }
 
+
+    // ── Attachment field ──────────────────────────────────────────
+    // Mirrors the server-side rules in inc/contact-form.php so a file that
+    // would be refused never gets uploaded in the first place.
+
+    function initFileField( form, input ) {
+        const list  = form.querySelector( '.sp-form-file-list' );
+        const rules = spContact.files;
+
+        input.addEventListener( 'change', function () {
+            clearError( input );
+            if ( list ) list.innerHTML = '';
+
+            const files = Array.prototype.slice.call( input.files || [] );
+            if ( ! files.length ) return;
+
+            let err = '';
+
+            if ( files.length > rules.maxFiles ) {
+                err = spContact.i18n.filesCount;
+            } else {
+                let total = 0;
+                for ( let i = 0; i < files.length; i++ ) {
+                    const file = files[ i ];
+                    const dot  = file.name.lastIndexOf( '.' );
+                    const ext  = dot > -1 ? file.name.slice( dot ).toLowerCase() : '';
+
+                    total += file.size;
+
+                    if ( rules.accept.indexOf( ext ) === -1 ) {
+                        err = spContact.i18n.filesType;
+                        break;
+                    }
+                    if ( file.size > rules.maxFileBytes || total > rules.maxTotalBytes ) {
+                        err = spContact.i18n.filesSize;
+                        break;
+                    }
+                }
+            }
+
+            if ( err ) {
+                input.value = '';
+                showError( input, err );
+                return;
+            }
+
+            if ( ! list ) return;
+            files.forEach( function ( file ) {
+                const li = document.createElement( 'li' );
+                li.textContent = file.name;
+                list.appendChild( li );
+            } );
+        } );
+    }
+
     // ── Init single form ──────────────────────────────────────────
 
     function initForm( form ) {
         const phoneInput = form.querySelector( '[name="sp_phone"]' );
+        const fileInput = form.querySelector( '[name="sp_files[]"]' );
+        if ( fileInput && spContact.files ) initFileField( form, fileInput );
+
         let itiInstance  = null;
 
         if ( phoneInput && window.intlTelInput ) {

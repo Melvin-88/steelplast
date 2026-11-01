@@ -72,6 +72,27 @@ $uid = $args['uid'] ?? 'sp-contact';
         <span class="sp-form-error" aria-live="polite"></span>
     </div>
 
+    <?php $files_id = $uid . '-files'; ?>
+    <div class="sp-form-field" data-field="files">
+        <input
+            type="file"
+            id="<?php echo esc_attr( $files_id ); ?>"
+            name="sp_files[]"
+            class="sp-form-file"
+            multiple
+            accept="<?php echo esc_attr( steelplast_contact_upload_accept() ); ?>"
+        >
+        <label class="sp-form-file-label" for="<?php echo esc_attr( $files_id ); ?>">
+            <span class="sp-form-file-icon" aria-hidden="true">+</span>
+            <span><?php echo esc_html( steelplast_t( 'steelplast/contacts/form', 'field_files_label', 'Attach files' ) ); ?></span>
+        </label>
+        <p class="sp-form-file-hint">
+            <?php echo esc_html( steelplast_t( 'steelplast/contacts/form', 'field_files_hint', 'Optional — up to 3 files, 5 MB each: images, PDF, TXT, CSV, Word, Excel' ) ); ?>
+        </p>
+        <ul class="sp-form-file-list" aria-live="polite"></ul>
+        <span class="sp-form-error" aria-live="polite"></span>
+    </div>
+
     <div class="sp-form-global-error" role="alert" aria-live="assertive"></div>
 
     <div class="sp-contact-form__actions">

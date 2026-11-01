@@ -175,6 +175,73 @@
     padding: 8px !important;
 }
 
+// ── Attachment field ──────────────────────────────────────────────
+// The native input stays in the DOM — it carries the files and the keyboard
+// focus — but the label is what the visitor sees and clicks.
+
+.sp-form-file {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.sp-form-file-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba($color-black, 0.25);
+    color: $color-black;
+    font-family: $font-family-base;
+    font-size: $font-size-body;
+    line-height: $line-height-body;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+
+    &:hover {
+        border-bottom-color: $color-black;
+    }
+}
+
+.sp-form-file:focus-visible + .sp-form-file-label {
+    border-bottom-color: $color-black;
+    outline: 2px solid $color-black;
+    outline-offset: 2px;
+}
+
+.sp-form-file-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.sp-form-file-hint {
+    margin-top: 4px;
+    color: $color-dark-grey;
+    font-size: $font-size-caption;
+}
+
+.sp-form-file-list {
+    list-style: none;
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+
+    &:empty {
+        display: none;
+    }
+
+    li {
+        color: $color-black;
+        font-size: $font-size-caption;
+        // Long part numbers in a filename must not widen the modal.
+        word-break: break-all;
+    }
+}
+
 .sp-form-error {
     display: block;
     font-size: $font-size-caption;
