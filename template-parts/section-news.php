@@ -34,7 +34,7 @@ $archive_url = steelplast_page_url( 'новини' );
                     echo esc_html( steelplast_t( 'steelplast/news/header', 'news_title', "Stay up to date\nwith company news" ) );
                 ?></h2>
                 <p class="sp-section-desc sp-section-desc--dark sp-news__desc">
-                    <?php echo esc_html( steelplast_t( 'steelplast/news/header', 'news_desc', 'Follow company news, production updates, and completed projects.' ) ); ?>
+                    <?php echo esc_html( steelplast_t( 'steelplast/news/header', 'news_desc', 'Production updates, completed projects and news from our manufacturing floor.' ) ); ?>
                 </p>
             </div>
 

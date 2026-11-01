@@ -8,60 +8,60 @@
  * @package SteelPlast
  */
 
-$label = steelplast_t( 'steelplast/about/equipment', 'label', 'Our equipment' );
+$label = steelplast_t( 'steelplast/about/equipment', 'label', 'Our Equipment' );
 $title = steelplast_t( 'steelplast/about/equipment', 'title', 'Modern manufacturing requires modern technology' );
-$desc  = steelplast_t( 'steelplast/about/equipment', 'desc', 'That is why Steel Plast uses high-precision automated equipment that lets us deliver products of the highest quality.' );
+$desc  = steelplast_t( 'steelplast/about/equipment', 'desc', 'That is why Steel Plast uses high-precision automated equipment that enables us to deliver products of the highest quality.' );
 
 // Photos are the same for every language — always read from the default-language post
 $cards = [
     [
-        'title'   => steelplast_t( 'steelplast/about/equipment-cards', 'card_1_title', 'Swiss-type automatic lathe' ),
-        'lead'    => steelplast_t( 'steelplast/about/equipment-cards', 'card_1_lead', 'What it does:' ),
+        'title'   => steelplast_t( 'steelplast/about/equipment-cards', 'card_1_title', 'Swiss-Type Automatic Lathes' ),
+        'lead'    => steelplast_t( 'steelplast/about/equipment-cards', 'card_1_lead', 'What they do:' ),
         'bullets' => [
-            steelplast_t( 'steelplast/about/equipment-cards', 'card_1_bullet_1', 'Produces small, highly precise parts — pins, shafts, screws, and components for medical devices, watches and electronics.' ),
-            steelplast_t( 'steelplast/about/equipment-cards', 'card_1_bullet_2', 'They can turn, mill, drill and thread.' ),
-            steelplast_t( 'steelplast/about/equipment-cards', 'card_1_bullet_3', 'Runs fully automatically without an operator — just load the bar stock and the machine handles the rest.' ),
+            steelplast_t( 'steelplast/about/equipment-cards', 'card_1_bullet_1', 'Produce small, high-precision parts — pins, shafts, screws and components for medical devices, watches and electronics.' ),
+            steelplast_t( 'steelplast/about/equipment-cards', 'card_1_bullet_2', 'Turn, mill, drill and cut threads.' ),
+            steelplast_t( 'steelplast/about/equipment-cards', 'card_1_bullet_3', 'Run fully automatically without an operator — just load the bar stock.' ),
         ],
         'image_id' => steelplast_get_field_default_lang( 'about_equipment_card_1_image' ) ?: 0,
     ],
     [
-        'title' => steelplast_t( 'steelplast/about/equipment-cards', 'card_2_title', 'Crank stamping presses' ),
+        'title' => steelplast_t( 'steelplast/about/equipment-cards', 'card_2_title', 'Crank Stamping Presses' ),
         'desc'  => [
-            steelplast_t( 'steelplast/about/equipment-cards', 'card_2_desc_1', 'A crank stamping press is a machine that forms, bends, cuts and draws metal by compression force.' ),
-            steelplast_t( 'steelplast/about/equipment-cards', 'card_2_desc_2', 'Its main advantages: productivity, energy efficiency and high repeatability.' ),
+            steelplast_t( 'steelplast/about/equipment-cards', 'card_2_desc_1', 'A crank stamping press is a machine that forms, bends, cuts and draws metal by compressive force.' ),
+            steelplast_t( 'steelplast/about/equipment-cards', 'card_2_desc_2', 'Key advantages: productivity, energy efficiency and high repeatability.' ),
         ],
         'image_id' => steelplast_get_field_default_lang( 'about_equipment_card_2_image' ) ?: 0,
     ],
     [
-        'title' => steelplast_t( 'steelplast/about/equipment-cards', 'card_3_title', 'Injection molding machines' ),
+        'title' => steelplast_t( 'steelplast/about/equipment-cards', 'card_3_title', 'Injection Molding Machines' ),
         'lead'  => steelplast_t( 'steelplast/about/equipment-cards', 'card_3_lead', 'How does it work?' ),
         'desc'  => [
-            steelplast_t( 'steelplast/about/equipment-cards', 'card_3_desc_1', 'Plastic granules are fed into the machine, melted down to a liquid state and injected under high pressure into the mold.' ),
+            steelplast_t( 'steelplast/about/equipment-cards', 'card_3_desc_1', 'Plastic pellets are fed into the machine, melted to a liquid state and injected into the mold under high pressure.' ),
         ],
         'image_id' => steelplast_get_field_default_lang( 'about_equipment_card_3_image' ) ?: 0,
     ],
     [
-        'title' => steelplast_t( 'steelplast/about/equipment-cards', 'card_4_title', 'Wire-cut and sinker EDM machines' ),
+        'title' => steelplast_t( 'steelplast/about/equipment-cards', 'card_4_title', 'Wire and Sinker EDM Machines' ),
         'desc'  => [
-            steelplast_t( 'steelplast/about/equipment-cards', 'card_4_desc_1', 'An EDM, or electrical discharge machine, works metal not with a cutter or a mill but with an electric spark that erodes it to micron precision.' ),
+            steelplast_t( 'steelplast/about/equipment-cards', 'card_4_desc_1', 'EDM, or electrical discharge machining, shapes metal not with a cutting tool or milling cutter but with an electric spark that erodes it with micron-level precision.' ),
         ],
         'image_id' => steelplast_get_field_default_lang( 'about_equipment_card_4_image' ) ?: 0,
     ],
     [
-        'title'   => steelplast_t( 'steelplast/about/equipment-cards', 'card_5_title', '5-axis CNC milling machines' ),
-        'lead'    => steelplast_t( 'steelplast/about/equipment-cards', 'card_5_lead', 'What it does:' ),
+        'title'   => steelplast_t( 'steelplast/about/equipment-cards', 'card_5_title', '5-Axis CNC Milling Machines' ),
+        'lead'    => steelplast_t( 'steelplast/about/equipment-cards', 'card_5_lead', 'What they do:' ),
         'bullets' => [
-            steelplast_t( 'steelplast/about/equipment-cards', 'card_5_bullet_1', 'Mills, drills and cuts complex shapes.' ),
-            steelplast_t( 'steelplast/about/equipment-cards', 'card_5_bullet_2', 'They produce 3D surfaces, blades, housings and other complex parts.' ),
-            steelplast_t( 'steelplast/about/equipment-cards', 'card_5_bullet_3', 'Works with metal, plastic and composite materials.' ),
+            steelplast_t( 'steelplast/about/equipment-cards', 'card_5_bullet_1', 'Mill, drill and cut complex shapes.' ),
+            steelplast_t( 'steelplast/about/equipment-cards', 'card_5_bullet_2', 'Produce 3D surfaces, blades, housings and other complex parts.' ),
+            steelplast_t( 'steelplast/about/equipment-cards', 'card_5_bullet_3', 'Work with metal, plastic and composite materials.' ),
         ],
         'image_id' => steelplast_get_field_default_lang( 'about_equipment_card_5_image' ) ?: 0,
     ],
     [
-        'title'   => steelplast_t( 'steelplast/about/equipment-cards', 'card_6_title', 'CNC turn-mill machines' ),
+        'title'   => steelplast_t( 'steelplast/about/equipment-cards', 'card_6_title', 'CNC Mill-Turn Machines' ),
         'lead'    => steelplast_t( 'steelplast/about/equipment-cards', 'card_6_lead', 'What they do:' ),
         'bullets' => [
-            steelplast_t( 'steelplast/about/equipment-cards', 'card_6_bullet_1', 'Turning, milling, drilling, threading — every operation without a re-setup!' ),
+            steelplast_t( 'steelplast/about/equipment-cards', 'card_6_bullet_1', 'Turning, milling, drilling, threading — all in a single setup!' ),
         ],
         'image_id' => steelplast_get_field_default_lang( 'about_equipment_card_6_image' ) ?: 0,
     ],

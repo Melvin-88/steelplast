@@ -74,7 +74,7 @@ while ( have_posts() ) :
 
                         <div class="sp-single-post__meta">
                             <span class="sp-single-post__meta-label">
-                                <?php echo esc_html( steelplast_t( 'steelplast/news/single', 'date_label', 'Date created' ) ); ?>
+                                <?php echo esc_html( steelplast_t( 'steelplast/news/single', 'date_label', 'Published' ) ); ?>
                             </span>
                             <span class="sp-single-post__meta-value"><?php echo esc_html( get_the_date() ); ?></span>
                         </div>
@@ -86,7 +86,7 @@ while ( have_posts() ) :
                             <span class="sp-single-post__meta-value">
                                 <?php
                                 printf(
-                                    esc_html( steelplast_t( 'steelplast/news/single', 'read_time_value', '%d minutes' ) ),
+                                    esc_html( steelplast_t( 'steelplast/news/single', 'read_time_value', '%d min' ) ),
                                     (int) $reading_time
                                 );
                                 ?>

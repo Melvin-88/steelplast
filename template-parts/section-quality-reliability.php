@@ -9,18 +9,18 @@
 // Same image for every language — always read from the default-language post
 $image = steelplast_get_field_default_lang( 'quality_reliability_image' );
 
-$title = steelplast_t( 'steelplast/quality/reliability', 'title', 'Reliability built into every product' );
+$title = steelplast_t( 'steelplast/quality/reliability', 'title', 'Reliability in Every Product' );
 
 // Пункт «Довговічність» прибрано за таблицею. Ключі решти лишені як були
 // (bullet_2, bullet_3), щоб не втратити наявні переклади.
 $bullets = [
     [
-        'title' => steelplast_t( 'steelplast/quality/reliability', 'bullet_2_title', 'Compliance with standards' ),
-        'desc'  => steelplast_t( 'steelplast/quality/reliability', 'bullet_2_desc', 'Our products meet national and international technical regulations (DSTU / ISO).' ),
+        'title' => steelplast_t( 'steelplast/quality/reliability', 'bullet_2_title', 'Compliance with Standards' ),
+        'desc'  => steelplast_t( 'steelplast/quality/reliability', 'bullet_2_desc', 'Our products comply with national and international standards (DSTU / ISO).' ),
     ],
     [
-        'title' => steelplast_t( 'steelplast/quality/reliability', 'bullet_3_title', "Manufacturer's warranty" ),
-        'desc'  => steelplast_t( 'steelplast/quality/reliability', 'bullet_3_desc', 'We take full responsibility for every shipped product and provide an official warranty.' ),
+        'title' => steelplast_t( 'steelplast/quality/reliability', 'bullet_3_title', 'Manufacturer\'s Warranty' ),
+        'desc'  => steelplast_t( 'steelplast/quality/reliability', 'bullet_3_desc', 'We take full responsibility for every product we ship and provide an official warranty.' ),
     ],
 ];
 ?>
@@ -42,7 +42,7 @@ $bullets = [
 
             <div class="sp-quality-reliability__text-col">
                 <p class="sp-quality-reliability__intro sp-section-desc">
-                    <?php echo esc_html( steelplast_t( 'steelplast/quality/reliability', 'intro', "We understand that the stability of your operations depends on our components, so we don't compromise on quality." ) ); ?>
+                    <?php echo esc_html( steelplast_t( 'steelplast/quality/reliability', 'intro', 'We understand that the stability of your production depends on our components, which is why we never compromise on quality.' ) ); ?>
                 </p>
                 <ul class="sp-quality-reliability__bullets">
                     <?php foreach ( $bullets as $bullet ) : ?>

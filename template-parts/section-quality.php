@@ -18,20 +18,20 @@ $label_index = $args['label_index'] ?? '[03]';
 // "Zero-Defect Policy"), and never falls back to an empty placeholder.
 $cards = [
     [
-        'title' => steelplast_t( 'steelplast/quality/cards', 'card_2_title', 'ISO 9001 Certified' ),
-        'desc'  => steelplast_t( 'steelplast/quality/cards', 'card_2_desc',  'Confirmed quality management system ensuring consistent product excellence.' ),
+        'title' => steelplast_t( 'steelplast/quality/cards', 'card_2_title', 'ISO 9001 Certification' ),
+        'desc'  => steelplast_t( 'steelplast/quality/cards', 'card_2_desc',  'A certified quality management system that ensures consistently excellent products.' ),
         // Medal / rosette — certification seal
         'icon'  => '<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M14 8.3l1.1 2.3 2.5.4-1.8 1.8.4 2.5-2.2-1.2-2.2 1.2.4-2.5-1.8-1.8 2.5-.4L14 8.3z" fill="currentColor"/><path d="M10.5 17.3l-1.5 6.7 5-2.5 5 2.5-1.5-6.7" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
     ],
     [
-        'title' => steelplast_t( 'steelplast/quality/cards', 'card_3_title', '6-Stage Control' ),
-        'desc'  => steelplast_t( 'steelplast/quality/cards', 'card_3_desc',  'Multi-step inspection from raw material intake to finished product shipment.' ),
+        'title' => steelplast_t( 'steelplast/quality/cards', 'card_3_title', '6-Stage Inspection' ),
+        'desc'  => steelplast_t( 'steelplast/quality/cards', 'card_3_desc',  'Multi-stage inspection from raw material intake to shipment of finished products.' ),
         // Ascending bars — staged process
         'icon'  => '<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 21h6v-4H4v4zM11 21h6v-9h-6v9zM18 21h6v-14h-6v14z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>',
     ],
     [
         'title' => steelplast_t( 'steelplast/quality/cards', 'card_4_title', 'Zero-Defect Policy' ),
-        'desc'  => steelplast_t( 'steelplast/quality/cards', 'card_4_desc',  'Numerous client awards for outstanding quality and exceptional production results.' ),
+        'desc'  => steelplast_t( 'steelplast/quality/cards', 'card_4_desc',  'Numerous awards from clients for high quality and excellent production results.' ),
         // Trophy — awards and recognition
         'icon'  => '<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 4h10v6a5 5 0 0 1-10 0V4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 6H6a3 3 0 0 0 3 5M19 6h3a3 3 0 0 1-3 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M14 15v3M10 22h8M11 22c0-2 1-3 3-3s3 1 3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     ],
@@ -46,15 +46,15 @@ $cards = [
             <div class="sp-quality__left" data-sp-animate>
                 <p class="sp-section-label sp-section-label--light-bg">
                     <span class="sp-section-label__index" aria-hidden="true"><?php echo esc_html( $label_index ); ?></span>
-                    <?php echo esc_html( steelplast_t( 'steelplast/quality/header', 'label', 'Quality of products' ) ); ?>
+                    <?php echo esc_html( steelplast_t( 'steelplast/quality/header', 'label', 'Product Quality' ) ); ?>
                 </p>
 
                 <h2 class="sp-quality__title sp-section-title" id="sp-quality-title">
-                    <?php echo esc_html( steelplast_t( 'steelplast/quality/header', 'title', 'Quality is not a separate stage. It is the basis of everything we make.' ) ); ?>
+                    <?php echo esc_html( steelplast_t( 'steelplast/quality/header', 'title', 'Quality is not a separate stage. It is the foundation of everything we make.' ) ); ?>
                 </h2>
 
                 <p class="sp-quality__desc sp-section-desc">
-                    <?php echo esc_html( steelplast_t( 'steelplast/quality/header', 'desc', 'In accordance with IATF and ISO 9001 standards. Numerous client awards for Outstanding Quality and exceptional production results.' ) ); ?>
+                    <?php echo esc_html( steelplast_t( 'steelplast/quality/header', 'desc', 'We don\'t rely on random sampling: our quality is confirmed by certification and checked at every stage of production.' ) ); ?>
                 </p>
 
                 <?php if ( $quality_url ) : ?>
@@ -70,7 +70,7 @@ $cards = [
             </div>
 
             <div class="sp-quality__grid" role="list" data-sp-animate-group
-                 aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/quality/cards', 'grid_aria', 'Quality certifications' ) ); ?>">
+                 aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/quality/cards', 'grid_aria', 'Quality certificates' ) ); ?>">
 
                 <?php foreach ( $cards as $card ) : ?>
                 <article class="sp-quality__card" role="listitem" data-sp-animate>

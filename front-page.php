@@ -15,13 +15,13 @@ if ( ! $video_url ) {
 }
 
 $hero_title       = steelplast_t( 'steelplast/home/hero', 'title',       'Design Manufacture Scale' );
-$hero_description = steelplast_t( 'steelplast/home/hero', 'description', 'Steel Plast takes on the whole route — from concept to series production, whatever the complexity or scale.' );
+$hero_description = steelplast_t( 'steelplast/home/hero', 'description', 'Steel Plast takes care of the entire journey — from concept to series production, whatever the complexity or scale.' );
 
 // Figures come from the admin and grow on their own; see steelplast_hero_stat().
 $stat_labels = [
     1 => steelplast_t( 'steelplast/home/hero', 'stat_1_label', 'Plastic parts manufactured' ),
     2 => steelplast_t( 'steelplast/home/hero', 'stat_2_label', 'Metal parts manufactured' ),
-    3 => steelplast_t( 'steelplast/home/hero', 'stat_3_label', 'Projects delivered in 2025/2026' ),
+    3 => steelplast_t( 'steelplast/home/hero', 'stat_3_label', 'Projects completed in 2025/2026' ),
 ];
 
 $stats = [];
@@ -35,7 +35,7 @@ foreach ( $stat_labels as $i => $label ) {
 
 <main id="primary" class="sp-main">
 
-    <section class="sp-hero" aria-label="<?php esc_attr_e( 'Hero section', 'steelplast' ); ?>">
+    <section class="sp-hero" aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/home/hero', 'section_aria', 'Introduction' ) ); ?>">
 
         <video
             class="sp-hero__video"
@@ -57,14 +57,15 @@ foreach ( $stat_labels as $i => $label ) {
                 <p class="sp-hero__description"><?php echo esc_html( $hero_description ); ?></p>
             </div>
 
-            <div class="sp-hero__stats" aria-label="<?php esc_attr_e( 'Key statistics', 'steelplast' ); ?>">
+            <div class="sp-hero__stats" aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/home/hero', 'stats_aria', 'Key figures' ) ); ?>">
                 <?php foreach ( $stats as $stat ) : ?>
                     <div class="sp-hero__stat">
                         <?php // The final figure is in the markup, so it is correct without JS. ?>
                         <span class="sp-hero__stat-value"
                             data-sp-count="<?php echo esc_attr( $stat['value'] ); ?>"
                             data-sp-count-decimals="<?php echo esc_attr( $stat['decimals'] ); ?>"
-                            data-sp-count-suffix="<?php echo esc_attr( $stat['suffix'] ); ?>"
+                            data-sp-count-unit="<?php echo esc_attr( $stat['unit'] ); ?>"
+                            data-sp-count-point="<?php echo esc_attr( $stat['point'] ); ?>"
                         ><?php echo esc_html( $stat['text'] ); ?></span>
                         <span class="sp-hero__stat-divider" aria-hidden="true"></span>
                         <span class="sp-hero__stat-label"><?php echo esc_html( $stat['label'] ); ?></span>

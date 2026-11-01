@@ -9,7 +9,7 @@
 // Same image/files for every language — always read from the default-language post
 $image = steelplast_get_field_default_lang( 'quality_cert_image' );
 
-$title         = steelplast_t( 'steelplast/quality/certification', 'title', 'Quality assurance: ISO certification' );
+$title         = steelplast_t( 'steelplast/quality/certification', 'title', 'Quality Assurance: ISO Certification' );
 $download_label = steelplast_t( 'steelplast/quality/certification', 'download_label', 'Download file' );
 
 $downloads = [];
@@ -24,7 +24,7 @@ if ( ! empty( $file_1['url'] ) ) {
 $file_2 = steelplast_get_field_default_lang( 'quality_cert_file_2' );
 if ( ! empty( $file_2['url'] ) ) {
     $downloads[] = [
-        'label' => steelplast_t( 'steelplast/quality/certification', 'file_2_label', 'Technical specifications and quality passports' ),
+        'label' => steelplast_t( 'steelplast/quality/certification', 'file_2_label', 'Technical specifications and quality certificates' ),
         'url'   => $file_2['url'],
     ];
 }
@@ -42,7 +42,7 @@ if ( ! empty( $file_2['url'] ) ) {
                 <?php echo esc_html( $title ); ?>
             </h2>
             <p class="sp-quality-cert__desc sp-section-desc">
-                <?php echo esc_html( steelplast_t( 'steelplast/quality/certification', 'desc', 'We confirm our high standard of management and production safety not just in words, but in practice. Steel Plast regularly undergoes independent audits to ensure compliance with strict global regulations.' ) ); ?>
+                <?php echo esc_html( steelplast_t( 'steelplast/quality/certification', 'desc', 'We demonstrate a high standard of management and production safety not just in words but in practice. Steel Plast regularly undergoes independent audits for compliance with strict international standards.' ) ); ?>
             </p>
 
             <?php if ( $downloads ) : ?>

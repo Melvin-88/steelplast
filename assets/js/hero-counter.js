@@ -19,8 +19,10 @@
         window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduceMotion || !window.requestAnimationFrame) return;
 
-    function render(el, value, decimals, suffix) {
-        el.textContent = value.toFixed(decimals) + suffix;
+    // Same output as steelplast_hero_stat() in PHP: the unit pattern and the
+    // decimal mark come from the server, so "10,9 Mio." animates as itself.
+    function format(value, decimals, unit, point) {
+        return unit.replace('%s', value.toFixed(decimals).replace('.', point));
     }
 
     function run(el) {
@@ -28,13 +30,18 @@
         if (isNaN(target)) return;
 
         var decimals = parseInt(el.getAttribute('data-sp-count-decimals'), 10) || 0;
-        var suffix = el.getAttribute('data-sp-count-suffix') || '';
+        var unit = el.getAttribute('data-sp-count-unit') || '%s';
+        var point = el.getAttribute('data-sp-count-point') || '.';
         var started = null;
 
-        // Screen readers get the final value once, not every frame.
-        el.setAttribute('aria-label', target.toFixed(decimals) + suffix);
+        function render(value) {
+            el.textContent = format(value, decimals, unit, point);
+        }
 
-        render(el, 0, decimals, suffix);
+        // Screen readers get the final value once, not every frame.
+        el.setAttribute('aria-label', format(target, decimals, unit, point));
+
+        render(0);
 
         function step(now) {
             if (started === null) started = now;
@@ -42,12 +49,12 @@
             var progress = Math.min((now - started) / DURATION, 1);
             var eased = 1 - Math.pow(1 - progress, 3);
 
-            render(el, target * eased, decimals, suffix);
+            render(target * eased);
 
             if (progress < 1) {
                 requestAnimationFrame(step);
             } else {
-                render(el, target, decimals, suffix);
+                render(target);
             }
         }
 

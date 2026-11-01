@@ -35,7 +35,7 @@ $specs_cards = [
         'blocks'   => [
             [
                 'type'    => 'group',
-                'heading' => steelplast_t( $ctx, 'card_2_group_1_title', 'Separating operations' ),
+                'heading' => steelplast_t( $ctx, 'card_2_group_1_title', 'Cutting operations' ),
                 'items'   => [
                     steelplast_t( $ctx, 'card_2_group_1_item_1', 'Blanking' ),
                     steelplast_t( $ctx, 'card_2_group_1_item_2', 'Piercing' ),
@@ -60,13 +60,13 @@ $specs_cards = [
             [
                 'type'  => 'stat',
                 'value' => '100',
-                'suffix' => steelplast_t( $ctx, 'card_3_stat_suffix', 'tons' ),
-                'label' => steelplast_t( $ctx, 'card_3_stat_label', 'Maximum pressing force' ),
+                'suffix' => steelplast_t( $ctx, 'card_3_stat_suffix', 't' ),
+                'label' => steelplast_t( $ctx, 'card_3_stat_label', 'Maximum press force' ),
             ],
             [
                 'type'  => 'bullets',
                 'items' => [
-                    steelplast_t( $ctx, 'card_3_item_1', 'Crank pneumatic presses' ),
+                    steelplast_t( $ctx, 'card_3_item_1', 'Pneumatic crank presses' ),
                     steelplast_t( $ctx, 'card_3_item_2', 'Incoming material inspection' ),
                     steelplast_t( $ctx, 'card_3_item_3', 'Die wear monitoring' ),
                     steelplast_t( $ctx, 'card_3_item_4', 'First-article inspection' ),
@@ -82,14 +82,14 @@ $specs_cards = [
                 'type'   => 'stat',
                 'value'  => '5',
                 'suffix' => steelplast_t( $ctx, 'card_4_stat_suffix', 'business days' ),
-                'label'  => steelplast_t( $ctx, 'card_4_stat_label', 'Production starts from' ),
+                'label'  => steelplast_t( $ctx, 'card_4_stat_label', 'Minimum lead time' ),
             ],
             [
                 'type'  => 'badges',
-                'label' => steelplast_t( $ctx, 'card_4_badges_label', 'We accept files in:' ),
+                'label' => steelplast_t( $ctx, 'card_4_badges_label', 'Accepted file formats:' ),
             ],
         ],
-        'note' => steelplast_t( $ctx, 'card_4_note', 'No drawing yet? Our engineers can help prepare documentation and a 3D model for production.' ),
+        'note' => steelplast_t( $ctx, 'card_4_note', 'No drawing? Our engineers will help prepare the documentation and a 3D model for production.' ),
     ],
 ];
 ?>
@@ -105,10 +105,10 @@ $specs_cards = [
 
     <?php
     get_template_part( 'template-parts/section-service-specs', null, [
-        'label'  => steelplast_t( 'steelplast/service-metal-stamping/specs', 'label', 'Technical Parameters' ),
-        'title'  => steelplast_t( 'steelplast/service-metal-stamping/specs', 'title', 'Steel Plast delivers a full cycle of metal stamping — from your drawing to a finished part' ),
+        'label'  => steelplast_t( 'steelplast/service-metal-stamping/specs', 'label', 'Technical Specifications' ),
+        'title'  => steelplast_t( 'steelplast/service-metal-stamping/specs', 'title', 'Steel Plast delivers the full cycle of metal stamping — from your drawing to the finished part' ),
         'desc'   => [
-            steelplast_t( 'steelplast/service-metal-stamping/specs', 'desc_2', 'Stamping forms sheet metal into finished parts using dedicated tooling — dies mounted on crank presses. It is one of the fastest and most cost-effective ways to produce parts in series.' ),
+            steelplast_t( 'steelplast/service-metal-stamping/specs', 'desc_2', 'Stamping forms sheet metal into finished parts using dedicated tooling — dies mounted on crank presses. It is one of the fastest and most cost-effective methods of series production.' ),
         ],
         'cards'  => $specs_cards,
     ] );
@@ -118,20 +118,20 @@ $specs_cards = [
     get_template_part( 'template-parts/section-service-content', null, [
         'label'  => steelplast_t( 'steelplast/service-metal-stamping/content', 'label', 'Cutting & Forming' ),
         'title'  => steelplast_t( 'steelplast/service-metal-stamping/content', 'title', 'Sheet Metal Cutting and Forming Services' ),
-        'intro'  => steelplast_t( 'steelplast/service-metal-stamping/content', 'intro', 'Steel Plast operates a fleet of stamping presses for cutting and forming sheet metal parts — from small brackets to structural components. Depending on what the customer needs, we can make a dedicated die or run a die supplied by the client.' ),
+        'intro'  => steelplast_t( 'steelplast/service-metal-stamping/content', 'intro', 'Steel Plast operates a fleet of stamping presses for cutting and forming sheet metal parts — from small brackets to structural components. Depending on the customer\'s needs, we can build a dedicated die or use a die supplied by the client.' ),
         'topics' => [
             [
                 'heading'    => steelplast_t( 'steelplast/service-metal-stamping/content', 'topic_1_heading', 'Sheet Metal Cutting' ),
                 'paragraphs' => [
-                    steelplast_t( 'steelplast/service-metal-stamping/content', 'topic_1_p1', 'Blanking and piercing separate the part outline from the sheet metal strip and create internal features — holes, slots, and cutouts — in a single stroke of the press. This process is fast and repeatable, making it ideal for both prototype runs and high-volume production of flat components.' ),
-                    steelplast_t( 'steelplast/service-metal-stamping/content', 'topic_1_p2', 'We also perform trimming and shearing to finish part edges to the exact profile specified in your drawing, keeping burr height and edge quality consistent across the full production batch.' ),
+                    steelplast_t( 'steelplast/service-metal-stamping/content', 'topic_1_p1', 'Blanking and piercing separate the part contour from the sheet metal strip and form internal features — holes, slots and cutouts — in a single press stroke. The process is fast and repeatable, making it ideal for both prototype runs and high-volume production of flat parts.' ),
+                    steelplast_t( 'steelplast/service-metal-stamping/content', 'topic_1_p2', 'We also perform trimming and edge cutting to bring the part profile to the exact drawing specifications, keeping burr height and edge quality consistent across the entire production batch.' ),
                 ],
             ],
             [
                 'heading'    => steelplast_t( 'steelplast/service-metal-stamping/content', 'topic_2_heading', 'Sheet Metal Forming' ),
                 'paragraphs' => [
-                    steelplast_t( 'steelplast/service-metal-stamping/content', 'topic_2_p1', 'Bending reshapes flat blanks into brackets, channels, and enclosures, while deep drawing forms sheet metal into cylinders, housings, and other three-dimensional shapes without cutting the material.' ),
-                    steelplast_t( 'steelplast/service-metal-stamping/content', 'topic_2_p2', 'Embossing adds ribs, louvers, and other reinforcing features directly into the sheet, increasing part stiffness without extra material or a separate assembly step.' ),
+                    steelplast_t( 'steelplast/service-metal-stamping/content', 'topic_2_p1', 'Bending turns flat blanks into brackets, channels and enclosures, while deep drawing forms sheet metal into cylinders, housings and other three-dimensional shapes without cutting the material.' ),
+                    steelplast_t( 'steelplast/service-metal-stamping/content', 'topic_2_p2', 'Embossing adds stiffening ribs, louvers and other reinforcing features directly into the sheet, increasing part rigidity without additional material or a separate assembly step.' ),
                 ],
             ],
         ],

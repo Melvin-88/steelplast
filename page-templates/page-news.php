@@ -48,7 +48,7 @@ $base_url = get_permalink();
         <div class="content-wrapper">
 
             <?php if ( ! empty( $categories ) ) : ?>
-                <nav class="sp-news-archive__filter" data-sp-animate aria-label="<?php esc_attr_e( 'Filter by category', 'steelplast' ); ?>">
+                <nav class="sp-news-archive__filter" data-sp-animate aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/news/archive', 'filter_aria', 'Filter by category' ) ); ?>">
                     <span class="sp-news-archive__filter-label">
                         <?php echo esc_html( steelplast_t( 'steelplast/news/archive', 'filter_label', 'Categories' ) ); ?>
                     </span>
@@ -80,7 +80,7 @@ $base_url = get_permalink();
                 </div>
 
                 <?php if ( $news_query->max_num_pages > 1 ) : ?>
-                    <nav class="sp-news-archive__pagination" aria-label="<?php esc_attr_e( 'Posts navigation', 'steelplast' ); ?>">
+                    <nav class="sp-news-archive__pagination" aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/news/archive', 'pagination_aria', 'Article navigation' ) ); ?>">
                         <?php
                         echo paginate_links( [
                             'base'      => add_query_arg(
@@ -103,7 +103,7 @@ $base_url = get_permalink();
             <?php else : ?>
 
                 <p class="sp-news-archive__empty">
-                    <?php echo esc_html( steelplast_t( 'steelplast/news/archive', 'archive_empty', 'No articles yet. Check back soon.' ) ); ?>
+                    <?php echo esc_html( steelplast_t( 'steelplast/news/archive', 'archive_empty', 'No articles yet. Check back later.' ) ); ?>
                 </p>
 
             <?php endif; ?>

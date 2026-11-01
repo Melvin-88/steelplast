@@ -29,11 +29,11 @@ $ctx = 'steelplast/service-cnc-machining/specs';
 $file_formats = [ 'STEP', 'PDF', 'x_t' ];
 
 $label_index = $args['label_index'] ?? '[01]';
-$label       = $args['label']       ?? steelplast_t( $ctx, 'label', 'Technical Parameters' );
-$title       = $args['title']       ?? steelplast_t( $ctx, 'title', "Steel Plast delivers a full cycle of CNC metal machining — from your drawing to a finished part" );
+$label       = $args['label']       ?? steelplast_t( $ctx, 'label', 'Technical Specifications' );
+$title       = $args['title']       ?? steelplast_t( $ctx, 'title', 'Steel Plast delivers the full cycle of CNC metal machining — from your drawing to the finished part' );
 $desc        = $args['desc']        ?? [
-    steelplast_t( $ctx, 'desc_1', 'We work with both one-off orders and serial production, keeping quality consistent at every stage.' ),
-    steelplast_t( $ctx, 'desc_2', 'CNC metal machining relies on computer numerical control — the foundation of modern precision manufacturing. Alongside proven turning and milling processes, we maintain a stable process, tight tolerances, and a skilled team capable of machining parts of complex geometry.' ),
+    steelplast_t( $ctx, 'desc_1', 'We handle both one-off orders and series production, keeping quality consistent at every stage.' ),
+    steelplast_t( $ctx, 'desc_2', 'CNC metal machining is based on computer numerical control — the foundation of modern precision manufacturing. Alongside proven turning and milling processes, we ensure a stable process and tight tolerances, backed by a team capable of machining parts with complex geometry.' ),
 ];
 
 $cards = $args['cards'] ?? [
@@ -54,7 +54,7 @@ $cards = $args['cards'] ?? [
                 ],
             ],
         ],
-        'note' => steelplast_t( $ctx, 'card_1_note', 'Parts from Ø0.5 mm.' ),
+        'note' => steelplast_t( $ctx, 'card_1_note', 'Part diameters from 0.5 mm.' ),
     ],
     [
         'title'    => steelplast_t( $ctx, 'card_2_title', 'Machining Types' ),
@@ -64,17 +64,17 @@ $cards = $args['cards'] ?? [
                 'type'    => 'group',
                 'heading' => steelplast_t( $ctx, 'card_2_group_1_title', 'Turning' ),
                 'items'   => [
-                    steelplast_t( $ctx, 'card_2_group_1_item_1', 'OD & ID turning' ),
+                    steelplast_t( $ctx, 'card_2_group_1_item_1', 'External and internal turning' ),
                     steelplast_t( $ctx, 'card_2_group_1_item_2', 'Threading' ),
-                    steelplast_t( $ctx, 'card_2_group_1_item_3', 'Grooving & parting' ),
+                    steelplast_t( $ctx, 'card_2_group_1_item_3', 'Grooving and parting off' ),
                 ],
             ],
             [
                 'type'    => 'group',
                 'heading' => steelplast_t( $ctx, 'card_2_group_2_title', 'Milling' ),
                 'items'   => [
-                    steelplast_t( $ctx, 'card_2_group_2_item_1', 'Facing' ),
-                    steelplast_t( $ctx, 'card_2_group_2_item_2', 'Slotting & pocketing' ),
+                    steelplast_t( $ctx, 'card_2_group_2_item_1', 'Face milling' ),
+                    steelplast_t( $ctx, 'card_2_group_2_item_2', 'Slot and pocket milling' ),
                     steelplast_t( $ctx, 'card_2_group_2_item_3', 'Complex contours' ),
                     steelplast_t( $ctx, 'card_2_group_2_item_4', '3D milling' ),
                 ],
@@ -87,16 +87,16 @@ $cards = $args['cards'] ?? [
         'blocks'   => [
             [
                 'type'  => 'stat',
-                'value' => '±0.005 mm',
+                'value' => steelplast_t( $ctx, 'card_3_stat_value', '±0.005 mm' ),
                 'label' => steelplast_t( $ctx, 'card_3_stat_label', 'Machining tolerance' ),
             ],
             [
                 'type'  => 'bullets',
                 'items' => [
                     steelplast_t( $ctx, 'card_3_item_1', 'Incoming material inspection' ),
-                    steelplast_t( $ctx, 'card_3_item_2', 'Part geometry control' ),
+                    steelplast_t( $ctx, 'card_3_item_2', 'Part geometry inspection' ),
                     steelplast_t( $ctx, 'card_3_item_3', 'Calibrated tooling' ),
-                    steelplast_t( $ctx, 'card_3_item_4', 'Optical measuring devices' ),
+                    steelplast_t( $ctx, 'card_3_item_4', 'Optical measuring instruments' ),
                 ],
             ],
         ],
@@ -109,14 +109,14 @@ $cards = $args['cards'] ?? [
                 'type'   => 'stat',
                 'value'  => steelplast_t( $ctx, 'card_4_stat_value', 'from 2' ),
                 'suffix' => steelplast_t( $ctx, 'card_4_stat_suffix', 'weeks' ),
-                'label'  => steelplast_t( $ctx, 'card_4_stat_label', 'Project start' ),
+                'label'  => steelplast_t( $ctx, 'card_4_stat_label', 'Project launch' ),
             ],
             [
                 'type'  => 'badges',
-                'label' => steelplast_t( $ctx, 'card_4_badges_label', 'We accept files in:' ),
+                'label' => steelplast_t( $ctx, 'card_4_badges_label', 'Accepted file formats:' ),
             ],
         ],
-        'note' => steelplast_t( $ctx, 'card_4_note', "No drawing yet? Our engineers can help prepare documentation and a 3D model for production." ),
+        'note' => steelplast_t( $ctx, 'card_4_note', 'No drawing? Our engineers will help prepare the documentation and a 3D model for production.' ),
     ],
 ];
 ?>

@@ -6,7 +6,7 @@
  * @package SteelPlast
  */
 
-$label = steelplast_t( 'steelplast/about/advantages', 'label', 'Our advantages' );
+$label = steelplast_t( 'steelplast/about/advantages', 'label', 'Our Advantages' );
 $title = steelplast_t(
     'steelplast/about/advantages',
     'title',
@@ -15,35 +15,35 @@ $title = steelplast_t(
 
 $cards = [
     [
-        'title' => steelplast_t( 'steelplast/about/advantages-cards', 'card_1_title', 'Full production cycle' ),
-        'desc'  => steelplast_t( 'steelplast/about/advantages-cards', 'card_1_desc', 'We perform the full range of work — from engineering design and documentation to manufacturing the finished product.' ),
+        'title' => steelplast_t( 'steelplast/about/advantages-cards', 'card_1_title', 'Full Production Cycle' ),
+        'desc'  => steelplast_t( 'steelplast/about/advantages-cards', 'card_1_desc', 'We carry out the full scope of work — from engineering design and documentation to manufacturing the finished product.' ),
     ],
     [
-        'title' => steelplast_t( 'steelplast/about/advantages-cards', 'card_2_title', 'Modern equipment' ),
-        'desc'  => steelplast_t( 'steelplast/about/advantages-cards', 'card_2_desc', 'We use high-precision machinery and technology that ensure stable quality and accuracy of every part.' ),
+        'title' => steelplast_t( 'steelplast/about/advantages-cards', 'card_2_title', 'Modern Equipment' ),
+        'desc'  => steelplast_t( 'steelplast/about/advantages-cards', 'card_2_desc', 'We use high-precision equipment and technologies that ensure consistent quality and accuracy for every part.' ),
     ],
     [
-        'title' => steelplast_t( 'steelplast/about/advantages-cards', 'card_3_title', 'Experienced team' ),
-        'desc'  => steelplast_t( 'steelplast/about/advantages-cards', 'card_3_desc', 'Every project is handled by qualified engineers, designers and technologists with years of experience.' ),
+        'title' => steelplast_t( 'steelplast/about/advantages-cards', 'card_3_title', 'Experienced Team' ),
+        'desc'  => steelplast_t( 'steelplast/about/advantages-cards', 'card_3_desc', 'Every project is handled by qualified engineers, design engineers and process engineers with many years of experience.' ),
     ],
     [
-        'title' => steelplast_t( 'steelplast/about/advantages-cards', 'card_4_title', 'Individual approach' ),
+        'title' => steelplast_t( 'steelplast/about/advantages-cards', 'card_4_title', 'Tailored Approach' ),
         'desc'  => steelplast_t( 'steelplast/about/advantages-cards', 'card_4_desc', 'We develop solutions that take into account technical requirements, production specifics and the client\'s goals.' ),
     ],
     [
-        'title' => steelplast_t( 'steelplast/about/advantages-cards', 'card_5_title', 'Quality control' ),
-        'desc'  => steelplast_t( 'steelplast/about/advantages-cards', 'card_5_desc', 'We inspect products at every stage of production, guaranteeing compliance with technical standards.' ),
+        'title' => steelplast_t( 'steelplast/about/advantages-cards', 'card_5_title', 'Quality Control' ),
+        'desc'  => steelplast_t( 'steelplast/about/advantages-cards', 'card_5_desc', 'We carry out quality control at every stage of production, guaranteeing compliance with technical standards.' ),
     ],
     [
-        'title' => steelplast_t( 'steelplast/about/advantages-cards', 'card_6_title', 'Flexible production' ),
-        'desc'  => steelplast_t( 'steelplast/about/advantages-cards', 'card_6_desc', 'We work with single orders and prototypes as well as with large-scale serial batches.' ),
+        'title' => steelplast_t( 'steelplast/about/advantages-cards', 'card_6_title', 'Flexible Production' ),
+        'desc'  => steelplast_t( 'steelplast/about/advantages-cards', 'card_6_desc', 'We handle one-off orders and prototypes as well as large production runs.' ),
     ],
     [
-        'title' => steelplast_t( 'steelplast/about/advantages-cards', 'card_7_title', 'On-time delivery' ),
-        'desc'  => steelplast_t( 'steelplast/about/advantages-cards', 'card_7_desc', 'Optimized production processes allow us to complete orders within agreed deadlines without any loss of quality.' ),
+        'title' => steelplast_t( 'steelplast/about/advantages-cards', 'card_7_title', 'On-Time Delivery' ),
+        'desc'  => steelplast_t( 'steelplast/about/advantages-cards', 'card_7_desc', 'Optimized production processes allow us to complete orders within the agreed deadlines without compromising quality.' ),
     ],
     [
-        'title' => steelplast_t( 'steelplast/about/advantages-cards', 'card_8_title', 'Reliable partnership' ),
+        'title' => steelplast_t( 'steelplast/about/advantages-cards', 'card_8_title', 'Reliable Partnership' ),
         'desc'  => steelplast_t( 'steelplast/about/advantages-cards', 'card_8_desc', 'We build long-term relationships with clients, ensuring open communication and a responsible approach to every project.' ),
     ],
 ];

@@ -26,22 +26,22 @@ get_header();
         'label'       => steelplast_t( 'steelplast/quality/steps', 'label', 'Quality Management System' ),
         'title'       => steelplast_t( 'steelplast/quality/steps', 'title', "Our quality management system\ncovers the entire product lifecycle" ),
         'desc'        => [
-            steelplast_t( 'steelplast/quality/steps', 'desc_1', 'We have structured our approach so that quality is controlled at every stage — from raw material intake to the finished, shipped product.' ),
+            steelplast_t( 'steelplast/quality/steps', 'desc_1', 'We have built our approach so that quality is controlled at every stage, from raw material intake to finished, shipped products.' ),
         ],
         'steps' => [
             [
                 'tag'   => steelplast_t( 'steelplast/quality/steps', 'step_1_tag', '01' ),
-                'title' => steelplast_t( 'steelplast/quality/steps', 'step_1_title', 'Unified processing control' ),
-                'text'  => steelplast_t( 'steelplast/quality/steps', 'step_1_text', 'Every processing stage is monitored under a single quality control protocol, from raw material to finished part.' ),
+                'title' => steelplast_t( 'steelplast/quality/steps', 'step_1_title', 'Unified Process Control' ),
+                'text'  => steelplast_t( 'steelplast/quality/steps', 'step_1_text', 'Every processing stage is controlled under a single quality control protocol, from raw material to finished part.' ),
             ],
             [
                 'tag'   => steelplast_t( 'steelplast/quality/steps', 'step_2_tag', '02' ),
-                'title' => steelplast_t( 'steelplast/quality/steps', 'step_2_title', 'Dedicated controller' ),
-                'text'  => steelplast_t( 'steelplast/quality/steps', 'step_2_text', 'A dedicated quality controller is assigned to each production batch, ensuring full accountability.' ),
+                'title' => steelplast_t( 'steelplast/quality/steps', 'step_2_title', 'Dedicated Inspector' ),
+                'text'  => steelplast_t( 'steelplast/quality/steps', 'step_2_text', 'A dedicated quality inspector is assigned to each production batch, ensuring full accountability.' ),
             ],
             [
                 'tag'   => steelplast_t( 'steelplast/quality/steps', 'step_3_tag', '03' ),
-                'title' => steelplast_t( 'steelplast/quality/steps', 'step_3_title', 'Careful testing' ),
+                'title' => steelplast_t( 'steelplast/quality/steps', 'step_3_title', 'Thorough Testing' ),
                 'text'  => steelplast_t( 'steelplast/quality/steps', 'step_3_text', 'Finished products undergo thorough testing before shipment to confirm compliance with specifications.' ),
             ],
         ],

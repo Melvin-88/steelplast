@@ -15,29 +15,29 @@ function steelplast_register_contact_strings() {
 
     $ctx = 'steelplast/contacts/hero';
     icl_register_string( $ctx, 'contact_hero_title', 'Still have questions?' );
-    icl_register_string( $ctx, 'contact_hero_desc',  'Leave your request and we will get in touch.' );
+    icl_register_string( $ctx, 'contact_hero_desc',  'Send us a request, and we will get back to you.' );
 
     $ctx = 'steelplast/contacts/form';
     icl_register_string( $ctx, 'contact_form_aria',        'Contact form' );
     icl_register_string( $ctx, 'field_name_placeholder',   'Your name' );
-    icl_register_string( $ctx, 'field_email_placeholder',  'E-mail' );
+    icl_register_string( $ctx, 'field_email_placeholder',  'Email' );
     icl_register_string( $ctx, 'field_phone_placeholder',  'Phone' );
     icl_register_string( $ctx, 'field_or_label',           'or' );
     icl_register_string( $ctx, 'field_comment_placeholder','Your message (optional)' );
     icl_register_string( $ctx, 'submit_label',             'Send request' );
-    icl_register_string( $ctx, 'success_message',          'Thank you! We will contact you soon.' );
+    icl_register_string( $ctx, 'success_message',          'Thank you! We will get back to you shortly.' );
     icl_register_string( $ctx, 'err_name_required',        'Please enter your name' );
-    icl_register_string( $ctx, 'err_email_or_phone',       'Please enter email or phone' );
+    icl_register_string( $ctx, 'err_email_or_phone',       'Please enter an email or phone number' );
     icl_register_string( $ctx, 'err_email_invalid',        'Invalid email address' );
-    icl_register_string( $ctx, 'err_phone_invalid',        'Enter full phone number' );
-    icl_register_string( $ctx, 'err_rate_limit',           'Too many requests. Please wait a moment.' );
-    icl_register_string( $ctx, 'err_send_failed',          'Failed to send email. Please try again later.' );
+    icl_register_string( $ctx, 'err_phone_invalid',        'Please enter a complete phone number' );
+    icl_register_string( $ctx, 'err_rate_limit',           'Too many requests. Please wait a minute.' );
+    icl_register_string( $ctx, 'err_send_failed',          'The message could not be sent. Please try again later.' );
     icl_register_string( $ctx, 'err_server',               'Something went wrong. Please try again.' );
     icl_register_string( $ctx, 'field_files_label',         'Attach files' );
-    icl_register_string( $ctx, 'field_files_hint',          'Optional — up to 3 files, 5 MB each: images, PDF, STEP, x_t, TXT, CSV, Word, Excel' );
-    icl_register_string( $ctx, 'err_files_count',           'You can attach up to 3 files.' );
+    icl_register_string( $ctx, 'field_files_hint',          'Optional — up to 3 files, max. 5 MB each: images, PDF, STEP, x_t, TXT, CSV, Word, Excel' );
+    icl_register_string( $ctx, 'err_files_count',           'You can attach no more than 3 files.' );
     icl_register_string( $ctx, 'err_files_size',            'Files are too large — up to 5 MB each and 10 MB in total.' );
-    icl_register_string( $ctx, 'err_files_type',            'That file type is not accepted.' );
+    icl_register_string( $ctx, 'err_files_type',            'This file type is not accepted.' );
     icl_register_string( $ctx, 'err_files_failed',          'File upload failed. Please try again.' );
 }
 
@@ -161,7 +161,7 @@ function steelplast_contact_collect_uploads() {
     }
 
     if ( count( $picked ) > $rules['max_files'] ) {
-        $out['error'] = steelplast_t( $ctx, 'err_files_count', 'You can attach up to 3 files.' );
+        $out['error'] = steelplast_t( $ctx, 'err_files_count', 'You can attach no more than 3 files.' );
         return $out;
     }
 
@@ -191,7 +191,7 @@ function steelplast_contact_collect_uploads() {
         $ext   = $check['ext'] ?: strtolower( (string) pathinfo( $name, PATHINFO_EXTENSION ) );
 
         if ( empty( $check['ext'] ) && ! steelplast_contact_signature_matches( $tmp, $ext, $rules ) ) {
-            $out['error'] = steelplast_t( $ctx, 'err_files_type', 'That file type is not accepted.' );
+            $out['error'] = steelplast_t( $ctx, 'err_files_type', 'This file type is not accepted.' );
             return $out;
         }
 
@@ -239,7 +239,7 @@ function steelplast_contact_submit() {
     // Rate limit: 1 request per IP per 60 seconds via transient
     $ip_key = 'sp_contact_' . md5( sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ?? '' ) ) );
     if ( get_transient( $ip_key ) ) {
-        wp_send_json_error( array( 'message' => steelplast_t( 'steelplast/contacts/form', 'err_rate_limit', 'Too many requests. Please wait a moment.' ) ), 429 );
+        wp_send_json_error( array( 'message' => steelplast_t( 'steelplast/contacts/form', 'err_rate_limit', 'Too many requests. Please wait a minute.' ) ), 429 );
     }
 
     // Sanitize
@@ -259,7 +259,7 @@ function steelplast_contact_submit() {
     $has_phone    = ! empty( $phone ) && strlen( $phone_digits ) >= 7 && strlen( $phone_digits ) <= 15;
 
     if ( ! $has_email && ! $has_phone ) {
-        wp_send_json_error( array( 'message' => steelplast_t( 'steelplast/contacts/form', 'err_email_or_phone', 'Please enter email or phone' ) ), 422 );
+        wp_send_json_error( array( 'message' => steelplast_t( 'steelplast/contacts/form', 'err_email_or_phone', 'Please enter an email or phone number' ) ), 422 );
     }
 
     // Optional attachments — validated before anything is sent.
@@ -305,7 +305,7 @@ function steelplast_contact_submit() {
         if ( WP_DEBUG && $mail_error_message ) {
             error_log( 'SteelPlast contact form wp_mail failed: ' . $mail_error_message );
         }
-        wp_send_json_error( array( 'message' => steelplast_t( 'steelplast/contacts/form', 'err_send_failed', 'Failed to send email. Please try again later.' ) ), 500 );
+        wp_send_json_error( array( 'message' => steelplast_t( 'steelplast/contacts/form', 'err_send_failed', 'The message could not be sent. Please try again later.' ) ), 500 );
     }
 
     // Set rate limit transient (60 seconds)

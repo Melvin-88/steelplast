@@ -19,7 +19,7 @@ $map_url = steelplast_get_field_default_lang( 'contact_map_url' );
 // Email labels from WPML
 $email_labels = [
     1 => steelplast_t( 'steelplast/contacts/page', 'email_1_label', 'General inquiries and orders' ),
-    2 => steelplast_t( 'steelplast/contacts/page', 'email_2_label', 'Supply department' ),
+    2 => steelplast_t( 'steelplast/contacts/page', 'email_2_label', 'Procurement department' ),
 ];
 
 // Build emails array — skip empty slots
@@ -37,8 +37,8 @@ for ( $i = 1; $i <= 2; $i++ ) {
 
 // Phone labels from WPML
 $phone_labels = [
-    1 => steelplast_t( 'steelplast/contacts/page', 'phone_1_label', 'Sales department (consultations and orders)' ),
-    2 => steelplast_t( 'steelplast/contacts/page', 'phone_2_label', 'Technical department (drawing questions)' ),
+    1 => steelplast_t( 'steelplast/contacts/page', 'phone_1_label', 'General inquiries' ),
+    2 => steelplast_t( 'steelplast/contacts/page', 'phone_2_label', 'Technical department (drawing-related questions)' ),
     3 => steelplast_t( 'steelplast/contacts/page', 'phone_3_label', 'Partner hotline' ),
 ];
 
@@ -56,8 +56,8 @@ for ( $i = 1; $i <= 3; $i++ ) {
 
 // Location — from WPML strings
 $locations = [ [
-    'label'   => steelplast_t( 'steelplast/contacts/page', 'location_label',   'Head office and production' ),
-    'address' => steelplast_t( 'steelplast/contacts/page', 'location_address', "Avtobazivska St., 2/9\nPoltava, 36000\nPoltava region, Ukraine" ),
+    'label'   => steelplast_t( 'steelplast/contacts/page', 'location_label',   'Head office and production facility' ),
+    'address' => steelplast_t( 'steelplast/contacts/page', 'location_address', "2/9 Avtobazivska St.\nPoltava 36000\nPoltava Oblast, Ukraine" ),
 ] ];
 ?>
 
@@ -72,7 +72,7 @@ $locations = [ [
         </div>
     </section>
 
-    <section class="sp-contacts-page__info" aria-label="<?php esc_attr_e( 'Contact information', 'steelplast' ); ?>">
+    <section class="sp-contacts-page__info" aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/page', 'info_aria', 'Contact information' ) ); ?>">
         <div class="content-wrapper">
             <div class="sp-contacts-page__columns" data-sp-animate-group>
 
@@ -119,7 +119,7 @@ $locations = [ [
                 <?php if ( ! empty( $locations ) ) : ?>
                     <div class="sp-contacts-page__col" data-sp-animate>
                         <h2 class="sp-contacts-page__col-title">
-                            <?php echo esc_html( steelplast_t( 'steelplast/contacts/page', 'locations_heading', 'Our locations' ) ); ?>
+                            <?php echo esc_html( steelplast_t( 'steelplast/contacts/page', 'locations_heading', 'Our Locations' ) ); ?>
                         </h2>
                         <ul class="sp-contacts-page__list">
                             <?php foreach ( $locations as $item ) : ?>
@@ -150,7 +150,7 @@ if ( $map_url ) {
 }
 
 if ( $map_url ) : ?>
-        <section class="sp-contacts-page__map" aria-label="<?php esc_attr_e( 'Map', 'steelplast' ); ?>">
+        <section class="sp-contacts-page__map" aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/page', 'map_aria', 'Map' ) ); ?>">
             <div class="content-wrapper" data-sp-animate>
                 <iframe
                     class="sp-contacts-page__map-frame"
@@ -161,7 +161,7 @@ if ( $map_url ) : ?>
                     allowfullscreen=""
                     loading="lazy"
                     referrerpolicy="no-referrer-when-downgrade"
-                    title="<?php esc_attr_e( 'Location map', 'steelplast' ); ?>"
+                    title="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/page', 'map_title', 'Map of our location' ) ); ?>"
                 ></iframe>
             </div>
         </section>

@@ -12,20 +12,20 @@
 $cards = [
     [
         'id'       => 'equipment',
-        'title'    => steelplast_t( 'steelplast/quality/equipment', 'card_1_title', 'Modern equipment fleet' ),
-        'desc'     => steelplast_t( 'steelplast/quality/equipment', 'card_1_desc', 'Production machinery is regularly upgraded to keep pace with the highest manufacturing standards.' ),
+        'title'    => steelplast_t( 'steelplast/quality/equipment', 'card_1_title', 'Modern Equipment Fleet' ),
+        'desc'     => steelplast_t( 'steelplast/quality/equipment', 'card_1_desc', 'Our production equipment is regularly upgraded in line with the highest manufacturing standards.' ),
         'image_id' => steelplast_get_field_default_lang( 'quality_equipment_card_1_image' ) ?: 0,
     ],
     [
         'id'       => 'automation',
-        'title'    => steelplast_t( 'steelplast/quality/equipment', 'card_2_title', 'Process automation' ),
-        'desc'     => steelplast_t( 'steelplast/quality/equipment', 'card_2_desc', 'Automated processes reduce human error and keep quality consistent across every production run.' ),
+        'title'    => steelplast_t( 'steelplast/quality/equipment', 'card_2_title', 'Process Automation' ),
+        'desc'     => steelplast_t( 'steelplast/quality/equipment', 'card_2_desc', 'Automated processes minimize human error and maintain consistent quality in every production batch.' ),
         'image_id' => steelplast_get_field_default_lang( 'quality_equipment_card_2_image' ) ?: 0,
     ],
     [
         'id'       => 'team',
-        'title'    => steelplast_t( 'steelplast/quality/equipment', 'card_3_title', 'Highly qualified team' ),
-        'desc'     => steelplast_t( 'steelplast/quality/equipment', 'card_3_desc', 'Our engineers and operators bring extensive experience in precision manufacturing.' ),
+        'title'    => steelplast_t( 'steelplast/quality/equipment', 'card_3_title', 'Highly Qualified Team' ),
+        'desc'     => steelplast_t( 'steelplast/quality/equipment', 'card_3_desc', 'Our engineers and operators have many years of experience in precision manufacturing.' ),
         'image_id' => steelplast_get_field_default_lang( 'quality_equipment_card_3_image' ) ?: 0,
     ],
 ];
@@ -37,13 +37,13 @@ $cards = [
         <header class="sp-services__header" data-sp-animate>
             <p class="sp-section-label sp-section-label--light-bg">
                 <span class="sp-section-label__index" aria-hidden="true">[01]</span>
-                <?php echo esc_html( steelplast_t( 'steelplast/quality/equipment', 'section_label', 'Professional Quality Control' ) ); ?>
+                <?php echo esc_html( steelplast_t( 'steelplast/quality/equipment', 'section_label', 'Production' ) ); ?>
             </p>
             <h2 id="quality-equipment-title" class="sp-services__title sp-section-title">
-                <?php echo esc_html( steelplast_t( 'steelplast/quality/equipment', 'title', 'Our own modern production facility' ) ); ?>
+                <?php echo esc_html( steelplast_t( 'steelplast/quality/equipment', 'title', 'Our Own Modern Production Facility' ) ); ?>
             </h2>
             <p class="sp-services__description sp-section-desc">
-                <?php echo esc_html( steelplast_t( 'steelplast/quality/equipment', 'description', 'Our own modern production facility allows us to deliver projects of any complexity — from serial products to individual orders built from client drawings.' ) ); ?>
+                <?php echo esc_html( steelplast_t( 'steelplast/quality/equipment', 'description', 'Our own modern production facility allows us to deliver projects of any complexity, from series products to custom orders built to client drawings.' ) ); ?>
             </p>
         </header>
 
