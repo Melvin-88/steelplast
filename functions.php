@@ -497,8 +497,6 @@ function steelplast_register_wpml_strings() {
 
     // -- steelplast/quality/reliability --
     icl_register_string( 'steelplast/quality/reliability', 'title',          'Reliability built into every product' );
-    icl_register_string( 'steelplast/quality/reliability', 'bullet_1_title', 'Longevity' );
-    icl_register_string( 'steelplast/quality/reliability', 'bullet_1_desc',  'Premium raw materials and anti-corrosion technologies guarantee a long service life, even in demanding conditions.' );
     icl_register_string( 'steelplast/quality/reliability', 'bullet_2_title', 'Compliance with standards' );
     icl_register_string( 'steelplast/quality/reliability', 'bullet_2_desc',  'Our products meet national and international technical regulations (DSTU / ISO).' );
     icl_register_string( 'steelplast/quality/reliability', 'bullet_3_title', "Manufacturer's warranty" );
@@ -513,7 +511,7 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/quality/equipment', 'card_2_desc',   'Automated processes reduce human error and keep quality consistent across every production run.' );
     icl_register_string( 'steelplast/quality/equipment', 'card_3_title',  'Highly qualified team' );
     icl_register_string( 'steelplast/quality/equipment', 'card_3_desc',   'Our engineers and operators bring extensive experience in precision manufacturing.' );
-    icl_register_string( 'steelplast/quality/equipment', 'section_label', 'Professional Quality Control' );
+    icl_register_string( 'steelplast/quality/equipment', 'section_label', 'Production' );
     icl_register_string( 'steelplast/quality/equipment', 'title',         'Our own modern production facility' );
     icl_register_string( 'steelplast/quality/equipment', 'description',  'Our own modern production facility allows us to deliver projects of any complexity — from serial products to individual orders built from client drawings.' );
 
@@ -771,7 +769,7 @@ If you can\'t find what you\'re looking for, our team is always ready to help yo
 
     // -- steelplast/faq/list --
     icl_register_string( 'steelplast/faq/list', 'q_1', 'What does Steel Plast manufacture?' );
-    icl_register_string( 'steelplast/faq/list', 'a_1', 'We specialize in the full-cycle production of technical plastic components through injection molding, along with the design and manufacturing of custom injection molds. Our product range covers plastic and metal-plastic parts, packaging, enclosures and components for the automotive, household appliance, electrical, interior and construction industries.' );
+    icl_register_string( 'steelplast/faq/list', 'a_1', 'We specialize in CNC metal machining (turning and milling) and in producing technical plastic parts by injection molding, as well as designing and manufacturing injection molds. We offer machined metal parts, plastic and metal-plastic products, packaging, housings and components for the automotive, industrial, electrical, medical, agricultural, aerospace and construction industries.' );
     icl_register_string( 'steelplast/faq/list', 'q_2', 'Can you manufacture a custom mold for our project?' );
     icl_register_string( 'steelplast/faq/list', 'a_2', 'Yes. We design and manufacture custom injection molds in-house — from 3D modeling and CNC machining to trial shots and fine-tuning — matching the specifications and volumes of your project.' );
     icl_register_string( 'steelplast/faq/list', 'q_3', 'What is the minimum order quantity?' );
@@ -779,7 +777,7 @@ If you can\'t find what you\'re looking for, our team is always ready to help yo
     icl_register_string( 'steelplast/faq/list', 'q_4', 'What clamping force range do your injection molding machines cover?' );
     icl_register_string( 'steelplast/faq/list', 'a_4', 'Our injection molding machines cover a clamping force range from 25 to 800 tons, allowing us to produce parts of different sizes — from small precision components to larger housings and structural parts.' );
     icl_register_string( 'steelplast/faq/list', 'q_5', 'Which materials can you work with?' );
-    icl_register_string( 'steelplast/faq/list', 'a_5', 'We work with a wide range of technical plastics (granules), including polypropylene, ABS, polyamide (PA6, PA66), polycarbonate and their reinforced or filled grades, selected to match your part\'s requirements.' );
+    icl_register_string( 'steelplast/faq/list', 'a_5', 'We work with a broad range of technical plastics (granules): polypropylene (PP), ABS, polyamide (PA6, PA66), polycarbonate (PC), polyethylenes (LDPE, HDPE), TPE / TPU / TPV, PS / HIPS, POM, SAN, PVC, along with their reinforced and filled grades, selected to match your part\'s requirements.' );
     icl_register_string( 'steelplast/faq/list', 'q_6', 'Do you offer overmolding or insert molding?' );
     icl_register_string( 'steelplast/faq/list', 'a_6', 'Yes, we offer overmolding and insert molding, including 2K (two-component) injection, allowing us to combine materials or embed metal inserts directly during the injection cycle.' );
     icl_register_string( 'steelplast/faq/list', 'q_7', 'How do you ensure dimensional stability and low warpage?' );

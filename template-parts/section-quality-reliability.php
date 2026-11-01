@@ -11,11 +11,9 @@ $image = steelplast_get_field_default_lang( 'quality_reliability_image' );
 
 $title = steelplast_t( 'steelplast/quality/reliability', 'title', 'Reliability built into every product' );
 
+// Пункт «Довговічність» прибрано за таблицею. Ключі решти лишені як були
+// (bullet_2, bullet_3), щоб не втратити наявні переклади.
 $bullets = [
-    [
-        'title' => steelplast_t( 'steelplast/quality/reliability', 'bullet_1_title', 'Longevity' ),
-        'desc'  => steelplast_t( 'steelplast/quality/reliability', 'bullet_1_desc', 'Premium raw materials and anti-corrosion technologies guarantee a long service life, even in demanding conditions.' ),
-    ],
     [
         'title' => steelplast_t( 'steelplast/quality/reliability', 'bullet_2_title', 'Compliance with standards' ),
         'desc'  => steelplast_t( 'steelplast/quality/reliability', 'bullet_2_desc', 'Our products meet national and international technical regulations (DSTU / ISO).' ),
