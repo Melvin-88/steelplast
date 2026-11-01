@@ -55,7 +55,7 @@ $specs_cards = [
         'blocks'   => [
             [
                 'type'  => 'stat',
-                'value' => '±0.05 mm',
+                'value' => steelplast_t( $ctx, 'card_3_stat_value', '±0.05 mm' ),
                 'label' => steelplast_t( $ctx, 'card_3_stat_label', 'Molding tolerance' ),
             ],
             [

@@ -87,7 +87,7 @@ $cards = $args['cards'] ?? [
         'blocks'   => [
             [
                 'type'  => 'stat',
-                'value' => '±0.005 mm',
+                'value' => steelplast_t( $ctx, 'card_3_stat_value', '±0.005 mm' ),
                 'label' => steelplast_t( $ctx, 'card_3_stat_label', 'Machining tolerance' ),
             ],
             [

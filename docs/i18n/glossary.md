@@ -18,6 +18,12 @@
 | Розміри | 250×200 mm | 250×200 mm | 250×200 mm |
 | Назва компанії | Steel Plast | Steel Plast | Steel Plast |
 | Тонни (зусилля пресів і машин) | t, у тексті metric tons | t, у тексті Tonnen | t, у тексті ton |
+| Тире в реченні | — | – (з пробілами) | – (з пробілами) |
+| Кнопки | наказовий спосіб | наказовий спосіб або інфінітив («Anfrage senden») | наказовий спосіб («Wyślij zapytanie») — так прийнято в польських інтерфейсах |
+| Адреса | 2/9 Avtobazivska St., Poltava | Avtobazivska-Straße 2/9, 36000 Poltawa | ul. Avtobazivska 2/9, 36000 Połtawa |
+
+Місто пишеться усталеною формою мови (Poltawa, Połtawa), а назва вулиці — офіційною
+латиницею, як на картах і в поштових системах, щоб лист дійшов.
 | Регістр заголовків | Title Case у коротких заголовках, звичайний у реченнях | як у німецькій граматиці | як у польській граматиці |
 
 Заголовки, які CSS виводить капсом, зберігаються у звичайному регістрі там, де це можливо:
@@ -106,6 +112,7 @@
 | калібр | gauge | Lehre | sprawdzian |
 | прохідний / непрохідний | go / no-go | Gut / Ausschuss | przechodni / nieprzechodni |
 | інструментальний цех | toolroom | Werkzeugbau | narzędziownia |
+| виготовлення прес-форм та штампів | mold and die manufacturing | Formen- und Werkzeugbau | wykonywanie form wtryskowych i tłoczników |
 
 ## Пружини та дріт
 

@@ -352,6 +352,8 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/home/hero', 'stat_1_label', 'Plastic parts manufactured' );
     icl_register_string( 'steelplast/home/hero', 'stat_2_label', 'Metal parts manufactured' );
     icl_register_string( 'steelplast/home/hero', 'stat_3_label', 'Projects completed in 2025/2026' );
+    icl_register_string( 'steelplast/home/hero', 'format_millions', '%sM' );
+    icl_register_string( 'steelplast/home/hero', 'format_thousands', '%sK' );
 
     // -- steelplast/contacts/page --
     icl_register_string( 'steelplast/contacts/page', 'emails_heading',    'Email' );
@@ -621,6 +623,7 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_3_title', 'Precision & Quality Control' );
     icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_3_subtitle', 'Tolerances we guarantee' );
     icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_3_stat_label', 'Machining tolerance' );
+    icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_3_stat_value', '±0.005 mm' );
     icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_3_item_1', 'Incoming material inspection' );
     icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_3_item_2', 'Trial shots and sample testing' );
     icl_register_string( 'steelplast/service-mold-manufacturing/specs', 'card_3_item_3', 'In-process inspection' );
@@ -676,6 +679,7 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_3_title', 'Precision & Quality Control' );
     icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_3_subtitle', 'Tolerances we guarantee' );
     icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_3_stat_label', 'Machining tolerance' );
+    icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_3_stat_value', '±0.005 mm' );
     icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_3_item_1', 'Calibration against reference standards' );
     icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_3_item_2', 'Repeatability testing' );
     icl_register_string( 'steelplast/service-custom-tooling/specs', 'card_3_item_3', 'Material certification' );
@@ -736,6 +740,7 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_3_title', 'Materials & Precision' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_3_subtitle', 'We work with' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_3_stat_label', 'Geometry repeatability' );
+    icl_register_string( 'steelplast/service-wire-products/specs', 'card_3_stat_value', '±0.05 mm' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_3_item_1', 'Spring wire' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_3_item_2', 'Stainless steel' );
     icl_register_string( 'steelplast/service-wire-products/specs', 'card_3_item_3', 'Galvanized and low-carbon wire' );
@@ -811,6 +816,7 @@ function steelplast_register_wpml_strings() {
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_title', 'Precision & Quality Control' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_subtitle', 'Dimensional stability we guarantee' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_stat_label', 'Molding tolerance' );
+    icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_stat_value', '±0.05 mm' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_item_1', 'Incoming raw material inspection' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_item_2', 'Shrinkage and warpage control' );
     icl_register_string( 'steelplast/service-injection-molding/specs', 'card_3_item_3', 'First-shot inspection' );
@@ -938,6 +944,7 @@ and quality control at every stage of production.' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_title', 'Precision & Quality Control' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_subtitle', 'Tolerances we guarantee' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_stat_label', 'Machining tolerance' );
+    icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_stat_value', '±0.005 mm' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_item_1', 'Incoming material inspection' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_item_2', 'Part geometry inspection' );
     icl_register_string( 'steelplast/service-cnc-machining/specs', 'card_3_item_3', 'Calibrated tooling' );
@@ -1067,22 +1074,29 @@ function steelplast_hero_stat( $index ) {
         }
     }
 
-    // [ divisor, decimals, suffix ]
+    // [ divisor, decimals, unit pattern ] — the pattern is translated because
+    // both the unit and its spacing differ: 10.9M, 10,9 млн, 10,9 Mio.
     $formats = [
-        'millions'  => [ 1000000, 1, 'm' ],
-        'thousands' => [ 1000,    0, 'k' ],
-        'plain'     => [ 1,       0, ''  ],
+        'millions'  => [ 1000000, 1, steelplast_t( 'steelplast/home/hero', 'format_millions', '%sM' ) ],
+        'thousands' => [ 1000,    0, steelplast_t( 'steelplast/home/hero', 'format_thousands', '%sK' ) ],
+        'plain'     => [ 1,       0, '%s' ],
     ];
-    [ $divisor, $decimals, $suffix ] = $formats[ $format ] ?? $formats['plain'];
+    [ $divisor, $decimals, $unit ] = $formats[ $format ] ?? $formats['plain'];
 
     $step  = $divisor / pow( 10, $decimals );   // smallest visible increment
     $value = floor( $raw / $step ) * $step / $divisor;
 
+    // Only the decimal mark is localised. The figures never reach the
+    // thousands, and WordPress's Polish thousands separator is wrong anyway.
+    global $wp_locale;
+    $point = $wp_locale->number_format['decimal_point'] ?? '.';
+
     return [
         'value'    => $value,
         'decimals' => $decimals,
-        'suffix'   => $suffix,
-        'text'     => number_format( $value, $decimals, '.', '' ) . $suffix,
+        'unit'     => $unit,
+        'point'    => $point,
+        'text'     => sprintf( $unit, number_format( $value, $decimals, $point, '' ) ),
     ];
 }
 

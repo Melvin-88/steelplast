@@ -64,7 +64,8 @@ foreach ( $stat_labels as $i => $label ) {
                         <span class="sp-hero__stat-value"
                             data-sp-count="<?php echo esc_attr( $stat['value'] ); ?>"
                             data-sp-count-decimals="<?php echo esc_attr( $stat['decimals'] ); ?>"
-                            data-sp-count-suffix="<?php echo esc_attr( $stat['suffix'] ); ?>"
+                            data-sp-count-unit="<?php echo esc_attr( $stat['unit'] ); ?>"
+                            data-sp-count-point="<?php echo esc_attr( $stat['point'] ); ?>"
                         ><?php echo esc_html( $stat['text'] ); ?></span>
                         <span class="sp-hero__stat-divider" aria-hidden="true"></span>
                         <span class="sp-hero__stat-label"><?php echo esc_html( $stat['label'] ); ?></span>
