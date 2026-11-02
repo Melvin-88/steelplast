@@ -92,6 +92,10 @@
     &.sp-has-error .iti__tel-input {
         border-bottom-color: #e53935;
     }
+
+    &.sp-has-error .sp-form-textarea {
+        border-color: #e53935;
+    }
 }
 
 // ── intl-tel-input overrides ──────────────────────────────────────
@@ -168,11 +172,14 @@
 }
 
 .sp-form-textarea {
-    // The placeholder wraps to two lines on narrow screens; a single row clips it.
-    min-height: 64px;
+    display: block;
     resize: vertical;
-    border-bottom: 1px solid rgba($color-black, 0.25) !important;
-    padding: 8px !important;
+    border: 1px solid rgba($color-black, 0.25);
+    padding: 8px;
+
+    &:focus {
+        border-color: $color-black;
+    }
 }
 
 // ── Attachment field ──────────────────────────────────────────────

@@ -60,18 +60,6 @@ $uid = $args['uid'] ?? 'sp-contact';
         <span class="sp-form-error" aria-live="polite"></span>
     </div>
 
-    <div class="sp-form-field" data-field="comment">
-        <textarea
-            name="sp_comment"
-            class="sp-form-input sp-form-textarea"
-            placeholder="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/form', 'field_comment_placeholder', 'Your message (optional)' ) ); ?>"
-            aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/form', 'field_comment_placeholder', 'Your message (optional)' ) ); ?>"
-            rows="1"
-            maxlength="1000"
-        ></textarea>
-        <span class="sp-form-error" aria-live="polite"></span>
-    </div>
-
     <?php $files_id = $uid . '-files'; ?>
     <div class="sp-form-field" data-field="files">
         <input
@@ -90,6 +78,18 @@ $uid = $args['uid'] ?? 'sp-contact';
             <?php echo esc_html( steelplast_t( 'steelplast/contacts/form', 'field_files_hint', 'Optional — up to 3 files, max. 5 MB each: images, PDF, STEP, x_t, TXT, CSV, Word, Excel' ) ); ?>
         </p>
         <ul class="sp-form-file-list" aria-live="polite"></ul>
+        <span class="sp-form-error" aria-live="polite"></span>
+    </div>
+
+    <div class="sp-form-field" data-field="comment">
+        <textarea
+            name="sp_comment"
+            class="sp-form-input sp-form-textarea"
+            placeholder="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/form', 'field_comment_placeholder', 'Your message (optional)' ) ); ?>"
+            aria-label="<?php echo esc_attr( steelplast_t( 'steelplast/contacts/form', 'field_comment_placeholder', 'Your message (optional)' ) ); ?>"
+            rows="4"
+            maxlength="1000"
+        ></textarea>
         <span class="sp-form-error" aria-live="polite"></span>
     </div>
 

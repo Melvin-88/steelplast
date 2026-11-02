@@ -44,9 +44,10 @@ $services = [
         'title' => steelplast_t( 'steelplast/home/services', 'card_4_title', 'Metal Machining' ),
         'desc'  => steelplast_t( 'steelplast/home/services', 'card_4_desc',  'CNC turning and milling of highly complex parts — from a single piece to series production.' ),
         'image' => $img_ids[4],
+        'wide'  => true,
     ],
     // Технологічне оснащення тимчасово приховане — сторінка переведена в чернетку.
-    // Щоб повернути: опублікувати сторінку і розкоментувати цю картку.
+    // Щоб повернути: опублікувати сторінку, розкоментувати цю картку і прибрати 'wide' у механічної обробки (6 карток — сітка 3×2).
     // [
     //     'id'    => 'tooling',
     //     'slug'  => 'технологічне-оснащення',
@@ -85,6 +86,7 @@ $services = [
                     'image_id'  => $service['image'],
                     'cta_label' => $cta_label,
                     'cta_href'  => steelplast_page_url( $service['slug'] ),
+                    'wide'      => ! empty( $service['wide'] ),
                 ] );
             endforeach; ?>
 
