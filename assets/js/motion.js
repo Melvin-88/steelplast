@@ -14,7 +14,7 @@
  *   intro          first screen: video settles, headline rises line by line, figures count up
  *   sectionHeaders label wipes in, heading rises out of a mask, the rest follows
  *   media          large photos open like a shutter
- *   photoShapes    the three photo shapes drop in and drift at different speeds
+ *   photoShapes    the three photo shapes slide in from alternating sides
  *   cardGroups     cards rise in a cascade, their photos zoom out into place
  *   stairs         "How we work" builds itself as the visitor scrolls
  *   contactForm    form fields slide in one after another
@@ -232,23 +232,15 @@
         var shapes = all('.sp-about-preview__shape', group);
         var timeline = gsap.timeline({ paused: true });
 
+        // Sideways only, from alternating sides: the shapes overlap vertically
+        // by design, so any vertical travel pushes them into each other.
         timeline.from(shapes, {
             opacity: 0,
-            scale: 0.7,
-            rotation: function (i) { return i % 2 ? 8 : -8; },
-            duration: 1.3,
+            x: function (i) { return i % 2 ? -90 : 90; },
+            duration: 1.2,
             ease: 'expo.out',
             stagger: 0.14,
-        });
-
-        // Each shape drifts at its own speed, which gives the stack some depth.
-        var drift = [-30, 50, -70];
-        shapes.forEach(function (shape, i) {
-            gsap.to(shape, {
-                y: drift[i % drift.length] * (desktop ? 1 : 0.5),
-                ease: 'none',
-                scrollTrigger: { trigger: group, start: 'top bottom', end: 'bottom top', scrub: 1 },
-            });
+            clearProps: 'opacity,transform',
         });
 
         claimed.push(group);
