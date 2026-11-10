@@ -68,7 +68,8 @@
             grid-column: 1 / -1;
             grid-row: 2;
             height: 8px;
-            background: linear-gradient(90deg, #6DE2F7 105.95%, #FFF 105.96%);
+            // Filled up to --sp-collab-progress, which assets/js/motion.js drives with the scroll.
+            background: linear-gradient(90deg, #6DE2F7 var(--sp-collab-progress, 100%), rgba(255, 255, 255, 0.18) var(--sp-collab-progress, 100%));
         }
 
         // ---- Step-count variant (e.g. 3 steps instead of 4) ----
@@ -92,7 +93,7 @@
         flex-direction: column;
         min-height: 180px;
 
-        // The staircase. assets/js/motion.js grows the steps into it from a flat row.
+        // The staircase. assets/js/motion.js reveals the steps one by one.
         .sp-collab__steps &--1 { min-height: 220px; }
         .sp-collab__steps &--2 { min-height: 280px; }
         .sp-collab__steps &--3 { min-height: 340px; }

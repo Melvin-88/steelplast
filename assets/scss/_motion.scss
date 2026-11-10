@@ -1,0 +1,30 @@
+// =============================================
+// Motion — what the stylesheet holds for assets/js/motion.js
+// =============================================
+//
+// An inline script in <head> adds .sp-motion to <html> before the first paint
+// (never for visitors who asked for reduced motion). Until motion.js takes
+// over and adds .sp-motion-ready, the blocks it animates in are kept out of
+// the paint so they cannot flash visible-then-hidden.
+//
+// If the script never arrives, the same blocks fade in by themselves after
+// 2.5 s, so content can never stay hidden. Opacity only: no layout shift.
+
+.sp-motion:not(.sp-motion-ready) {
+    [data-sp-animate],
+    .sp-hero__content,
+    .sp-hero__stats,
+    .sp-page-hero__title,
+    .sp-single-post__title,
+    .sp-contacts-page__title,
+    .sp-contacts-page__intro {
+        opacity: 0;
+        animation: sp-motion-fallback 0.6s ease 2.5s forwards;
+    }
+}
+
+@keyframes sp-motion-fallback {
+    to {
+        opacity: 1;
+    }
+}

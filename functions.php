@@ -137,13 +137,15 @@ function steelplast_scripts() {
         true
     );
 
-    // Animations — GSAP + ScrollTrigger, sitewide. Deferred in the footer so
-    // they never block the first paint; the page is complete without them.
+    // Animations — GSAP with ScrollTrigger and SplitText, sitewide. Deferred in
+    // the footer so they never block the first paint; the page is complete
+    // without them.
     $deferred = array( 'in_footer' => true, 'strategy' => 'defer' );
     foreach ( array(
         'gsap'               => array( 'vendor/gsap.min.js', array() ),
         'gsap-scrolltrigger' => array( 'vendor/ScrollTrigger.min.js', array( 'gsap' ) ),
-        'steelplast-motion'  => array( 'motion.js', array( 'gsap', 'gsap-scrolltrigger' ) ),
+        'gsap-splittext'     => array( 'vendor/SplitText.min.js', array( 'gsap' ) ),
+        'steelplast-motion'  => array( 'motion.js', array( 'gsap', 'gsap-scrolltrigger', 'gsap-splittext' ) ),
     ) as $handle => $script ) {
         $path = get_template_directory() . '/assets/js/' . $script[0];
         wp_enqueue_script(
@@ -254,6 +256,13 @@ function steelplast_scripts() {
     }
 }
 add_action( 'wp_enqueue_scripts', 'steelplast_scripts' );
+
+// Motion: mark the page before the first paint, so blocks that animate in never
+// flash. Skipped for reduced motion. See assets/scss/_motion.scss for the fallback.
+add_action( 'wp_head', function () {
+    echo "<script>window.matchMedia('(prefers-reduced-motion: reduce)').matches||document.documentElement.classList.add('sp-motion')</script>
+";
+}, 1 );
 
 // FAQ accordion JS — FAQ page only
 add_action( 'wp_enqueue_scripts', function () {
