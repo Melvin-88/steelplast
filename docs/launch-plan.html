@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Запуск steelplast.com.ua</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Робочий документ для запуску: одна колонка, таблиці на всю ширину, відмітки стану кольором */
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --ink: #16202b;
+  --muted: #5b6878;
+  --line: #d9dfe7;
+  --accent: #0b7a8f;
+  --accent-soft: #e3f3f6;
+  --ok: #1f7a3f;
+  --ok-soft: #e4f3e8;
+  --warn: #9a5b00;
+  --warn-soft: #fbefd9;
+  --bad: #b3261e;
+  --bad-soft: #fae3e1;
+  --display: "Manrope", "Segoe UI", Arial, sans-serif;
+  --body: "Source Sans 3", "Segoe UI", Arial, sans-serif;
+  --mono: "JetBrains Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0f1419; --surface: #171d24; --ink: #e8edf2; --muted: #9aa7b5; --line: #2b3541;
+    --accent: #5fcbe0; --accent-soft: #12303a;
+    --ok: #6fd392; --ok-soft: #14301f; --warn: #f0b860; --warn-soft: #3a2a10; --bad: #ff8a80; --bad-soft: #3d1a17;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0f1419; --surface: #171d24; --ink: #e8edf2; --muted: #9aa7b5; --line: #2b3541;
+  --accent: #5fcbe0; --accent-soft: #12303a;
+  --ok: #6fd392; --ok-soft: #14301f; --warn: #f0b860; --warn-soft: #3a2a10; --bad: #ff8a80; --bad-soft: #3d1a17;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.5; padding: 32px 16px 64px; }
+main { max-width: 880px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; line-height: 1.15; margin: 0; }
+h1 { font-size: 34px; font-weight: 800; }
+h2 { font-size: 24px; font-weight: 700; margin-top: 56px; padding-top: 16px; border-top: 2px solid var(--line); }
+h3 { font-size: 18px; font-weight: 700; margin-top: 28px; }
+p { margin: 12px 0; max-width: 68ch; }
+.lead { color: var(--muted); font-size: 18px; margin-top: 8px; }
+.meta { color: var(--muted); font-size: 15px; display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 16px; }
+ul, ol { padding-left: 22px; margin: 10px 0; }
+li { margin: 6px 0; }
+li > ul { margin: 4px 0; }
+a { color: var(--accent); }
+code, .mono { font-family: var(--mono); font-size: 0.86em; }
+code { background: var(--accent-soft); padding: 1px 5px; border-radius: 4px; }
+pre { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; overflow-x: auto; font-family: var(--mono); font-size: 14px; line-height: 1.5; margin: 12px 0; }
+pre code { background: none; padding: 0; font-size: inherit; }
+.tbl { overflow-x: auto; margin: 14px 0; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 15.5px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+th { font-family: var(--display); font-weight: 700; font-size: 14px; color: var(--muted); background: var(--bg); }
+tr:last-child td { border-bottom: 0; }
+td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pill { display: inline-block; font-family: var(--display); font-size: 12.5px; font-weight: 700; padding: 2px 9px; border-radius: 999px; white-space: nowrap; }
+.ok { background: var(--ok-soft); color: var(--ok); }
+.warn { background: var(--warn-soft); color: var(--warn); }
+.bad { background: var(--bad-soft); color: var(--bad); }
+.info { background: var(--accent-soft); color: var(--accent); }
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 28px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
+.card .k { font-family: var(--display); font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.card .v { font-family: var(--display); font-size: 19px; font-weight: 700; margin-top: 4px; }
+.card .d { color: var(--muted); font-size: 15px; margin-top: 4px; }
+.note { border-left: 4px solid var(--accent); background: var(--surface); padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 16px 0; }
+.note.w { border-left-color: var(--warn); }
+.note p { margin: 6px 0; }
+.check li { list-style: none; position: relative; padding-left: 28px; }
+.check li::before { content: ""; position: absolute; left: 0; top: 5px; width: 16px; height: 16px; border: 2px solid var(--line); border-radius: 4px; }
+.check { padding-left: 0; }
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; margin: 18px 0; }
+.flow .step { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: 10px; padding: 14px 16px; }
+.flow .step .k { font-family: var(--display); font-weight: 700; font-size: 17px; }
+.flow .step .w { color: var(--muted); font-size: 14.5px; margin-top: 2px; }
+.flow .step ul { margin: 10px 0 0; padding-left: 18px; font-size: 15.5px; }
+.flow .step p { margin: 10px 0 0; font-size: 15.5px; }
+.src { font-size: 14.5px; color: var(--muted); }
+.src li { margin: 3px 0; }
+@media (max-width: 600px) { h1 { font-size: 28px; } body { font-size: 16px; } }
+</style>
+</head>
+<body>
+<main>
+<h1>Запуск steelplast.com.ua: хостинг, CDN, мови й домени</h1>
+<p class="lead">Аналіз і план дій до публікації сайту. Факти про домени перевірені 4 листопада 2026 через DNS і HTTP-запити, ціни взяті зі сторінок провайдерів того ж дня.</p>
+<div class="meta"><span>Проєкт: Steel Plast, WordPress + WPML</span><span>Мови: UA (основна), EN, DE, PL</span><span>Автор: Claude для Романа</span></div>
+
+<div class="summary">
+  <div class="card"><div class="k">Хостинг</div><div class="v">HOSTiQ, віртуальний хостинг</div><div class="d">LiteSpeed, сервер у Роттердамі або Львові. Запасний варіант: ukraine.com.ua з сервером у Польщі.</div></div>
+  <div class="card"><div class="k">CDN</div><div class="v">Cloudflare Free</div><div class="d">DNS обох доменів уже там. Вузли в Києві, Варшаві й Франкфурті. Доплата не потрібна.</div></div>
+  <div class="card"><div class="k">Мова за країною</div><div class="v">Правило Cloudflare на головній</div><div class="d">PL → /pl/, DE/AT/CH → /de/, решта світу → /en/, Україна лишається. Пошукові боти не чіпаються.</div></div>
+  <div class="card"><div class="k">Домени</div><div class="v">Один сайт, 301 з решти</div><div class="d">steelplast.com.ua основний. Два домени треба перевірити: .de припаркований на Sedo, .ua не існує в DNS.</div></div>
+</div>
+
+<h2>Як це буде влаштовано</h2>
+<p>Сайт живе в одному місці, на хостингу HOSTiQ: там файли WordPress і база даних. Cloudflare стоїть перед ним і власних даних сайту не зберігає. Він першим приймає кожен запит, сам відповідає на те, що може, а решту передає на хостинг. Завантажувати картинки чи стилі в Cloudflare окремо не потрібно: він сам бере їх із сайту й тримає копії на своїх вузлах.</p>
+<div class="flow">
+  <div class="step">
+    <div class="k">1. Відвідувач</div>
+    <div class="w">браузер у будь-якій країні</div>
+    <p>Відкриває <code>steelplast.com.ua</code>, рекламне посилання на <code>/pl/</code> або один із додаткових доменів, наприклад <code>steelplast.pl</code>.</p>
+  </div>
+  <div class="step">
+    <div class="k">2. Cloudflare</div>
+    <div class="w">найближчий вузол: Київ, Варшава, Франкфурт</div>
+    <ul>
+      <li>HTTPS і захист від атак</li>
+      <li>переадресація з додаткових доменів</li>
+      <li>мова за країною на головній</li>
+      <li>картинки, стилі, скрипти й відео з кешу</li>
+    </ul>
+  </div>
+  <div class="step">
+    <div class="k">3. HOSTiQ</div>
+    <div class="w">сервер у Роттердамі</div>
+    <ul>
+      <li>WordPress, тема, плагіни</li>
+      <li>база даних</li>
+      <li>сторінки сайту (з кешем LiteSpeed)</li>
+      <li>форми, пошта із заявками, бекапи</li>
+    </ul>
+  </div>
+</div>
+<div class="tbl"><table>
+<tr><th>Завдання</th><th>Хто виконує</th><th>Де налаштовується</th></tr>
+<tr><td>Файли сайту, база даних, адмінка</td><td>HOSTiQ</td><td>панель хостингу, WordPress</td></tr>
+<tr><td>Швидка віддача сторінок</td><td>HOSTiQ</td><td>плагін LiteSpeed Cache</td></tr>
+<tr><td>Заявки з форм і листи</td><td>HOSTiQ</td><td>WordPress, SMTP</td></tr>
+<tr><td>Бекапи</td><td>HOSTiQ і UpdraftPlus</td><td>панель хостингу, плагін</td></tr>
+<tr><td>Картинки, стилі, відео для Європи (CDN)</td><td>Cloudflare</td><td>правила кешу в Cloudflare</td></tr>
+<tr><td>Мова за країною відвідувача</td><td>Cloudflare</td><td>правила переадресації, розділ 4</td></tr>
+<tr><td>Переадресація з <code>.pl</code>, <code>.de</code> та інших доменів</td><td>Cloudflare</td><td>окрема зона на кожен домен, розділ 5</td></tr>
+<tr><td>HTTPS-сертифікат, захист входу в адмінку</td><td>Cloudflare</td><td>SSL і WAF у Cloudflare</td></tr>
+<tr><td>Закриття від Google до запуску</td><td>тема сайту</td><td>рядок у <code>wp-config.php</code></td></tr>
+</table></div>
+<p>Якщо Cloudflare вимкнути, сайт і далі відкриватиметься напряму з хостингу. Зникнуть лише прискорення для Європи, вибір мови за країною та переадресації доменів.</p>
+<h3>Порядок підключення</h3>
+<ol>
+  <li><b>Хостинг.</b> Замовити в HOSTiQ віртуальний хостинг із сервером у Роттердамі.</li>
+  <li><b>Доступ до Cloudflare.</b> Отримати вхід в акаунт, де вже є зони <code>steelplast.com.ua</code> і <code>steel-plast.com.ua</code>. Без нього жоден наступний крок не зробити.</li>
+  <li><b>Тестова копія.</b> Перенести сайт на хостинг і відкрити його на піддомені <code>test.steelplast.com.ua</code> через Cloudflare. Сайт закритий від пошукових систем, лендінг на Framer далі працює на основному домені.</li>
+  <li><b>Перевірка на тестовій адресі.</b> Чотири мови, форми з вкладеннями, швидкість з України й Німеччини, правила кешу Cloudflare.</li>
+  <li><b>Запуск.</b> Перемкнути основний домен із Framer на хостинг, замінити адресу в базі, додати рядок, що відкриває індексацію, очистити кеш.</li>
+  <li><b>Правила Cloudflare для основного домену.</b> Мова за країною і <code>/eng</code> → <code>/en/</code>.</li>
+  <li><b>Додаткові домени.</b> Додати кожен зоною в Cloudflare, перемкнути NS у HOSTiQ, поставити переадресацію.</li>
+  <li><b>Старий сайт.</b> Посторінкові переадресації з <code>steel-plast.com.ua</code> і «Зміна адреси» в Search Console.</li>
+</ol>
+
+<h2>1. Що є зараз</h2>
+<p>Перед вибором хостингу я перевірив, куди зараз ведуть домени з Notion-таблиці. Картина відрізняється від того, що записано в Notion.</p>
+<div class="tbl"><table>
+<tr><th>Домен</th><th>Стан 4.11.2026</th><th>Що з цим робити</th></tr>
+<tr><td class="mono">steelplast.com.ua</td><td>Лендінг на Framer («SteelPlast - виготовлення прес-форм», є сторінка <code>/eng</code>). DNS на Cloudflare. MX-записів немає.</td><td>Сюди ставимо новий сайт. Після запуску <code>/eng</code> → 301 → <code>/en/</code>, Framer-проєкт вимкнути.</td></tr>
+<tr><td class="mono">steel-plast.com.ua</td><td>Старий сайт: WordPress 6.1.16, російська мова, WPBakery, LiteSpeed. Хостинг у Hostovita (Польща). DNS на Cloudflare. MX-записів немає.</td><td>Він досі в індексі Google. Зробити посторінкову карту 301 на новий сайт, потім «Зміна адреси» в Search Console. Хостинг не продовжувати.</td></tr>
+<tr><td class="mono">steelplast.pl, steel-plast.pl</td><td>NS у Openprovider, сайту немає.</td><td>301 → <code>steelplast.com.ua/pl/</code></td></tr>
+<tr><td class="mono">steelplast.de, steel-plast.de</td><td><span class="pill warn">перевірити</span> steelplast.de відповідає з NS <code>sedo.com</code>, тобто припаркований на майданчику продажу доменів. Для купленого домену це дивно.</td><td>Зайти до реєстратора й переконатися, що домен справді наш і не виставлений на продаж. Потім 301 → <code>/de/</code>.</td></tr>
+<tr><td class="mono">steelplast.ua, steel-plast.ua</td><td><span class="pill bad">не існує</span> Google DNS відповідає NXDOMAIN. У Notion обидва «Придбано» по 2 970 грн/рік.</td><td>Перевірити в реєстратора: чи реєстрація завершена (зона .ua вимагає торгову марку), чи просто не прописані NS.</td></tr>
+<tr><td class="mono">steelplast.cz, steel-plast.cz, steel-plast.fr, steel-plast.com, steel-plast.online</td><td>У Notion «Придбано». Чеської та французької версій сайту немає.</td><td>301 → <code>/en/</code>. Вирішити, чи продовжувати їх далі (див. розділ 5).</td></tr>
+</table></div>
+<div class="note w"><p><b>Пошта.</b> У жодного з двох .com.ua доменів немає MX-записів, тобто корпоративна пошта не на них. Перед перемиканням DNS треба знати, де живе пошта фірми, щоб її не зламати. Якщо пошта на іншому домені, нічого робити не потрібно.</p></div>
+<p>Розмір сайту невеликий: медіа 69 МБ, плагіни 237 МБ, тема 46 МБ. WordPress 7.1.4, PHP 8.2, WPML 5.2.0. Для нього вистачить найменшого тарифу віртуального хостингу, VPS не потрібен.</p>
+
+<h2>2. Хостинг</h2>
+<h3>Критерії</h3>
+<ul>
+  <li><b>LiteSpeed або NVMe з кешем.</b> Сайт на WordPress з WPML; серверний кеш дає найбільший виграш у швидкості.</li>
+  <li><b>Сервер у ЄС або можливість його обрати.</b> Половина відвідувачів буде з Польщі та Німеччини. Cloudflare кешує картинки та стилі, але HTML щоразу йде з сервера. Ще два аргументи: стійкість до відключень в Україні й те, що дані з форм європейських клієнтів лишаються в ЄС, що простіше для GDPR.</li>
+  <li><b>Українська підтримка й рахунки в гривні.</b> Ви просили саме український хостинг.</li>
+  <li><b>PHP 8.2+, щоденні бекапи, безкоштовне перенесення.</b></li>
+</ul>
+<h3>Порівняння</h3>
+<div class="tbl"><table>
+<tr><th>Провайдер і тариф</th><th>Ціна, грн/міс</th><th>Диск</th><th>Сервер</th><th>Розташування</th><th>Бекапи</th><th>Примітки</th></tr>
+<tr><td><b>HOSTiQ</b>, віртуальний хостинг</td><td class="num">від 282</td><td>SSD</td><td>LiteSpeed</td><td>Львів, Роттердам, Атланта (на вибір)</td><td>кожні 3 дні</td><td>SSL безкоштовний при оплаті від кварталу. Чат 8:00–00:00, email 24/7. Тариф «WordPress» від 290 грн.</td></tr>
+<tr><td><b>HOSTiQ</b>, VIP</td><td class="num">від 505</td><td>NVMe</td><td>LiteSpeed</td><td>ті самі</td><td>щодня</td><td>Варто, якщо захочеться щоденних бекапів на боці хостера.</td></tr>
+<tr><td><b>ukraine.com.ua</b>, «Швидкий» / «Кращий»</td><td class="num">226 / 425 (акційна; звичайна 345 / 648)</td><td>10 / 20 ГБ NVMe</td><td>Apache + OpenLiteSpeed</td><td>Україна, Німеччина, Польща, Фінляндія та інші</td><td>щодня, копія в Німеччині раз на тиждень</td><td>PHP до 8.5, підтримка 24/7, тест 5 днів. Сильний варіант, якщо хочете сервер саме в Польщі.</td></tr>
+<tr><td><b>Cityhost</b>, Apartment / Apartment+</td><td class="num">176 / 251 (акційна; звичайна 279 / 399)</td><td>10 / 20 ГБ NVMe</td><td>не вказано</td><td>Німеччина, Фінляндія, Литва, Канада, Україна</td><td>щоночі</td><td>Найдешевший. У тесті незалежного огляду найповільніший TTFB серед трьох.</td></tr>
+<tr><td><b>HostPro</b>, NVMe «Перший»</td><td class="num">≈ 165 ($3,95 при оплаті на 3 роки)</td><td>10 ГБ NVMe</td><td>не вказано</td><td>не вказано</td><td>щодня</td><td>Ціна тільки за 3 роки наперед. Розташування сервера на сайті не названо.</td></tr>
+<tr><td><b>Hetzner Cloud</b> (для порівняння)</td><td class="num">≈ 300 (€6,49)</td><td>VPS</td><td>налаштовуєте самі</td><td>Німеччина, Фінляндія</td><td>окремо</td><td>Потребує адміністрування сервера. Не раджу без людини, яка цим займатиметься.</td></tr>
+</table></div>
+<h3>Рекомендація</h3>
+<p><b>HOSTiQ, віртуальний хостинг, сервер у Роттердамі.</b> LiteSpeed дає готовий кеш через плагін LiteSpeed Cache, сервер у ЄС закриває питання швидкості для Польщі й Німеччини, а за Cloudflare українські відвідувачі різниці не помітять. Якщо для вас важливіше, щоб сервер фізично був в Україні, той самий тариф у Львові.</p>
+<p><b>Запасний варіант:</b> ukraine.com.ua, тариф «Кращий», сервер у Польщі. Дорожче за звичайною ціною, але щоденні бекапи з копією в Німеччині входять у тариф.</p>
+<div class="note"><p>Ціни на сторінках провайдерів показані без терміну оплати або як акційні. Перед замовленням уточніть, на який період діє ціна й скільки коштує продовження. Усі порівняльні рейтинги хостингів в інтернеті партнерські, я на них не спирався, тільки на сторінки самих провайдерів.</p></div>
+
+<h2>3. CDN</h2>
+<p>Купувати окремий CDN не потрібно. DNS обох .com.ua доменів уже на Cloudflare, тому акаунт є. Безкоштовний план дає все, що потрібно для сайту такого розміру:</p>
+<ul>
+  <li><b>Кеш статики</b> (картинки, CSS, JS, відео на головній) на 348 вузлах, серед них Київ, Варшава, Вроцлав і Франкфурт. Відвідувач з Польщі отримує файли з Варшави, а не з сервера.</li>
+  <li><b>HTTPS</b> на краю мережі, HTTP/3, стиснення Brotli.</li>
+  <li><b>Захист</b>: базовий WAF, обмеження частоти запитів до <code>/wp-login.php</code> і <code>/xmlrpc.php</code>, блокування країн за потреби.</li>
+  <li><b>Правила переадресації</b>: 10 правил Single Redirects на зону безкоштовно. Їх вистачить і на мову за країною, і на домени.</li>
+</ul>
+<p><b>Налаштування:</b> режим SSL «Full (strict)» із сертифікатом Cloudflare Origin на хостингу; «Always Use HTTPS»; Auto Minify вимкнути (CSS уже стиснутий, мінімізація ламає кеш плагіна); кеш-правило для <code>/wp-content/uploads/*</code> і <code>/wp-content/themes/*</code> на 1 рік, тема вже додає версію до адрес CSS. Адмінку (<code>/wp-admin/*</code>) з кешу виключити.</p>
+<p><b>Що не потрібно зараз:</b> BunnyCDN (платний, виграш лише на великих обсягах відео) і Cloudflare APO за $5/міс (кешує готовий HTML на краю мережі). APO має сенс, якщо після запуску TTFB з Німеччини буде понад 600–800 мс. Перевіримо реальними замірами й тоді вирішимо.</p>
+
+<h2>4. Мова за країною відвідувача</h2>
+<h3>Що радить Google і що вміє WPML</h3>
+<p>Google прямо пише: «Avoid automatically redirecting users from one language version of a site to a different language version» і радить давати посилання на інші мови. Причина: бот Google ходить з американських адрес, і примусовий редірект може сховати від нього всі версії, крім англійської.</p>
+<p>WPML уміє переадресовувати лише за мовою браузера, через JavaScript, і не вміє за країною. Для українця з англійським інтерфейсом браузера це дасть англійську версію, що неправильно. Сам WPML пише, що автоматичний редірект може вплинути на індексацію.</p>
+<h3>Що пропоную</h3>
+<p>Компроміс, який дає потрібну вам поведінку й не ламає SEO: переадресація за країною робиться на Cloudflare, але <b>тільки для головної сторінки</b>, <b>тільки для живих відвідувачів</b> (перевірені боти виключені) і <b>тільки при вході ззовні</b>. Усі внутрішні сторінки лишаються як є, тому реклама веде одразу на потрібну мову, а Google бачить усі чотири версії.</p>
+<div class="tbl"><table>
+<tr><th>Країна відвідувача</th><th>Куди потрапляє з головної</th></tr>
+<tr><td>Україна</td><td><code>/</code>, українська, без змін</td></tr>
+<tr><td>Польща</td><td><code>/pl/</code></td></tr>
+<tr><td>Німеччина, Австрія, Швейцарія</td><td><code>/de/</code></td></tr>
+<tr><td>Решта світу</td><td><code>/en/</code></td></tr>
+</table></div>
+<p>Правило Cloudflare (Single Redirect, код 302, щоб Google не вважав головну переміщеною), одне на мову:</p>
+<pre><code>(http.request.uri.path eq "/")
+and (ip.src.country in {"DE" "AT" "CH"})
+and not cf.client.bot
+and not (http.referer contains "steelplast.com.ua")
+and not (http.cookie contains "wp-wpml_current_language")
+→ 302 https://steelplast.com.ua/de/</code></pre>
+<ul>
+  <li><code>http.referer</code>: відвідувач, що вже на сайті й натиснув логотип, нікуди не переноситься. Так людина з Польщі, яка свідомо перейшла на українську, на ній і лишиться.</li>
+  <li><code>http.cookie</code>: WPML запам'ятовує обрану мову в cookie на 30 днів. Назву cookie перевірю на живому сайті під час налаштування.</li>
+  <li>У WPML при цьому вимкнути переадресацію за мовою браузера, лишити тільки «пам'ятати вибір мови».</li>
+  <li>Наявні hreflang і <code>x-default</code> на англійську вже зроблені в темі, вони лишаються.</li>
+</ul>
+<div class="note w"><p>Один момент треба перевірити на практиці: чи доступне поле <code>cf.client.bot</code> у правилах переадресації на безкоштовному плані. Якщо ні, замінюю його на перевірку User-Agent бота. Тест після запуску: запит з User-Agent Googlebot на <code>/pl/</code> має повертати 200 без редіректу, а запит із польської адреси на <code>/</code> — 302 на <code>/pl/</code>.</p></div>
+<p>Якщо захочете повністю дотриматися поради Google, замість редіректу можна показувати смужку «Ця сторінка є польською» з WPML. Моя порада: редірект з обмеженнями вище, бо для холодного відвідувача з Польщі українська головна виглядає як чужий сайт.</p>
+
+<h2>5. Домени</h2>
+<p>Рішення з Notion лишається: <b>один сайт на steelplast.com.ua з папками мов</b>, решта доменів переадресовує на нього. Google підтверджує, що для ccTLD і папок різниці в ранжуванні немає; єдине, що втрачається, це «сильний сигнал країни» від .pl чи .de. Для сайту вашого розміру один домен з усією історією важливіший, ніж окремі сайти на кожен домен, які довелося б наповнювати й просувати окремо.</p>
+<div class="tbl"><table>
+<tr><th>Домен</th><th>Переадресація (301)</th><th>Коментар</th></tr>
+<tr><td class="mono">steelplast.pl, steel-plast.pl</td><td><code>https://steelplast.com.ua/pl/</code> з тим самим шляхом</td><td>Основні для польської реклами. У рекламі все одно вказуємо кінцеву адресу /pl/.</td></tr>
+<tr><td class="mono">steelplast.de, steel-plast.de</td><td><code>/de/</code></td><td>Після перевірки Sedo.</td></tr>
+<tr><td class="mono">steel-plast.com, steelplast.cz, steel-plast.cz, steel-plast.fr</td><td><code>/en/</code></td><td>Чеської та французької версій немає, англійська для них x-default.</td></tr>
+<tr><td class="mono">steel-plast.online</td><td><code>/</code></td><td>Домен з Prom, трафіку, схоже, немає.</td></tr>
+<tr><td class="mono">steel-plast.com.ua (старий сайт)</td><td>посторінкова карта на нові сторінки</td><td>Найважливіша переадресація для SEO. Старий сайт має sitemap, з нього зберу повний перелік адрес і для кожної підберу нову. Те, чому немає відповідника, йде на головну.</td></tr>
+<tr><td class="mono">steelplast.ua, steel-plast.ua</td><td><code>/</code></td><td>Після з'ясування, чи вони існують.</td></tr>
+</table></div>
+<p><b>Як технічно:</b> кожен домен додається як зона в Cloudflare (безкоштовно, кількість не обмежена), NS у реєстратора перемикаються на Cloudflare, і в зоні ставиться одне правило переадресації з збереженням шляху. Так усі домени видно в одному місці, а правила не залежать від хостингу. Альтернатива для доменів, які не хочеться переносити: переадресація засобами реєстратора, але вона часто без HTTPS.</p>
+<p><b>Після перемикання:</b> у Google Search Console додати властивість на кожен домен, для steel-plast.com.ua подати «Зміна адреси». Оновити адресу сайту в Google Business Profile і соцмережах.</p>
+<h3>Вартість доменів</h3>
+<p>За Notion усі домени разом коштують 14 914 грн/рік. Близько 5 000 грн з них припадає на чеські, французький і .online, на які версій сайту немає і не планується. Це рішення власника: лишати їх як захист бренду або не продовжувати при наступному платежі. Без них лишаються .com.ua, .ua, .pl, .de, .com.</p>
+
+<h2>6. Чекліст до запуску</h2>
+<p>Згруповано за темами. Порядок усередині групи не важливий, але групи «Перенесення» і «Після перемикання» йдуть останніми.</p>
+<h3>Безпека</h3>
+<ul class="check">
+  <li>Видалити локального користувача <code>admin</code> з паролем «123». Створити адміністратора з іншим логіном, довгим паролем, робочою поштою фірми.</li>
+  <li>Увімкнути двофакторний вхід для всіх адміністраторів (Wordfence має його вбудованим). Вирішити, на чий телефон.</li>
+  <li>У <code>wp-config.php</code>: <code>DISALLOW_FILE_EDIT</code>, <code>WP_DEBUG false</code>, нові ключі безпеки, <code>FORCE_SSL_ADMIN</code>. Зараз там лише <code>WP_DEBUG</code>.</li>
+  <li>Вимкнути XML-RPC (не використовується), обмежити спроби входу (Wordfence), на Cloudflare поставити rate limit на <code>/wp-login.php</code>.</li>
+  <li>Оновити WordPress, WPML, Yoast, Wordfence і решту до поточних версій. Увімкнути автооновлення для безпекових релізів WordPress.</li>
+  <li>Змінити <code>admin_email</code> сайту на робочу адресу фірми. Зараз туди йдуть повідомлення про оновлення й відновлення паролів.</li>
+  <li>Бекапи: UpdraftPlus щодня на Google Drive фірми плюс бекапи хостера. Після запуску один раз перевірити, що бекап відновлюється.</li>
+</ul>
+<h3>Форми й пошта</h3>
+<ul class="check">
+  <li>Налаштувати відправку пошти через SMTP (плагін WP Mail SMTP або подібний) з поштової скриньки фірми. Без цього листи з форми зі спільного хостингу летять у спам.</li>
+  <li>Перевірити на хостингу <code>upload_max_filesize</code> і <code>post_max_size</code> не менше 12 МБ, інакше вкладення до 10 МБ у формі не пройдуть.</li>
+  <li>Надіслати тестову заявку з кожної мовної версії з файлом STEP і перевірити, що лист дійшов з вкладенням.</li>
+  <li>Замінити WP-Cron на справжній cron хостера (раз на 5 хвилин).</li>
+</ul>
+<h3>Контент і SEO</h3>
+<ul class="check">
+  <li>Замінити 14 стокових фото й додати фото «Хто наші клієнти» (список у Notion «Список фото для сайту»).</li>
+  <li>У день запуску додати у <code>wp-config.php</code> рядок <code>define( 'STEELPLAST_ALLOW_INDEXING', true );</code> і очистити кеш сторінок. До цього сайт сам закритий від пошукових систем (noindex і robots.txt), а прапорець у «Налаштування → Читання» нічого не змінює.</li>
+  <li>У WPML вимкнути невикористані мови (cs, it, lt, lv, et, fr), щоб вони не потрапляли в hreflang і sitemap. Видалити порожні меню cs/it/lt/lv.</li>
+  <li>Надіслати sitemap Yoast у Search Console; властивості для домену й окремо перевірити /pl/, /de/, /en/.</li>
+  <li>Закрити відкриті питання до українського оригіналу з попереднього звіту: IATF 16949 у SEO-описі «Якості», діаметр дроту, картка «Політика нульового браку», суперечність у статті про автомати, перелік галузей у футері.</li>
+  <li>Оновити сторінки «Контакти» і футер: адреса, телефон, години, посилання на соцмережі, LinkedIn.</li>
+</ul>
+<h3>Юридичне для ЄС</h3>
+<ul class="check">
+  <li>Опублікувати Політику конфіденційності (зараз чернетка) чотирма мовами: що збираємо з форми, де зберігаємо, скільки.</li>
+  <li>Налаштувати Complianz: банер згоди для відвідувачів з ЄС, GA4 і Meta Pixel вмикаються лише після згоди.</li>
+  <li>Для Німеччини подумати про Impressum (реквізити компанії окремою сторінкою). Для українського ТОВ, що продає в Німеччину, це не обов'язок за законом, але німецькі B2B-клієнти звикли його бачити й перевіряють.</li>
+</ul>
+<h3>Аналітика й реклама</h3>
+<ul class="check">
+  <li>GA4 і Google Tag Manager, конверсія «відправка форми» як подія для Google Ads. Burst Statistics лишається для статистики без cookie.</li>
+  <li>Meta Pixel через GTM, якщо реклама в Meta підтвердиться.</li>
+  <li>Пов'язати Search Console, GA4 і Google Ads; верифікувати домен у Google Business Profile.</li>
+</ul>
+<h3>Швидкість</h3>
+<ul class="check">
+  <li>На LiteSpeed-хостингу поставити LiteSpeed Cache і вимкнути кеш у WP-Optimize, два кеші разом не працюють. На іншому хостингу лишити WP-Optimize.</li>
+  <li>Після запуску замір PageSpeed з України й Німеччини для головної, сторінки послуги і статті; ціль LCP менше 2,5 с на мобільному.</li>
+  <li>Відео на головній (4,7 МБ): перевірити, чи не кладе воно LCP на мобільному, за потреби дати постер і lazy-load.</li>
+</ul>
+<h3>Перенесення</h3>
+<ul class="check">
+  <li>Повний бекап локальної бази й файлів, збережений поза проєктом.</li>
+  <li>Зменшити TTL DNS-записів на Cloudflare до 5 хвилин за добу до перемикання.</li>
+  <li>Перенести файли й базу на хостинг, замінити <code>steelplast.local</code> на <code>https://steelplast.com.ua</code> у базі з урахуванням серіалізованих даних (WP-CLI <code>search-replace</code>). Окремо перевірити адреси в налаштуваннях WPML і Yoast.</li>
+  <li>Спершу викласти копію на <code>test.steelplast.com.ua</code> і перевірити там: усі 4 мови, меню, форми, перемикач мов, hreflang у коді. На основний домен переносити після цієї перевірки.</li>
+  <li>Перемкнути A-запис на Cloudflare (у режимі proxy), увімкнути «Full (strict)».</li>
+  <li>Вимкнути Framer-проєкт і додати 301 з <code>/eng</code> на <code>/en/</code>.</li>
+</ul>
+<h3>Після перемикання</h3>
+<ul class="check">
+  <li>Перевірити редіректи: усі домени, старий сайт посторінково, /eng, http → https.</li>
+  <li>Пройти сценарії мови за країною (див. розділ 4) через VPN або сервіс перевірки з Польщі та Німеччини.</li>
+  <li>Подати «Зміну адреси» для steel-plast.com.ua в Search Console; старий хостинг не вимикати ще 6 місяців, редіректи мають працювати.</li>
+  <li>Через тиждень переглянути 404 у плагіні Redirection і закрити ті, що лишилися.</li>
+  <li>Додати в Notion сторінку «Доступи»: хостинг, Cloudflare, реєстратор, пошта, адмінка, і хто за що платить.</li>
+</ul>
+
+<h2>7. Бюджет на рік</h2>
+<div class="tbl"><table>
+<tr><th>Стаття</th><th>Сума</th><th>Коментар</th></tr>
+<tr><td>Хостинг HOSTiQ, віртуальний</td><td class="num">≈ 3 400 грн</td><td>282 грн/міс; VIP з щоденними бекапами ≈ 6 100 грн</td></tr>
+<tr><td>Cloudflare Free</td><td class="num">0</td><td>APO за бажанням $60/рік</td></tr>
+<tr><td>WPML (продовження ліцензії)</td><td class="num">$99</td><td>Потрібне для оновлень плагіна</td></tr>
+<tr><td>Домени, усі з Notion</td><td class="num">14 914 грн</td><td>Без cz/fr/online ≈ 9 900 грн</td></tr>
+<tr><td><b>Разом</b></td><td class="num"><b>≈ 18 300 грн + $99</b></td><td>з усіма доменами; ≈ 13 300 грн + $99 без зайвих</td></tr>
+</table></div>
+
+<h2>8. Що потрібно від вас</h2>
+<ol>
+  <li><b>Домени .de і .ua.</b> Перевірити в реєстратора, чи steelplast.de справді наш і чому на Sedo, і чи завершена реєстрація steelplast.ua / steel-plast.ua.</li>
+  <li><b>Пошта.</b> Де зараз корпоративна пошта і який домен вона використовує.</li>
+  <li><b>Хостинг.</b> Вирішено 10.11.2026: HOSTiQ, сайт і база там. Лишилося замовити тариф із сервером у Роттердамі.</li>
+  <li><b>Cloudflare.</b> Вирішено 10.11.2026: CDN, мова за країною і переадресації доменів ідуть через нього. Потрібен вхід в акаунт, де зараз зони <code>.com.ua</code>.</li>
+  <li><b>Зайві домени.</b> Продовжувати cz, fr, online чи ні.</li>
+  <li><b>Адміністратор.</b> Робоча пошта для адмінки й телефон для двофакторного входу.</li>
+  <li><b>Доступи.</b> Хто має логіни до Cloudflare, реєстратора й Hostovita, щоб я міг налаштувати переадресації.</li>
+</ol>
+<p>Після відповідей можу одразу зайнятися тим, що не залежить від хостингу: картою переадресацій зі старого сайту, Політикою конфіденційності, вимкненням зайвих мов у WPML і налаштуванням <code>wp-config.php</code>.</p>
+
+<h2>Джерела</h2>
+<ul class="src">
+  <li><a href="https://developers.google.com/search/docs/specialty/international/managing-multi-regional-sites">Google: Managing multi-regional and multilingual sites</a></li>
+  <li><a href="https://wpml.org/documentation/getting-started-guide/language-setup/automatic-redirect-based-on-browser-language/">WPML: Automatic redirect based on browser language</a></li>
+  <li><a href="https://www.cloudflare.com/network/">Cloudflare: Network map</a>, <a href="https://developers.cloudflare.com/rules/url-forwarding/">URL forwarding, availability per plan</a>, <a href="https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-country-subdomains/">Redirect by country example</a></li>
+  <li><a href="https://hostiq.ua/">HOSTiQ</a>, <a href="https://www.ukraine.com.ua/hosting/">ukraine.com.ua</a>, <a href="http://cityhost.ua/hosting/">Cityhost</a>, <a href="https://hostpro.ua/">HostPro</a>, <a href="https://www.hetzner.com/cloud/">Hetzner Cloud</a></li>
+  <li><a href="https://hostiq.ua/blog/ukr/comparison-of-hosting-providers/">Порівняння хостерів 2026 (блог HOSTiQ, партнерський)</a></li>
+  <li><a href="https://www.seroundtable.com/google-international-seo-no-change-39253.html">John Mueller, квітень 2025: нічого не змінилося в міжнародному SEO</a></li>
+  <li>Notion: Domains, Мультимовний плагін, WordPress Site</li>
+</ul>
+</main>
+</body>
+</html>
