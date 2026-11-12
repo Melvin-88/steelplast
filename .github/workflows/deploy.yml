@@ -1,0 +1,47 @@
+# Uploads the theme to the HOSTiQ hosting (steelplast.pl) on every push to master.
+#
+# The FTP account is limited to wp-content/themes/steelplast, so "./" on the
+# server is the theme folder. Credentials live in the repository secrets:
+# FTP_SERVER, FTP_USERNAME, FTP_PASSWORD.
+#
+# Only files changed since the last run are sent (the action keeps its state in
+# .ftp-deploy-sync-state.json on the server). Development files stay out.
+
+name: Deploy theme
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          server-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            .claude/**
+            .agents/**
+            .idea/**
+            node_modules/**
+            docs/**
+            assets/scss/**
+            *.md
+            package.json
+            package-lock.json
+            skills-lock.json
