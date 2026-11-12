@@ -90,7 +90,7 @@ Max nesting depth: 3
 
 # JS Rules
 
-- Vanilla JS only
+- Vanilla JS only; the one exception is animation, which is GSAP with ScrollTrigger and SplitText (assets/js/motion.js)
 - Event delegation preferred
 - No jQuery unless required
 - Keep scripts minimal and non-blocking

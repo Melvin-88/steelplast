@@ -137,25 +137,23 @@ function steelplast_scripts() {
         true
     );
 
-    // Scroll-reveal animations — lightweight, sitewide, no dependencies.
-    $animations_js = get_template_directory() . '/assets/js/animations.js';
-    wp_enqueue_script(
-        'steelplast-animations',
-        get_template_directory_uri() . '/assets/js/animations.js',
-        array(),
-        file_exists( $animations_js ) ? filemtime( $animations_js ) : STEELPLAST_VERSION,
-        true
-    );
-
-    // Hero counters — front page only.
-    if ( is_front_page() ) {
-        $counter_js = get_template_directory() . '/assets/js/hero-counter.js';
+    // Animations — GSAP with ScrollTrigger and SplitText, sitewide. Deferred in
+    // the footer so they never block the first paint; the page is complete
+    // without them.
+    $deferred = array( 'in_footer' => true, 'strategy' => 'defer' );
+    foreach ( array(
+        'gsap'               => array( 'vendor/gsap.min.js', array() ),
+        'gsap-scrolltrigger' => array( 'vendor/ScrollTrigger.min.js', array( 'gsap' ) ),
+        'gsap-splittext'     => array( 'vendor/SplitText.min.js', array( 'gsap' ) ),
+        'steelplast-motion'  => array( 'motion.js', array( 'gsap', 'gsap-scrolltrigger', 'gsap-splittext' ) ),
+    ) as $handle => $script ) {
+        $path = get_template_directory() . '/assets/js/' . $script[0];
         wp_enqueue_script(
-            'steelplast-hero-counter',
-            get_template_directory_uri() . '/assets/js/hero-counter.js',
-            array(),
-            file_exists( $counter_js ) ? filemtime( $counter_js ) : STEELPLAST_VERSION,
-            true
+            $handle,
+            get_template_directory_uri() . '/assets/js/' . $script[0],
+            $script[1],
+            file_exists( $path ) ? filemtime( $path ) : STEELPLAST_VERSION,
+            $deferred
         );
     }
 
@@ -259,18 +257,12 @@ function steelplast_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'steelplast_scripts' );
 
-// Collaboration JS — front page + any page using the collaboration/steps section
-add_action( 'wp_enqueue_scripts', function () {
-    if ( ! is_front_page() && ! is_page_template( 'page-templates/template-quality.php' ) ) return;
-    $collab_js = get_template_directory() . '/assets/js/collaboration.js';
-    wp_enqueue_script(
-        'steelplast-collaboration',
-        get_template_directory_uri() . '/assets/js/collaboration.js',
-        array(),
-        file_exists( $collab_js ) ? filemtime( $collab_js ) : STEELPLAST_VERSION,
-        true
-    );
-} );
+// Motion: mark the page before the first paint, so blocks that animate in never
+// flash. Skipped for reduced motion. See assets/scss/_motion.scss for the fallback.
+add_action( 'wp_head', function () {
+    echo "<script>window.matchMedia('(prefers-reduced-motion: reduce)').matches||document.documentElement.classList.add('sp-motion')</script>
+";
+}, 1 );
 
 // FAQ accordion JS — FAQ page only
 add_action( 'wp_enqueue_scripts', function () {

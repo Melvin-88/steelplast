@@ -85,11 +85,11 @@
 `assets/js/` — vanilla JS, по одному файлу на фічу, підключаються через `wp_enqueue_script` у `functions.php`:
 
 - `header.js` — бургер-меню, мовний auto-redirect (наразі вимкнений)
-- `animations.js` — скролл-анімації
+- `motion.js` — усі анімації сайту на GSAP + ScrollTrigger + SplitText: вступ першого екрана, заголовки рядками з маски, «шторки» на великих фото, каскад карток, сходинки блоку співпраці за прокруткою, форма, футер. Шаблони не чіпає, чіпляється за класи й `data-sp-*`. Страховка: `<html class="sp-motion">` ставить інлайн-скрипт у `<head>`, `_motion.scss` ховає анімовані блоки до старту й сам показує їх через 2,5 с, якщо скрипт не запустився
 - `modal.js` — логіка спливаючого `modal-quick-contact`
 - `contact-form.js` — валідація + AJAX-відправка форми контактів, робота з `intl-tel-input` (телефонне поле)
-- `collaboration.js`, `faq.js` — інтерактив відповідних секцій
-- `vendor/` — сторонні бібліотеки (intl-tel-input)
+- `faq.js` — акордеон на сторінці FAQ
+- `vendor/` — сторонні бібліотеки (intl-tel-input, GSAP, ScrollTrigger, SplitText). Файли GSAP скопійовані з `node_modules/gsap/dist/`; версія зафіксована в `package.json`
 
 ## 7. Дані: де що зберігати
 
