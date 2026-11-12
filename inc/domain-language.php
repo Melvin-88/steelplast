@@ -1,9 +1,14 @@
 <?php
 /**
- * Home page language by domain.
+ * Language by domain.
  *
- * Ukrainian is the default language, so the bare home page of any domain the
- * site answers on opens in Ukrainian. A domain listed here sends a visitor who
+ * Every domain the company owns points at this site. The other domains do not
+ * show the site under their own name: each sends the visitor to one language
+ * on the main domain, so search engines see one site and not copies of it.
+ * Domains without a language of their own on the site go to English.
+ *
+ * On the main domain itself Ukrainian is the default language, so its bare
+ * home page would open in Ukrainian. A domain listed for that sends a visitor who
  * arrives at its home page to its own language instead: steelplast.pl → /pl/.
  *
  * Someone who reaches the home page from a page of this site (picked
@@ -17,6 +22,27 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
+
+add_action( 'init', static function () {
+    $alias_language = array(
+        'steel-plast.pl'  => 'pl',
+        'steelplast.de'   => 'de',
+        'steel-plast.de'  => 'de',
+        'steelplast.cz'   => 'en',
+        'steel-plast.cz'  => 'en',
+        'steel-plast.fr'  => 'en',
+        'steel-plast.com' => 'en',
+    );
+
+    $host = preg_replace( '/^www\.|:\d+$/', '', strtolower( $_SERVER['HTTP_HOST'] ?? '' ) );
+    if ( ! isset( $alias_language[ $host ] ) ) {
+        return;
+    }
+
+    // Raw option: WPML rewrites home_url() to the current language's home.
+    wp_redirect( untrailingslashit( get_option( 'home' ) ) . '/' . $alias_language[ $host ] . '/', 301 );
+    exit;
+} );
 
 add_action( 'template_redirect', static function () {
     $domain_language = array(
