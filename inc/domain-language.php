@@ -39,7 +39,8 @@ add_action( 'template_redirect', static function () {
         return;
     }
 
+    // The raw option, not home_url(): WPML rewrites home_url() to the current language's home.
     // 302: the home page itself has not moved, this domain just opens on another language.
-    wp_safe_redirect( home_url( '/' . $language . '/' ), 302 );
+    wp_safe_redirect( untrailingslashit( get_option( 'home' ) ) . '/' . $language . '/', 302 );
     exit;
 } );
