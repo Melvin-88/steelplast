@@ -14,6 +14,7 @@ require_once get_template_directory() . '/inc/contact-form.php';
 require_once get_template_directory() . '/inc/acf-fields.php';
 require_once get_template_directory() . '/inc/media-alt-i18n.php';
 require_once get_template_directory() . '/inc/indexing.php';
+require_once get_template_directory() . '/inc/domain-language.php';
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
